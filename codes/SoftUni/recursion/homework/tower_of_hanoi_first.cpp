@@ -2,6 +2,7 @@
 #include <stack>
 #include <vector>
 #include <sstream>
+#include <stdlib.h>
 
 #define IF(a, b, c, d) if (((!a.empty () and b.empty ()) or (!a.empty () and !b.empty () and a.top () < b.top ())) and (!(lastA == c and lastB == d)))
 
@@ -26,6 +27,7 @@ void printStack (stack <int> k)
 	cout << endl;
 }
 
+int n;
 vector <string> optimum;
 vector <string> local;
 
@@ -39,13 +41,15 @@ void hanoi (stack <int> a, stack <int> b, stack <int> c)
 {
 	if (a.empty () and b.empty ())
 	{
-		if (local.size () < optimum.size ())
-			optimum = local;
-		/*
-		for (auto& k : operations)
+//		if (local.size () < optimum.size ())
+//			optimum = local;
+//		/*
+		cout << local.size () << "\n";
+		for (auto& k : local)
 			cout << k << "\n";
-		cout << "------------" << endl;
-		*/
+//		cout << "------------" << endl;
+//		*/
+		exit (0);
 		return ;
 	}
 	if (local.size () >= optimum.size ())
@@ -63,7 +67,8 @@ void hanoi (stack <int> a, stack <int> b, stack <int> c)
 		lastA = lastOpetation [5];
 		lastB = lastOpetation [lastOpetation.size () - 1];
 	}
-	if ((a.size () + b.size () + c.size ()) % 2 == 0)
+
+	if (n % 2 == 0)
 	{
 		IF(a, b, 'b', 'a')
 		{
@@ -120,6 +125,7 @@ void hanoi (stack <int> a, stack <int> b, stack <int> c)
 			local.pop_back ();
 			moveElement (b, a);
 		}
+
 	}
 	IF(b, c, 'c', 'b')
 	{
@@ -179,14 +185,13 @@ void hanoi (stack <int> a, stack <int> b, stack <int> c)
 
 int main ()
 {
-	int n;
 	cin >> n;
 	optimum.resize (1<<n, "");
 	stack <int> a, b, c;
 	for (int i = n ; i > 0 ; i --)
 		a.push (i);
 	hanoi (a, b, c);
-	for (auto& x : optimum)
-		cout << x << endl;
-	cout << endl;
+//	for (auto& x : optimum)
+//		cout << x << endl;
+//	cout << endl;
 }
