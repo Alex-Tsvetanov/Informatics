@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <algorithm>//std::max
 
-
 int main ()
 {
 	int maxLen = 0;
@@ -32,7 +31,7 @@ int main ()
 			currLen = 0;
 		}
 	}
-	maxLen = max (maxLen, currLen);
+	maxLen = std::max (maxLen, currLen);
 	printf ("%d\n", maxLen);
 	return 0;
 }
