@@ -1,0 +1,5 @@
+/home/alex/informaticsGit/codes/SoftUni/combinatorial/demos/Variations+Repetitions/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/alex/informaticsGit/codes/SoftUni/combinatorial/demos/Variations+Repetitions/bin/Debug/Variations+Repetitions.exe.mdb
+/home/alex/informaticsGit/codes/SoftUni/combinatorial/demos/Variations+Repetitions/bin/Debug/Variations+Repetitions.exe
+/home/alex/informaticsGit/codes/SoftUni/combinatorial/demos/Variations+Repetitions/obj/Debug/Variations+Repetitions.exe
+/home/alex/informaticsGit/codes/SoftUni/combinatorial/demos/Variations+Repetitions/obj/Debug/Variations+Repetitions.exe.mdb
