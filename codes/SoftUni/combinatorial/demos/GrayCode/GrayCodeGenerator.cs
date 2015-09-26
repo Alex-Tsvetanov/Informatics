@@ -2,7 +2,7 @@
 
 class GrayCodeGenerator
 {
-    const int n = 4;
+    const int n = 2;
     static int[] arr = new int[n];
 
     static void Main()
