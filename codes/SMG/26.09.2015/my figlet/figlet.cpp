@@ -84,6 +84,7 @@ int main ()
 			{	endText += '/'; i ++;}
 			else
 				endText += lineText [i];
+		endText = lineText;
 		ans [line] = endText;
 	}
 

@@ -1,0 +1,34 @@
+#include <string>
+#include <iostream>
+using namespace std;
+#include <stdio.h>
+#include <stdarg.h>
+
+using String = std::string;
+
+struct MyConsole
+{
+	MyConsole ()
+	{
+	}
+	std::istream& In = cin;
+	std::ostream& Out = cout;
+
+	char ReadKey ()
+	{
+		return getchar ();
+	}
+	char Read ()
+	{
+		char out;
+		In >> out;
+		return out;
+	}
+	String ReadLine ()
+	{
+		String out;
+		getline (In, out);
+		return out;
+	}
+} Console;
+
