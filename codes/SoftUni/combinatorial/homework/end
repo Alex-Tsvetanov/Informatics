@@ -1,0 +1,13 @@
+	int n;
+	cin >> n;
+	auto X = mem [n];
+	//cout << "mem [" << n << "] = " << "{";
+	n = 0;
+	for (auto& x : X)
+	{
+		n ++;
+		print (x);
+	}
+	//cout << "};\n";
+	cout << "Snakes count = " << n << endl;
+}
