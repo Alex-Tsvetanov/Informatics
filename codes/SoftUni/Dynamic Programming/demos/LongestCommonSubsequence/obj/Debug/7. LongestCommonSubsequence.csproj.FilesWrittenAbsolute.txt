@@ -1,0 +1,5 @@
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/LongestCommonSubsequence/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/LongestCommonSubsequence/bin/Debug/LongestCommonSubsequence.exe.mdb
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/LongestCommonSubsequence/bin/Debug/LongestCommonSubsequence.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/LongestCommonSubsequence/obj/Debug/LongestCommonSubsequence.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/LongestCommonSubsequence/obj/Debug/LongestCommonSubsequence.exe.mdb

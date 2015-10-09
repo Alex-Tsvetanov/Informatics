@@ -1,0 +1,7 @@
+#/bin/bash
+for dir in `ls`;
+do
+	mv $dir/*Lab* $dir/lab/;
+	mv $dir/*Homework* $dir/homework/;
+	mv $dir/*Demo* $dir/demos/;
+done

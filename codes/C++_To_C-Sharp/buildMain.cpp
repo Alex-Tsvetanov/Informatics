@@ -15,3 +15,5 @@ namespace Project
 		}
 	};
 }
+
+run_main

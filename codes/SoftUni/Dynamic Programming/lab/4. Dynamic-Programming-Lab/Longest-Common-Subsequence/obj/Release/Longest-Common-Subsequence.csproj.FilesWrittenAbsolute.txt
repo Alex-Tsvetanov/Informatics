@@ -1,0 +1,5 @@
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/lab/4. Dynamic-Programming-Lab/Longest-Common-Subsequence/obj/Release/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/lab/4. Dynamic-Programming-Lab/Longest-Common-Subsequence/bin/Release/Longest-Common-Subsequence.exe.mdb
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/lab/4. Dynamic-Programming-Lab/Longest-Common-Subsequence/bin/Release/Longest-Common-Subsequence.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/lab/4. Dynamic-Programming-Lab/Longest-Common-Subsequence/obj/Release/Longest-Common-Subsequence.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/lab/4. Dynamic-Programming-Lab/Longest-Common-Subsequence/obj/Release/Longest-Common-Subsequence.exe.mdb

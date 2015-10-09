@@ -1,0 +1,5 @@
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubSetSumsMatrix/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubSetSumsMatrix/bin/Debug/SubSetSums.exe.mdb
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubSetSumsMatrix/bin/Debug/SubSetSums.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubSetSumsMatrix/obj/Debug/SubSetSums.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubSetSumsMatrix/obj/Debug/SubSetSums.exe.mdb

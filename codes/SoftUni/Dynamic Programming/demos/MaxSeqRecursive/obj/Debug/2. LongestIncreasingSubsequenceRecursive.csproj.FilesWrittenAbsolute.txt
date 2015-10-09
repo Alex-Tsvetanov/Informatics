@@ -1,0 +1,5 @@
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/MaxSeqRecursive/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/MaxSeqRecursive/bin/Debug/LongestIncreasingSubsequenceRecursive.exe.mdb
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/MaxSeqRecursive/bin/Debug/LongestIncreasingSubsequenceRecursive.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/MaxSeqRecursive/obj/Debug/LongestIncreasingSubsequenceRecursive.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/MaxSeqRecursive/obj/Debug/LongestIncreasingSubsequenceRecursive.exe.mdb

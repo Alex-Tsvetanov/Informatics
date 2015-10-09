@@ -1,0 +1,5 @@
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubsetSumsNoRepeats/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubsetSumsNoRepeats/bin/Debug/SubsetSumsBetter.exe.mdb
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubsetSumsNoRepeats/bin/Debug/SubsetSumsBetter.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubsetSumsNoRepeats/obj/Debug/SubsetSumsBetter.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/SubsetSumsNoRepeats/obj/Debug/SubsetSumsBetter.exe.mdb

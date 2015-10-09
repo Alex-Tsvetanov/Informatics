@@ -6,7 +6,6 @@
 using namespace std;
 
 int path_counter = 0;
-string curr_path;
 
          int Y [] = { 1 , 0 ,-1 , 0 };
          int X [] = { 0 , 1 , 0 ,-1 };

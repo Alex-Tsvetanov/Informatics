@@ -1,0 +1,1 @@
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/demos/MoveDownRight/obj/Debug/.NETFramework,Version=v4.6.AssemblyAttribute.cs

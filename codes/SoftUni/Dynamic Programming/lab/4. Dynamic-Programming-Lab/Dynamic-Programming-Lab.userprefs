@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="Longest-Common-Subsequence/Longest-Common-Subsequence.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Longest-Common-Subsequence/LongestCommonSubsequence.cs">
+    <Files>
+      <File FileName="Longest-Common-Subsequence/LongestCommonSubsequence.cs" Line="10" Column="20" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/lab/4. Dynamic-Programming-Lab/Longest-Common-Subsequence/LongestCommonSubsequence.cs" line="22" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
