@@ -1,0 +1,5 @@
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/homework/Minimum Edit Distance/Min.Distance.Edit/Min.Distance.Edit/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/homework/Minimum Edit Distance/Min.Distance.Edit/Min.Distance.Edit/bin/Debug/Min.Distance.Edit.exe.mdb
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/homework/Minimum Edit Distance/Min.Distance.Edit/Min.Distance.Edit/bin/Debug/Min.Distance.Edit.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/homework/Minimum Edit Distance/Min.Distance.Edit/Min.Distance.Edit/obj/x86/Debug/Min.Distance.Edit.exe
+/home/alex/GIT/informaticsGit/codes/SoftUni/Dynamic Programming/homework/Minimum Edit Distance/Min.Distance.Edit/Min.Distance.Edit/obj/x86/Debug/Min.Distance.Edit.exe.mdb

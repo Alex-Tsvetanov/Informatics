@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="Min.Distance.Edit/Min.Distance.Edit.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Min.Distance.Edit/Program.cs">
+    <Files>
+      <File FileName="Min.Distance.Edit/Program.cs" Line="9" Column="3" />
+      <File FileName="Min.Distance.Edit/EditDistanceCalculator.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
