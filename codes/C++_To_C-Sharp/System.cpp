@@ -2,10 +2,10 @@
 #include <iostream>
 using namespace std;
 #include <stdio.h>
-#include "cppformat/format.cc"
+//#include "cppformat/format.cc"
 #include <exception>
 
-using namespace fmt;
+//using namespace fmt;
 
 namespace convert
 {
@@ -126,7 +126,7 @@ char ConsoleRead ()
 	throw e;
     }
 }
-string ConsoleReadLine ()
+String ConsoleReadLine ()
 {
     try
     {
@@ -140,8 +140,8 @@ string ConsoleReadLine ()
     }
 }
 
-#define ConsoleWrite print
-#define ConsoleWriteLine println
+//#define ConsoleWrite print
+//#define ConsoleWriteLine println
 
 #define run_main \
 int main (const int argc, const char* argv [])\
