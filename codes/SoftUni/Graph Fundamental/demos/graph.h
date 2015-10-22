@@ -27,6 +27,7 @@ public:
 
 template < typename W > struct G
 {
+	unsigned long long size;
 	void addEdge (size_t a, size_t b, W c = W ())
 	{
 		size_t Max = max (a, b);
@@ -41,9 +42,9 @@ template < typename W > struct G
 		}
 		n [a].push_back (b);
 		w [a][b] = make_pair (c, true);
+		this->size = Max;
 	}
 	typedef M <W> T;
-	unsigned long long size;
 	N n;
 	T w;
 	bool edge(unsigned long long i, unsigned long long j) const
@@ -194,7 +195,7 @@ public:
 	void dijikstra(void func (unsigned long long, W), unsigned long long s = 0ll) const
 	{
 		set < pair < W *, unsigned long long >, fun2 > T_;
-		W d [size];
+		W* d = new W [size];
 		for (unsigned long long i = 0; i < size; i++)
 			d[i] = f (s, i);
 		for (unsigned long long i = 0; i < size; i++)
@@ -216,11 +217,11 @@ public:
 		}
 		for (unsigned long long i = 0; i < size; i++)
 			if (i != s)
-				func(i, d [i]);
+				cout << i << " " << d [i] << "\n";
 			else
-				func(s, 0);
+				cout << s << " " << 0 << "\n";
 	}
-	void dfs (void func (unsigned long long, unsigned long long), unsigned long long s = 0ull, unsigned long long level = 0ull) const
+/*	void dfs (void func (unsigned long long, unsigned long long), unsigned long long s = 0ull, unsigned long long level = 0ull) const
 	{
 		bool* visited = new bool [n.size ()];
 		int levels = new int [n.size ()]
@@ -255,5 +256,5 @@ public:
 		for (int i = 0 ; i < n.size () ; i ++)
 			func (i, level [i]);
 		delete[] visited;
-	}
+	}*/
 };
