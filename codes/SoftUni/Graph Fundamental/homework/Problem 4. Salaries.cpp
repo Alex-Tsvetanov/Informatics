@@ -8,8 +8,8 @@
 
 using namespace std;
 
-using vertexType = unsigned long long;
-typedef vector < vector < unsigned long long > > N;
+using vertexType = size_t;
+typedef vector < vector < vertexType > > N;
 
 template < typename W> class M:public vector < vector < pair < W, bool > > >
 {
@@ -18,12 +18,12 @@ public:
 	{
 		
 	}
-	void add (unsigned long long a, unsigned long long b, W c)
+	void add (vertexType a, vertexType b, W c)
 	{
 		if (this -> size () < a)
 			this -> resize (a + 1, vector < pair < W, bool > > ());
 		if ((*this)[0].size () < b)
-			for (unsigned long long i = 0 ; i < (*this).size () ; i ++)
+			for (vertexType i = 0 ; i < (*this).size () ; i ++)
 				(*this)[i].resize (b + 1, pair < W, bool > (-1, false));
 		(*this)[a][b] = make_pair (c, true);
 	}
@@ -31,7 +31,7 @@ public:
 
 template < typename W > struct G
 {
-	unsigned long long size;
+	vertexType size;
 	void addEdge (size_t a, size_t b, W c = W ())
 	{
 		size_t Max = max (a, b);
@@ -51,11 +51,11 @@ template < typename W > struct G
 	typedef M <W> T;
 	N n;
 	T w;
-	bool edge(unsigned long long i, unsigned long long j) const
+	bool edge(vertexType i, vertexType j) const
 	{
 		return (w[i][j].second);
 	}
-	W f(unsigned long long i, unsigned long long j) const
+	W f(vertexType i, vertexType j) const
 	{
 		return w[i][j].first;
 	}
@@ -66,7 +66,7 @@ template < typename W > struct G
 	G(size_t Size)
 	{
 		size = Size;
-		n.resize (Size + 1, vector < unsigned long long > ());
+		n.resize (Size + 1, vector < vertexType > ());
 		w.resize (Size + 1);
 		for (size_t i = 0 ; i < Size + 1 ; i ++)
 			w [i].resize (Size + 1, make_pair (W (), true));
@@ -78,8 +78,8 @@ template < typename W > struct G
 	
 	void convert ()
 	{
-		for (unsigned long long i = 0 ; i < w.size () ; i ++)
-			for (unsigned long long j = 0 ; j < w [i].size () ; j ++)
+		for (vertexType i = 0 ; i < w.size () ; i ++)
+			for (vertexType j = 0 ; j < w [i].size () ; j ++)
 			{
 				if (w [i][j].second)
 				{
@@ -103,7 +103,7 @@ template < typename W > struct G
 ////GRAPH.H
 #include <iostream>
 
-void dfs (const G <int>& graph, int* cost, unsigned long long s = 0ull, bool* visited = nullptr)
+template <typename T>void dfs (const G <T>& graph, int* cost, vertexType s = 0ull, bool* visited = nullptr)
 {
 	bool SetUpVisited = false;
 	if (visited == nullptr)
@@ -131,7 +131,7 @@ int main ()
 {
 	int n;
 	cin >> n;
-	G < int > graph (n);
+	G < int64_t > graph (n);
 	for (int i = 0 ; i < n ; i ++)
 		for (int j = 0 ; j < n ; j ++)
 		{
