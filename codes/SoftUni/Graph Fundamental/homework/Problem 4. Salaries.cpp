@@ -1,15 +1,11 @@
 ////GRAPH.H
 #include <vector>  // vector
 #include <utility> // pair
-#include <set>     // set
-#include <list>    // list
-#include <stack>   // stack
-#include <queue>   // queue
 
 using namespace std;
 
 using vertexType = size_t;
-typedef vector < vector < vertexType > > N;
+using N = vector < vector < vertexType > >;
 
 template < typename W> class M:public vector < vector < pair < W, bool > > >
 {
@@ -37,7 +33,7 @@ template < typename W > struct G
 		size_t Max = max (a, b);
 		if (Max >= n.size ())
 		{
-			n.resize (Max + 1, vector <unsigned long long> ());
+			n.resize (Max + 1, vector <vertexType> ());
 			w.resize (Max + 1);
 			for (size_t i = 0 ; i < Max + 1 ; i ++)
 			{
@@ -103,27 +99,17 @@ template < typename W > struct G
 ////GRAPH.H
 #include <iostream>
 
-template <typename T>void dfs (const G <T>& graph, int* cost, vertexType s = 0ull, bool* visited = nullptr)
+template <typename T>void dfs (const G <T>& graph, int64_t* cost, vertexType s = 0ull)
 {
-	bool SetUpVisited = false;
-	if (visited == nullptr)
-	{
-		SetUpVisited = true;
-		visited = new bool [graph.n.size ()];
-	}
-	visited [s] = 1;
-	int ans = 0;
-	for (auto& x : graph.n [s])
-	{
-		if (visited [x] == 0)
-			dfs (graph, cost, x, visited);
-		ans += cost [x];
-	}
-	if (SetUpVisited)
-		delete[] visited;
-	if (ans == 0)
-		ans = 1;
-	cost [s] = ans;
+	if (graph.n [s].size () == 0)
+		cost [s] = 1;
+	else
+		for (auto& x : graph.n [s])
+		{
+			if (cost [x] == 0)
+				dfs (graph, cost, x);
+			cost [s] += cost [x];
+		}
 	return ;
 }
 
@@ -140,15 +126,13 @@ int main ()
 			if (a == 'Y')
 				graph.addEdge (i, j, 1);
 		}
-	int* costs = new int [n];
-	bool* visited = new bool [n];
+	int64_t* costs = new int64_t [n];
 	for (int i = 0 ; i < n ; i ++)
-		if (visited [i] == 0)
-			dfs (graph, costs, i, visited);
-	int sum = 0;
-	for (int i = 0 ; i < n; i ++)
+		if (costs [i] == 0)
+			dfs (graph, costs, i);
+	int64_t sum = 0;
+	for (int i = 0 ; i < n ; i ++)
 		sum += costs [i];
 	cout << sum << "\n";
 	delete[] costs;
-	delete[] visited;
 }
