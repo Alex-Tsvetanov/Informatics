@@ -21,7 +21,7 @@ T* get_pivot (T* a, T* b)
 template <typename T>
 T* fillArr (T* newArr, T* pivot, T* s, T* e)
 {
-	T* indOfPivot;
+	T* indOfPivot = nullptr;
 	size_t ind = 0;
 	for (T* it = s ; it != e ; it ++)
 		if ((*it) < (*pivot))
@@ -29,9 +29,16 @@ T* fillArr (T* newArr, T* pivot, T* s, T* e)
 			newArr [ind] = *it;
 			ind ++;
 		}
-	indOfPivot = newArr + ind;
 	for (T* it = s ; it != e ; it ++)
-		if ((*it) >= (*pivot))
+		if ((*it) == (*pivot))
+		{
+			if (indOfPivot == nullptr)
+				indOfPivot = newArr + ind;
+			newArr [ind] = *it;
+			ind ++;
+		}
+	for (T* it = s ; it != e ; it ++)
+		if ((*it) > (*pivot))
 		{
 			newArr [ind] = *it;
 			ind ++;
@@ -72,6 +79,7 @@ int main ()
 	int* arr = new int [SIZE];
 	for (size_t i = 0 ; i < SIZE ; i ++)
 		cin >> arr [i];
+	//cout << "Input OK" << endl;
 	quick_sort (arr + 0, arr + SIZE);
 	for (size_t i = 0 ; i < SIZE ; i ++)
 		cout << arr [i] << " ";

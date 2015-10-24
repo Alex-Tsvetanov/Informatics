@@ -1,0 +1,25 @@
+#/bin/bash
+declare -x POINTS=0;
+for i in `seq -w 1 100` ;
+do
+	timeout 1 ./quick_sort.exe < tests/quick_sort.$i.in > myOut ;
+	if [[ "`diff -w myOut tests/quick_sort.$i.out`" == "" ]] ; 
+	then 
+		echo "$i -> OK"; 
+		POINTS=$(($POINTS + 1)) ; 
+	else
+		echo "$i -> Fail" ; 
+	fi ; 
+done
+#POINTS=$1
+if [[ $POINTS -gt 89 ]] ;
+then
+	echo -e "\e[1;32m$POINTS / 100\e[0m";
+	exit 0;
+fi
+if [[ $POINTS -gt 49 ]] ;
+then
+	echo -e "\e[0;33m$POINTS / 100\e[0m";
+	exit 0;
+fi
+echo -e "\e[1;31m$POINTS / 100\e[0m";
