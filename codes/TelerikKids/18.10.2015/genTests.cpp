@@ -11,7 +11,7 @@ int Get_Random ()
 
 	random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> dis(0, 100);	 
+    uniform_int_distribution<> dis(0, 100000);	 
     return dis (gen);
 }
 
@@ -20,17 +20,18 @@ int Get_N ()
 
 	random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<> dis(1, 100);	 
+    uniform_int_distribution<> dis(1, 10000);	 
     return dis (gen);
 }
 
 int main ()
 {
+	system ("g++ stable_sort.cpp -o stable_sort.exe -std=c++11 -Wall");
 	for (int testNumber = 1; testNumber <= 100 ; testNumber ++)
 	{
 		stringstream num;
 		num << setfill ('0') << setw (3) << testNumber;
-		string file = "quick_sort." + num.str () + ".in";
+		string file = "tests/quick_sort." + num.str () + ".in";
 		ofstream fout;
 		fout.open (file.c_str ());
 		int n = Get_N ();
