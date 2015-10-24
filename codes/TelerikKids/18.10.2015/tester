@@ -12,6 +12,7 @@ do
 	fi ; 
 done
 #POINTS=$1
+rm myOut;
 if [[ $POINTS -gt 89 ]] ;
 then
 	echo -e "\e[1;32m$POINTS / 100\e[0m";
