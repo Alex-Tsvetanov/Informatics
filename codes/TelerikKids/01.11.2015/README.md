@@ -1,6 +1,6 @@
 #Dynamic Programming
 
-1. [Задача 1. Quadronacci правоъгълник](http://bgcoder.com/Contests/Practice/DownloadResource/609)
+1. Задача 1. Quadronacci правоъгълник [DOC](http://bgcoder.com/Contests/Practice/DownloadResource/609)
 <br>
   * Можете да изпращата решения в [bgcoder](http://bgcoder.com/Contests/Practice/Index/151#0) и той ще Ви ги тества стига да имате account (и да не е забил, че е на Windows).
 <br>
