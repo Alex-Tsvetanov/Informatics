@@ -1,9 +1,11 @@
-#include <vector>  // vector
-#include <utility> // pair
-#include <set>     // set
-#include <list>    // list
-#include <stack>   // stack
-#include <queue>   // queue
+#include <vector>    // vector
+#include <utility>   // pair
+#include <set>       // set
+#include <list>      // list
+#include <stack>     // stack
+#include <queue>     // queue
+#include <algorithm> // sort
+#include <stdlib.h>  // exit
 
 using namespace std;
 
@@ -26,12 +28,18 @@ public:
 				(*this)[i].resize (b + 1, pair < W, bool > (-1, false));
 		(*this)[a][b] = make_pair (c, true);
 	}
+	~M ()
+	{
+		delete this;
+	}
 };
 
 template < typename W > struct G
 {
 	static const W NOT_CREATED = -1;
-	size_t size;
+protected:
+	size_t Size;
+public:
 
 	inline G <W>& add2Edges (vertexType a, vertexType b, W c = W ())
 	{
@@ -55,7 +63,7 @@ template < typename W > struct G
 				w [i].resize (Max);
 			}
 		}
-		this->size = Max + 1;
+		this->Size = Max + 1;
 		return *this;
 	}
 
@@ -102,7 +110,13 @@ template < typename W > struct G
 
 	G ()
 	{
-		size = 0;
+		Size = 0;
+	}
+
+	~G ()
+	{
+		n.~vector ();
+		w.~M ();
 	}
 
 	void convertTtoN ()
@@ -121,14 +135,14 @@ template < typename W > struct G
 	{
 		this -> n = n;
 		this -> w = w;
-		size = n.size ();
+		Size = n.size ();
 	}
 
 	G (T w)
 	{
 		this -> w = w;
 		convertTtoN ();
-		size = n.size ();
+		Size = n.size ();
 	}
 
 	bool topological_sort (void func (vertexType), vector <vertexType> s = vector <vertexType> ()) const
@@ -240,86 +254,65 @@ template < typename W > struct G
 		delete[] visited;
 		return false;
 	}
-
-	void MST(void func(vertexType, vertexType))const //O (n + m.log2(n)) = speed + inicializacion
-	{                                                                //O (m.log2(n)) = speed of algorithm
-		unsigned long long* colornum = new unsigned long long [size];
-		unsigned long long** color = new unsigned long long* [size];
-		list < pair <unsigned long long*, vector < vertexType > > > diffColor;
-		list < pair <unsigned long long*, vector < vertexType > > >::iterator itColor [size];
-		list < pair <unsigned long long*, vector < vertexType > > >::iterator curr;
-		for (vertexType i = 0 ; i < size ; i ++)
+private:
+	/*inline */vertexType Find_root (vertexType i, vertexType* parent) const
+	{
+		cout << "find_root (" << i << ") = ";
+		if (parent [i] == i)
 		{
-			colornum [i] = i;
-			color [i] = &(colornum [i]);
-			diffColor.push_back ({color [i], {i}});
-			if (diffColor.size () == 1)
-				curr = diffColor.begin ();
-			itColor [i] = curr;
-			if (diffColor.size () != 1)
-				curr ++;
+			cout << i << endl;
+			return i;
 		}
-		//cout << "Init OK" << endl;
-		while (diffColor.size () > 2)
+		else
+			return (parent [i] = Find_root (parent [i], parent));
+		/*vector < vertexType > children;
+		while (parent [i] != i)
 		{
-			//cout << diffColor.size () << endl;
-			for (auto it = diffColor.begin () ; it != diffColor.end () ; it ++)
+			children.push_back (i);
+			i = parent [i];
+		}
+		for (auto& x : children)
+			parent [x] = i;
+		children.~vector ();
+		return i;*/
+	}
+	inline void Union (vertexType i, vertexType j, vertexType* parent) const
+	{
+		vertexType a, b;
+		parent [a = Find_root (i, parent)] = (b = Find_root (j, parent));
+		cout << "Connecting: " << a << " " << b << endl;
+	}
+public:
+	inline void MST(void func(vertexType, vertexType, W))
+	{
+		Size = n.size ();
+		cout << "Size = " << Size << endl;
+		vertexType* parent = new vertexType [Size];
+		cout << "CREATE OK" << endl;
+		for (size_t i = 0 ; i < Size ; i ++)
+			parent [i] = i;
+		cout << "INIT OK" << endl;
+		vector < pair < W, pair < vertexType, vertexType > > > edges;
+		cout << "CREATE 2 OK" << endl;
+		for (vertexType i = 0 ; i < Size ; i ++)
+			for (auto& x : n [i])
+				if (edge (i, x))
+					edges.push_back ({f (i, x), {i, x}});
+		cout << "INIT 2 OK" << endl;
+		sort (edges.begin (), edges.end ());
+		cout << "SORTING" << endl;
+		for (size_t i = 0 ; i < edges.size () ; i ++)
+		{
+			auto edge = edges [i];
+			cout << "Current Edge: " << edge.second.first << " " << edge.second.second << " " << edge.first << endl;
+			if (Find_root (edge.second.first, parent) != Find_root (edge.second.second, parent))
 			{
-				const size_t Size = it -> second.size ();
-				//cout << "In Group " << *(it->first) << ": ";
-				//for (size_t i = 0 ; i < Size ; i ++)
-					//cout << it -> second [i] << " ";
-				//cout << endl;
-				for (size_t i = 0 ; i < Size ; i ++)
-				{
-					//cout << "For " << it -> second [i] << ":\n";
-					vertexType v, b = 0;
-					W Min;
-					for (size_t j = 0 ; j < n [it -> second [i]].size () ; j ++)
-					{
-						//cout << "\t" << n [it -> second [i]][j] << " -> " << endl;
-						if (*color [it->second [i]] != *color [n [it -> second [i]][j]])
-						{
-							//cout << "\t\tCHECK: " << endl;
-							if (b == 0)
-							{
-								v = n [it->second[i]][j];
-								Min = f (it->second [i], n [it -> second [i]][j]);
-								b = 1;
-								//cout << "\t\t\tNew Best: " << v << endl;
-							}
-							else
-							{
-								W h = f (it->second [i], n [it -> second [i]][j]);
-								if (Min > h)
-								{
-									Min = h;
-									v = n [it->second[i]][j];
-									//cout << "\t\t\tNew Best: " << v << endl;
-								}
-							}
-						}
-						else
-						{
-							//cout << "Ooooooops!!!" << endl;
-						}
-					}
-					if (b)
-					{
-						func (it->second [i], v);
-						for (size_t j = 0 ; j < itColor [*color [v]]->second.size () ; j ++)
-						{
-							it->second.push_back (itColor [*color [v]]->second [j]);
-						}
-						diffColor.erase (itColor [*color [v]]);
-						itColor [*color [v]] = itColor [*color [it->second [i]]];
-						color [v] = color [it->second [i]];
-					}
-				}
+				func (edge.second.first, edge.second.second, edge.first);
+				Union (edge.second.first, edge.second.second, parent);
 			}
 		}
-		delete[] colornum;
-		delete[] color;
+		delete[] parent;
+//		exit (0);
 	}
 
 private:
@@ -340,15 +333,15 @@ public:
 			vertexType s = 0ll) const
 	{
 		set < pair < W *, vertexType >, fun2 > T_;
-		W* d = new W [size];
-		for (vertexType i = 0; i < size; i++)
+		W* d = new W [Size];
+		for (vertexType i = 0; i < Size; i++)
 			d[i] = f (s, i);
 		d [s] = 0;
-		for (vertexType i = 0; i < size; i++)
+		for (vertexType i = 0; i < Size; i++)
 			T_.insert (make_pair (&d[i], i));
 		while (T_.size () > 0)
 		{
-			//for (size_t i = 0 ; i < size ; i ++)
+			//for (size_t i = 0 ; i < Size ; i ++)
 			//	cout << d [i] << " ";
 			//cout << endl;
 			//for (auto& x : T_)
@@ -371,7 +364,7 @@ public:
 					}
 			}
 		}
-		for (size_t i = 0; i < size; i++)
+		for (size_t i = 0; i < Size; i++)
 			if (i != s)
 				func (i, d [i]);
 			else

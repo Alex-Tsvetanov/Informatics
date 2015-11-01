@@ -216,8 +216,21 @@ template < typename W > struct G
 		return false;
 	}
 
-	void MST(void func(vertexType, vertexType))const //O (n + m.log2(n)) = speed + inicializacion
-	{                                                                //O (m.log2(n)) = speed of algorithm
+private:
+	template <typename T0, typename T1, typename T2, typename T3> void addEdgeHelper (vertexType v, T0& it, T1& itColor, T2& diffColor, T3& color)
+	{
+		if (*color [v] != *color [it->second [i]])
+		{
+			for (size_t j = 0 ; j < itColor [*color [v]]->second.size () ; j ++)
+				it->second.push_back (itColor [*color [v]]->second [j]);
+			diffColor.erase (itColor [*color [v]]);
+			itColor [*color [v]] = itColor [*color [it->second [i]]];
+			color [v] = color [it->second [i]];
+		}
+	}
+
+	void MST(void func(vertexType, vertexType), G <W> startingGraph = G <W> ()) const
+	{
 		unsigned long long* colornum = new unsigned long long [size];
 		unsigned long long** color = new unsigned long long* [size];
 		list < pair <unsigned long long*, vector < vertexType > > > diffColor;
@@ -234,34 +247,31 @@ template < typename W > struct G
 			if (diffColor.size () != 1)
 				curr ++;
 		}
-		//cout << "Init OK" << endl;
+		curr = diffColor.begin ();
+		for (int i = 0 ; i < startingGraph.n.size () ; i ++)
+		{
+			for (auto& x : startingGraph.n [i])
+				addEdgeHelper (x, curr, itColor, diffColor, color);
+			curr ++;
+		}
 		while (diffColor.size () > 2)
 		{
-			//cout << diffColor.size () << endl;
 			for (auto it = diffColor.begin () ; it != diffColor.end () ; it ++)
 			{
 				const size_t Size = it -> second.size ();
-				//cout << "In Group " << *(it->first) << ": ";
-				//for (size_t i = 0 ; i < Size ; i ++)
-					//cout << it -> second [i] << " ";
-				//cout << endl;
 				for (size_t i = 0 ; i < Size ; i ++)
 				{
-					//cout << "For " << it -> second [i] << ":\n";
 					vertexType v, b = 0;
 					W Min;
 					for (size_t j = 0 ; j < n [it -> second [i]].size () ; j ++)
 					{
-						//cout << "\t" << n [it -> second [i]][j] << " -> " << endl;
 						if (*color [it->second [i]] != *color [n [it -> second [i]][j]])
 						{
-							//cout << "\t\tCHECK: " << endl;
 							if (b == 0)
 							{
 								v = n [it->second[i]][j];
 								Min = f (it->second [i], n [it -> second [i]][j]);
 								b = 1;
-								//cout << "\t\t\tNew Best: " << v << endl;
 							}
 							else
 							{
@@ -270,25 +280,17 @@ template < typename W > struct G
 								{
 									Min = h;
 									v = n [it->second[i]][j];
-									//cout << "\t\t\tNew Best: " << v << endl;
 								}
 							}
 						}
 						else
 						{
-							//cout << "Ooooooops!!!" << endl;
 						}
 					}
 					if (b)
 					{
 						func (it->second [i], v);
-						for (size_t j = 0 ; j < itColor [*color [v]]->second.size () ; j ++)
-						{
-							it->second.push_back (itColor [*color [v]]->second [j]);
-						}
-						diffColor.erase (itColor [*color [v]]);
-						itColor [*color [v]] = itColor [*color [it->second [i]]];
-						color [v] = color [it->second [i]];
+						addEdgeHelper (v, it, itColor, diffColor, color);
 					}
 				}
 			}
