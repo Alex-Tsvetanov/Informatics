@@ -22,5 +22,4 @@ int main ()
 	}
 	cout << "End" << endl;
 	graph.MST (print);
-	exit (0);
 }

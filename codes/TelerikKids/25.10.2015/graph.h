@@ -283,7 +283,7 @@ private:
 		cout << "Connecting: " << a << " " << b << endl;
 	}
 public:
-	inline void MST(void func(vertexType, vertexType, W))
+	void MST(void func(vertexType, vertexType, W))
 	{
 		Size = n.size ();
 		cout << "Size = " << Size << endl;
@@ -312,7 +312,6 @@ public:
 			}
 		}
 		delete[] parent;
-//		exit (0);
 	}
 
 private:
