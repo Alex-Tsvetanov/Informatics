@@ -1,2 +1,2 @@
-#Informatics Task And Its Solves
-#       By Alex Ivanov Tsvetanov
+#Задачи по информатика, техните решения и материали от школи по информатика
+#От Алекс Иванов Цветанов
