@@ -5,11 +5,7 @@ using namespace std;
 
 int n, m;
 int* input;
-//    MaxLen     индекс
-//      до         на
-//	  индекс    предишния
-//      i        елемент
-pair <  int,      int   >* dp;
+pair <int, int>* dp;
 
 bool check (int ind1, int ind2)
 {
@@ -34,7 +30,7 @@ int main ()
 		int maxLenght = -1;
 		for (int j = i - 1 ; j > 0 ; j --)
 			if (check (i, dp [j].second))
-				if (maxLenght < dp [j].first)
+				if (maxLenght < dp [j].first + 1)
 				{
 					maxLenght = dp [j].first + 1;
 					last_index = i;
