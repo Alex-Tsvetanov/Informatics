@@ -1,4 +1,4 @@
-#Dynamic Programming
+#Решаване на задачи
 
 1. Задача 1:
 <br>
