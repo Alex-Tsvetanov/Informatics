@@ -34,6 +34,8 @@ int main ()
 			}
 		if (maxLenght < 1)
 			maxLenght = 1, last_index = i;
+		if (maxLenght < dp [i - 1].first)
+			maxLenght = dp [i - 1].first, last_index = dp [i - 1].second;
 
 		dp [i] = {maxLenght, last_index};
 	}
