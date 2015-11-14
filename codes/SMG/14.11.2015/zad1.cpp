@@ -17,7 +17,8 @@ int main ()
 	set < int > allNums;
 	forDigit (ind1)
 		forDigit (ind2)
-			allNums.insert (genNum (a [ind1], a [ind2]));
+			if (ind1 != ind2)
+				allNums.insert (genNum (a [ind1], a [ind2]));
 	int prev = 0;
 	unsigned Y = 0, X = -1;
 
