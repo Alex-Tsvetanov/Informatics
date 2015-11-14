@@ -1,0 +1,31 @@
+﻿<Properties StartupItem="01-Combinatorics-Tests/01-Combinatorics-Tests.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="04-Line-Inverter/Program.cs">
+    <Files>
+      <File FileName="01-Combinatorics/Program.cs" Line="12" Column="23" />
+      <File FileName="02-Bridges/Program.cs" Line="7" Column="6" />
+      <File FileName="02-Bridges-v2/Program.cs" Line="5" Column="2" />
+      <File FileName="03-Graphs/Program.cs" Line="5" Column="2" />
+      <File FileName="04-Line-Inverter/Program.cs" Line="8" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="10.Homework" expanded="True">
+            <Node name="01-Combinatorics" expanded="True" />
+            <Node name="02-Bridges" expanded="True" />
+            <Node name="02-Bridges-v2" expanded="True" />
+            <Node name="03-Graphs" expanded="True" />
+            <Node name="04-Line-Inverter" expanded="True">
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

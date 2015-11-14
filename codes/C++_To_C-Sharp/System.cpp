@@ -2,7 +2,6 @@
 #include <iostream>
 using namespace std;
 #include <stdio.h>
-//#include "cppformat/format.cc"
 #include <exception>
 
 //using namespace fmt;
@@ -64,35 +63,35 @@ struct String : public std::string
     {}
     std::initializer_list <string> Split (std::string sep = " \t\n")
     {
-	std::string str = *this;
-	std::string curr;
-	vector < string > ans;
-	for (size_t i = 0 ; i < str.size () ; i ++)
-	    if (sep.find (str [i]) != string::npos)
-	    {
-		ans.push_back (curr); curr = "";
-	    }
-	    else
-		curr += str [i];
-	if (curr.size () > 0)
-	    ans.push_back (curr);
-	return range_to_initializer_list (ans.begin (), ans.end ());
+		std::string str = *this;
+		std::string curr;
+		vector < string > ans;
+		for (size_t i = 0 ; i < str.size () ; i ++)
+		    if (sep.find (str [i]) != string::npos)
+		    {
+			ans.push_back (curr); curr = "";
+		    }
+		    else
+			curr += str [i];
+		if (curr.size () > 0)
+		    ans.push_back (curr);
+		return range_to_initializer_list (ans.begin (), ans.end ());
     }
 };
 
-std::initializer_list <string> Split (std::string str, std::string sep = " \t\n")
+std::initializer_list <String> Split (std::string str, std::string sep = " \t\n")
 {
     std::string curr;
-    vector < string > ans;
+    vector < String > ans;
     for (size_t i = 0 ; i < str.size () ; i ++)
-	if (sep.find (str [i]) != string::npos)
-	{
-	    ans.push_back (curr); curr = "";
-	}
+		if (sep.find (str [i]) != string::npos)
+		{
+		    ans.push_back (String (curr)); curr = "";
+		}
 	else
 	    curr += str [i];
     if (curr.size () > 0)
-	ans.push_back (curr);
+		ans.push_back (curr);
     return range_to_initializer_list (ans.begin (), ans.end ());
 }
 
@@ -105,12 +104,12 @@ char ConsoleReadKey ()
 {
     try
     {
-	throw NotImplementedException ();
-	return cin.get ();
+		throw NotImplementedException ();
+		return cin.get ();
     }
     catch (std::exception& e)
     {
-	throw e;
+		throw e;
     }
 }
 char ConsoleRead ()
@@ -139,9 +138,6 @@ String ConsoleReadLine ()
 	throw e;
     }
 }
-
-//#define ConsoleWrite print
-//#define ConsoleWriteLine println
 
 #define run_main \
 int main (const int argc, const char* argv [])\
