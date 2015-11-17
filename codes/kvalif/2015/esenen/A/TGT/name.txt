@@ -1,0 +1,4 @@
+Name: Teodor Genchev Todorov
+Class: 11
+School: NPMG
+Group: A

@@ -1,0 +1,4 @@
+ime na uchenika : Samuil Vladimirov Petkov
+klas na uchenika : 6 klas
+kfalificacionna grupa na uchenika : D grupa
+Uchilishte na uchenika : 20 OU "Todor Minkov"
