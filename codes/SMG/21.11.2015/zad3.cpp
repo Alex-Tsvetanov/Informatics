@@ -1,33 +1,26 @@
 #include <iostream>
+#include <string>
 #include <sstream>
+#include <vector>
 
 using namespace std;
 
-struct my_int
+string f (int N)
 {
-	string str;
-	my_int minus1 ()
-	{
-		int i = str.size ();
-		while (str [i] == '0')
-			str [i --] = '9';
-		str [i] --;
-		return *this;
-	}
-};
-
-constexpr string f (my_int N)
-{
-	return ((N.str == "1")?"1":(N.str + string (f (N.minus1 ()), 2)));
+	if (N == 1)
+		return "1";
+	stringstream ss;
+	string prev = f (N - 1);
+	ss << N << prev << prev;
+	return ss.str ();
 }
 
 int main ()
 {
 	int N, K;
-	cin >> N >> K;
-	string line;
-	for (int N = 1 ; N <= 10 ; N ++)
+	vector < int > pos [9];
+	for (N = 1 ; N < 7 ; N ++)
 	{
-		line = f (N);
+		cout << f (N) << endl;
 	}
 }
