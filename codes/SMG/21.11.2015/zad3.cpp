@@ -5,6 +5,11 @@
 
 using namespace std;
 
+int num_of_digits (int N)
+{
+	return ((N < 10) ? 1 : ((N < 100) ? 2 : ((N < 1000) ? 3 : ((N < 10000) ? 4 : ((N < 100000) ? 5 : ((N < 1000000) ? 6 : 7))))));
+}
+
 string f (int N)
 {
 	if (N == 1)
@@ -15,12 +20,25 @@ string f (int N)
 	return ss.str ();
 }
 
+unsigned long long 
+
 int main ()
 {
 	int N, K;
-	vector < int > pos [9];
-	for (N = 1 ; N < 7 ; N ++)
+	cin >> N >> K
+	for ( ; N > 1 ; N --)
 	{
-		cout << f (N) << endl;
+		if (K < num_of_digits (N))
+		{
+			stringstream ss;
+			ss << N;
+			cout << ss.str ()[K];
+			return 0;
+		}
+		else
+		{
+			K = (K - num_of_digits (N)) % lens [N - 1];
+		}
 	}
+	cout << 1 << endl;
 }
