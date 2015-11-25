@@ -16,9 +16,25 @@ int main ()
 			char a;
 			fin >> a;
 			if (i != N - 1)
+			{
+				if ('.' != a and a != '#')
+				{
+					fout << "NO!\n";
+					return 0;
+				}
+				
 				matrix [i][j] = (a == '#');
+			}
 			else
-				matrix [i][j] = (('1' <= a and a <= '9')?(matrix [i - 1][j]):(!matrix[i - 1][j]));
+			{
+				if ('1' <= a and a <= '9')
+					matrix [i][j] = true;
+				else
+				{
+					fout << "NO!\n";
+					return 0;
+				}
+			}
 		}
 	for (int col = 0 ; col < M ; col ++)
 	{
@@ -28,7 +44,7 @@ int main ()
 //		for (int row = 1 ; row < N ; row ++)
 //			fout << matrix [row][col] << " ";
 //		fout << "\n";
-		for (int row = 1 ; row < N ; row ++)
+		for (int row = 1 ; row < N - 1 ; row ++)
 		{
 			if (matrix [row][col] != is_black_column)
 			{
