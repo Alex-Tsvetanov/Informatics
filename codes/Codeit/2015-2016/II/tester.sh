@@ -1,4 +1,7 @@
 #/bin/sh
+for folder in `ls -d source_codes/*/` ;
+do
+
 points=0;
 for taskName in {barcode,bullcode,cities,clown,rana,robots,scourge,wizard} ;
 do
@@ -45,7 +48,7 @@ do
 		;;
 	esac
 	localpoints=$maxpoints;
-	g++ source_codes/$taskName.cpp -o $taskName.exe -Wall -O3 -std=c++11;
+	g++ ${folder%?}/$taskName.cpp -o $taskName.exe -Wall -O3 -std=c++11;
 	log="";
 	for i in `seq -w 1 $tests` ;
 	do
@@ -62,5 +65,9 @@ do
 	done
 	echo -e "$taskName: $localpoints\tTesting System log: $log";
 	points=$(($points+$localpoints));
+	rm $taskName.{in,out,exe}
 done
-echo "Total: $points/$((50+80+180+50+100+150+200+320))";
+echo -e "$folder:\n\tTotal: $points/$((50+80+180+50+100+150+200+320))";
+
+done
+
