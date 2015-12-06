@@ -1,5 +1,6 @@
 #include <iostream>
-#include <stdio.h>
+#include <iomanip>
+//#include <stdio.h>
 
 using namespace std;
                         //  L R . X  Value
@@ -58,13 +59,20 @@ int main ()
 		{
 			int to_add = 0;
 			if (
-					can (input [i - 1][j], 4) or
-					can (input [i - 1][j - 1], 6)
+					(can (input [i - 1][j], 4))// and is_visible [i - 1][j])
+					or
+					(can (input [i - 1][j - 1], 6))// and is_visible [i - 1][j - 1])
 			   )
 				to_add = (input [i][j] / 32);
 			else if (j + 1 < m)
+			{
 				if (can (input [i - 1][j + 1], 5))
 					to_add = (input [i][j] / 32);
+				else
+					continue;
+			}
+			else
+				continue;
 
 			int from_up = dp [i - 1][j] * can (input [i - 1][j], 4);
 			int from_up_left = dp [i - 1][j - 1] * can (input [i - 1][j - 1], 6);
@@ -93,7 +101,6 @@ int main ()
 	for (int i = 0 ; i < m ; i ++)
 		if (dp [n - 1][col] < dp [n - 1][i])
 			col = i;
-	cout << dp [n - 1][col] << endl;
 	string a;
 	int i = n - 1, j = col;
 	while (from [i][j] != 0)
@@ -117,7 +124,29 @@ int main ()
 		}
 	}
 	cout << j + 1 << endl;
+	cout << dp [n - 1][col] << endl;
 	for (int k = a.size () - 1 ; k >= 0 ; k --)
 		cout << a [k];
 	cout << endl;
+
+	cout << "Input: \n";
+	for (int i = 0 ; i < n ; i ++, cout << "\n")
+		for (int j = 0 ; j < m ; j ++)
+		{
+			char A;
+			if (input [i][j] == 1) A = 'L';
+			else if (input [i][j] == 2) A = 'R';
+			else if (input [i][j] == 4) A = '.';
+			else if (input [i][j] == 16) A = 'X';
+			else A = (input [i][j] - 4) / 32 + '0';
+			cout << setw (4) << A << " ";
+		}
+	cout << "Input: \n";
+	for (int i = 0 ; i < n ; i ++, cout << "\n")
+		for (int j = 0 ; j < m ; j ++)
+			cout << setw (4) << input [i][j] << " ";
+	cout << "DP: \n";
+	for (int i = 0 ; i < n ; i ++, cout << "\n")
+		for (int j = 0 ; j < m ; j ++)
+			cout << setw (4) << dp [i][j] << " ";
 }
