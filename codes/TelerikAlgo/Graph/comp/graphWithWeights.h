@@ -21,10 +21,6 @@ namespace Graph
 					(*this)[i].resize (b + 1, pair < W, bool > (-1, false));
 			(*this)[a][b] = make_pair (c, true);
 		}
-		~M ()
-		{
-			delete this;
-		}
 	};
 
 	template < typename W > struct G
@@ -110,12 +106,6 @@ namespace Graph
 		G ()
 		{
 			Size = 0;
-		}
-
-		~G ()
-		{
-			n.~vector ();
-			w.~M ();
 		}
 
 		void convertTtoN ()

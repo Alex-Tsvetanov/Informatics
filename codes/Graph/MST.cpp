@@ -13,16 +13,16 @@ struct Graph
 {
     int V, E;
  
-    Edge* edge;
+    struct Edge* edge;
 };
  
-Graph* createGraph(int V, int E)
+struct Graph* createGraph(int V, int E)
 {
-    Graph* graph = (Graph*) malloc( sizeof(Graph) );
+    struct Graph* graph = (struct Graph*) malloc( sizeof(struct Graph) );
     graph->V = V;
     graph->E = E;
  
-    graph->edge = (Edge*) malloc( graph->E * sizeof( Edge ) );
+    graph->edge = (struct Edge*) malloc( graph->E * sizeof( struct Edge ) );
  
     return graph;
 }
@@ -33,7 +33,7 @@ struct subset
     int rank;
 };
  
-int find(subset subsets[], int i)
+int find(struct subset subsets[], int i)
 {
     if (subsets[i].parent != i)
         subsets[i].parent = find(subsets, subsets[i].parent);
@@ -41,7 +41,7 @@ int find(subset subsets[], int i)
     return subsets[i].parent;
 }
  
-void Union(subset subsets[], int x, int y)
+void Union(struct subset subsets[], int x, int y)
 {
     int xroot = find(subsets, x);
     int yroot = find(subsets, y);
@@ -60,22 +60,22 @@ void Union(subset subsets[], int x, int y)
  
 int myComp(const void* a, const void* b)
 {
-    Edge* a1 = (Edge*)a;
-    Edge* b1 = (Edge*)b;
+    struct Edge* a1 = (struct Edge*)a;
+    struct Edge* b1 = (struct Edge*)b;
     return a1->weight > b1->weight;
 }
  
-Edge* KruskalMST(Graph* graph)
+struct Edge* KruskalMST(struct Graph* graph)
 {
     int V = graph->V;
-    Edge* result = new Edge [V];
+    struct Edge result[V];
     int e = 0;
     int i = 0;
  
     qsort(graph->edge, graph->E, sizeof(graph->edge[0]), myComp);
  
-    subset *subsets =
-        (subset*) malloc( V * sizeof(subset) );
+    struct subset *subsets =
+        (struct subset*) malloc( V * sizeof(struct subset) );
  
     for (int v = 0; v < V; ++v)
     {
@@ -85,7 +85,7 @@ Edge* KruskalMST(Graph* graph)
     
     while (e < V - 1)
     {
-        Edge next_edge = graph->edge[i++];
+        struct Edge next_edge = graph->edge[i++];
  
         int x = find(subsets, next_edge.src);
         int y = find(subsets, next_edge.dest);
@@ -108,7 +108,8 @@ int main()
 
     cin >> V >> E;
    
-    Graph* graph = createGraph(V, E);
+    struct Graph* graph = createGraph(V, E);
+    cout << "OK\n";
     
     for (int i = 0 ; i < E ; i ++)
     {
@@ -116,17 +117,17 @@ int main()
         cin >> a >> b >> c;
         graph->edge [i].src = a;
         graph->edge [i].dest = b;
-        graph->edge [i].weight = -c;
+        graph->edge [i].weight = (int)1e9 - c;
     }
+    cout << "OK\n";
     
-    Edge* MST  = KruskalMST (graph);
+    struct Edge* MST  = KruskalMST (graph);
 
     int Max = MST [0].weight;
-    for (int i = 1 ; i < V ; i ++)
+    for (int i = 1 ; i < V - 1 ; i ++)
         if (Max < MST [i].weight)
             Max = MST [i].weight;
-    delete[] MST;
-    cout << Max << "\n";
+    cout << (1e9 - Max) << "\n";
  
     return 0;
 }

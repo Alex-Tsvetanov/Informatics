@@ -1,0 +1,14 @@
+~~~ No 'X'
+00: example from problem statement
+01: Hand made; Do you initialize everything? (+ 6 bonus points)
+02: Hand made; 15x10
+03: Random; 250x250
+04: Chess grid; 800x800
+05: Chess grid; 1000x1000
+
+~~~ With 'X' : 
+06: Random; 200x50; 20 % chance cell to be 'X'
+07: Random; 100x100
+08: Hand made pattern; 500x500
+09: Random; 800x800; > 50% chance cell to be 'X'
+10: Chess grid; 1000x1000  
