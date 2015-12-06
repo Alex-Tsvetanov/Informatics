@@ -68,11 +68,7 @@ int main ()
 			{
 				if (can (input [i - 1][j + 1], 5))
 					to_add = (input [i][j] / 32);
-				else
-					continue;
 			}
-			else
-				continue;
 
 			int from_up = dp [i - 1][j] * can (input [i - 1][j], 4);
 			int from_up_left = dp [i - 1][j - 1] * can (input [i - 1][j - 1], 6);
