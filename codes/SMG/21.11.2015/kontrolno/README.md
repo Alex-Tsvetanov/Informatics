@@ -1,21 +1,23 @@
-   Alexander_Hristov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-Alexander_Radoslavov: 	 0   |    1 1 0 0 0 0 1 0 0 0 0 1 1 0 0 1 1 0 0 0   |    35
-   Alexander_Vasilev: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100
-      Alex_Tsvetanov: 	 1   |    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   |   200
-    Antonii_Zlatarov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-       Cvetan_Ivanov: 	 1   |    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   |   200
-       Dimitar_Popov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-         Dimo_Chanev: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-      Georgi_Yovchev: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100
-     Ignes_Simeonova: 	 1   |    1 1 1 1 1 1 1 0 1 0 0 1 1 0 1 1 1 0 0 0   |   165
-  Konstantin_Kamenov: 	 1   |    1 0 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1   |   185
-       Kris_Stoyanov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-   Kristian_Stefanov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-     Martin_Dimitrov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-      Martin_Kamenov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-    Martin_Kamenov_2: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-   Nicole_Vukadinova: 	 1   |    1 1 1 0 0 1 1 0 0 0 0 1 1 0 0 1 1 0 0 0   |   145
-         Petyo_Manev: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-  Stefania_Tsvetkova: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
-       Todor_Hristov: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100
-       Vladi_Avramov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0
+`
+   Alexander_Hristov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+Alexander_Radoslavov: 	 0   |    1 1 0 0 0 0 1 0 0 0 0 1 1 0 0 1 1 0 0 0   |    35<br>
+   Alexander_Vasilev: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100<br>
+      Alex_Tsvetanov: 	 1   |    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   |   200<br>
+    Antonii_Zlatarov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+       Cvetan_Ivanov: 	 1   |    1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   |   200<br>
+       Dimitar_Popov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+         Dimo_Chanev: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+      Georgi_Yovchev: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100<br>
+     Ignes_Simeonova: 	 1   |    1 1 1 1 1 1 1 0 1 0 0 1 1 0 1 1 1 0 0 0   |   165<br>
+  Konstantin_Kamenov: 	 1   |    1 0 1 1 1 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1   |   185<br>
+       Kris_Stoyanov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+   Kristian_Stefanov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+     Martin_Dimitrov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+      Martin_Kamenov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+    Martin_Kamenov_2: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+   Nicole_Vukadinova: 	 1   |    1 1 1 0 0 1 1 0 0 0 0 1 1 0 0 1 1 0 0 0   |   145<br>
+         Petyo_Manev: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+  Stefania_Tsvetkova: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
+       Todor_Hristov: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100<br>
+       Vladi_Avramov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br> 
+`
