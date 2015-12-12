@@ -1,4 +1,3 @@
-`
    Alexander_Hristov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
 Alexander_Radoslavov: 	 0   |    1 1 0 0 0 0 1 0 0 0 0 1 1 0 0 1 1 0 0 0   |    35<br>
    Alexander_Vasilev: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100<br>
@@ -20,4 +19,3 @@ Alexander_Radoslavov: 	 0   |    1 1 0 0 0 0 1 0 0 0 0 1 1 0 0 1 1 0 0 0   |    
   Stefania_Tsvetkova: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br>
        Todor_Hristov: 	 1   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |   100<br>
        Vladi_Avramov: 	 0   |    0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0   |     0<br> 
-`
