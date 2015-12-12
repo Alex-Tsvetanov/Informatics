@@ -35,5 +35,5 @@ int main ()
 	if (prenos > 0)
 		ans = (char)(prenos + '0') + ans;
 
-	cout << a << " + " << c << " = " << ans << endl;
+	cout << ans << endl;
 }
