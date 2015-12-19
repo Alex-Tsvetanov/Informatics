@@ -1,5 +1,4 @@
-#include <iostream>
-#include <vector>    // vector
+#include <iostream>#include <vector>    // vector
 #include <utility>   // pair
 #include <set>       // set
 #include <list>      // list
