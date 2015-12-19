@@ -65,4 +65,9 @@ template <typename T> struct binary_search_tree
 		else
 			return false;
 	}
+
+	T findMin ()
+	{
+
+	}
 };
