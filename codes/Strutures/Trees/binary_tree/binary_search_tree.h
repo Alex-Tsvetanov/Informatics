@@ -11,7 +11,7 @@ template <typename T> struct binary_search_tree
 
 	}
 
-	void remove (T a)
+	bool remove (T a)
 	{
 		if (root == a)
 		{
@@ -27,30 +27,42 @@ template <typename T> struct binary_search_tree
 		else if (a < *root)
 		{
 			if (left != nullptr)
-				left -> remove (a);
+				return left -> remove (a);
+			else
+				return false;
 		}
 		else if (a > *root)
 		{
 			if (right != nullptr)
-				right -> remove (a);
+				return right -> remove (a);
+			else
+				return false;
 		}
+		return true;
 	}
 
-	void add (T a)
+	bool add (T a)
 	{
 		if (root == nullptr)
+		{
 			root = new T (a);
+			return true;
+		}
 		else if (a < *root)
 		{
 			if (left == nullptr)
 				left = new binary_search_tree <T> ();
 			left -> add (a);
+			return true;
 		}
 		else if (a > *root)
 		{
 			if (right == nullptr)
 				right = new binary_search_tree <T> ();
 			right -> add (a);
+			return true;
 		}
+		else
+			return false;
 	}
 };
