@@ -1,0 +1,8 @@
+#/bin/bash
+cat .readme > README.md
+git init
+git add updateAlexTsvetanov codes README.md
+git commit -m "first commit"
+git remote add origin https://github.com/Alex-Tsvetanov/Informatics.git
+git push -u origin master
+
