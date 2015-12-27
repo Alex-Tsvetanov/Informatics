@@ -64,7 +64,7 @@ struct BIT
 
         fill ();
     }
-    bool cmp (T a, T b)
+    static bool cmp (T a, T b)
     {
         return depth [a] <= depth [b];
     }
