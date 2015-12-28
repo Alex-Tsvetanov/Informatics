@@ -8,7 +8,7 @@ using namespace std;
 
 int find (vector <int>& v, int x)
 {
-	for (int i = 0 ; i < (int)v.size () ; i ++)
+	for (int i = x + 1 ; i < (int)v.size () ; i ++)
 		if (v [i] == x)
 			return i;
 	return -1;
@@ -61,17 +61,20 @@ int main ()
 
 				if (k < m)
 				{
-					while (j > m)
+					for (int i = j - 1 ; i >= m ; i --)
 					{
-						swap (P [j], P [j - 1]);
-						ans.push_back ({j - 1, j});
-						j --;
+						swap (P [i], P [i + 1]);
+						ans.push_back ({i, i + 1});
 					}
+					j = m;
 				}
 				else
 				{
-					swap (P [j], P [j - 1]);
-					ans.push_back ({j - 1, j});
+					for (int i = k ; i <= j - 1 ; i ++)
+					{
+						swap (P [i], P [i + 1]);
+						ans.push_back ({i, i + 1});
+					}
 					j --;
 				}
 				//cout << "\t\t\t " << j << endl;

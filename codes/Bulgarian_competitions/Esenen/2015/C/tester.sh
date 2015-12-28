@@ -22,7 +22,7 @@ do
 	for j in `seq -w 1 25` ;
 	do
 		timeout 3s ./a.exe < ./Tests/swap/tests/swap.$j.in > a.out
-		if [[ "`diff -w a.out ./Tests/swap/tests/swap.$j.sol`" = "" ]]
+		if [[ "`./Tests/swap/check/check_swap.exe Tests/swap/tests/swap.$j.in x a.out`" = "1" ]]
 		then
 			result=$(($result+4));
 		fi;

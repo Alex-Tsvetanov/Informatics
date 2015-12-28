@@ -39,7 +39,7 @@ int i,ii=0;
   }
   else
   {
-    cout<<"0\nError opening file 1\n";
+    cout<<"0\n"/*Error opening file 1\n*/;
     return 0;
   }
 // изход
@@ -52,19 +52,19 @@ int i,ii=0;
 		fs>>a1>>a2;	
 		if (a1==a[a1] || a2==a[a2]) {
 			cout<<0<<endl;
-			cout<<"Mesti element a[i] kojto e na mjasto i";
+//			cout<<"Mesti element a[i] kojto e na mjasto i";
 			return 0;
 		}
 		else
 		if (abs(a1-a2)!=1) {
 			cout<<0<<endl;
-			cout<<"ne sa sysedni elementi: abs(i- j) !=1";
+//			cout<<"ne sa sysedni elementi: abs(i- j) !=1";
 			return 0;
 		}
 		else
 		if (a1<0 || a1>n || a2<0 || a2>n) {
 			cout<<0<<endl;
-			cout<<"i,j izwyn [1,N]";
+//			cout<<"i,j izwyn [1,N]";
 			return 0;
 		}	
 		swap(a[a1],a[a2]);
@@ -73,16 +73,16 @@ int i,ii=0;
   }
   else
   {
-    cout << "0\nError opening file 3\n";
+    cout << "0\n"/*Error opening file 3\n"*/;
     return 0;
   }
   if (Prow ()) {
 	cout<<1<<endl;
-	cout<<"OK";
+//	cout<<"OK";
   }
   else {
   	cout<<0<<endl;
-  	cout<<"Nepodredeni";
+//  	cout<<"Nepodredeni";
   }
   
 	
