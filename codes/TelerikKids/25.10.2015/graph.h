@@ -5,7 +5,6 @@
 #include <stack>     // stack
 #include <queue>     // queue
 #include <algorithm> // sort
-#include <stdlib.h>  // exit
 
 using namespace std;
 
@@ -27,10 +26,6 @@ public:
 			for (vertexType i = 0 ; i < (*this).size () ; i ++)
 				(*this)[i].resize (b + 1, pair < W, bool > (-1, false));
 		(*this)[a][b] = make_pair (c, true);
-	}
-	~M ()
-	{
-		delete this;
 	}
 };
 
@@ -257,7 +252,6 @@ public:
 private:
 	/*inline */vertexType Find_root (vertexType i, vertexType* parent) const
 	{
-		cout << "find_root (" << i << ") = ";
 		if (parent [i] == i)
 		{
 			cout << i << endl;
@@ -280,31 +274,23 @@ private:
 	{
 		vertexType a, b;
 		parent [a = Find_root (i, parent)] = (b = Find_root (j, parent));
-		cout << "Connecting: " << a << " " << b << endl;
 	}
 public:
 	void MST(void func(vertexType, vertexType, W))
 	{
 		Size = n.size ();
-		cout << "Size = " << Size << endl;
 		vertexType* parent = new vertexType [Size];
-		cout << "CREATE OK" << endl;
 		for (size_t i = 0 ; i < Size ; i ++)
 			parent [i] = i;
-		cout << "INIT OK" << endl;
 		vector < pair < W, pair < vertexType, vertexType > > > edges;
-		cout << "CREATE 2 OK" << endl;
 		for (vertexType i = 0 ; i < Size ; i ++)
 			for (auto& x : n [i])
 				if (edge (i, x))
 					edges.push_back ({f (i, x), {i, x}});
-		cout << "INIT 2 OK" << endl;
 		sort (edges.begin (), edges.end ());
-		cout << "SORTING" << endl;
 		for (size_t i = 0 ; i < edges.size () ; i ++)
 		{
 			auto edge = edges [i];
-			cout << "Current Edge: " << edge.second.first << " " << edge.second.second << " " << edge.first << endl;
 			if (Find_root (edge.second.first, parent) != Find_root (edge.second.second, parent))
 			{
 				func (edge.second.first, edge.second.second, edge.first);

@@ -40,13 +40,19 @@ do
 				system_log="$system_log  F";
 				printf "  \x1b[31mF\x1b[0m" >> resultsAgrain;
 			else
-				system_log="$system_log  t";
-				printf "  \x1b[34mt\x1b[0m" >> resultsAgrain;
+				if [[ "$command_code" = "134" ]]
+				then
+					system_log="$system_log ME";
+					printf " \x1b[31mME\x1b[0m" >> resultsAgrain;
+				else
+					system_log="$system_log  t";
+					printf "  \x1b[34mt\x1b[0m" >> resultsAgrain;
+				fi
 			fi
 		fi
 
 	done
-	printf "%3d\n" $result >> resultsAgrain;
+	printf "%4d\n" $result >> resultsAgrain;
 done
 
 rm a.exe a.out

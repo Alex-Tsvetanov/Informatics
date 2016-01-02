@@ -261,7 +261,6 @@ namespace Graph
 		{
 			vertexType a, b;
 			parent [a = Find_root (i, parent)] = (b = Find_root (j, parent));
-			cout << "Connecting: " << a << " " << b << endl;
 		}
 	public:
 		static inline void printMST (vertexType a, vertexType b, W c)
@@ -286,13 +285,7 @@ namespace Graph
 			size_t number_of_connections = 0;
 			for (size_t i = 0 ; number_of_connections < Size - 1 and i < edges.size () ; i ++)
 			{
-				cout << "parent: [";
-				for (int i = 0 ; i < Size ; i ++)
-					cout << parent [i] << ", ";
-				cout << "\b\b];\nnumber_of_connections = " << number_of_connections << endl;
-				cout << "Edge:" << endl;
 				auto edge = edges [i];
-				cout << "\t" << edge.second.first << " " << edge.second.second << endl;
 				vertexType first = Find_root (edge.second.first, parent.data ());
 				vertexType second = Find_root (edge.second.second, parent.data ());
 				if (first != second)
@@ -304,7 +297,6 @@ namespace Graph
 				else
 					continue;
 			}
-			cout << "End of MST ()\n";
 		}
 
 	private:

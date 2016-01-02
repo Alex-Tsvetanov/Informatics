@@ -19,8 +19,10 @@ int solve(int N, int L, int D, int X, int A, int B) {
     int drop = 0, rem = L / D;
     while (rem > 0 && ++drop <= N) {
         int idx = X / D;
-        if (idx - 1 >= 0     && minn[idx] - maxx[idx - 1] > D && X - maxx[idx - 1] <= D) rem--;
-        if (idx + 1 <= L / D && minn[idx + 1] - maxx[idx] > D && minn[idx + 1] - X <= D) rem--;
+        if (idx - 1 >= 0 and minn[idx] - maxx[idx - 1] > D and X - maxx[idx - 1] <= D)
+            rem--;
+        if (idx + 1 <= L / D and minn[idx + 1] - maxx[idx] > D and minn[idx + 1] - X <= D)
+            rem--;
         minn[idx] = min(minn[idx], X), maxx[idx] = max(maxx[idx], X);
         X = ((long long)X * A + B) % (L + 1);
     }

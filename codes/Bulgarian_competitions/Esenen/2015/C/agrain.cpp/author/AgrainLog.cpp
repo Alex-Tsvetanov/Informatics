@@ -13,11 +13,11 @@ FILE* in = stdin; FILE* out = stdout;
 int solve(int N, int L, int D, int X, int A, int B) {
     priority_queue < int, vector<int>, greater<int> > q;
     int pos = 0, at = 0;
-    while (pos + D < L && at < N) {
+    while (D < L - pos and at < N) {
         at++;
         if (X > pos) {
             q.push(X);
-            while (!q.empty() && pos + D >= q.top()) {
+            while (!q.empty () and D >= q.top () - pos) {
                 pos = q.top();
                 q.pop();
             }
