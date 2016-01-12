@@ -7,20 +7,32 @@ pointsToTest=$5;
 resultFile=$6;
 timelimit=$7;
 compile_command=$8;
-if [[ "$compile_command" = "" ]] then compile_command="g++ -O2 -std=c++11"; fi
+like_table=$9;
+
+if [[ "$compile_command" = "" ]]
+then
+	compile_command="g++ -O2 -std=c++11"; 
+fi
+
+if [[ "$compile_command" = "default" ]]
+then
+	compile_command="g++ -O2 -std=c++11"; 
+fi
 
 echo "" > $resultFile;
+if [[ "$like_table" = "true" ]]
+then
+	for j in `seq -w 1 30` ;
+	do
+		printf " " >> $resultFile;
+	done
+	for j in `seq -w 1 $numberOfTests` ;
+	do
+		printf " $j" >> $resultFile;
+	done;
 
-for j in `seq -w 1 30` ;
-do
-	printf " " >> $resultFile;
-done
-for j in `seq -w 1 $numberOfTests` ;
-do
-	printf " $j" >> $resultFile;
-done;
-
-printf "\n" >> $resultFile;
+	printf "\n" >> $resultFile;
+fi
 
 for i in `ls -d $folderWithSources/*.cpp` ;
 do
@@ -29,8 +41,8 @@ do
 	printf "%30s" "$i" >> $resultFile;
 	for j in `seq -w 1 $numberOfTests` ;
 	do
-		echo "$j:";
-		timeout $timelimit ./a.exe < $folderWithTests/$taskName.$j.in > a.out
+		echo -ne "$folderWithSources $taskName $j:\r";
+		(timeout $timelimit ./a.exe < $folderWithTests/$taskName.$j.in > a.out) 2> /dev/null
 		command_code=$?;
 		if [[ "$command_code" = "0" ]]
 		then
