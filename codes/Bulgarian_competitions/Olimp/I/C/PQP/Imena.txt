@@ -1,4 +1,0 @@
-imena: Pavel Qkimov Pavlov
-klas:8 d
-uchilishte: Sofiiska Matematicheska Gimnaziq "Paisii Hilendarski"
-grupa: C

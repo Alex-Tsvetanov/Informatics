@@ -1,4 +1,0 @@
-Name: Valentin Andreev Petkov
-Group: B
-Class: 10
-School: SMG

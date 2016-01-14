@@ -1,4 +1,0 @@
-Name: Lazar Dimitrov Nenovski
-Group: B
-School: SMG
-Class: 10
