@@ -63,7 +63,7 @@ void go (int cnt, int prow, int pcol)
                 swap (a [r][c], a [r+1][c]);
             }
 }
-int main(void)
+//int main ()
 {
     inp ();
     go (0, -1, -1);
