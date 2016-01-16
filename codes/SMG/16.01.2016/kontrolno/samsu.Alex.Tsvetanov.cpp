@@ -2,12 +2,7 @@
 
 using namespace std;
 
-int a [3][3] =
-{
-    {3, 2, 6},
-    {9, 4, 1},
-    {7, 5, 8}
-};
+int a [3][3];
 int minCnt = 22;
 
 void input ()
@@ -37,7 +32,7 @@ bool check ()
     }
     return true;
 }
-void go (int cnt, int prow, int pcol)
+void dfs (int cnt, int prow, int pcol)
 {
     if (cnt >= minCnt)
     	return;
@@ -51,7 +46,7 @@ void go (int cnt, int prow, int pcol)
         	if ((r != prow or c != pcol) and (a [r][c] - a [r][c + 1]) % 3 != 0)
             {
                 swap (a [r][c], a [r][c + 1]);
-                go (cnt + 1, r, c);
+                dfs (cnt + 1, r, c);
                 swap (a [r][c], a [r][c + 1]);
             }
     for (int c = 0; c < 3; c ++)
@@ -59,13 +54,13 @@ void go (int cnt, int prow, int pcol)
         	if ((r != prow or c != pcol) and (a [r][c] - a [r + 1][c]) % 3 != 0)
             {
                 swap (a [r][c], a [r+1][c]);
-                go (cnt+1,r,c);
+                dfs (cnt+1,r,c);
                 swap (a [r][c], a [r+1][c]);
             }
 }
-//int main ()
+int main ()
 {
-    inp ();
-    go (0, -1, -1);
-    cout << minCnt << endl;
+    input ();
+    dfs (0, -1, -1);
+    cout << minCnt << "\n";
 }
