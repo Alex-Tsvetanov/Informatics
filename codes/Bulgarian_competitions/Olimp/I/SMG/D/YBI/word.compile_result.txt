@@ -1,0 +1,2 @@
+word.cpp:6:11: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11 [enabled by default]
+word.cpp:6:18: warning: non-static data member initializers only available with -std=c++11 or -std=gnu++11 [enabled by default]

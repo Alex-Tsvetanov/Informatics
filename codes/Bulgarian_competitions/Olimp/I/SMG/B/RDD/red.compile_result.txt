@@ -1,0 +1,2 @@
+red.cpp: In function 'int main()':
+red.cpp:5:37: warning: variable 'daljina' set but not used [-Wunused-but-set-variable]

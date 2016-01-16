@@ -1,0 +1,2 @@
+red.cpp: In function 'int main()':
+red.cpp:8:42: warning: unused variable 'resLen' [-Wunused-variable]

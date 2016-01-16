@@ -1,0 +1,6 @@
+sum.cpp: In function 'int main()':
+sum.cpp:5:20: warning: unused variable 'second1' [-Wunused-variable]
+sum.cpp:5:39: warning: unused variable 'second2' [-Wunused-variable]
+sum.cpp:5:54: warning: unused variable 'second3' [-Wunused-variable]
+sum.cpp:5:62: warning: unused variable 'cifra' [-Wunused-variable]
+sum.cpp:7:16: warning: 'first3' may be used uninitialized in this function [-Wuninitialized]

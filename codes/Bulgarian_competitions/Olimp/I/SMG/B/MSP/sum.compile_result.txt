@@ -1,0 +1,2 @@
+sum.cpp: In function 'int main()':
+sum.cpp:23:9: warning: unused variable 'i' [-Wunused-variable]

@@ -1,0 +1,3 @@
+woolly.cpp: In function 'void add(std::string&, std::string&, std::string&)':
+woolly.cpp:91:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+woolly.cpp:129:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

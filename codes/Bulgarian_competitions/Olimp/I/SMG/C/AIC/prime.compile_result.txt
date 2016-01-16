@@ -1,0 +1,3 @@
+prime.cpp:25:5: warning: identifier 'nullptr' is a keyword in C++11 [-Wc++0x-compat]
+prime.cpp: In function 'int main()':
+prime.cpp:25:14: error: 'nullptr' was not declared in this scope

@@ -1,0 +1,2 @@
+abx.cpp: In function 'int main()':
+abx.cpp:11:32: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

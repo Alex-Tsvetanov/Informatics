@@ -1,0 +1,2 @@
+shadow.cpp: In function 'int main()':
+shadow.cpp:7:26: warning: unused variable 'r' [-Wunused-variable]

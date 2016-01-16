@@ -1,0 +1,5 @@
+stepen.cpp: In function 'int main()':
+stepen.cpp:5:5: warning: unused variable 'o' [-Wunused-variable]
+stepen.cpp:5:8: warning: unused variable 'i' [-Wunused-variable]
+stepen.cpp:5:11: warning: unused variable 'broi' [-Wunused-variable]
+stepen.cpp:5:23: warning: variable 'rezervno' set but not used [-Wunused-but-set-variable]

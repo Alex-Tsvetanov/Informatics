@@ -1,0 +1,2 @@
+red.cpp: In function 'int main()':
+red.cpp:49:9: warning: variable 'srav' set but not used [-Wunused-but-set-variable]

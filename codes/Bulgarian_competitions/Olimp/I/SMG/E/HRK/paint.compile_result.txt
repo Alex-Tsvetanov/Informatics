@@ -1,0 +1,7 @@
+paint.cpp: In function 'int main()':
+paint.cpp:4:39: warning: unused variable 'putif' [-Wunused-variable]
+paint.cpp:4:45: warning: unused variable 'putis' [-Wunused-variable]
+paint.cpp:4:51: warning: unused variable 'putit' [-Wunused-variable]
+paint.cpp:4:75: warning: unused variable 'ksf' [-Wunused-variable]
+paint.cpp:4:79: warning: unused variable 'kss' [-Wunused-variable]
+paint.cpp:4:83: warning: unused variable 'kst' [-Wunused-variable]

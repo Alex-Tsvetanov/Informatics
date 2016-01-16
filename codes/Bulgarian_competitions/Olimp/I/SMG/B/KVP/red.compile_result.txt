@@ -1,0 +1,5 @@
+red.cpp: In function 'int main()':
+red.cpp:20:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+red.cpp:38:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+red.cpp:59:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+red.cpp:77:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

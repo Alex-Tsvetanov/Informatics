@@ -1,0 +1,11 @@
+D:\CI\C\NOI2016\1\SMG\E\BIG		D:\CI\C\NOI2016\1\SMG\E\BIG\matches.res	1	1	1	1	1	1	1	1	1	1	D:\CI\C\NOI2016\1\SMG\E\BIG\sum.res	1	1	1	1	1	1	1	1	1	1	D:\CI\C\NOI2016\1\SMG\E\BIG\paint.res	1	1	1	1	1	1	1	-1	1	1
+D:\CI\C\NOI2016\1\SMG\E\ELS		D:\CI\C\NOI2016\1\SMG\E\ELS\matches.res	-	-	-	-	-	-	-	-	-	-	D:\CI\C\NOI2016\1\SMG\E\ELS\sum.res	-	-	-	-	-	-	-	-	-	-	D:\CI\C\NOI2016\1\SMG\E\ELS\paint.res	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1
+D:\CI\C\NOI2016\1\SMG\E\HRK		D:\CI\C\NOI2016\1\SMG\E\HRK\matches.res	1	0	0	0	1	0	1	0	0	0	D:\CI\C\NOI2016\1\SMG\E\HRK\sum.res	0	0	0	1	1	1	1	1	0	1	D:\CI\C\NOI2016\1\SMG\E\HRK\paint.res	0	0	0	0	0	0	0	0	0	0
+D:\CI\C\NOI2016\1\SMG\E\IBN		D:\CI\C\NOI2016\1\SMG\E\IBN\matches.res	1	1	1	1	1	1	1	1	1	1	D:\CI\C\NOI2016\1\SMG\E\IBN\sum.res	0	0	0	0	0	0	0	0	0	0	D:\CI\C\NOI2016\1\SMG\E\IBN\paint.res	0	0	0	0	0	0	0	0	0	0
+D:\CI\C\NOI2016\1\SMG\E\ISP		D:\CI\C\NOI2016\1\SMG\E\ISP\matches.res	0	0	0	0	0	0	0	0	0	0	D:\CI\C\NOI2016\1\SMG\E\ISP\sum.res	0	0	0	0	0	0	0	0	0	0	D:\CI\C\NOI2016\1\SMG\E\ISP\paint.res	1	1	1	1	1	1	1	1	1	1
+D:\CI\C\NOI2016\1\SMG\E\KDG		D:\CI\C\NOI2016\1\SMG\E\KDG\matches.res	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1	D:\CI\C\NOI2016\1\SMG\E\KDG\sum.res	tl	tl	tl	tl	tl	tl	tl	tl	tl	tl	D:\CI\C\NOI2016\1\SMG\E\KDG\paint.res	0	0	0	0	0	0	0	0	0	0
+D:\CI\C\NOI2016\1\SMG\E\MGG		D:\CI\C\NOI2016\1\SMG\E\MGG\matches.res	ce	-	-	-	-	-	-	-	-	-	D:\CI\C\NOI2016\1\SMG\E\MGG\sum.res	1	1	1	0	0	0	0	0	0	0	D:\CI\C\NOI2016\1\SMG\E\MGG\paint.res	tl	tl	tl	tl	tl	tl	tl	tl	tl	tl
+D:\CI\C\NOI2016\1\SMG\E\NCC		D:\CI\C\NOI2016\1\SMG\E\NCC\matches.res	1	1	1	1	1	1	1	1	1	1	D:\CI\C\NOI2016\1\SMG\E\NCC\sum.res	0	0	0	1	0	0	1	0	0	1	D:\CI\C\NOI2016\1\SMG\E\NCC\paint.res	-	-	-	-	-	-	-	-	-	-
+D:\CI\C\NOI2016\1\SMG\E\TGM		D:\CI\C\NOI2016\1\SMG\E\TGM\matches.res	1	1	1	1	1	1	1	1	1	1	D:\CI\C\NOI2016\1\SMG\E\TGM\sum.res	0	1	1	0	1	1	0	0	0	0	D:\CI\C\NOI2016\1\SMG\E\TGM\paint.res	1	1	1	1	1	1	1	0	1	1
+D:\CI\C\NOI2016\1\SMG\E\TNM		D:\CI\C\NOI2016\1\SMG\E\TNM\matches.res	1	1	1	1	1	1	1	1	1	1	D:\CI\C\NOI2016\1\SMG\E\TNM\sum.res	1	1	1	1	1	1	1	1	1	1	D:\CI\C\NOI2016\1\SMG\E\TNM\paint.res	1	1	1	1	1	1	1	1	1	1
+D:\CI\C\NOI2016\1\SMG\E\TVK		D:\CI\C\NOI2016\1\SMG\E\TVK\matches.res	1	1	1	0	1	1	1	1	0	1	D:\CI\C\NOI2016\1\SMG\E\TVK\sum.res	0	1	1	0	1	1	0	0	0	0	D:\CI\C\NOI2016\1\SMG\E\TVK\paint.res	-1	-1	-1	-1	-1	-1	-1	-1	-1	-1

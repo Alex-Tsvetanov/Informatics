@@ -1,0 +1,5 @@
+stepen.cpp: In function 'int main()':
+stepen.cpp:40:17: warning: name lookup of 'delitel' changed [enabled by default]
+stepen.cpp:7:9: warning:   matches this 'delitel' under ISO standard rules [enabled by default]
+stepen.cpp:31:17: warning:   matches this 'delitel' under old rules [enabled by default]
+stepen.cpp:8:15: warning: unused variable 'kletki' [-Wunused-variable]

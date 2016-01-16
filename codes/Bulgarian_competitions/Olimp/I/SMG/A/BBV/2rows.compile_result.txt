@@ -1,0 +1,6 @@
+2rows.cpp: In function 'bool are_mrg(std::vector<int>&, std::vector<int>&)':
+2rows.cpp:52:24: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+2rows.cpp:52:41: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+2rows.cpp: In function 'void find_shared(std::vector<int>&, std::vector<int>&, std::set<int>&)':
+2rows.cpp:82:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+2rows.cpp:87:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

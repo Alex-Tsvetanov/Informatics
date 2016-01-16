@@ -1,0 +1,2 @@
+woolly.cpp: In function 'int main()':
+woolly.cpp:16:53: warning: suggest parentheses around arithmetic in operand of '^' [-Wparentheses]

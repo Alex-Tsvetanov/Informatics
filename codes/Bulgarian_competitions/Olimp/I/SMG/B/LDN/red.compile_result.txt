@@ -1,0 +1,2 @@
+red.cpp: In function 'int main()':
+red.cpp:30:18: warning: unused variable 'j' [-Wunused-variable]

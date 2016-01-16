@@ -1,0 +1,3 @@
+sum.cpp: In function 'int main()':
+sum.cpp:20:9: warning: unused variable 'br' [-Wunused-variable]
+sum.cpp:20:15: warning: unused variable 'sb' [-Wunused-variable]

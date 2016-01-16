@@ -1,0 +1,2 @@
+sum.cpp: In function 'int NMS(int)':
+sum.cpp:9:10: warning: statement has no effect [-Wunused-value]

@@ -1,0 +1,2 @@
+sum.cpp: In function 'int main()':
+sum.cpp:8:10: warning: statement has no effect [-Wunused-value]

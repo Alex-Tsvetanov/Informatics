@@ -1,0 +1,11 @@
+sum.cpp: In function 'int main()':
+sum.cpp:6:5: warning: left operand of comma operator has no effect [-Wunused-value]
+sum.cpp:6:7: warning: right operand of comma operator has no effect [-Wunused-value]
+sum.cpp:7:5: warning: left operand of comma operator has no effect [-Wunused-value]
+sum.cpp:7:9: warning: right operand of comma operator has no effect [-Wunused-value]
+sum.cpp:8:15: warning: 'a' is used uninitialized in this function [-Wuninitialized]
+sum.cpp:8:15: warning: 'b' is used uninitialized in this function [-Wuninitialized]
+sum.cpp:8:15: warning: 'c' is used uninitialized in this function [-Wuninitialized]
+sum.cpp:9:15: warning: 'd' is used uninitialized in this function [-Wuninitialized]
+sum.cpp:9:15: warning: 'e' is used uninitialized in this function [-Wuninitialized]
+sum.cpp:9:15: warning: 'f' is used uninitialized in this function [-Wuninitialized]

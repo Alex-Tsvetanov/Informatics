@@ -1,0 +1,7 @@
+trans.cpp: In function 'int main()':
+trans.cpp:12:5: error: 'vector' was not declared in this scope
+trans.cpp:12:12: error: expected primary-expression before 'int'
+trans.cpp:12:12: error: expected ';' before 'int'
+trans.cpp:19:19: error: 'res' was not declared in this scope
+trans.cpp:21:11: error: 'res' was not declared in this scope
+trans.cpp:14:9: warning: unused variable 'br' [-Wunused-variable]

@@ -1,0 +1,14 @@
+2rows.cpp: In function 'bool find_lowest_number(std::vector<int>, std::vector<int>::iterator)':
+2rows.cpp:11:9: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+2rows.cpp:11:14: error: 'iter2' does not name a type
+2rows.cpp:11:34: error: expected ';' before 'iter2'
+2rows.cpp:11:34: error: 'iter2' was not declared in this scope
+2rows.cpp: In function 'bool Is_mergable(std::vector<int>, std::vector<int>)':
+2rows.cpp:24:9: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+2rows.cpp:24:14: error: 'iter' does not name a type
+2rows.cpp:24:33: error: expected ';' before 'iter'
+2rows.cpp:24:33: error: 'iter' was not declared in this scope
+2rows.cpp:26:13: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+2rows.cpp:26:18: error: 'iter2' does not name a type
+2rows.cpp:26:38: error: expected ';' before 'iter2'
+2rows.cpp:26:38: error: 'iter2' was not declared in this scope

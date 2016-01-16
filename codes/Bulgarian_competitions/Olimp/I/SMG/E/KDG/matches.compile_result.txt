@@ -1,0 +1,7 @@
+matches.cpp: In function 'int main()':
+matches.cpp:8:16: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:8:18: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:6:11: warning: 'a' may be used uninitialized in this function [-Wuninitialized]
+matches.cpp:6:11: warning: 'b' may be used uninitialized in this function [-Wuninitialized]
+matches.cpp:7:18: warning: 'c' may be used uninitialized in this function [-Wuninitialized]
+matches.cpp:7:18: warning: 'd' may be used uninitialized in this function [-Wuninitialized]

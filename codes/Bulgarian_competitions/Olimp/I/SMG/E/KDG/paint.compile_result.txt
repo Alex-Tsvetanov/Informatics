@@ -1,0 +1,11 @@
+paint.cpp: In function 'int main()':
+paint.cpp:6:20: warning: right operand of comma operator has no effect [-Wunused-value]
+paint.cpp:6:21: warning: right operand of comma operator has no effect [-Wunused-value]
+paint.cpp:8:30: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+paint.cpp:9:44: warning: statement has no effect [-Wunused-value]
+paint.cpp:4:18: warning: unused variable 'lv' [-Wunused-variable]
+paint.cpp:4:21: warning: unused variable 'st' [-Wunused-variable]
+paint.cpp:4:53: warning: variable 'ploshtKutiqBoq' set but not used [-Wunused-but-set-variable]
+paint.cpp:7:27: warning: 'shirina' may be used uninitialized in this function [-Wuninitialized]
+paint.cpp:7:27: warning: 'dulzina' may be used uninitialized in this function [-Wuninitialized]
+paint.cpp:11:24: warning: 'naiNiskaCena' may be used uninitialized in this function [-Wuninitialized]

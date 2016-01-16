@@ -1,0 +1,3 @@
+woolly.cpp: In function 'bool hasVuprr()':
+woolly.cpp:146:27: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+woolly.cpp:156:31: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

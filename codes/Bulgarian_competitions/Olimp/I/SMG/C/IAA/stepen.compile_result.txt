@@ -1,0 +1,2 @@
+stepen.cpp: In function 'int main()':
+stepen.cpp:6:17: warning: unused variable 'd' [-Wunused-variable]

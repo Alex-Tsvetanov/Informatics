@@ -1,0 +1,4 @@
+2rows.cpp: In function 'void solve()':
+2rows.cpp:27:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+2rows.cpp:29:30: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+2rows.cpp:39:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

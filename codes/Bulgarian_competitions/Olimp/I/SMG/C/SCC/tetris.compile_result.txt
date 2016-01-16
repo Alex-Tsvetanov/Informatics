@@ -1,0 +1,2 @@
+tetris.cpp: In function 'int main()':
+tetris.cpp:18:29: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

@@ -1,0 +1,2 @@
+abx.cpp: In function 'int main()':
+abx.cpp:4:19: warning: unused variable 'a2' [-Wunused-variable]

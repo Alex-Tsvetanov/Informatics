@@ -1,0 +1,10 @@
+matches.cpp: In function 'int main()':
+matches.cpp:5:6: warning: left operand of comma operator has no effect [-Wunused-value]
+matches.cpp:5:9: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:5:12: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:5:13: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:6:4: warning: left operand of comma operator has no effect [-Wunused-value]
+matches.cpp:6:7: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:6:12: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:6:21: warning: right operand of comma operator has no effect [-Wunused-value]
+matches.cpp:9:28: warning: suggest parentheses around '&&' within '||' [-Wparentheses]

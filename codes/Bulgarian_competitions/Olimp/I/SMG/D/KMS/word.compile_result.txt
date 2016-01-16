@@ -1,0 +1,3 @@
+word.cpp: In function 'int main()':
+word.cpp:15:26: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+word.cpp:16:5: warning: 'next' may be used uninitialized in this function [-Wuninitialized]

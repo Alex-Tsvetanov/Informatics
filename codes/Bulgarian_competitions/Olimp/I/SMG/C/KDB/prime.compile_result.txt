@@ -1,0 +1,3 @@
+prime.cpp: In function 'int main()':
+prime.cpp:4:10: warning: unused variable 'p' [-Wunused-variable]
+prime.cpp:4:13: warning: unused variable 'a' [-Wunused-variable]

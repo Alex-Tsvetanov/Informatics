@@ -1,0 +1,3 @@
+matches.cpp: In function 'int main()':
+matches.cpp:35:5: error: redefinition of 'int main()'
+matches.cpp:3:5: error: 'int main()' previously defined here

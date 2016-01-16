@@ -1,0 +1,2 @@
+paint.cpp: In function 'int main()':
+paint.cpp:14:1: warning: 'cena3' may be used uninitialized in this function [-Wuninitialized]

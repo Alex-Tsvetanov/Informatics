@@ -1,0 +1,4 @@
+prime.cpp:17:14: warning: multi-character character constant [-Wmultichar]
+prime.cpp:17:14: warning: overflow in implicit constant conversion [-Woverflow]
+prime.cpp: In function 'int main()':
+prime.cpp:21:15: warning: unused variable 'n' [-Wunused-variable]

@@ -1,0 +1,2 @@
+word.cpp: In function 'int main()':
+word.cpp:19:13: warning: 'kodovaduma' may be used uninitialized in this function [-Wuninitialized]

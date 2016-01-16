@@ -1,0 +1,2 @@
+shadow.cpp: In function 'int main()':
+shadow.cpp:26:18: warning: unused variable 'y' [-Wunused-variable]

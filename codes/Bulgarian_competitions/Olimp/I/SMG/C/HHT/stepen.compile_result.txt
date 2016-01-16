@@ -1,0 +1,5 @@
+stepen.cpp: In function 'int main()':
+stepen.cpp:44:23: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+stepen.cpp:6:17: warning: unused variable 'a' [-Wunused-variable]
+stepen.cpp:6:19: warning: unused variable 'b' [-Wunused-variable]
+stepen.cpp:7:81: warning: unused variable 'obshtidelitelinadelitelite' [-Wunused-variable]

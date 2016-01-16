@@ -1,0 +1,7 @@
+sum.cpp: In function 'int main()':
+sum.cpp:7:7: warning: statement has no effect [-Wunused-value]
+sum.cpp:8:7: warning: statement has no effect [-Wunused-value]
+sum.cpp:9:17: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+sum.cpp:4:20: warning: unused variable 'cifra' [-Wunused-variable]
+sum.cpp:6:9: warning: 'A' may be used uninitialized in this function [-Wuninitialized]
+sum.cpp:6:9: warning: 'B' may be used uninitialized in this function [-Wuninitialized]

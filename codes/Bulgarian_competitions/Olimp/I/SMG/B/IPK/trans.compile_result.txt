@@ -1,0 +1,3 @@
+trans.cpp: In function 'int main()':
+trans.cpp:25:33: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+trans.cpp:31:38: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]

@@ -1,0 +1,21 @@
+stepen.cpp:16:5: warning: identifier 'nullptr' is a keyword in C++11 [-Wc++0x-compat]
+stepen.cpp:11:31: error: '>>' should be '> >' within a nested template argument list
+stepen.cpp: In function 'int main()':
+stepen.cpp:16:13: error: 'nullptr' was not declared in this scope
+stepen.cpp:38:17: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+stepen.cpp:38:23: error: ISO C++ forbids declaration of 'p' with no type [-fpermissive]
+stepen.cpp:38:25: error: range-based 'for' loops are not allowed in C++98 mode
+stepen.cpp:40:22: error: request for member 'second' in 'p', which is of non-class type 'int'
+stepen.cpp:46:43: error: request for member 'second' in 'p', which is of non-class type 'int'
+stepen.cpp:48:30: error: request for member 'first' in 'p', which is of non-class type 'int'
+stepen.cpp:52:26: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+stepen.cpp:52:33: warning: extended initializer lists only available with -std=c++11 or -std=gnu++11 [enabled by default]
+stepen.cpp:52:33: warning: narrowing conversion of 'n' from 'int' to 'unsigned int' inside { } is ill-formed in C++11 [-Wnarrowing]
+stepen.cpp:58:19: error: 'begin' was not declared in this scope
+stepen.cpp:58:29: error: 'end' was not declared in this scope
+stepen.cpp:58:62: error: '>>' should be '> >' within a nested template argument list
+stepen.cpp:59:9: warning: 'auto' changes meaning in C++11; please remove it [-Wc++0x-compat]
+stepen.cpp:59:15: error: ISO C++ forbids declaration of 'sq' with no type [-fpermissive]
+stepen.cpp:59:18: error: range-based 'for' loops are not allowed in C++98 mode
+stepen.cpp:61:18: error: request for member 'first' in 'sq', which is of non-class type 'int'
+stepen.cpp:61:33: error: request for member 'second' in 'sq', which is of non-class type 'int'

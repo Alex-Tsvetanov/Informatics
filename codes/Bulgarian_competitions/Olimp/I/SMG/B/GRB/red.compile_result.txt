@@ -1,0 +1,4 @@
+red.cpp: In function 'int main()':
+red.cpp:9:21: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+red.cpp:6:39: warning: unused variable 'numin' [-Wunused-variable]
+red.cpp:6:48: warning: unused variable 'numax' [-Wunused-variable]

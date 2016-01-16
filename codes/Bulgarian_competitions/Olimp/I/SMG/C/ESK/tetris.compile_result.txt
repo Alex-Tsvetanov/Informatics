@@ -1,0 +1,2 @@
+tetris.cpp: In function 'int main()':
+tetris.cpp:7:15: warning: variable 'broi' set but not used [-Wunused-but-set-variable]

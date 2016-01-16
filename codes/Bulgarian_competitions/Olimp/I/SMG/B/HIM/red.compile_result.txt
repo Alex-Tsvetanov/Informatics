@@ -1,0 +1,2 @@
+red.cpp: In function 'int main()':
+red.cpp:9:5: warning: unused variable 'maks' [-Wunused-variable]

@@ -1,0 +1,3 @@
+tetris.cpp: In function 'int main()':
+tetris.cpp:5:12: warning: right operand of comma operator has no effect [-Wunused-value]
+tetris.cpp:4:17: warning: unused variable 'K' [-Wunused-variable]

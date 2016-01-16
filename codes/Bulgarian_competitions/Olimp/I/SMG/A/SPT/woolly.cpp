@@ -1,0 +1,96 @@
+#include<iostream>
+using namespace std;
+char a[60],b[60],c[61],first,second;
+    int i=0, aindex=0, bindex=0, whatwasitsname=0,maxindex,numbofones,numbofq;
+int main()
+{
+    cin>>a>>b;
+    while((a[i]=='0')||(a[i]=='1')||(a[i]=='?'))
+    {
+        aindex++;
+        i++;
+    }
+    i=0;
+    while((b[i]=='0')||(b[i]=='1')||(b[i]=='?'))
+    {
+        bindex++;
+        i++;
+    }
+    if(aindex>bindex)
+    {
+        maxindex=aindex+1;
+    }
+    else
+    {
+        maxindex=bindex+1;
+    }
+    for(i=0;i<maxindex;++i)
+    {
+        numbofones=0;
+        numbofq=0;
+        if(i>=aindex)
+        {
+            first='0';
+        }
+        else
+        {
+            first=a[aindex-i-1];
+        }
+        if(i>=bindex)
+        {
+            second='0';
+        }
+        else
+        {
+            second=b[bindex-i-1];
+        }
+        if(first=='?'){numbofq++;}
+        if(second=='?'){numbofq++;}
+        if(whatwasitsname=='?'){numbofq++;}
+        if(first=='1'){numbofones++;}
+        if(second=='1'){numbofones++;}
+        if(whatwasitsname=='1'){numbofones++;}
+        if(numbofq>0)
+        {
+            c[maxindex-i-1]='?';
+        }
+        else
+        {
+            if(numbofones==0||numbofones==2)
+            {
+                c[maxindex-i-1]='0';
+            }
+            else
+            {
+                c[maxindex-i-1]='1';
+            }
+        }
+        if(numbofones>1)
+        {
+            whatwasitsname='1';
+        }
+        else if((numbofones==1&&numbofq==0)||(numbofones==0&&numbofq<2))
+        {
+            whatwasitsname='0';
+        }
+        else
+        {
+            whatwasitsname='?';
+        }
+
+    }
+    if(c[0]=='0')
+    {
+        for(i=0;i<maxindex-1;++i)
+        {
+            c[i]=c[i+1];
+        }
+        c[maxindex-1]='\0';
+    }
+    else
+    {
+        c[maxindex]='\0';
+    }
+    cout<<c;
+    return 0;
+}

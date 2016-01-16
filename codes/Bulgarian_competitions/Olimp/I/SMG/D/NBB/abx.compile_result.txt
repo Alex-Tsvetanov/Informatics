@@ -1,0 +1,4 @@
+abx.cpp: In function 'int main()':
+abx.cpp:7:4: warning: statement has no effect [-Wunused-value]
+abx.cpp:8:4: warning: statement has no effect [-Wunused-value]
+abx.cpp:5:6: warning: 'X' is used uninitialized in this function [-Wuninitialized]

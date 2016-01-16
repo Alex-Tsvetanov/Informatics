@@ -1,0 +1,2 @@
+sum.cpp: In function 'int main()':
+sum.cpp:8:5: warning: 'a' is used uninitialized in this function [-Wuninitialized]

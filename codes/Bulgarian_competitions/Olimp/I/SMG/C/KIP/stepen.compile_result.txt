@@ -1,0 +1,4 @@
+stepen.cpp: In function 'int main()':
+stepen.cpp:4:11: warning: unused variable 'a' [-Wunused-variable]
+stepen.cpp:4:13: warning: unused variable 'br' [-Wunused-variable]
+stepen.cpp:6:10: warning: unused variable 'p' [-Wunused-variable]

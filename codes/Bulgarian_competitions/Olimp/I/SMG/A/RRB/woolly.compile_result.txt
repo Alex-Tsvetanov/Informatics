@@ -1,0 +1,6 @@
+woolly.cpp: In function 'int main()':
+woolly.cpp:11:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+woolly.cpp:14:23: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+woolly.cpp:18:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+woolly.cpp:23:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+woolly.cpp:28:39: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
