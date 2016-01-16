@@ -44,6 +44,9 @@ int main ()
 		PointInTriangle (A_2, A_1, B_1, C_1) and
 		PointInTriangle (B_2, A_1, B_1, C_1) and
 		PointInTriangle (C_2, A_1, B_1, C_1);
-		std::cout << (second_in_first or first_in_second) << std::endl;
+		if (second_in_first or first_in_second)
+			std::cout << "YES\n";
+		else
+			std::cout << "NO\n";
 	}
 }
