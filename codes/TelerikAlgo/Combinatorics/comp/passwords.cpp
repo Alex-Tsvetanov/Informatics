@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int rec (int index, int n, int k, int* digits, string& seq, string& output)
+int rec (int index, int n, int k, int* digits, string seq, string& output)
 {
 	if (k <= 0)
 	{
