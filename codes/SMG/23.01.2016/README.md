@@ -3,5 +3,5 @@
 	1. [Задача 1](https://github.com/Alex-Tsvetanov/Informatics/blob/master/codes/SMG/23.01.2016/descriptions/Kontrolno/Task1/Task1.pdf)
 	2. [Задача 2](https://github.com/Alex-Tsvetanov/Informatics/blob/master/codes/SMG/23.01.2016/descriptions/Kontrolno/Task2/Task2.pdf)
 2. Школа
-	1. [Задача 1](https://github.com/)
-	2. [Задача 2](https://github.com/)
+	1. [Задача 1](https://github.com/Alex-Tsvetanov/Informatics/blob/master/codes/SMG/23.01.2016/descriptions/shkola/Task1/Task1.pdf)
+	2. [Задача 2](https://github.com/Alex-Tsvetanov/Informatics/blob/master/codes/SMG/23.01.2016/descriptions/shkola/Task2/Task2.pdf)
