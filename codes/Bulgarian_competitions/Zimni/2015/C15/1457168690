@@ -1,0 +1,13 @@
+(I3
+I94
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<queue>\r\nusing namespace std;\r\nlong long arr[1001][1001],weights[1001][1001],answ[1001];\r\nlong long Bfs(long long from,long long n){\r\n  long long vertex,visited[n],vertexesCount = 1;\r\n  for(long long i=0;i<n;i++){\r\n    visited[i] = 0;\r\n  }\r\n  queue<long long> q;\r\n  q.push(from);\r\n  visited[from] = 1;\r\n  while(!q.empty()){\r\n      for(long long i = 0;i < n; i++){\r\n         if(visited[i] == 0 and (arr[q.front()][i] == 1 or arr[i][q.front()] == 1)){\r\n           visited[i] = 1;\r\n           vertexesCount++;\r\n           q.push(i);\r\n         }\r\n      }\r\n      q.pop();\r\n  }\r\n  if(vertexesCount == n){\r\n    return 1;\r\n  }else{\r\n      return 0;\r\n  }\r\n}\r\nint main(){\r\nlong long x,y,i,n,m,w,j;\r\ncin>>n>>m;\r\nfor(i=0;i<m;i++){\r\n  cin>>x>>y>>w;\r\n  arr[x][y] = 1;\r\n  arr[y][x] = 1;\r\n  weights[y][x] = w;\r\n  weights[x][y] = w;\r\n}\r\n  long long vertex,visited[n][n];\r\n  for(x=0;x<n;x++){\r\n    for(y=0;y<n;y++){\r\n      visited[x][y] = 0;\r\n    }\r\n  }\r\n  queue<long long> q;\r\n  q.push(0);\r\n  visited[0][0] = 1;\r\n  while(!q.empty()){\r\n      for(i = 0;i < n; i++){\r\n         if(visited[i][q.front()] == 0 and (arr[q.front()][i] == 1 or arr[i][q.front()] == 1)){\r\n           if(Bfs(i,n) == 1 and weights[q.front()][i]>answ[q.front()]){\r\n             answ[q.front()] = weights[q.front()][i];\r\n           }\r\n           visited[i][q.front()] = 1;\r\n           q.push(i);\r\n         }\r\n      }\r\n      q.pop();\r\n  }\r\n  for(i = 1;i<n;i++){\r\n    cout<<answ[i]<<" ";\r\n  }\r\n  cout<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

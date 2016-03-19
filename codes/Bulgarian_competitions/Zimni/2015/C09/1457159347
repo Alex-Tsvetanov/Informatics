@@ -1,0 +1,13 @@
+(I3
+I88
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include <iostream>\r\nusing namespace std;\r\nint a[100000]={1,1,0},br=1,p[100000],n,r[100100];\r\nint main( )\r\n{\r\n    int i,j,k=2,f=0;\r\n    p[br++]=2;\r\n    while(1)\r\n    {\r\n        f=0;\r\n        for(i=2*k;i<100000;i+=k)a[i]=1;\r\n        for(j=k+1;j<100000;j++)\r\n        {\r\n            if(a[j]==0)\r\n            {\r\n               f=1;\r\n               k=j;\r\n               p[br++]=j;\r\n               break;\r\n            }\r\n        }\r\n        if(f==0)break;\r\n    }\r\n     j=1;\r\n     r[0]=2;\r\n     p[0]=1;\r\n     for(i=1;;i++)\r\n     {\r\n         for(k=p[i-1]+1;k<=p[i+1];k++)\r\n         {\r\n             r[j++]=p[i]*k;\r\n         }\r\n         if(j>=100000)break;\r\n     }\r\n     cin>>n;\r\n     cout<<r[n-1]<<endl;\r\n}\r\n'
+p3
+tp4
+stp5
+.

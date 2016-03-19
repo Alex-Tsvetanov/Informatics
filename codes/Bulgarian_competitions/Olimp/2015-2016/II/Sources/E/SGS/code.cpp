@@ -1,0 +1,144 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+int main()
+{
+    long long a=0,b=0,i1,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,p=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0,s1=0;
+    char a1[1000000];
+cin.getline(a1,1000000,'.');
+for(i=0;i<=strlen(a1);i++)
+{
+    if(a1[i1]=='a')a++;
+    if(a1[i1]=='b')b++;
+    if(a1[i1]=='c')c++;
+    if(a1[i1]=='d')d++;
+    if(a1[i1]=='e')e++;
+    if(a1[i1]=='f')f++;
+    if(a1[i1]=='g')g++;
+    if(a1[i1]=='h')h++;
+    if(a1[i1]=='i')i++;
+    if(a1[i1]=='j')j++;
+    if(a1[i1]=='k')k++;
+    if(a1[i1]=='l')l++;
+    if(a1[i1]=='m')m++;
+    if(a1[i1]=='n')n++;
+    if(a1[i1]=='o')o++;
+    if(a1[i1]=='p')p++;
+    if(a1[i1]=='q')q++;
+    if(a1[i1]=='r')r++;
+    if(a1[i1]=='s')s++;
+    if(a1[i1]=='t')t++;
+    if(a1[i1]=='u')u++;
+    if(a1[i1]=='v')v++;
+    if(a1[i1]=='w')w++;
+    if(a1[i1]=='x')x++;
+    if(a1[i1]=='y')y++;
+    if(a1[i1]=='z')z++;
+}
+if(a>1)
+{
+    s1=s1+(strlen(a1)-a+2);
+}
+if(b>1)
+{
+    s1=s1+(strlen(a1)-b+2);
+}
+if(c>1)
+{
+    s1=s1+(strlen(a1)-c+2);
+}
+if(d>1)
+{
+    s1=s1+(strlen(a1)-d+2);
+}
+if(e>1)
+{
+    s1=s1+(strlen(a1)-e+2);
+}
+if(f>1)
+{
+    s1=s1+(strlen(a1)-f+2);
+}
+if(g>1)
+{
+    s1=s1+(strlen(a1)-g+2);
+}
+if(h>1)
+{
+    s1=s1+(strlen(a1)-h+2);
+}
+if(i>1)
+{
+    s1=s1+(strlen(a1)-i+2);
+}
+if(j>1)
+{
+    s1=s1+(strlen(a1)-j+2);
+}
+if(k>1)
+{
+    s1=s1+(strlen(a1)-k+2);
+}
+if(l>1)
+{
+    s1=s1+(strlen(a1)-l+2);
+}
+if(m>1)
+{
+    s1=s1+(strlen(a1)-m+2);
+}
+if(n>1)
+{
+    s1=s1+(strlen(a1)-n+2);
+}
+if(o>1)
+{
+    s1=s1+(strlen(a1)-o+2);
+}
+if(p>1)
+{
+    s1=s1+(strlen(a1)-p+2);
+}
+if(q>1)
+{
+    s1=s1+(strlen(a1)-q+2);
+}
+if(r>1)
+{
+    s1=s1+(strlen(a1)-r+2);
+}
+if(s>1)
+{
+    s1=s1+(strlen(a1)-s+2);
+}
+if(t>1)
+{
+    s1=s1+(strlen(a1)-t+2);
+}
+if(u>1)
+{
+    s1=s1+(strlen(a1)-u+2);
+}
+if(v>1)
+{
+    s1=s1+(strlen(a1)-v+2);
+}
+if(w>1)
+{
+    s1=s1+(strlen(a1)-w+2);
+}
+if(x>1)
+{
+    s1=s1+(strlen(a1)-x+2);
+}
+if(y>1)
+{
+    s1=s1+(strlen(a1)-y+2);
+}
+if(z>1)
+{
+    s1=s1+(strlen(a1)-z+2);
+}
+cout<<strlen(a1)-s1<<endl;
+    return 0;
+}

@@ -1,0 +1,13 @@
+(I3
+I80
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#define MAXN 20000\r\nusing namespace std;\r\nint n,m;\r\nvector < vector <pair <int,int> > > pol;\r\nint br[MAXN];\r\nbool z[MAXN];\r\n\r\nvoid dfs (int g1, int g2, int t,int y, bool z[])\r\n{\r\n    if (g1!=g2)\r\n        for (int i=0; i<pol[g1].size(); i++)\r\n        {\r\n            if (!z[pol[g1][i].first])\r\n            {\r\n                z[pol[g1][i].first]=true;\r\n                if ((pol[g1][i].second<y )|| (y==0))\r\n                {\r\n                    dfs (pol[g1][i].first,g2,t,pol[g1][i].second,z);\r\n                }\r\n                else\r\n                {\r\n                    dfs (pol[g1][i].first,g2,t,y,z);\r\n                }\r\n                z[pol[g1][i].first]=false;\r\n            }\r\n        }\r\n    else\r\n    {\r\n        if (y>br[t]) br[t]=y;\r\n    }\r\n}\r\n\r\nint main ()\r\n{\r\n    pair <int,int> d;\r\n    cin>>n>>m;\r\n    int g1,g2,p;\r\n    pol.resize(n);\r\n    bool z[n];\r\n\r\n    for (int i=0; i<m; i++)\r\n    {\r\n        cin>>g1>>g2>>p;\r\n        d.first=g2;\r\n        d.second=p;\r\n        pol[g1].push_back(d);\r\n        d.first=g1;\r\n        pol[g2].push_back(d);\r\n    }\r\n\r\n    for (int j=1; j<n; j++) z[j]=false;\r\n        z[0]=true;\r\n\r\n    for (int i=1; i<n; i++)\r\n    {\r\n\r\n        dfs(0,i,i-1,0,z);\r\n    }\r\n    cout<<br[0];\r\n    for (int i=1; i<n-1; i++) cout<<" "<<br[i];\r\n    cout<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

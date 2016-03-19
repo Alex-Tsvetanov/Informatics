@@ -1,0 +1,49 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{long int n,m,a[220][220],i,j,br=1;
+cin>>n>>m;
+for(i=0;i<n;i++)
+for(j=0;j<m;j++){cin>>a[i][j];
+if(a[i][j]==1)a[i][j]=60000;
+if(a[i][j]==0)a[i][j]=50000;
+}
+a[0][0]=1;
+for(i=0;i<n;i++)
+for(j=0;j<m;j++)
+{if(j!=0&&j!=m-1&&i==0&&a[i][j]==50000)
+{if(a[i+1][j]<=br||a[i][j+1]<=br||a[i][j-1]<=br){a[i][j]=br;}
+if(a[i+1][j]>br&&a[i][j+1]>br&&a[i][j-1]>br){br++;a[i][j]=br;}
+}
+if(i==0&&j==m-1&&a[i][j]==50000)
+{if(a[i+1][j]<=br||a[i][j-1]<=br){a[i][j]=br;}
+if(a[i+1][j]>br&&a[i][j-1]>br){br++;a[i][j]=br;}
+}
+if(i==n-1&&j!=0&&j!=m-1&&a[i][j]==50000)
+{if(a[i-1][j]<=br||a[i][j-1]<=br||a[i][j+1]<=br){a[i][j]=br;}
+if(a[i-1][j]>br&&a[i][j-1]>br&&a[i][j+1]>br){br++;a[i][j]=br;}
+}
+if(i==n-1&&j==0&&a[i][j]==50000)
+{if(a[i-1][j]<=br||a[i][j+1]<=br){a[i][j]=br;}
+if(a[i-1][j]>br&&a[i][j+1]>br){br++;a[i][j]=br;}
+}
+if(i==n-1&&j==m-1&&a[i][j]==50000)
+{if(a[i-1][j]<=br||a[i][j-1]<=br){a[i][j]=br;}
+if(a[i-1][j]>br&&a[i][j-1]>br){br++;a[i][j]=br;}
+}
+if(j==0&&i!=0&&i!=n-1&&a[i][j]==50000)
+{if(a[i+1][j]<=br||a[i-1][j]<=br||a[i][j+1]<=br){a[i][j]=br;}
+if(a[i+1][j]>br&&a[i-1][j]>br&&a[i][j+1]>br){br++;a[i][j]=br;}
+}
+if(j==m-1&&i!=0&&i!=n-1&&a[i][j]==50000)
+{if(a[i-1][j]<=br||a[i+1][j]<=br||a[i][j-1]<=br){a[i][j]=br;}
+if(a[i-1][j]>br&a[i+1][j]>br&&a[i][j-1]>br){br++;a[i][j]=br;}
+}
+if(i>0&&i<n-1&&j>0&&j<m-1&&a[i][j]==50000)
+{if(a[i+1][j]<=br||a[i-1][j]<=br||a[i][j+1]<=br||a[i][j-1]<=br){a[i][j]=br;}
+if(a[i+1][j]>br&&a[i-1][j]>br&&a[i][j+1]>br&&a[i][j-1]>br){br++;a[i][j]=br;}
+}
+}
+cout<<br<<endl;
+return 0;
+}

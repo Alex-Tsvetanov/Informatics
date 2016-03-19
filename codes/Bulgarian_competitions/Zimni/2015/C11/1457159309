@@ -1,0 +1,13 @@
+(I3
+I90
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include <iostream>\n\nusing namespace std;\n\nlong long arr [100000];\n\nint main ()\n{\n\tcin.tie (nullptr);\n\tios::sync_with_stdio (false);\n\tint n;\n\tcin >> n;\n\tn --;\n\tarr [0] = 2;\n\tfor (int i = 1 ; i <= n ; i ++)\n\t{\n\t\tint maxDev = 1, copyPrev = arr [i - 1];\n\t\tfor (int i = 2 ; copyPrev > 1 ; i ++)\n\t\t{\n\t\t\twhile (copyPrev % i == 0)\n\t\t\t{\n\t\t\t\tmaxDev = i;\n\t\t\t\tcopyPrev /= i;\n\t\t\t}\n\t\t}\t\t\t \n\t\tarr [i] = arr [i - 1] + maxDev;\n\t}\n\tcout << arr [n] << endl;\n\treturn 0;\n\tcout << "{\\n";\n\tfor (int i = 0 ; i < 100000 ; i ++)\n\t\tcout << "\\t" << arr [i] << ",\\n";\n\tcout << "}";\n}\n'
+p3
+tp4
+stp5
+.

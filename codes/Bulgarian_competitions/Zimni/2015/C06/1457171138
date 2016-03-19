@@ -1,0 +1,13 @@
+(I3
+I85
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<vector>\r\n#include<queue>\r\n#define endl \'\\n\'\r\nusing namespace std;\r\n\r\n#define NMax 20000\r\n#define MMax 200000\r\n#define MaxValue 123456789\r\n\r\nstruct edge\r\n{\r\n    int v,tg;\r\n\r\n    edge(){};\r\n    edge(int a,int b)\r\n    {\r\n        v=a,tg=b;\r\n    }\r\n};\r\n\r\nint n,m,from,to,tg,dist[NMax+5];\r\nbool used[NMax+5];\r\nvector<edge> nb[NMax+5];\r\n\r\nbool operator < (edge a,edge b)\r\n{\r\n    return a.tg<b.tg;\r\n}\r\n\r\nvoid dijkstra(int s)\r\n{\r\n    priority_queue<edge> pq;\r\n    dist[s]=MaxValue;\r\n    used[s]=1;\r\n\r\n    for(int i=0;i<nb[s].size();i++)\r\n    {\r\n        dist[nb[s][i].v]=nb[s][i].tg;\r\n        pq.push(edge(nb[s][i].v,nb[s][i].tg));\r\n    }\r\n\r\n    while(!pq.empty())\r\n    {\r\n        int tmp=pq.top().v,curtg=pq.top().tg;\\\r\n        pq.pop();\r\n\r\n        if(used[tmp])continue;\r\n        used[tmp]=1;\r\n\r\n        for(int i=0;i<nb[tmp].size();i++)\r\n        {\r\n            if(used[nb[tmp][i].v]==1)continue;\r\n            if(dist[nb[tmp][i].v]==MaxValue)\r\n            {\r\n                dist[nb[tmp][i].v]=min(dist[tmp],nb[tmp][i].tg);\r\n                pq.push(edge(nb[tmp][i].v,dist[nb[tmp][i].v]));\r\n            }\r\n            else if(min(dist[tmp],nb[tmp][i].tg)>dist[nb[tmp][i].v])\r\n            {\r\n                dist[nb[tmp][i].v]=min(dist[tmp],nb[tmp][i].tg);\r\n                pq.push(edge(nb[tmp][i].v,dist[nb[tmp][i].v]));\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint main()\r\n{\r\n    ios_base::sync_with_stdio(0);\r\n    cin.tie(0);\r\n    cout.tie(0);\r\n\r\n    cin>>n>>m;\r\n\r\n    for(int i=0;i<=n;i++)\r\n        dist[i]=MaxValue;\r\n\r\n    for(int i=0;i<m;i++)\r\n    {\r\n        cin>>from>>to>>tg;\r\n        nb[from].push_back(edge(to,tg));\r\n        nb[to].push_back(edge(from,tg));\r\n    }\r\n\r\n    dijkstra(0);\r\n\r\n    for(int i=1;i<n;i++)\r\n    {\r\n        if(i!=1)cout<<" ";\r\n        if(dist[i]!=MaxValue)cout<<dist[i];\r\n        else cout<<0;\r\n\r\n    }\r\n    cout<<endl;\r\n\r\n    return 0;\r\n}\r\n/**\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n*/\r\n'
+p3
+tp4
+stp5
+.

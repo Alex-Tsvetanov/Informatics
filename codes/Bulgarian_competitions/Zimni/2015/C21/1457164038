@@ -1,0 +1,13 @@
+(I3
+I100
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights2.cpp
+p2
+S'/// greedy #1\r\n#include<iostream>\r\n#include<algorithm>\r\n#include<cmath>\r\n#include<cstdlib>\r\n#include<vector>\r\nusing namespace std;\r\nint maxe[2001],mns[2001][2001];\r\nint main()\r\n{\r\n    int i,j,n,m,t,a,b;\r\n    cin>>n>>m;\r\n    for(i=0;i<m;i++)\r\n    {\r\n        cin>>a>>b>>t;\r\n        mns[a][b]=t;\r\n        mns[b][a]=t;\r\n    }\r\n    for(i=1;i<n;i++)\r\n    for(j=0;j<n;j++)\r\n    {\r\n        if(mns[i][j]>maxe[i])maxe[i]=mns[i][j];\r\n    }\r\n    for(int i=1;i<n;i++)\r\n    {\r\n        cout<<maxe[i]<<" ";\r\n    }\r\n    cout<<"\\n";\r\n\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

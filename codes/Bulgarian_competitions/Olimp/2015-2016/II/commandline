@@ -1,0 +1,1 @@
+g++ -o $OUTPUT_FILE -O2 -s -static -lm -x c++ $SOURCE_FILE -std=gnu++03

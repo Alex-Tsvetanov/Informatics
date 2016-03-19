@@ -1,0 +1,13 @@
+(I3
+I87
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\n#include<string>\r\n#include<vector>\r\n#include<queue>\r\n#include<stack>\r\n\r\n#define endl \'\\n\'\r\n\r\nusing namespace std;\r\nstruct point\r\n{\r\n    int x,tg;\r\n};\r\nvector<point> v[20000];\r\npriority_queue<int> qu;\r\nint used[20000]= {1,0};\r\nint ras[20000]={-1};\r\nint dijkstra()\r\n{\r\n    int a;\r\n    int t=5;\r\n    qu.push(0);\r\n    while(t)\r\n    {\r\n        t--;\r\n        a=qu.top();\r\n        used[a]=1;\r\n        qu.pop();\r\n        for(int i=0; i<v[a].size(); i++)\r\n        {\r\n            if(ras[v[a][i].x]==0)\r\n            {\r\n                 ras[v[a][i].x]=min(ras[a],v[a][i].tg);\r\n                    qu.push(v[a][i].x);\r\n\r\n            }\r\n                if(min(ras[a],v[a][i].tg)>ras[v[a][i].x]&&used[v[a][i].x]!=-1)\r\n                {\r\n                    //cout<<used[v[a][i].x]<<" "<<v[a][i].x<<endl;\r\n                    ras[v[a][i].x]=min(ras[a],v[a][i].tg);\r\n                    qu.push(v[a][i].x);\r\n                }\r\n        }\r\n\r\n    }\r\n\r\n}\r\n\r\n\r\nint main()\r\n{\r\n    ios::sync_with_stdio(0);\r\n    cin.tie(NULL);\r\n    int n,m;\r\n    cin>>n>>m;\r\n    int a,b,c;\r\n    point p;\r\n    for(int i=0; i<m; i++)\r\n    {\r\n        cin>>a>>b>>c;\r\n        ///if(a<b)swap(a,b);\r\n        p.x=a;\r\n        p.tg=c;\r\n        v[b].push_back(p);\r\n        p.x=b;\r\n        v[a].push_back(p);\r\n    }\r\n    /*for(int i=0; i<n; i++)\r\n    {\r\n        cout<<i<<":";\r\n        for(int j=0; j<v[i].size(); j++)\r\n        {\r\n            cout<<v[i][j].x<<" ";\r\n        }\r\n        cout<<endl;\r\n    }*/\r\n    //qu.push(0);\r\n    dijkstra();\r\n    for(int i=0;i<v[0].size();i++)\r\n    {\r\n        ras[v[0][i].x]=v[0][i].tg;\r\n\r\n\r\n    }\r\n    for(int i=1; i<n; i++)cout<<max(ras[i],0)<<" ";\r\n\r\n}\r\n\r\n/**\r\n\r\n\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n\r\n\r\n\r\n*/\r\n'
+p3
+tp4
+stp5
+.

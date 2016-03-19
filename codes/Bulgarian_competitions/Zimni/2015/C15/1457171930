@@ -1,0 +1,13 @@
+(I3
+I94
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vtest.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\nlong long n,x,y,arr[6][100000];\r\ncin>>n;\r\nfor(x=0;x<n;x++){\r\n   for(y=0;y<6;y++){\r\n     cin>>arr[y][x];\r\n   }\r\n}\r\ncout<<"NO"<<1<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

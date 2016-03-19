@@ -1,0 +1,13 @@
+(I3
+I82
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include <iostream>\r\n#include <cmath>\r\nusing namespace std;\r\nlong long n;\r\nlong long a[100000]={};\r\nbool prime(long long u){\r\n    bool flag=false;\r\n    long long i;\r\n\r\n    long long p=(long long)ceil((double)sqrt(u));\r\n\r\n    for(i=2;i<=p;i++){\r\n        if(u%i==0){\r\n            flag=true;\r\n            break;\r\n        }\r\n    }\r\n    return flag;\r\n}\r\nint main(){\r\n\r\n    long long i, j;\r\n    cin>>n;\r\n    a[0]=2;\r\n    a[1]=4;\r\n    a[2]=6;\r\n    a[3]=9;\r\n    a[4]=12;\r\n    a[5]=15;\r\n    a[6]=20;\r\n    a[7]=25;\r\n    a[8]=30;\r\n    a[9]=35;\r\n    a[10]=42;\r\n    a[11]=49;\r\n    a[12]=56;\r\n    a[13]=63;\r\n    a[14]=70;\r\n    a[15]=77;\r\n    a[16]=88;\r\n    a[17]=99;\r\n    a[18]=110;\r\n    a[19]=121;\r\n    a[20]=132;\r\n    a[21]=143;\r\n    a[22]=156;\r\n    a[23]=169;\r\n    a[24]=182;\r\n    a[25]=195;\r\n    a[26]=208;\r\n    a[27]=221;\r\n    a[28]=238;\r\n    if(n>29){\r\n        for(i=18;i<n;i++){\r\n            a[i]=0;\r\n            long long k=(long long)ceil((double)sqrt(a[i-1]));\r\n            for(j=1;j<=k;j++){\r\n                if(a[i-1]%j==0){\r\n                    if(prime(j)==0&&((j+a[i-1])>a[i])) {\r\n                        a[i]=j+a[i-1];\r\n                    }\r\n                    if(prime(a[i-1]/j)==0&&((a[i-1]/j+a[i-1])>a[i])) {\r\n                        a[i]=a[i-1]/j+a[i-1];\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    cout<<a[n-1]<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

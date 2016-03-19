@@ -1,0 +1,13 @@
+(I3
+I97
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhexgame.cpp
+p2
+S'#include<iostream>\r\n\r\nusing namespace std;\r\nint chisla[50000][6];\r\nint main(){\r\nint broi;\r\ncin>>broi;\r\nfor(int br=0;br<broi;br++){\r\n    for(int br2=0;br2<6;br2++){\r\n        cin>>chisla[br][br2];\r\n    }\r\n}\r\ncout<<broi;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

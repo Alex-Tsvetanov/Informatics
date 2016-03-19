@@ -1,0 +1,13 @@
+(I3
+I86
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nstruct edge\n{\n\tint64_t node_to, weight;\n\t\n\tedge(){}\n\tedge(int64_t node_to, int64_t weight)\n\t{\n\t\tthis->node_to = node_to;\n\t\tthis->weight = weight;\n\t}\n};\n\nconst int64_t maxN = 20005, maxM = 200005;\n\nint64_t n, m, dp[maxN];\nvector<edge> graph[maxN];\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>n>>m;\n\tfor(int64_t i = 0; i < m; i++)\n\t{\n\t\tint64_t a, b, c;\n\t\tcin>>a>>b>>c;\n\t\tgraph[a].push_back(edge(b, c));\n\t\tgraph[b].push_back(edge(a, c));\n\t}\n\t\n\tdp[0] = 10005;\n\tfor(int64_t i = 0; i < n; i++)\n\t{\n\t\tfor(int64_t j = 0; j < graph[i].size(); j++)\n\t\t{\n\t\t\tdp[i] = max(min(graph[i][j].weight, dp[graph[i][j].node_to]), dp[i]);\n\t\t\tdp[graph[i][j].node_to] = max(min(dp[i], graph[i][j].weight), dp[graph[i][j].node_to]);\n\t\t\t\n\t\t\t//cout<<i<<" "<<graph[i][j].node_to<<" "<<dp[i]<<" "<<dp[graph[i][j].node_to]<<endl;\n\t\t}\n\t}\n\t\n\tfor(int64_t i = 1; i < n; i++)\n\t{\n\t\tcout<<dp[i]<<" ";\n\t}\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

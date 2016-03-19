@@ -1,0 +1,13 @@
+(I3
+I86
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhexgames.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nconst int32_t maxN = 100000;\n\nint32_t n, hexagons[maxN][6], dist[6] = {0, 1, 2, 3, 2, 1}, dp[maxN][6], max_row;\n\nint32_t solve(int32_t ind, int32_t last)\n{\n\tif(max_row < ind) max_row = ind;\n\tif(ind == n) return 0;\n\telse if(dp[ind][last] != -1) return dp[ind][last];\n\t\n\tbool p = false;\n\tfor(int32_t i = 0; i < 6; i++)\n\t{\n\t\tif(hexagons[ind][i] == last)\n\t\t{\n\t\t\tp = true;\n\t\t\tbreak;\n\t\t}\n\t}\n\t\n\tif(!p) return 1000000;\n\t\n\tint current_value, min_value = 1000000;\n\tfor(int32_t i = 0; i < 6; i++)\n\t{\n\t\tif(hexagons[ind][i] == last)\n\t\t{\n\t\t\tcurrent_value = solve(ind + 1, hexagons[ind][(i + 3) % 6]) + dist[i];\n\t\t\tif(current_value < min_value) min_value = current_value;\n\t\t}\n\t}\n\t\n\tdp[ind][last] = min_value;\n\treturn min_value;\n}\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>n;\n\tfor(int32_t i = 0; i < n; i++)\n\t{\n\t\tcin>>hexagons[i][0]>>hexagons[i][1]>>hexagons[i][2]>>hexagons[i][3]>>hexagons[i][4]>>hexagons[i][5];\n\t}\n\t\n\tmemset(dp, -1, sizeof(dp));\n\t\n\tint32_t value1, value2, value3, value4, value5, value6;\n\tvalue1 = solve(1, hexagons[0][3]);\n\tvalue2 = solve(1, hexagons[0][4]) + dist[1];\n\tvalue3 = solve(1, hexagons[0][5]) + dist[2];\n\tvalue4 = solve(1, hexagons[0][0]) + dist[3];\n\tvalue5 = solve(1, hexagons[0][1]) + dist[4];\n\tvalue6 = solve(1, hexagons[0][2]) + dist[5];\n\n\tint32_t ans = min(value1, min(value2, min(value3, min(value4, min(value5, value6)))));\n\tif(ans >= 1000000) cout<<"NO "<<max_row + 1<<endl;\n\telse cout<<ans<<endl;\n}\n'
+p3
+tp4
+stp5
+.

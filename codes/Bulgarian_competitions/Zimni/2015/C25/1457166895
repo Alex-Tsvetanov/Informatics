@@ -1,0 +1,13 @@
+(I3
+I104
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<vector>\r\n#include<algorithm>\r\n#include<queue>\r\nusing namespace std;\r\nstruct grad{\r\n    int n,d;\r\n};\r\nstruct grad2{\r\n    int maxSmall;\r\n    int maxBig;\r\n};\r\nvector <grad> v[20000];\r\nqueue <grad> q;\r\nbool fff(grad a,grad b){\r\n    return a.d>b.d;\r\n}\r\nint s[20000],maxes[20000];\r\nbool fl[20000];\r\nint main (){\r\nint n,m,a1,b1,c1;\r\ngrad temp;\r\ncin>>n>>m;\r\nfor(int i=1;i<=m;i++){\r\n    cin>>a1>>b1>>c1;\r\n    temp.n=b1;\r\n    temp.d=c1;\r\n    v[a1].push_back(temp);\r\n    temp.n=a1;\r\n    v[b1].push_back(temp);\r\n}\r\ntemp.d=0;\r\ntemp.n=0;\r\nq.push(temp);\r\nwhile(!q.empty()){\r\n    temp=q.front();\r\n    q.pop();\r\n    if(fl[temp.n]) continue;\r\n    fl[temp.n]=true;\r\n    for(int i=0;i<v[temp.n].size();i++){\r\n        if(!fl[v[temp.n][i].n]){\r\n            q.push(v[temp.n][i]);\r\n            if(s[v[temp.n][i].n]<temp.d+v[temp.n][i].d){\r\n                s[v[temp.n][i].n]=temp.d+v[temp.n][i].d;\r\n            }\r\n            if(maxes[v[temp.n][i].n]<v[temp.n][i].d){\r\n                maxes[v[temp.n][i].n]=v[temp.n][i].d;\r\n            }\r\n        }\r\n    }\r\n}\r\nfor(int i=1;i<n;i++){\r\n    cout<<maxes[i]<<endl;\r\n}\r\nreturn 0;\r\n}\r\n/*\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n*/\r\n'
+p3
+tp4
+stp5
+.

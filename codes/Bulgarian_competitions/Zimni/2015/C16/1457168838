@@ -1,0 +1,13 @@
+(I3
+I95
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdevisor.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n\r\nusing namespace std;\r\n\r\nuint64_t prime = 2;\r\nuint64_t next_prime = 3;\r\nuint64_t res = 2;\r\n\r\nvoid get(uint64_t &blq)\r\n{\r\n    while(true)\r\n    {\r\n        blq++;\r\n        for(int i = 2; i*i<=blq; i++)\r\n        {\r\n            if(blq%i==0)\r\n            {\r\n                goto GO;\r\n            }\r\n        }\r\n        return;\r\nGO:\r\n        continue;\r\n    }\r\n}\r\n\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    int n;\r\n    cin>>n;\r\n    while(n>1)\r\n    {\r\n        res+=prime;\r\n        if(res%next_prime==0)\r\n        {\r\n            prime = next_prime;\r\n            get(next_prime);\r\n        }\r\n        n--;\r\n    }\r\n    cout<<res<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

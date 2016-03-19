@@ -1,0 +1,13 @@
+(I3
+I92
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n/*#include<cmath>\r\n#include<algorithm>\r\n#include<queue>\r\n#include<utility>\r\n#include<cstring>\r\n#include<cstdlib>*/\r\nusing namespace std;\r\nint m[10001][10001];\r\nint gns[10001][10001],kzs[20001],otg[20001];\r\nbool obh[20001];\r\nint a,b,c,n,mm;\r\nint dfs(int s){\r\n    obh[0]=1;\r\n   // cout<<s<<\' \';\r\nfor(int i=0;i<kzs[s];i++){\r\n       // cout<<i<<",no"<<kzs[s];\r\n                if(otg[gns[s][i]]<m[s][gns[s][i]]){\r\n                   otg[gns[s][i]]=m[s][gns[s][i]];\r\n                  // cout<<"tuk\\nZa ";\r\n                 //  cout<<gns[s][i]<<"=>"<<otg[gns[s][i]]<<"\\n";\r\n                }\r\n            if(obh[gns[s][i]]==0){\r\n    obh[gns[s][i]]=1;\r\n    dfs(gns[s][i]);\r\n        }\r\n}\r\n}\r\nint main(){\r\n//ios::sync_with_stdio(false);\r\n//cout<<"tuk";\r\ncin>>n>>mm;\r\nfor(int i=0;i<mm;i++){\r\n    cin>>a>>b>>c;\r\n    m[a][b]=c;\r\n    m[b][a]=c;\r\n    gns[a][kzs[a]]=b;\r\n    gns[b][kzs[b]]=a;\r\n    kzs[a]++;\r\n    kzs[b]++;\r\n}\r\ndfs(0);\r\nfor(int i=1;i<n;i++){\r\n    cout<<otg[i]<<\' \';\r\n}\r\ncout<<"\\n";\r\nreturn 0;\r\n}\r\n/*\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n*/\r\n'
+p3
+tp4
+stp5
+.

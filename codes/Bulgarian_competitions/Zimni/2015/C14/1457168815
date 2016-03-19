@@ -1,0 +1,13 @@
+(I3
+I93
+I8
+(dp0
+Vhexgame.%l
+p1
+(VhexgameProtoType.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\n\r\nwhile(cin){\r\nchar vhod;\r\ncin>>vhod;\r\n}\r\n\r\ncout<<"3";\r\n\r\ncout<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

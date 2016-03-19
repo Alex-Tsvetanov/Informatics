@@ -1,0 +1,13 @@
+(I3
+I83
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights2.cpp
+p2
+S'#include <iostream>\r\n#include <stdio.h>\r\n#include <vector>\r\nusing namespace std;\r\n\r\nvector <int> g[20005];\r\nvector <int> p[20005];\r\nint n,m,vis[20005],path[20005];\r\n\r\nvoid DFS(int v,int mn)\r\n{\r\n int i,k;\r\n\r\n k=mn;\r\n vis[v]=1;\r\n  if(mn>path[v])\r\n   path[v]=mn;\r\n\r\n for(i=0;i<g[v].size();i++)\r\n  if(vis[g[v][i]]==0 || (vis[g[v][i]]==1 && mn>path[g[v][i]] && p[v][i]>path[g[v][i]]))\r\n  {\r\n   if(p[v][i]<k)\r\n    k=p[v][i];\r\n   DFS(g[v][i],k);\r\n   k=mn;\r\n  }\r\n}\r\n\r\nusing namespace std;\r\nint main()\r\n{\r\n\r\nint i,u,v,d;\r\n\r\nscanf("%d%d",&n,&m);\r\n\r\n for(i=1;i<=m;i++)\r\n {\r\n  scanf("%d%d%d",&u,&v,&d);\r\n\r\n  g[u].push_back(v);\r\n  g[v].push_back(u);\r\n  p[u].push_back(d);\r\n  p[v].push_back(d);\r\n }\r\n\r\nDFS(0,1000000);\r\n\r\n for(i=1;i<n-1;i++)\r\n  printf("%d ",path[i]);\r\n\r\nprintf("%d\\n",path[n-1]);\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -71,13 +71,12 @@ int main ()
 			number_of_comps_res += number_of_comps;
 			while (!readAddingDB.eof ())
 			{
-				int n;
 				string name, city, school; 
 				int grade;
 				vector < int > points;
 				int total;
 
-				readAddingDB >> n >> name >> city >> school >> grade;
+				readAddingDB >> name >> city >> school >> grade;
 				for (int i = 0 ; i < number_of_comps ; i ++)
 				{
 					int curr;

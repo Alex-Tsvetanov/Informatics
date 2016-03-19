@@ -1,0 +1,13 @@
+(I3
+I90
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhexgame.cpp
+p2
+S'#include <iostream>\n#include <queue>\n#include <vector>\n\nusing namespace std;\n\nvector <int> shifts_optimum;\nvector <int> shifts_curr;\nqueue <int> arrs [100000];\nvector <int> arrv [100000];\n\nvoid make_shift (int n)\n{\n\tint front = arrs [n].front ();\n\tarrs [n].pop ();\n\tarrs [n].push (front);\n\tint first = arrv [n][0];\n\tfor (int i = 0 ; i < arrv [n].size () - 1 ; i ++)\n\t\tarrv [n][i] = arrv [n][i + 1];\n\tarrv [n][arrv [n].size () - 1] = first;\n}\n\nint optimum (const vector < int >& asdf);\nvoid rec (int n, int s = 0)\n{\n\tif (n == 0)\n\t{\n\t\tif (shifts_optimum.size () == 0)\n\t\t{\n\t\t\tshifts_optimum = shifts_curr;\n\t\t\treturn;\n\t\t}\n\t\tif (optimum (shifts_optimum) > optimum (shifts_curr))\n\t\t\tshifts_optimum = shifts_curr;\n\t\treturn;\n\t}\n\tshifts_curr.push_back (0);\n\tfor (int i = 0 ; i < 6 ; i ++)\n\t{\n\t\tshifts_curr [shifts_curr.size () - 1] = i;\n\t\tif ((s > 0 and arrv [s][0] == arrv [s - 1][3]) or (s == 0))\n\t\t{\n\t\t\trec (n - 1, s + 1);\n\t\t}\n\t\tmake_shift (s);\n\t}\n\tshifts_curr.pop_back ();\n}\n\nint optimum (const vector < int >& asdf)\n{\n\tint ans = 0;\n\tfor (auto& x : asdf)\n\t{\n//\t\tcout << x % 4 << " ";\n\t\tans += x % 4;\n\t}\n//\tcout << endl;\n\tif (asdf.size () == 0)\n\t\tcout << "NO ";\n\treturn ans;\n}\n\nint main ()\n{\n\tint n;\n\tcin >> n;\n\tfor (int i = 0 ; i < n ; i ++)\n\t{\n\t\tint a;\n\t\tfor (int j = 0 ; j < 6 ; j ++)\n\t\t{\n\t\t\tcin >> a;\n\t\t\tarrs [i].push (a);\n\t\t\tarrv [i].push_back (a);\n\t\t}\n\t}\n\trec (n);\n//\tcout << "ANS: " << endl;\n\tcout << optimum (shifts_optimum) << "\\n";\n}\n'
+p3
+tp4
+stp5
+.

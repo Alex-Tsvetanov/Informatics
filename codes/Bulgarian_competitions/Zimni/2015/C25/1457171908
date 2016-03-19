@@ -1,0 +1,13 @@
+(I3
+I104
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include<iostream>\r\n#include<cmath>\r\nusing namespace std;\r\nint n;\r\nbool prosto(int n){\r\n    int m=sqrt(n);\r\n    for(int i=2;i<=m;i++){\r\n        if(n%i==0) return false;\r\n    }\r\n    return true;\r\n}\r\nint next_prosto(int n){\r\n    if(n%2==0) n++;\r\n    else\r\n    if(n%2==1) n+=2;\r\n    for(int i=n;true;i+=2){\r\n        if(prosto(i)) return i;\r\n    }\r\n}\r\nvoid fast(){\r\n    int br2=1;\r\n    int a[10001];\r\n    a[1]=2;\r\n    int br=2;\r\n    int bra=2,p=2;\r\n    int fi=0;\r\n    while(true){\r\n        for(int j=1;j<=br;j++){\r\n            a[bra]=a[bra-1]+p;\r\n            bra++;\r\n        }\r\n        if(bra-5>=n){\r\n            cout<<a[n]<<endl;\r\n            break;\r\n        }\r\n        if(fi!=2) {fi++; br++;}\r\n        else{\r\n            br2++;\r\n            br+=br2;\r\n        }\r\n        p=next_prosto(p);\r\n    }\r\n    for(int j=1;j<=n;j++){\r\n            cout<<a[j]<<" ";\r\n    }\r\n    cout<<endl;\r\n}\r\nint NPD(int n){\r\n    int ans=1;\r\n    for(int i=3;i<=n;i+=2){\r\n        if(prosto(i) && n%i==0) ans=i;\r\n    }\r\n    if(n%2==0 && ans==1) return 2;\r\n    return ans;\r\n}\r\nint a[10001];\r\nint main(){\r\ncin>>n;\r\na[1]=2;\r\nfor(int i=2;i<=n;i++){\r\n    a[i]=a[i-1]+NPD(a[i-1]);\r\n}\r\ncout<<a[n]<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

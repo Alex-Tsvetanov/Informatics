@@ -1,0 +1,13 @@
+(I3
+I82
+I9
+(dp0
+Vflights.%l
+p1
+(Vflll.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <queue>\r\n#include <cstdio>\r\nusing namespace std;\r\n\r\n#define MAXN 10000\r\n#define INF 2099511627\r\n\r\nint cap[MAXN][MAXN]={};\r\nvector<bool> used;\r\nvector<int> level;\r\n\r\nint n, m;\r\n\r\nvoid bfs(int u){\r\n    used[u]=1;\r\n    level[u]=INF;\r\n    queue<int> q;\r\n    q.push(u);\r\n    int i;\r\n    while(!q.empty()){\r\n        u=q.front();\r\n        q.pop();\r\n        for(i=1;i<n;i++){\r\n            if(cap[u][i]>0){\r\n                if(level[u]>cap[u][i]){\r\n                        if(cap[u][i]>level[i]) level[i]=cap[u][i];\r\n                }\r\n                else{\r\n                    if(level[u]<=cap[u][i]&&level[u]>level[i]) level[i]=level[u];\r\n                }\r\n                if(used[i]==0){\r\n                    used[i]=1;\r\n                    q.push(i);\r\n                }\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\n\r\n\r\nint main(){\r\n\r\n    int i;\r\n    int a, b, c;\r\n    scanf("%d %d", &n, &m);\r\n\r\n    for(i=0;i<m;i++){\r\n        scanf("%d %d %d", &a, &b, &c);\r\n\r\n        cap[a][b]=c;\r\n        cap[b][a]=c;\r\n        used.push_back(0);\r\n        level.push_back(0);\r\n    }\r\n\r\n    bfs(0);\r\n\r\n    for(i=1;i<n-1;i++){\r\n      printf("%d ", level[i]);\r\n    }\r\n    printf("%d\\n", level[i]);\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

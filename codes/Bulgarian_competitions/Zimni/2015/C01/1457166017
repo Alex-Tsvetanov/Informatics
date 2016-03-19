@@ -1,0 +1,13 @@
+(I3
+I80
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhaxgame.cpp
+p2
+S'#include<iostream>\r\n#define MAXN 100000\r\nusing namespace std;\r\nint A[MAXN][6];\r\nint n;\r\nint sm=-1,brk=0;\r\nint cqlrot;\r\nint trr;\r\n\r\nvoid ich( int hexa, int rot, int srot)\r\n{\r\n    trr=rot+3;\r\n    if (trr>5) trr=trr-6;\r\n    if (hexa!=n-1)\r\n    for (int i=0; i<6; i++)\r\n    {\r\n        if (A[hexa][trr]==A[hexa+1][i])\r\n        {\r\n            cqlrot=i;\r\n            if (cqlrot>3) cqlrot=6-cqlrot;\r\n            ich (hexa+1,i,srot+cqlrot);\r\n        }\r\n        else {if (hexa>brk) {brk=hexa+2;}}\r\n    }\r\n    else { if ((srot<sm)||(sm==-1)) {sm=srot;}}\r\n}\r\n\r\nint main ()\r\n{\r\n    cin>>n;\r\n\r\n    for (int i=0; i<n; i++)\r\n    {\r\n        for (int j=0; j<6; j++)\r\n        {\r\n            cin>>A[i][j];\r\n        }\r\n    }\r\n\r\n    for (int i=0; i<6; i++)\r\n    {\r\n        cqlrot=i;\r\n        if (cqlrot>3) cqlrot=6-cqlrot;\r\n        ich (0, i, cqlrot);\r\n    }\r\n\r\n    if (sm==-1) cout<<"NO "<<brk<<endl;\r\n    else cout<<sm<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

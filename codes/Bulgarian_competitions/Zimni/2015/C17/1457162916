@@ -1,0 +1,13 @@
+(I3
+I96
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\n#include<vector>\r\nusing namespace std;\r\n\r\nlong long maxx[20002];\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long vurhove,rebra,br,a,b,t;\r\n    cin>>vurhove>>rebra;\r\n    for(br=0;br<rebra;br++){\r\n        cin>>a>>b>>t;\r\n        if(t>maxx[a])\r\n            maxx[a]=t;\r\n        if(t>maxx[b])\r\n            maxx[b]=t;\r\n    }\r\n    for(br=1;br<vurhove;br++){\r\n        cout<<maxx[br];\r\n        if(br+1<vurhove)\r\n            cout<<" ";\r\n    }\r\n    cout<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

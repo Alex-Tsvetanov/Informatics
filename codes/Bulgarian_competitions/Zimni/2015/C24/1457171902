@@ -1,0 +1,13 @@
+(I3
+I103
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhexgame.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\n\r\nint h[100001][6], a[100001][6], n;\r\nint p[6]={3, 4, 5, 0, 1, 2};\r\nint b[6]={0, 1, 2, 3, 2, 1};\r\n\r\nvoid Init()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(NULL); cout.tie(NULL);\r\n    cin>>n;\r\n    for (int i=1; i<=n; i++)\r\n    {\r\n        cin>>h[i][0]>>h[i][1]>>h[i][2]>>h[i][3]>>h[i][4]>>h[i][5];\r\n        a[i][0]=a[i][1]=a[i][2]=a[i][3]=a[i][4]=a[i][5]=1000000;\r\n    }\r\n}\r\n\r\nint t1[6], t2[6];\r\n\r\nint possible()\r\n{\r\n    for (int j=0; j<6; j++)\r\n    {\r\n        int bot=h[1][p[j]];\r\n        t1[bot]=1;\r\n    }\r\n    for (int i=2; i<=n; i++)\r\n    {\r\n        for (int j=0; j<6; j++)\r\n        {\r\n            int top=h[i][j];\r\n            int bot=h[i][p[j]];\r\n            if (t1[top]==1) t2[bot]=1;\r\n        }\r\n        bool fl=false;\r\n        for (int j=0; j<6; j++)\r\n        {\r\n            if (t2[j]==1) fl=true;\r\n            t1[j]=t2[j];\r\n            t2[j]=0;\r\n        }\r\n        if (!fl) return i;\r\n    }\r\n    return -1;\r\n}\r\n\r\nint main()\r\n{\r\n    Init();\r\n\r\n    int c=possible();\r\n    if (c!=-1)\r\n    {\r\n        cout<<"NO "<<c<<endl;\r\n        return 0;\r\n    }\r\n\r\n    for (int j=0; j<6; j++)\r\n    {\r\n        int top=h[n][j];\r\n        a[n][top]=min(a[n][top], b[j]);\r\n    }\r\n    for (int i=n-1; i>=1; i--)\r\n    {\r\n        for (int j=0; j<6; j++)\r\n        {\r\n            int top=h[i][j];\r\n            int bot=h[i][p[j]];\r\n            if (a[i+1][bot]<1000000)\r\n            {\r\n                a[i][top]=min(a[i][top], a[i+1][bot]+b[j]);\r\n            }\r\n        }\r\n    }\r\n    int ans=1000000;\r\n    for (int j=0; j<6; j++)\r\n    {\r\n        ans=min(a[1][j], ans);\r\n    }\r\n    cout<<ans<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

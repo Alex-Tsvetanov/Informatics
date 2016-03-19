@@ -1,0 +1,13 @@
+(I3
+I97
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\nint gradove=0,poleti=0,naigolqmo=0;\r\ncin>>gradove>>poleti;\r\nint put[50000][3];\r\nfor(int br=0;br<poleti;br++){\r\n    cin>>put[br][0]>>put[br][1]>>put[br][2];\r\n}\r\nfor(int br2=1;br2<gradove;br2++){\r\n    for(int br3=0;br3<poleti;br3++){\r\n        if(put[br3][0]==br2 or put[br3][1]==br2){\r\n            if(put[br3][2]>naigolqmo){\r\n                naigolqmo=put[br3][2];\r\n            }\r\n        }\r\n    }\r\n    cout<<naigolqmo<<" ";\r\n    naigolqmo=0;\r\n}\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

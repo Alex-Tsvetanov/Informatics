@@ -1,0 +1,13 @@
+(I3
+I98
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vc2.cpp
+p2
+S'#include <iostream>\n#include <vector>\n#include <queue>\n\nint input[100001][6];\nstd::vector<int> graph[20001][6];\nint used[20001][6];\nint n, m;\n\nint rot3(int i, int a)\n{\n\tif(a < 3)\n\t\treturn input[i][a+3];\n\telse\n\t\treturn input[i][a-3];\n}\n\nint toTop[6];\n\nvoid di()\n{\n\tstd::priority_queue<std::pair<int, std::pair<int, int> > > next;\n\tfor(int i = 0;i < 6;++ i)\n\t\tif(graph[0][i].size() > 0)\n\t\t\tfor(auto c : graph[0][i])\n\t\t\t\tnext.push({-toTop[c]-toTop[i], {1, c}});\n\n\twhile(!next.empty())\n\t{\n\t\tauto curr = next.top();\n\t\tnext.pop();\n\t\t//std::cout << curr.second.first << \'/\' << curr.second.second << \'=\' << curr.first << std::endl;\n\n\t\tif(-curr.first > used[curr.second.first][curr.second.second] and used[curr.second.first][curr.second.second] != 0)\n\t\t\tcontinue;\n\t\tused[curr.second.first][curr.second.second] = -curr.first;\n\n\t\tfor(auto c : graph[curr.second.first][curr.second.second])\n\t\t{\n\t\t\t//if(used[curr.second.first+1][c] == 0)\n\t\t\t\tnext.push({-toTop[c] + curr.first, {curr.second.first+1, c}});\n\t\t}\n\t}\n\tconst int beg = 100000000;\n\tint res = beg;\n\tfor(int i = 0;i < 6;++ i)\n\t{\n\t\tif(used[n-1][i] != 0)\n\t\t\tres = std::min(res, used[n-1][i]);\n\t}\n\tif(res == beg) // fail\n\t{\n\t\tint k = n - 1;\n\t\twhile(true)\n\t\t{\n\t\t\tk --;\n\t\t\tres = beg;\n\t\t\tfor(int i = 0;i < 6;++ i)\n\t\t\t{\n\t\t\t\tif(used[k][i] != 0)\n\t\t\t\t\tres = std::min(res, used[n-1][i]);\n\t\t\t}\n\t\t\tif(res != beg)\n\t\t\t{\n\t\t\t\tstd::cout << "NO " << k << std::endl;\n\t\t\t\treturn;\n\t\t\t}\n\n\t\t}\n\t\tstd::cout << "NO" << k << std::endl;\n\t}\n\telse\n\t\tstd::cout << res << std::endl;\n}\nint main()\n{\n\ttoTop[0] = 0;\n\ttoTop[1] = 1;\n\ttoTop[2] = 2;\n\ttoTop[3] = 3;\n\ttoTop[4] = 2;\n\ttoTop[5] = 1;\n\n\tstd::cin >> n;\n\tfor(int k = 0;k < 6;++ k)\n\t\tstd::cin >> input[0][k];\n\n\tfor(int i = 1;i < n;++ i)\n\t{\n\t\tfor(int k = 0;k < 6;++ k)\n\t\t\tstd::cin >> input[i][k];\n\t\tfor(int k = 0;k < 6;++ k)\n\t\t{\n\t\t\tfor(int a = 0;a < 6;++ a)\n\t\t\t\tif(rot3(i-1, a) == input[i][k])\n\t\t\t\t\tgraph[i-1][a].push_back(k);\n\t\t}\n\t}\n\tdi();\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

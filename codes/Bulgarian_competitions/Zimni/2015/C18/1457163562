@@ -1,0 +1,13 @@
+(I3
+I97
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include<iostream>\r\n#include<cmath>\r\nusing namespace std;\r\n\r\nint main(){\r\nint nomer=0,broyach=0,dadeno=2,br=1,br2=0,br3=0;\r\ncin>>nomer;\r\nif(nomer==1){\r\n    cout<<2;\r\n    goto krai;\r\n}\r\nfor(broyach=4;br!=nomer;broyach+=dadeno){\r\n    for(br2=broyach/2;br2>1;br2--){\r\n        if(broyach%br2==0){\r\n\r\n            for(br3=sqrt(br2);br3>1;br3--){\r\n\r\n               if(br2%br3==0 and br3>1){\r\n                  goto sl;\r\n                }\r\n            }\r\n\r\n           dadeno=br2;\r\n           goto sl;\r\n        }\r\n    }\r\n    sl:;\r\n    br++;\r\n\r\n}\r\n\r\ncout<<broyach-dadeno;\r\nkrai:;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

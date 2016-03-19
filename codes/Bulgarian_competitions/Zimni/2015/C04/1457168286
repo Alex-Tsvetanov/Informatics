@@ -1,0 +1,13 @@
+(I3
+I83
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <iostream>\r\n#include <stdio.h>\r\n#include <vector>\r\nusing namespace std;\r\n\r\nvector <int> g[20005];\r\nvector <int> p[20005];\r\nint q[20005],vis[20005],path[20005];\r\n\r\nint main()\r\n{\r\n\r\nint n,m,ukbeg,ukend,u,v,d,k,i,j;\r\n\r\nscanf("%d%d",&n,&m);\r\n\r\n for(i=1;i<=m;i++)\r\n {\r\n  scanf("%d%d%d",&u,&v,&d);\r\n\r\n  g[u].push_back(v);\r\n  g[v].push_back(u);\r\n  p[u].push_back(d);\r\n  p[v].push_back(d);\r\n }\r\n\r\n /*for(i=0;i<=n;i++)\r\n {\r\n  for(j=0;j<p[i].size();j++)\r\n   cout<<p[i][j]<<" ";\r\n\r\n  cout<<endl;\r\n }*/\r\n\r\npath[0]=1000000;\r\nvis[0]=1;\r\nukbeg=0;\r\nukend=1;\r\nq[0]=0;\r\n while(ukbeg<ukend)\r\n {\r\n  k=q[ukbeg];\r\n\r\n  for(i=0;i<g[k].size();i++)\r\n   if(vis[g[k][i]]==0 || (vis[g[k][i]]==1 && p[k][i]>path[g[k][i]]))\r\n   {\r\n    q[ukend]=g[k][i];\r\n    vis[g[k][i]]=1;\r\n    ukend++;\r\n     if(p[k][i]>path[g[k][i]])\r\n      path[g[k][i]]=p[k][i];\r\n   }\r\n\r\n  ukbeg++;\r\n }\r\n\r\n for(i=1;i<n-1;i++)\r\n  printf("%d ",path[i]);\r\n\r\nprintf("%d\\n",path[n-1]);\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

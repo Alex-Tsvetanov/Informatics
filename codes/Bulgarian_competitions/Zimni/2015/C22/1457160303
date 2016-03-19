@@ -1,0 +1,13 @@
+(I3
+I101
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdeviser.cpp
+p2
+S'# include<iostream>\r\nusing namespace std;\r\n\r\nbool prime(int x)\r\n{\r\n    if(x==2) return true;\r\n    if(x%2==0) return false;\r\n    if(x==3) return true;\r\n    int p=3;\r\n    while(p*p<=x && x%p!=0) p+=2;\r\n\r\n    if(x%p==0) return false;\r\n    return true;\r\n}\r\nint pr[10000000];\r\nvoid prim()\r\n{\r\n    pr[0]=2;\r\n    int i=1;\r\n    int p=3;\r\n    while(p<=100000)\r\n    {\r\n        if(prime(p)) {pr[i]=p; i++;}\r\n        p+=2;\r\n\r\n    }\r\n}\r\nvoid next(int n)\r\n{\r\n    int p=2,q=4,t=4;\r\n    int j=0;\r\n    for(int i=3; i<=n; i++)\r\n    {\r\n        int s=pr[j];\r\n        if(q%pr[j+1]==0) {s=pr[j+1]; j++;}\r\n        //cout<<j<<" "<<q<<endl;\r\n      //  if(prime(3)) cout<<"YES"<<endl;\r\n        t=q+s;\r\n        p=q;\r\n        q=t;\r\n     //   cout<<t<<" "<<s<<endl;\r\n\r\n    }\r\n    cout<<t<<endl;\r\n}\r\n\r\nint main()\r\n{\r\n    int n;\r\n    cin>>n;\r\n    prim();\r\n    next(n);\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

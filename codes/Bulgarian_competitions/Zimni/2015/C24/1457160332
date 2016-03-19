@@ -1,0 +1,13 @@
+(I3
+I103
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S"#include <iostream>\r\n#include <vector>\r\n#include <algorithm>\r\n#include <utility>\r\nusing namespace std;\r\n\r\nconst int MAXN=32768;\r\n\r\nvector<pair<int, int> > g[MAXN];\r\nint n, m, dp[MAXN], visited[MAXN];\r\n\r\nvoid Init()\r\n{\r\n    /*ios::sync_with_stdio(false);\r\n    cin.tie(NULL); cout.tie(NULL);*/\r\n    int x, y, z;\r\n    cin>>n>>m;\r\n    for (int i=0; i<m; i++)\r\n    {\r\n        cin>>x>>y>>z;\r\n        g[x].emplace_back(y, z);\r\n        g[y].emplace_back(x, z);\r\n    }\r\n}\r\n\r\nvoid Calc(int v)\r\n{\r\n    if (visited[v]==1) return;\r\n    else visited[v]=1;\r\n\r\n    for (auto e:g[v])\r\n    {\r\n        Calc(e.first);\r\n        if (e.first==0) dp[v]=e.second;\r\n        else dp[v]=max(dp[v], min(dp[e.first], e.second));\r\n    }\r\n}\r\n\r\nvoid Print()\r\n{\r\n    cout<<dp[1];\r\n    for (int i=2; i<n; i++)\r\n    {\r\n        cout<<' '<<dp[i];\r\n    }\r\n    cout<<endl;\r\n}\r\n\r\nint main()\r\n{\r\n    Init();\r\n    Calc(n-1);\r\n    Print();\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I3
+I93
+I9
+(dp0
+Vflights.%l
+p1
+(VflightsProtoType.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nmass[]={1,2,3,4,5,6,7,8,9,10,11,12}\r\nint main(){\r\n    int n;\r\n    cin>>n;\r\nwhile(cin){\r\n    char vhod;\r\n    cin>>Vhod;\r\n}\r\nfor(int i=0;i<n;i++){\r\n    cout<<mass[i];\r\n}\r\n\r\ncout<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

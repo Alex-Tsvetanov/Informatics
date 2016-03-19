@@ -1,0 +1,13 @@
+(I3
+I96
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<queue>\r\n#include<vector>\r\nusing namespace std;\r\n\r\nlong long maxx[20002];\r\n\r\nstruct edge{\r\n    long long value,from,to,nomer;\r\n    bool operator<(const edge& a)const{\r\n        return this->value<a.value;\r\n    }\r\n};\r\n\r\nvector<long long> susedi[10000];\r\npriority_queue<edge> opa6ka;\r\nbool used[20002],izpolzvani[2002][2002];\r\n\r\nedge rebra[2002][2002];\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long vurhove,broiRebra,br,a,b,t;\r\n    cin>>vurhove>>broiRebra;\r\n    for(br=0;br<broiRebra;br++){\r\n        cin>>a>>b>>t;\r\n        //cout<<"a";\r\n        rebra[a][b].from=a;\r\n        rebra[a][b].to=b;\r\n        rebra[a][b].value=t;\r\n        rebra[a][b].nomer=br;\r\n\r\n        rebra[b][a].from=a;\r\n        rebra[b][a].to=b;\r\n        rebra[b][a].value=t;\r\n        rebra[b][a].nomer=br;\r\n\r\n        //cout<<"b";\r\n        if(a==0){\r\n            if(maxx[b]<t)\r\n                maxx[b]=t;\r\n            opa6ka.push(rebra[a][b]);\r\n        }\r\n\r\n        //cout<<"c";\r\n        if(b==0){\r\n            if(maxx[a]<t)\r\n                maxx[a]=t;\r\n            opa6ka.push(rebra[a][b]);\r\n        }\r\n\r\n        //cout<<"d";\r\n        susedi[a].push_back(b);\r\n        susedi[b].push_back(a);\r\n\r\n    }\r\n    used[0]=true;\r\n    while(!opa6ka.empty()){\r\n        edge vruh=opa6ka.top();\r\n        //cout<<vruh.from<<" "<<vruh.to<<" "<<vruh.value<<endl;\r\n        //for(long long i=0;i<10000000;i++){}\r\n        opa6ka.pop();\r\n        for(br=0;br<susedi[vruh.to].size();br++){\r\n            long long tek=susedi[vruh.to][br];\r\n            long long minn=min(maxx[vruh.to],rebra[vruh.to][tek].value);\r\n            if(!used[tek] and maxx[tek]<minn){\r\n                maxx[tek]=minn;\r\n            }\r\n            if(!izpolzvani[vruh.to][tek]){\r\n                izpolzvani[vruh.to][tek]=true;\r\n                opa6ka.push(rebra[vruh.to][tek]);\r\n            }\r\n        }\r\n        used[vruh.to]=true;\r\n    }\r\n\r\n\r\n    for(br=1;br<vurhove;br++){\r\n        cout<<maxx[br];\r\n        if(br+1<vurhove)\r\n            cout<<" ";\r\n    }\r\n    cout<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

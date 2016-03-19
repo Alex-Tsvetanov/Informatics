@@ -1,0 +1,13 @@
+(I3
+I102
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\n\r\nbool nprosti[12800000];\r\n\r\nvoid make_prosti()\r\n{   nprosti[0]=true;\r\n    nprosti[1]=true;\r\n    for(int i=4;i<12800000;i+=2)\r\n        nprosti[i]=true;\r\n    int pos=3;\r\n    while(pos<12800000)\r\n    {   while(nprosti[pos]==true)pos++;\r\n        for(int i=3*pos;i<12800000;i+=pos)\r\n            nprosti[i]=true;\r\n        pos++;\r\n    }\r\n}\r\n\r\nint res[100010];\r\n\r\nint find_min(int n)\r\n{   int m=n;\r\n    while(0<=n)\r\n    {   if(nprosti[n]==false&&m%n==0)return n;\r\n        n--;\r\n    }\r\n}\r\n\r\nvoid make(int n)\r\n{   for(int i=1;i<n;i++)\r\n    {   res[i]=res[i-1]+find_min(res[i-1]);\r\n    }\r\n}\r\n\r\nint main()\r\n{   make_prosti();\r\n    res[0]=2;\r\n    int n;\r\n    cin>>n;\r\n    make(n);\r\n    cout<<res[n-1]<<endl;\r\n\r\n\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

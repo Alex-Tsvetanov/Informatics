@@ -1,0 +1,13 @@
+(I3
+I98
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vc1.cpp
+p2
+S'#include <iostream>\n\nconst int C = 1000001;\nunsigned long long th[C];\n\nstruct asd {\n\tunsigned long long biggestPrime;\n\tunsigned long long aa;\n\tunsigned long long ab;\n\tunsigned long long ba;\n\tunsigned long long bb;\n\tbool two;\n};\n\nasd seq[1000001];\n\n\nvoid f()\n{\n\tth[0] = true;\n\tth[1] = true;\n\tth[2] = false;\n\n\tfor(int i = 2;i < C;++ i)\n\t{\n\t\tif(!th[i])\n\t\t{\n\t\t\tfor(int j = i+i;j < C;j += i)\n\t\t\t\tth[j] = true;\n\t\t}\n\t}\n}\n\nint main()\n{\n\tf();\n\n\tint n;\n\tstd::cin >> n;\n\n\tseq[0].biggestPrime = 2;\n\tseq[0].two = false;\n\tseq[0].aa = 1;\n\tseq[0].ab = 2;\n\n\tfor(int i = 1;i <= n;++ i)\n\t{\n\t\tif(seq[i-1].two)\n\t\t{\n\t\t\tseq[i].aa = seq[i-1].aa;\n\t\t\tseq[i].ab = seq[i-1].ab;\n\t\t\tseq[i].ba = seq[i-1].ba+1;\n\t\t\tseq[i].bb = seq[i-1].bb;\n\t\t\tseq[i].two = true;\n\t\t\tseq[i].biggestPrime = seq[i-1].biggestPrime;\n\t\t\tif(seq[i].ba == seq[i].aa)\n\t\t\t{\n\t\t\t\tseq[i].two = false;\n\t\t\t\tseq[i].aa = seq[i].ba;\n\t\t\t\tseq[i].ab = seq[i].ab + seq[i].bb;\n\t\t\t\tif(!th[seq[i].ab])\n\t\t\t\t\tseq[i].biggestPrime = seq[i].ab;\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tif(seq[i-1].biggestPrime == seq[i-1].ab)\n\t\t\t{\n\t\t\t\tseq[i].aa = seq[i-1].aa + 1;\n\t\t\t\tseq[i].ab = seq[i-1].ab;\n\t\t\t\tif(!th[seq[i].aa] and seq[i-1].biggestPrime < seq[i].aa)\n\t\t\t\t\tseq[i].biggestPrime = seq[i].aa;\n\t\t\t\telse\n\t\t\t\t\tseq[i].biggestPrime = seq[i-1].biggestPrime;\n\t\t\t\tseq[i].two = false;\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tseq[i].aa = seq[i-1].aa;\n\t\t\t\tseq[i].ab = seq[i-1].ab;\n\t\t\t\tseq[i].two = true;\n\t\t\t\tseq[i].ba = 1;\n\t\t\t\tseq[i].bb = seq[i-1].biggestPrime;\n\t\t\t\tseq[i].biggestPrime = seq[i-1].biggestPrime;\n\t\t\t}\n\t\t}\n\t\t/*\n\t\tstd::cout << "------------ " << i << std::endl;\n\t\tstd::cout << seq[i].aa << \' \' << seq[i].ab << std::endl;\n\t\tif(seq[i].two)\n\t\t\tstd::cout << seq[i].ba << \' \' << seq[i].bb << std::endl;\n\t\tstd::cout << seq[i].biggestPrime << std::endl;\n\t\t*/\n\t}\n\n\tstd::cout << seq[n-1].aa*seq[n-1].ab + seq[n-1].two*(seq[n-1].ba+seq[n-1].bb) << std::endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

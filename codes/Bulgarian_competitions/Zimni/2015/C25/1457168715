@@ -1,0 +1,13 @@
+(I3
+I104
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include<iostream>\r\n#include<cmath>\r\nusing namespace std;\r\nbool prosto(int n){\r\n    int m=sqrt(n);\r\n    for(int i=2;i<=m;i++){\r\n        if(n%i==0) return false;\r\n    }\r\n    return true;\r\n}\r\nint NPD(int n){\r\n    if(n==2) return 2;\r\n    int m=sqrt(n),ans=1;\r\n    for(int i=2;i<=n;i++){\r\n        if(prosto(i) && n%i==0) ans=i;\r\n    }\r\n    return ans;\r\n}\r\nint a[10001];\r\nint main(){\r\n    int n;\r\ncin>>n;\r\na[1]=2;\r\nfor(int i=2;i<=n;i++){\r\n    a[i]=a[i-1]+NPD(a[i-1]);\r\n}\r\ncout<<a[n]<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

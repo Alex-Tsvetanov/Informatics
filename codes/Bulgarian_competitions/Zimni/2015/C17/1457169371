@@ -1,0 +1,13 @@
+(I3
+I96
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhexgame.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\n\r\nbool imaLi[100001][7],obstLiE[100001][7];\r\nlong long cvetove[100001][7],broi[100001],obsti[100001][7];\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long n,br=0,i;\r\n    cin>>n;\r\n    for(i=0;i<6;i++){\r\n        cin>>cvetove[0][i];\r\n        imaLi[0][cvetove[0][i]]=true;\r\n    }\r\n    for(br=1;br<n;br++){\r\n        for(i=0;i<6;i++){\r\n            cin>>cvetove[br][i];\r\n            imaLi[br][cvetove[br][i]]=true;\r\n            if(imaLi[br-1][cvetove[br][i]]==true and !obstLiE[br][cvetove[br][i]]){\r\n                //cout<<cvetove[br][i]<<" "<<endl;\r\n                obsti[br][broi[br]]=cvetove[br][i];\r\n                obstLiE[br][cvetove[br][i]]=true;\r\n                broi[br]++;\r\n            }\r\n        }\r\n        if(broi[br]==0){\r\n            cout<<"NO "<<br+1<<"\\n";\r\n            //return 0;\r\n        }\r\n    }\r\n    cout<<n<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

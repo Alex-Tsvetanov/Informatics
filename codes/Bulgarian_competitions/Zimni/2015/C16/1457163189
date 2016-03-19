@@ -1,0 +1,13 @@
+(I3
+I95
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <algorithm>\r\n#include <stack>\r\nusing namespace std;\r\n\r\nvector<vector<pair<int, int>>> flys;\r\nvector<int> res;\r\nstack<int> q;\r\nvector<bool> obh;\r\n\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    int n, m;\r\n    cin>>n>>m;\r\n    flys.resize(n);\r\n    res.resize(n);\r\n    obh.resize(n);\r\n    for(int i = 0; i<m; i++)\r\n    {\r\n        int a, b, c;\r\n        cin>>a>>b>>c;\r\n        flys[a].push_back({c, b});\r\n        flys[b].push_back({c, a});\r\n    }\r\n    for(int i = 0; i<n; i++)\r\n    {\r\n        obh[i] = false;\r\n        sort(begin(flys[i]), end(flys[i]), greater<pair<int, int> >());\r\n    }\r\n    res[0]=(1<<31)-1;\r\n    q.push(0);\r\n    while(!q.empty())\r\n    {\r\n        int sq = q.top();\r\n        obh[sq] = true;\r\n        q.pop();\r\n        for(auto &p:flys[sq])\r\n        {\r\n            if(!obh[p.second])\r\n            {\r\n                q.push(p.second);\r\n            }\r\n            if(p.first<res[sq])\r\n            {\r\n                if(res[p.second]<p.first)\r\n                    res[p.second] = p.first;\r\n            }\r\n            else\r\n            {\r\n                if(res[p.second]<res[sq])\r\n                    res[p.second] = res[sq];\r\n            }\r\n        }\r\n    }\r\n    for(int i = 1; i<n; i++)\r\n    {\r\n        cout<<res[i]<<" ";\r\n    }\r\n    return 0;\r\n}\r\n/**\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n*/\r\n'
+p3
+tp4
+stp5
+.

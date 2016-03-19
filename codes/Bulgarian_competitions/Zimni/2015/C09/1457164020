@@ -1,0 +1,13 @@
+(I3
+I88
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <queue>\r\nusing namespace std;\r\nstruct edge{\r\nint v,pas;\r\n};\r\nvector<edge> v[20000];\r\nint used[20000],pas[20000],par[20000];\r\nvoid bfs(int s)\r\n{\r\n    queue<edge> q;\r\n    par[s]=0;\r\n    used[s]=1;\r\n    edge a;\r\n    a.pas=0;\r\n    a.v=s;\r\n    q.push(a);\r\n    int i,e;\r\n    edge tmp;\r\n    while(q.size( )>0)\r\n    {\r\n       tmp=q.front( );\r\n       q.pop( );\r\n       for(i=0;i<v[tmp.v].size( );i++)\r\n       {\r\n           e=min(pas[tmp.v],v[tmp.v][i].pas);\r\n           if(e!=0 && pas[v[tmp.v][i].v]<e && par[tmp.v]!=v[tmp.v][i].v)pas[v[tmp.v][i].v]=e;\r\n           else if(e==0)\r\n           {\r\n               if(pas[v[tmp.v][i].v]<v[tmp.v][i].pas && par[tmp.v]!=v[tmp.v][i].v)pas[v[tmp.v][i].v]=v[tmp.v][i].pas;\r\n           }\r\n           if(!used[v[tmp.v][i].v])\r\n           {\r\n               used[v[tmp.v][i].v]=1;\r\n               par[v[tmp.v][i].v]=tmp.v;\r\n               q.push(v[tmp.v][i]);\r\n           }\r\n       }\r\n    }\r\n\r\n}\r\nint main( )\r\n{\r\n   ios::sync_with_stdio(false);\r\n   cin.tie(NULL);\r\n   int n,m,i,j,b,e,t;\r\n   edge a;\r\n   cin>>n>>m;\r\n   for(i=0;i<m;i++)\r\n   {\r\n       cin>>b>>e>>t;\r\n       a.v=e;\r\n       a.pas=t;\r\n       v[b].push_back(a);\r\n       a.v=b;\r\n       v[e].push_back(a);\r\n   }\r\n   bfs(0);\r\n   for(i=1;i<n-1;i++)cout<<pas[i]<<" ";\r\n   cout<<pas[n-1]<<endl;\r\n}\r\n/**\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n*/\r\n'
+p3
+tp4
+stp5
+.

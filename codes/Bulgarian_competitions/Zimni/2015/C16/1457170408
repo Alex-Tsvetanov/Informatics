@@ -1,0 +1,13 @@
+(I3
+I95
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhexgame.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <ctime>\r\n#include <cstdlib>\r\n\r\nusing namespace std;\r\n\r\nvector<vector<int>> xex;\r\n\r\nint main()\r\n{\r\n    srand(time(NULL));\r\n    int n;\r\n    cin>>n;\r\n    xex.reserve(n);\r\n    for(int i = 0; i<n; i++)\r\n    {\r\n        int a, s, d, f, g, h;\r\n        cin>>a>>s>>d>>f>>g>>h;\r\n        xex.push_back({a, s, d, f, g, h});\r\n    }\r\n    cout<<"NO " << rand()%n;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I3
+I96
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\n#include<cmath>\r\nusing namespace std;\r\n\r\nlong long prosto[1000000],broi=0;\r\nbool prostoLiE[1000000];\r\n\r\nvoid eratosten(){\r\n    long long a,b;\r\n    prostoLiE[0]=true;\r\n    prostoLiE[1]=true;\r\n    for(a=2;a<=100000;a++){\r\n        if(!prostoLiE[a]){\r\n            prosto[broi]=a;\r\n            broi++;\r\n            for(b=a+a;b<=100000;b+=a){\r\n                prostoLiE[b]=true;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nlong long NGPD(long long a){\r\n    //cout<<a<<endl;\r\n    long long otg=-1,br,del,maxx=-1,index;\r\n    long long koren=sqrt(a);\r\n    koren++;\r\n    //cout<<a<<" "<<koren<<endl;\r\n    for(br=0;prosto[br]<=koren;br++){\r\n        if(a%prosto[br]==0){\r\n            maxx=prosto[br];\r\n            index=br;\r\n            //cout<<prosto[br]<<endl;\r\n            /*del=a/prosto[br];\r\n            //cout<<br<<" "<<a<<" "<<del<<" "<<prosto[br]<<endl;\r\n            if(otg>maxx)\r\n                maxx=otg;\r\n            if(!prostoLiE[del] and del>maxx){\r\n                //cout<<"tuk";\r\n                maxx=del;\r\n                return maxx;\r\n            }*/\r\n        }\r\n    }\r\n    if(maxx==-1)\r\n        return a;\r\n    if(maxx*prosto[index+1]==a)\r\n        maxx=prosto[index+1];\r\n    //cout<<"asd"\r\n    return maxx;\r\n}\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long n,predi6no=2,delitel=2,sega6no=2,br;\r\n    eratosten();\r\n    cin>>n;\r\n    for(br=2;br<=n;br++){\r\n        //cout<<predi6no<<" "<<sega6no<<endl;\r\n        delitel=NGPD(predi6no);\r\n        sega6no=predi6no+delitel;\r\n        predi6no=sega6no;\r\n    }\r\n    cout<<sega6no<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

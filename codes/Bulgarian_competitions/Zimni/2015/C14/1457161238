@@ -1,0 +1,13 @@
+(I3
+I93
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint cityNumber,flightNumber,cityFrom[200000],cityTo[200000],peopleNumber[200000],answer[20000];\r\nint main(){\r\ncin>>cityNumber>>flightNumber;\r\nfor(int i=0;i<flightNumber;i++){\r\n    cin>>cityFrom[i]>>cityTo[i]>>peopleNumber[i];\r\n}\r\nfor(int i=1;i<cityNumber;i++){\r\n    answer[i]=0;\r\n    for(int j=0;j<flightNumber;j++){\r\n        if(cityFrom[j]==i&&answer[i]<peopleNumber[j])\r\n            answer[i]=peopleNumber[j];\r\n        if(cityTo[j]==i&&answer[i]<peopleNumber[j])\r\n            answer[i]=peopleNumber[j];\r\n    }\r\n    cout<<answer[i]<<" ";\r\n}\r\n\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

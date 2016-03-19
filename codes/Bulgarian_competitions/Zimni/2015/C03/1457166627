@@ -1,0 +1,13 @@
+(I3
+I82
+I9
+(dp0
+Vflights.%l
+p1
+(Vflll.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <queue>\r\n#include <cstdio>\r\n#include <cstring>\r\nusing namespace std;\r\n\r\n#define MAXN 20000\r\n\r\nlong flow;\r\nint target;\r\nint cap[MAXN][MAXN]={};\r\nbool used[MAXN];\r\nvector<int> path;\r\n\r\nint n, m;\r\n\r\nvoid update(){\r\n    long i;\r\n    long long Flow;\r\n    for(i=0;i<path.size()-1;i++){\r\n        int p1=path[i];\r\n        int p2=path[i+1];\r\n        if(Flow>cap[p1][p2]) Flow=cap[p1][p2];\r\n    }\r\n    if(Flow>flow) flow=Flow;\r\n}\r\n\r\nvoid dfs(int u){\r\n    for(int i=0;i<=n;i++){\r\n        if(cap[u][i]>0){\r\n            if(i=target){\r\n                update();\r\n            }\r\n            if(used[i]==0){\r\n                used[i]=1;\r\n                path.push_back(i);\r\n                dfs(i);\r\n                path.pop_back();\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint main(){\r\n\r\n    int i;\r\n    int a, b, c;\r\n    cin>>n>>m;\r\n\r\n    for(i=0;i<m;i++){\r\n        cin>>a>>b>>c;\r\n        cap[a][b]=c;\r\n        cap[b][a]=c;\r\n    }\r\n\r\n\r\n    for(i=1;i<n;i++){\r\n        memset(used,0,sizeof(used));\r\n        flow=0;\r\n        target=i;\r\n        path.clear();\r\n        path.push_back(0);\r\n        dfs(0);\r\n        long level=flow;\r\n        cout<<level;\r\n        if(i!=n-1) cout<<" ";\r\n        else cout<<"\\n";\r\n    }\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

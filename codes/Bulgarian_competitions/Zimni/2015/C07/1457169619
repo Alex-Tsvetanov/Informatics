@@ -1,0 +1,13 @@
+(I3
+I86
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nconst int64_t maxN = 20005;\n\nstruct edge\n{\n\tint64_t node_to, weight;\n\t\n\tedge(){}\n\tedge(int64_t node_to, int64_t weight)\n\t{\n\t\tthis->node_to = node_to;\n\t\tthis->weight = weight;\n\t}\n};\n\nbool visited[maxN];\nint64_t n, m, dp[maxN];\nvector<edge> graph[maxN];\npriority_queue<edge> pq;\n\nbool operator<(edge a, edge b)\n{\n\treturn a.weight < b.weight;\n}\nvoid dijkstra()\n{\n\tpq.push(edge(0, 10005));\n\tdp[0] = 10005;\n\t\n\twhile(!pq.empty())\n\t{\n\t\tint64_t current_node = pq.top().node_to, current_max = pq.top().weight;\n\t\tpq.pop();\n\t\t\n\t\tif(visited[current_node]) continue;\n\t\tvisited[current_node] = true;\n\t\t\n\t\tfor(int64_t i = 0; i < graph[current_node].size(); i++)\n\t\t{\n\t\t\tint64_t next_node = graph[current_node][i].node_to;\n\t\t\tif(!visited[next_node] && dp[next_node] < min(current_max, graph[current_node][i].weight))\n\t\t\t{\n\t\t\t\tdp[next_node] = min(current_max, graph[current_node][i].weight);\n\t\t\t\tpq.push(edge(next_node, dp[next_node]));\n\t\t\t}\n\t\t}\n\t}\n}\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\t//cin>>n>>m;\n\tscanf("%lld%lld", &n, &m);\n\tfor(int64_t i = 0; i < m; i++)\n\t{\n\t\tint64_t a, b, c;\n\t\t//cin>>a>>b>>c;\n\t\tscanf("%lld%lld%lld", &a, &b, &c);\n\t\tgraph[a].push_back(edge(b, c));\n\t\tgraph[b].push_back(edge(a, c));\n\t}\n\t\n\tdijkstra();\n\tfor(int64_t i = 1; i < n; i++)\n\t{\n\t\t//cout<<dp[i]<<" ";\n\t\tprintf("%lld ", dp[i]);\n\t}\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

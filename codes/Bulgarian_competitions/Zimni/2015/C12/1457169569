@@ -1,0 +1,13 @@
+(I3
+I91
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nlong long del[10000];\r\nint main(){\r\n    int n;\r\n    cin.tie(NULL);\r\n    ios_base::sync_with_stdio(false);\r\n    cin>>n;\r\n    int h_del=0;\r\n    bool a;\r\n    for(int i=1;h_del<5135;i++){\r\n        a=true;\r\n        for(int j=1;a && j<h_del;j++){\r\n            if(i%del[j]==0) a=false;\r\n        }\r\n        if(a){\r\n            del[h_del]=i;\r\n            h_del++;\r\n        }\r\n    }\r\n    long long ans=2,minali=1;\r\n    long long i;\r\n    for(i=1;minali<n;i++){\r\n        ans+=(del[i+1]-del[i-1])*del[i];\r\n        minali+=(del[i+1]-del[i-1]);\r\n    }\r\n    cout<<ans-(minali-n)*del[i-1];\r\n}\r\n'
+p3
+tp4
+stp5
+.

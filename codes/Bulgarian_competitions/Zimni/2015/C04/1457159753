@@ -1,0 +1,13 @@
+(I3
+I83
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include <iostream>\r\nusing namespace std;\r\n\r\nlong long p[100005],a[100005],sz;\r\n\r\nvoid Prime()\r\n{\r\n bool fl=true;\r\n long long i,j;\r\n\r\n i=1;\r\n while(i<100000)\r\n {\r\n  i++;\r\n   if(p[i]==0)\r\n   {\r\n    for(j=i*i;j<=100000;j=j+i)\r\n     p[j]=1;\r\n   }\r\n }\r\n\r\n for(i=2;i<=100000;i++)\r\n  if(p[i]==0)\r\n  {\r\n   sz++;\r\n   a[sz]=i;\r\n  }\r\n}\r\n\r\nint main()\r\n{\r\n\r\nlong long n,i,s,k,uk;\r\nbool fl;\r\n\r\ncin>>n;\r\n\r\nPrime();\r\n\r\nfl=true;\r\ns=2;\r\nk=1;\r\nuk=1;\r\n while(fl)\r\n {\r\n  if(k==n)\r\n   break;\r\n\r\n  if(s%a[uk+1]==0)\r\n  {\r\n   uk++;\r\n   s=s+a[uk];\r\n   k++;\r\n  }\r\n  else\r\n  {\r\n   s=s+a[uk];\r\n   k++;\r\n  }\r\n }\r\n\r\ncout<<s<<endl;\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

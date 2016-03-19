@@ -1,0 +1,13 @@
+(I3
+I92
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vdivisor.cpp
+p2
+S'#include<iostream>\r\n#include<cmath>\r\n#include<algorithm>\r\n#include<queue>\r\n#include<utility>\r\n#include<cstring>\r\n#include<cstdlib>\r\nusing namespace std;\r\nlong long prosti4isla[100000],a=2,p=2,br=1,b;\r\nint main(){\r\nlong long n;\r\ncin>>n;\r\nn=n-1;\r\nfor(long long i=2;i<n;i++){\r\nif(prosti4isla[i]==0){\r\nfor(long long r=2*i;r<100000;r=r+i){\r\nprosti4isla[r]=1;\r\n}\r\n}\r\n}\r\nfor(long long i=0;i<n;i++){\r\n//cout<<p<<\' \'<<br<<"\\n";\r\na=a+p;\r\nbr++;\r\nif(prosti4isla[br]==0 and br!=p){\r\nb=p;\r\np=br;\r\nbr=b;\r\n}\r\n}\r\ncout<<a<<"\\n";\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

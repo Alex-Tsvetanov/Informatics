@@ -1,0 +1,13 @@
+(I3
+I94
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<cmath>\r\nusing namespace std;\r\nlong long arr[1001][1001],weights[1001][1001],answ[1001];\r\nlong long dfs(long long from,long long finish,long long weight,long long n,long long steps){\r\n          if(from == finish){\r\n            if(weight>answ[finish]){\r\n              answ[finish] = weight;\r\n            }\r\n            return 0;\r\n          }\r\n          if(steps > n){\r\n            return -1;\r\n          }\r\n          for(long long i=0;i<n;i++){\r\n             if(arr[from][i] == 1){\r\n               if(weights[from][i] >= weight){\r\n                 dfs(i,finish,weight,n,steps+1);\r\n               }else{\r\n                   dfs(i,finish,weights[from][i],n,steps+1);\r\n               }\r\n               dfs(i,finish,weights[from][i],n,steps+1);\r\n             }\r\n          }\r\n}\r\nint main(){\r\nlong long x,y,i,n,m,w,j;\r\ncin>>n>>m;\r\nfor(i=0;i<m;i++){\r\n  cin>>x>>y>>w;\r\n  arr[x][y] = 1;\r\n  arr[y][x] = 1;\r\n  weights[y][x] = w;\r\n  weights[x][y] = w;\r\n}\r\n  for(i = 0;i<n;i++){\r\n    for(j = 0;j < n;j++){\r\n      if(i!=j){\r\n        dfs(i,j,0,n,0);\r\n      }\r\n    }\r\n  }\r\n  for(i = 0;i < n;i++){\r\n    cout<<answ[i]<<" ";\r\n  }\r\n  cout<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

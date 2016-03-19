@@ -1,0 +1,13 @@
+(I3
+I98
+I7
+(dp0
+Vdivisor.%l
+p1
+(Vc1_1.cpp
+p2
+S'#include <iostream>\n\nunsigned long long seq[1000001];\n\nunsigned long long bp(unsigned long long n)\n{\n\tunsigned long long res = 0;\n\tfor(unsigned long long p = 2;p <= n;++ p)\n\t{\n\t\tif(n % p == 0)\n\t\t{\n\t\t\tn /= p;\n\t\t\tif(p > res)\n\t\t\t\tres = p;\n\t\t\tp --;\n\t\t}\n\t}\n\treturn res;\n}\n\nint main()\n{\n\tseq[0] = 2;\n\tint n;\n\tstd::cin >> n;\n\tfor(int i = 1;i < n;++ i)\n\t{\n\t\tseq[i] = seq[i-1] + bp(seq[i-1]);\n\t}\n\tstd::cout << seq[n-1] << std::endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

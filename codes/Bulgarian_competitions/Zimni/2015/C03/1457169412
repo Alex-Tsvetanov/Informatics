@@ -1,0 +1,13 @@
+(I3
+I82
+I9
+(dp0
+Vflights.%l
+p1
+(Vflll.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <queue>\r\n#include <cstdio>\r\n#include <cstring>\r\nusing namespace std;\r\n\r\n#define MAXN 10000\r\n#define INF 2000000100\r\n\r\nlong flow;\r\nint target;\r\nshort cap[MAXN][MAXN]={};\r\nbool used[MAXN];\r\nvector<short> path;\r\nvector<short> vec[MAXN];\r\n\r\nint n, m;\r\n\r\nvoid update(){\r\n    long l;\r\n    long long Flow=INF;\r\n    for(l=0;l<path.size()-1;l++){\r\n        short p1=path[l];\r\n        short p2=path[l+1];\r\n        //cout<<cap[p1][p2]<<" "<<p1<<" "<<p2<<endl;\r\n        if(Flow>cap[p1][p2]) Flow=cap[p1][p2];\r\n    }\r\n    //cout<<Flow<<endl;\r\n    if(Flow>flow&&Flow!=INF) flow=Flow;\r\n    //cout<<endl;\r\n}\r\n\r\nvoid dfs(int u){\r\n    for(int i=0;i<vec[u].size();i++){\r\n            int v=vec[u][i];\r\n        if(v==target){\r\n            path.push_back(v);\r\n            update();\r\n            path.pop_back();\r\n        }\r\n        if(used[v]==0){\r\n            used[v]=1;\r\n            path.push_back(v);\r\n            dfs(v);\r\n            path.pop_back();\r\n        }\r\n    }\r\n}\r\n\r\nint main(){\r\n    long j;\r\n    int a, b, c;\r\n    cin>>n>>m;\r\n    for(j=0;j<m;j++){\r\n        cin>>a>>b>>c;\r\n        cap[a][b]=c;\r\n        cap[b][a]=c;\r\n        vec[a].push_back(b);\r\n        vec[b].push_back(a);\r\n    }\r\n\r\n\r\n    for(j=1;j<n;j++){\r\n        memset(used,0,sizeof(used));\r\n        flow=0;\r\n        target=j;\r\n        used[0]=1;\r\n        path.clear();\r\n        path.push_back(0);\r\n        dfs(0);\r\n\r\n        long level=flow;\r\n        cout<<level;\r\n        if(j!=n-1) cout<<" ";\r\n        else cout<<"\\n";\r\n    }\r\n    return 0;\r\n}\r\n/*\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n\r\n*/\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I3
+I89
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <queue>\r\nusing namespace std;\r\nstruct customer\r\n{\r\n    int ar, numb;\r\n    customer(){ar=0, numb=0;}\r\n    customer (int a, int b)\r\n    {\r\n        ar=a;\r\n        numb=b;\r\n    }\r\n};\r\nint n, m, beg, en, cust;\r\nvector <customer> v[20050];\r\nqueue <int> q;\r\nbool operator<(customer a, customer b)\r\n{\r\n    return a.numb<b.numb;\r\n}\r\npriority_queue <customer> pq;\r\nint used[20050];\r\nbool bfs (int beg, int en)\r\n{\r\n    used[beg]=1;\r\n    q.push(beg);\r\n    while (!q.empty())\r\n    {\r\n        int k=q.front();\r\n        for (int i=0; i<v[k].size(); i++)\r\n        {\r\n            if (v[k][i].ar==en) return 1;\r\n            if (!used[v[k][i].ar])\r\n            {\r\n                used[v[k][i].ar]=1;\r\n\r\n                q.push(v[k][i].ar);\r\n            }\r\n        }\r\n        q.pop();\r\n    }\r\n    for (int i=0; i<20050; i++) used[i]=0;\r\n    while (q.size()) q.pop();\r\n    return 0;\r\n}\r\nint main ()\r\n{\r\n    cin >>n>>m;\r\n    for (int i=0; i<m; i++)\r\n    {\r\n        cin >>beg>>en>>cust;\r\n        customer e(beg,cust);\r\n        v[en].push_back(e);\r\n        e.ar=en;\r\n        v[beg].push_back(e);\r\n    }\r\n    /*for (int i=0; i<n; i++)\r\n    {\r\n        cout<<"i="<<i<<": ";\r\n        for (int j=0; j<v[i].size(); j++)\r\n        {\r\n            cout <<"("<<v[i][j].ar<<","<<v[i][j].numb<<") ";\r\n        }\r\n        cout <<endl;\r\n    }*/\r\n    for (int i=1; i<n; i++)\r\n    {\r\n        for (int j=0; j<v[i].size(); j++)\r\n        {\r\n            pq.push(v[i][j]);\r\n        }\r\n        while (!pq.empty())\r\n        {\r\n            customer mx=pq.top();\r\n            pq.pop();\r\n            if (bfs(0,mx.ar))\r\n            {\r\n                cout <<mx.numb<<" ";\r\n                break;\r\n            }\r\n        }\r\n        while (pq.size()) pq.pop();\r\n    }\r\n\r\n}\r\n/**\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n*/\r\n'
+p3
+tp4
+stp5
+.

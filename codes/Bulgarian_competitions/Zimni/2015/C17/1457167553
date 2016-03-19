@@ -1,0 +1,13 @@
+(I3
+I96
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<queue>\r\n#include<vector>\r\nusing namespace std;\r\n\r\n\r\nlong long roditel[200000];\r\n\r\nlong long findRoditel(long long a){\r\n    if(roditel[a]==-1)\r\n        return a;\r\n    return roditel[a]=findRoditel(roditel[a]);\r\n}\r\n\r\nvoid svurzi(long long a,long long b){\r\n    roditel[findRoditel(a)]=findRoditel(b);\r\n}\r\n\r\nbool svurzaniLiSa(long long a,long long b){\r\n    return findRoditel(a)==findRoditel(b);\r\n}\r\n\r\n\r\nstruct edge{\r\n    long long value,from,to;\r\n    bool operator<(const edge& a)const{\r\n        return this->value<a.value;\r\n    }\r\n}rebra[200002];\r\n\r\nlong long maxx[20002];\r\nvector<long long> susedi[20002],teglo[20002];\r\npriority_queue<edge> opa6ka;\r\nqueue<long long> q;\r\nlong long used[20002];\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long vurhove,broiRebra,br,a,b,t,maxDurvo=0;\r\n    cin>>vurhove>>broiRebra;\r\n    for(br=0;br<broiRebra;br++){\r\n        cin>>a>>b>>t;\r\n        //cout<<"a";\r\n        rebra[br].from=a;\r\n        rebra[br].to=b;\r\n        rebra[br].value=t;\r\n\r\n        opa6ka.push(rebra[br]);\r\n    }\r\n    for(br=0;br<=vurhove;br++){\r\n        roditel[br]=-1;\r\n    }\r\n    while(!opa6ka.empty()){\r\n        edge vruh=opa6ka.top();\r\n        //cout<<vruh.from<<" "<<vruh.to<<" "<<vruh.value<<endl;\r\n        opa6ka.pop();\r\n        if(!svurzaniLiSa(vruh.from,vruh.to)){\r\n            svurzi(vruh.from,vruh.to);\r\n            maxDurvo+=vruh.value;\r\n            susedi[vruh.from].push_back(vruh.to);\r\n            susedi[vruh.to].push_back(vruh.from);\r\n            teglo[vruh.from].push_back(vruh.value);\r\n            teglo[vruh.to].push_back(vruh.value);\r\n        }\r\n    }\r\n    //cout<<maxDurvo<<endl;\r\n    q.push(0);\r\n    used[0]=10000000000;\r\n    while(!q.empty()){\r\n        long long x=q.front();\r\n        //cout<<x<<endl;\r\n        q.pop();\r\n        long long dulzia=susedi[x].size();\r\n        for(br=0;br<dulzia;br++){\r\n            if(!used[susedi[x][br]]){\r\n                used[susedi[x][br]]=min(used[x],teglo[x][br]);\r\n                //cout<<susedi[x][br]<<" "<<teglo[x][br]<<endl;\r\n                q.push(susedi[x][br]);\r\n            }\r\n        }\r\n    }\r\n\r\n\r\n    for(br=1;br<vurhove;br++){\r\n        cout<<used[br];\r\n        if(br+1<vurhove)\r\n            cout<<" ";\r\n    }\r\n    cout<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

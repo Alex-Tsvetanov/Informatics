@@ -1,0 +1,13 @@
+(I3
+I82
+I9
+(dp0
+Vflights.%l
+p1
+(Vflll.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <queue>\r\nusing namespace std;\r\n\r\n#define MAXN 20010\r\n#define INF 2099511627\r\n\r\nshort cap[MAXN][MAXN]={};\r\nvector<short> vec[MAXN];\r\nbool used[MAXN]={};\r\nlong long level[MAXN]={};\r\n\r\nvoid bfs(short u){\r\n    used[u]=1;\r\n    level[u]=INF;\r\n    queue<short> q;\r\n    q.push(u);\r\n    short i;\r\n    while(!q.empty()){\r\n        u=q.front();\r\n        q.pop();\r\n        short k=vec[u].size();\r\n        for(i=0;i<k;i++){\r\n            int v=vec[u][i];\r\n            if(level[u]>cap[u][v]){\r\n                    if(cap[u][v]>level[v]) level[v]=cap[u][v];\r\n            }\r\n            else{\r\n                if(level[u]<=cap[u][v]&&level[u]>level[v]) level[v]=level[u];\r\n            }\r\n            if(used[v]==0){\r\n                used[v]=1;\r\n                q.push(v);\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nvoid addEdge(short u, short v, short t){\r\n    cap[u][v]=t;\r\n    cap[v][u]=t;\r\n    vec[u].push_back(v);\r\n    vec[v].push_back(u);\r\n}\r\n\r\n\r\nint main(){\r\n\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(NULL);\r\n\r\n    long long n, m, i;\r\n    short a, b, c;\r\n    cin>>n>>m;\r\n\r\n    for(i=0;i<m;i++){\r\n        cin>>a>>b>>c;\r\n        addEdge(a, b, c);\r\n    }\r\n\r\n    bfs(0);\r\n\r\n    for(i=1;i<n-1;i++){\r\n      cout<<level[i]<<" ";\r\n    }\r\n    cout<<level[i]<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

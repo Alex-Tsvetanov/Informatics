@@ -1,0 +1,13 @@
+(I3
+I81
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<list>\r\n#include<algorithm>\r\nusing namespace std;\r\nclass Neighbour\r\n{\r\npublic:\r\n    int Index;\r\n    int Max;\r\n    Neighbour(int a,int b)\r\n    {\r\n        Index=a;\r\n        Max=b;\r\n    }\r\n};\r\nint Search(list<Neighbour> A[], int start, int finish,int LastCheckedIndex/*, bool b[]*/,int size)\r\n{\r\n    list<Neighbour> L[size];\r\n    for(int i=0;i<size;i++) L[i] = A[i];\r\n    //b[LastCheckedIndex] = true;\r\n    int max=0;\r\n    int s = L[start].size();\r\n    for(int i=0; i<s; i++)\r\n    {\r\n        //cout<<"D"<<endl;\r\n        Neighbour n = L[start].front();\r\n        L[start].pop_front();\r\n        int m=0;\r\n        if(n.Index==finish)\r\n        {\r\n            m=n.Max;\r\n        }\r\n        else\r\n        {\r\n            //cout<<start<<" "<<n.Index<<endl;\r\n            //if(!b[n.Index])\r\n            //{\r\n                m = min(Search(L,n.Index,finish,start/*,b*/,size),n.Max);\r\n            //}\r\n        }\r\n        if(max<m) max=m;\r\n\r\n    }\r\n    return max;\r\n}\r\nint main()\r\n{\r\n    int n,m;\r\n    cin>>n>>m;\r\n    list<Neighbour> A[n];\r\n    /*bool IsChecked[n];\r\n    for(int i=0; i<n; i++) IsChecked[i] = false;*/\r\n    for(int i=0; i<m; i++)\r\n    {\r\n        int x,y,z;\r\n        cin>>x>>y>>z;\r\n        Neighbour a(y,z),b(x,z);\r\n        A[x].push_back(a);\r\n        A[y].push_back(b);\r\n    }\r\n    cout<<Search(A,0,1,0/*,IsChecked*/,n);\r\n    for(int i=2; i<n; i++) cout<<" "<<Search(A,0,i,0/*,IsChecked*/,n);\r\n    cout<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

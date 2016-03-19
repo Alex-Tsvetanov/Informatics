@@ -1,0 +1,13 @@
+(I3
+I100
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vdaimazamekici.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main()\r\n{\r\n    cout<<"NO 5\\n";\r\n}\r\n'
+p3
+tp4
+stp5
+.

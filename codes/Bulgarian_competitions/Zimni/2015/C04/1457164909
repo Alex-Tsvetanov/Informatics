@@ -1,0 +1,13 @@
+(I3
+I83
+I8
+(dp0
+Vhexgame.%l
+p1
+(Vhexgame.cpp
+p2
+S'#include <iostream>\r\n#include <stdio.h>\r\nusing namespace std;\r\n\r\nint a[100005][7];\r\nint n,d,ans,r,sol,mxi;\r\n\r\nint Down(int i,int j)\r\n{\r\n if(j<=3)\r\n  return a[i][j+3];\r\n else\r\n  return a[i][j-3];\r\n}\r\n\r\nint Rot(int i)\r\n{\r\n if(i<=4)\r\n  return i-1;\r\n else\r\n  return 6-i+1;\r\n}\r\n\r\nvoid Rec(int i,int prd,int rot)\r\n{\r\n int j;\r\n\r\n  if(i>mxi)\r\n   mxi=i;\r\n\r\n  if(i==n+1)\r\n  {\r\n   sol=1;\r\n\r\n   if(rot<ans)\r\n    ans=rot;\r\n\r\n   return;\r\n  }\r\n\r\n  for(j=1;j<=6;j++)\r\n   if(a[i][j]==prd || i==1)\r\n   {\r\n    d=Down(i,j);\r\n    r=Rot(j);\r\n    Rec(i+1,d,rot+r);\r\n   }\r\n}\r\n\r\nint main()\r\n{\r\n\r\nint i,j;\r\n\r\nscanf("%d",&n);\r\n\r\n for(i=1;i<=n;i++)\r\n  for(j=1;j<=6;j++)\r\n   scanf("%d",&a[i][j]);\r\n\r\nans=1000000;\r\nRec(1,0,0);\r\n\r\n if(sol==1)\r\n  printf("%d\\n",ans);\r\n else\r\n  printf("NO %d\\n",mxi);\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I3
+I101
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'# include<iostream>\r\n# include<vector>\r\nusing namespace std;\r\n\r\nstruct flights\r\n{\r\n    int x,p;\r\n    flights(int x, int p)\r\n    {\r\n        this->x=x;\r\n        this->p=p;\r\n    }\r\n};\r\n\r\nvector<flights> v[20001];\r\nint maxs[20001];\r\nint n,m;\r\nint main()\r\n{\r\n    cin>>n>>m;\r\n    for(int i=0; i<m; i++)\r\n    {\r\n        int x,y,c;\r\n        cin>>x>>y>>c;\r\n        v[x].push_back(flights(y,c));\r\n        v[y].push_back(flights(x,c));\r\n    }\r\n\r\n    for(int i=0; i<n; i++)\r\n    {\r\n        for(int j=0; j<v[i].size(); j++)\r\n        {\r\n            if(maxs[v[i][j].x]<v[i][j].p) maxs[v[i][j].x]=v[i][j].p;\r\n        }\r\n    }\r\n\r\n    for(int i=1; i<n; i++) cout<<maxs[i]<<" ";\r\n    cout<<endl;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I3
+I91
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include<iostream>\r\n#include<queue>\r\n#include<vector>\r\nusing namespace std;\r\nvector< pair<int,int> > rebra[20000];\r\nint max_obh[20000];\r\nint n,m;\r\nint max_putnici=0;\r\nint dijkstra(int s){\r\n    priority_queue<pair<int,int> > r;\r\n    pair<int,int> pushes;\r\n    pushes.first=max_putnici;\r\n    pushes.second=s;\r\n    r.push(pushes);\r\n    pair<int,int> current;\r\n    while(!r.empty()){\r\n        current=r.top();\r\n        r.pop();\r\n        for(int i=0;i<rebra[current.second].size();i++){\r\n            if(max_obh[rebra[current.second][i].first]<min(current.first,rebra[current.second][i].second)){\r\n                pushes.first=min(current.first,rebra[current.second][i].second);\r\n                pushes.second=rebra[current.second][i].first;\r\n                max_obh[rebra[current.second][i].first]=pushes.first;\r\n                r.push(pushes);\r\n            }\r\n        }\r\n    }\r\n}\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios_base::sync_with_stdio(false);\r\n    cin>>n>>m;\r\n    pair<int,int> j;\r\n    for(int i=0;i<m;i++){\r\n        int a,b,c;\r\n        cin>>a>>b>>c;\r\n        j.first=b;\r\n        j.second=c;\r\n        rebra[a].push_back(j);\r\n        j.first=a;\r\n        rebra[b].push_back(j);\r\n        max_putnici=max(max_putnici,c);\r\n    }\r\n    dijkstra(0);\r\n    for(int i=1;i<n;i++){\r\n        cout<<max_obh[i]<<" ";\r\n    }\r\n}\r\n/*\r\n5 6\r\n0 1 6\r\n4 0 7\r\n1 2 6\r\n3 1 1\r\n3 2 4\r\n3 4 3\r\n*/\r\n'
+p3
+tp4
+stp5
+.

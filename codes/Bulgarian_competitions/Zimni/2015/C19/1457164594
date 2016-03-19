@@ -1,0 +1,13 @@
+(I3
+I98
+I9
+(dp0
+Vflights.%l
+p1
+(Vc3.cpp
+p2
+S"#include <iostream>\n#include <queue>\n#include <utility>\n#include <vector>\n\nstd::vector<std::pair<int, int>> graph[20001];\nint used[20001];\nint n, m;\nvoid di()\n{\n\tstd::priority_queue<std::pair<int, int> > next;\n\tnext.push({100000000, 0});\n\n\twhile(!next.empty())\n\t{\n\t\tauto curr = next.top();\n\t\tnext.pop();\n\t\tif(curr.first < used[curr.second])\n\t\t\tcontinue;\n\t\tused[curr.second] = curr.first;\n\t\t//std::cout << curr.second << ' ' << curr.first << std::endl;\n\n\t\tfor(auto c : graph[curr.second])\n\t\t{\n\t\t\tif(used[c.second] == 0)\n\t\t\t\tnext.push({std::min(c.first, curr.first), c.second});\n\t\t}\n\t}\n\tfor(int i = 1;i < n;++ i)\n\t\tstd::cout << used[i] << ' ';\n\tstd::cout << std::endl;\n}\n\nint main()\n{\n\tstd::cin >> n >> m;\n\tfor(int i = 0;i < m;++ i)\n\t{\n\t\tint a, b, c;\n\t\tstd::cin >> a >> b >> c;\n\t\tgraph[a].push_back({c, b});\n\t\tgraph[b].push_back({c, a});\n\t}\n\n\tdi();\n\treturn 0;\n}\n"
+p3
+tp4
+stp5
+.

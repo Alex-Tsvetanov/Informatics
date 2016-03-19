@@ -1,0 +1,13 @@
+(I3
+I90
+I9
+(dp0
+Vflights.%l
+p1
+(Vflights.cpp
+p2
+S'#include <iostream>\n#include <set>\n#include <utility>\n#include <vector>\n\nusing namespace std;\n\nconst long long inf = 2000000000;\nlong long dist [20000];\nvector < pair < int, long long > > ln [20000];\n\nstruct lEss\n{\n\tbool operator()(pair <long long, int> s1, pair <long long, int> s2) const\n\t{\n\t\treturn s1 > s2;\n\t}\n};\n\nint main ()\n{\n\t//init\n\tcin.tie (nullptr);\n\tios::sync_with_stdio (false);\n\t//input\n\tint n, m;\n\tcin >> n >> m;\n\tfor (int i = 0 ; i < m ; i ++)\n\t{\n\t\tint a, b, cost;\n\t\tcin >> a >> b >> cost;\n\t\tln [b].push_back ({a, cost});\n\t\tln [a].push_back ({b, cost});\n\t}\n\t//djikstra\n\tset < pair <long long, int>, lEss > pq;\n\tfor (int i = 0 ; i < n ; i ++)\n\t{\n\t\tdist [i] = (i == 0)?inf:-inf;\n\t\tpq.insert ({dist [i], i});\n\t}\n\t/*\n\tfor (int i = 0 ; i < n ; i ++)\n\t\tcout << dist [i] << " ";\n\tcout << endl;\n\t*/\n\twhile (not pq.empty ())\n\t{\n\t/*\tfor (int i = 0 ; i < n ; i ++)\n\t\t\tcout << dist [i] << " ";\n\t\tcout << endl;*/\n\t\tauto top = *pq.begin ();\n\t\tpq.erase (pq.begin ());\n//\t\tcout << "current step" << top.first << " " << top.second << endl;\n\n\t\tfor (auto& x : ln [top.second])\n\t\t{\n\t\t\tint to = x.first;\n\t\t\tlong long cost = min (top.first, x.second);\n//\t\t\tcout << cost << " " << to << endl;\n\t\t\tif (cost > dist [to])\n\t\t\t{\n//\t\t\t\tcout << "update: " << to << " -> " << dist [to] << " = " << cost << "\\n";\n\t\t\t\tpq.erase (pq.find ({dist [to], to}));\n\t\t\t\tpq.insert ({cost, to});\n\t\t\t\tdist [to] = cost;\n\t\t\t}\n\t\t}\n\t}\n\tfor (int i = 1 ; i < n ; i ++)\n\t\tcout << dist [i] << " ";\n\tcout << endl;\n}\n'
+p3
+tp4
+stp5
+.
