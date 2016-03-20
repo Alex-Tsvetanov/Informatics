@@ -1,4 +1,4 @@
-tasks={"candies","code","rect"};
+tasks={"grid","leaders","maxnotice"};
 for folder in `ls -d ./Sources/D/*`;
 do
 	echo "$folder:";
@@ -103,6 +103,6 @@ do
 			fi
 		fi
 	done
-	printf "%3d | %3d - $log1 | %3d - $log2 | %3d - $log3 | %20s\n" $points $point1 $point2 $point3 $folder >> resultsD;
+	printf "%3d | %3d | %3d | %3d | %20s\n" $points $point1 $point2 $point3 $folder >> resultsD_bez_log;
 	echo "--------------------------------------";
 done
