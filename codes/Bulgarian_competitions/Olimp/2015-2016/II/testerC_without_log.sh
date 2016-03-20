@@ -15,7 +15,7 @@ do
 		command_code=$?;
 		if [[ "$command_code" = "0" ]]
 		then
-			if [[ "`diff -w a Tests/C/$task.$i.sol`" = "" ]]
+			if [[ "`./check_virus.exe Tests/C/$task.$i.in Tests/C/$task.$i.sol a`" = "1" ]]
 			then
 				points=$(($points+4));
 				point1=$(($point1+4));
@@ -103,6 +103,6 @@ do
 			fi
 		fi
 	done
-	printf "%3d | %3d - $log1 | %3d - $log2 | %3d - $log3 | %20s\n" $points $point1 $point2 $point3 $folder >> resultsC_no_checker;
+	printf "%3d | %3d | %3d | %3d | %20s\n" $points $point1 $point2 $point3 $folder >> resultsC_bez_log;
 	echo "--------------------------------------";
 done
