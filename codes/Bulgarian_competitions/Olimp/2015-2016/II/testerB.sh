@@ -1,6 +1,7 @@
 tasks={"virus","sequences","cnet"};
 for folder in `ls -d ./Sources/C/*`;
 do
+	rm $tasks.exe;
 	echo "$folder:";
 	points=0;
 	point1=0;

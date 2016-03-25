@@ -1,6 +1,7 @@
 tasks={"candies","code","rect"};
-for folder in `ls -d ./Sources/D/*`;
+for folder in `ls -d ./Sources/E/*`;
 do
+	rm $tasks.exe;
 	echo "$folder:";
 	points=0;
 	point1=0;
@@ -103,6 +104,6 @@ do
 			fi
 		fi
 	done
-	printf "%3d | %3d - $log1 | %3d - $log2 | %3d - $log3 | %20s\n" $points $point1 $point2 $point3 $folder >> resultsD;
+	printf "%3d | %3d - $log1 | %3d - $log2 | %3d - $log3 | %20s\n" $points $point1 $point2 $point3 $folder >> resultsE;
 	echo "--------------------------------------";
 done

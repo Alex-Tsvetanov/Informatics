@@ -1,6 +1,7 @@
 tasks={"grid","leaders","maxnotice"};
 for folder in `ls -d ./Sources/D/*`;
 do
+	rm $tasks.exe;
 	echo "$folder:";
 	points=0;
 	point1=0;
