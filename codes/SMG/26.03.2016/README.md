@@ -1,1 +1,2 @@
-# STL, Macroses, <span color="blue">**typeof**</span>
+# STL, Macroses
+<span color="blue">**typeof**</span>
