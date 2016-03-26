@@ -1,2 +1,2 @@
 # STL, Macroses
-<span color="blue">**typeof**</span>
+<font color="blue">typeof</font>
