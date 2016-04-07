@@ -1,0 +1,9 @@
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\bin\Debug\CodeIT-Puzzle-Visualizer.exe.config
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\bin\Debug\CodeIT-Puzzle-Visualizer.exe
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\bin\Debug\CodeIT-Puzzle-Visualizer.pdb
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\obj\Debug\CodeIT-Puzzle-Visualizer.csprojResolveAssemblyReference.cache
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\obj\Debug\CodeIT_Puzzle_Visualizer.Form1.resources
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\obj\Debug\CodeIT_Puzzle_Visualizer.Properties.Resources.resources
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\obj\Debug\CodeIT-Puzzle-Visualizer.csproj.GenerateResource.Cache
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\obj\Debug\CodeIT-Puzzle-Visualizer.exe
+D:\MusalaSoft\CodeIT-Puzzle_Vsualizer\CodeIT-Puzzle-Visualizer\CodeIT-Puzzle-Visualizer\obj\Debug\CodeIT-Puzzle-Visualizer.pdb

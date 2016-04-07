@@ -1,0 +1,3 @@
+/home/alex/GIT/have_repo/Informatics/codes/Codeit/2015-2016/V/CodeIT-Puzzle-Visualizer/CodeIT-Puzzle-Visualizer/obj/Debug/.NETFramework,Version=v4.5.2.AssemblyAttribute.cs
+/home/alex/GIT/have_repo/Informatics/codes/Codeit/2015-2016/V/CodeIT-Puzzle-Visualizer/CodeIT-Puzzle-Visualizer/obj/Debug/CodeIT_Puzzle_Visualizer.Form1.resources
+/home/alex/GIT/have_repo/Informatics/codes/Codeit/2015-2016/V/CodeIT-Puzzle-Visualizer/CodeIT-Puzzle-Visualizer/obj/Debug/CodeIT_Puzzle_Visualizer.Properties.Resources.resources
