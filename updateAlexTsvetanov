@@ -2,7 +2,7 @@
 cd codes/Ro6afF/ 
 git pull
 cd ../../
-cat .readme > README.md
+echo -e "#Школи, лагери, задачи и ришения на задачи по информатика\n##от Алекс Иванов Цветанов" > README.md
 git init
 git add .
 git commit
