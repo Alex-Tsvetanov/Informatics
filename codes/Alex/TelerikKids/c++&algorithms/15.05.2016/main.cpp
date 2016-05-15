@@ -79,7 +79,6 @@ void doAction (player& player1, player& player2, turn_t turn, const int gridX, c
 
 int main ()
 {
-	int timeLimitMS=4000;
 	int gridX, gridY;
 	cin >> gridX >> gridY;
 	char** map = new char* [gridY];
@@ -105,14 +104,29 @@ int main ()
 
 	while (true)
 	{
-		turn_t player1_turn = player1->turn (player2->myX, player2->myY);
+		clock_t t;
+			t = clock();
+				turn_t player1_turn = player1->turn (player2->myX, player2->myY);
+			t = clock() - t;
+			if ((((float)t)/CLOCKS_PER_SEC) > 0.1f)
+			{
+				cout << "player 1 lose" << std::endl;
+			}
+
+
 		doAction (*player1, *player2, player1_turn, gridX, gridY);
 		draw (map, gridX, gridY, player1->myX, player1->myY, player2->myX, player2->myY);
 
 		Ssleep (40);
 		system ("cls");
 
-		turn_t player2_turn = player2->turn (player1->myX, player1->myY);
+			t = clock();
+				turn_t player2_turn = player2->turn (player1->myX, player1->myY);
+			t = clock() - t;
+			if ((((float)t)/CLOCKS_PER_SEC) > 0.1f)
+			{
+				cout << "player 2 lose" << std::endl;
+			}
 		doAction (*player2, *player1, player2_turn, gridX, gridY);
 		draw (map, gridX, gridY, player1->myX, player1->myY, player2->myX, player2->myY);
 		Ssleep (40);
