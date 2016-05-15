@@ -8,7 +8,7 @@ using turn_t = std::pair <point, point>;
 {
 public:
 	int player_num; 
-	const char ** map;
+	char ** map;
 	int myX, myY;
 public:
 	virtual turn_t turn (int, int) = 0;
