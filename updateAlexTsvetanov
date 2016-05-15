@@ -4,8 +4,6 @@ git pull
 cd ../../
 echo -e "#Школи, лагери, задачи и ришения на задачи по информатика\n##от Алекс Иванов Цветанов" > README.md
 git init
-git add .
+git add -A
 git commit
-git remote add origin https://github.com/Alex-Tsvetanov/Informatics.git
-git push -u origin master
-
+git push
