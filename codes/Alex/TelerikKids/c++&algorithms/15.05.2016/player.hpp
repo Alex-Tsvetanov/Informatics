@@ -1,20 +1,16 @@
 #include <vector>
 #include <utility>
 
-using point = pair <int, int>;
-using turn_t = point;
+using point = std::pair <int, int>;
+using turn_t = std::pair <point, point>;
 
 /*abstract*/ class player
 {
-private:
+public:
 	int player_num; 
 	const char ** map;
+	int myX, myY;
 public:
-	player (int pl_n)
-	{
-		player_num = pl_n;
-		
-	}
-	virtual turn_t turn () = 0;
+	virtual turn_t turn (int, int) = 0;
 };
 

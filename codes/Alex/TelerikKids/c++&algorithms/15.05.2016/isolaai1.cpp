@@ -135,6 +135,8 @@ int main(){
 	handshake();
 	print();
 
+
+
 	if(playerTurn==1){
 		movePlayer();
 		shootPlayer();
@@ -143,7 +145,7 @@ int main(){
 	}
 	while(true)
 	{
-		turn_t turn_Enemy = Enemy.turn (...);
+		turn_t turn_Enemy = Enemy.turn ();
 
 		print();
 		Sleep(500);
