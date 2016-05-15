@@ -5,5 +5,8 @@ struct AlexRo6afF : player
 		player_num = pl_n;
 		
 	}
-
+	turn_t turn (int plX, int plY)
+	{
+		return {{1, 2}, {3, 4}};
+	}
 };

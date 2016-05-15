@@ -8,7 +8,7 @@ using turn_t = point;
 {
 private:
 	int player_num; 
-	std::vector <point> points;
+	const char ** map;
 public:
 	player (int pl_n)
 	{
