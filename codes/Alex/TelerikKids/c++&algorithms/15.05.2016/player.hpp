@@ -1,8 +1,8 @@
 #include <vector>
 #include <utility>
 
-using point = std::pair <int, int>;
-using turn_t = std::pair <point, point>;
+typedef std::pair <int, int> point;
+typedef std::pair <point, point> turn_t;
 
 /*abstract*/ class player
 {

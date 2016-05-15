@@ -7,6 +7,6 @@ struct AlexRo6afF : player
 	}
 	turn_t turn (int plX, int plY)
 	{
-		return {{1, 2}, {3, 4}};
+		return std::make_pair (std::make_pair (1, 2), std::make_pair (3, 4));
 	}
 };

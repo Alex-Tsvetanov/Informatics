@@ -5,7 +5,22 @@
 using std::cin;
 using std::cout;
 
+    #include <stdlib.h>
+#ifdef _WIN32
+    #include <windows.h>
+
+    void Ssleep(unsigned milliseconds)
+    {
+        Sleep(milliseconds);
+    }
+#else
     #include <unistd.h>
+
+    void Ssleep(unsigned milliseconds)
+    {
+        usleep(milliseconds * 1000); // takes microseconds
+    }
+#endif
 
 void draw (char** map, const int gridX, const int gridY, const int _1_x, const int _1_y, const int _2_x, const int _2_y)
 {
@@ -85,6 +100,8 @@ int main ()
 	player2->myX = _2_x; player2->myY = _2_y; 
 
 	draw (map, gridX, gridY, player1->myX, player1->myY, player2->myX, player2->myY);
+	Ssleep (40);
+	system ("cls");
 
 	while (true)
 	{
@@ -92,11 +109,13 @@ int main ()
 		doAction (*player1, *player2, player1_turn);
 		draw (map, gridX, gridY, player1->myX, player1->myY, player2->myX, player2->myY);
 
-
+		Ssleep (40);
+		system ("cls");
 
 		turn_t player2_turn = player2->turn (player1->myX, player1->myY);
 		doAction (*player2, *player1, player2_turn);
 		draw (map, gridX, gridY, player1->myX, player1->myY, player2->myX, player2->myY);
+		Ssleep (40);
 	}
 
 	return 0;
