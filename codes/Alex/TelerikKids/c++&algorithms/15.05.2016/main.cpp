@@ -35,27 +35,21 @@ void draw (char** map, const int gridX, const int gridY, const int _1_x, const i
 	cout.flush ();
 }
 
-bool validMove (int x, int y, int pX, int pY, const player& player1, const player& player2)
+bool validMove (int x, int y, int pX, int pY, const player& player1, const player& player2, const int gridX, const int gridY)
 {
+	if (x < 0 or x >= gridX or y < 0 or y >= gridY)
+		return 0;
 	if(player1.map [x][y] == '#')
-	{
 		return 0;
-	}
 	if(x == player2.myX && y == player2.myY)
-	{
 		return 0;
-	}
 	if(x == player1.myX && y == player1.myY)
-	{
 		return 0;
-	}
 	if(abs (x - pX) > 1 || abs (y - pY) > 1)
-	{
 		return 0;
-	}
 	return 1;
 }
-void doAction (player& player1, player& player2, turn_t turn)
+void doAction (player& player1, player& player2, turn_t turn, const int gridX, const int gridY)
 {
 	int fromX = player1.myX;
 	int fromY = player1.myY;
@@ -63,16 +57,22 @@ void doAction (player& player1, player& player2, turn_t turn)
 	int toY = turn.first.second;
 	int shootX = turn.second.first;
 	int shootY = turn.second.second;
-	if(validMove (toX, toY, fromX, fromY, player1, player2))
+	if(validMove (toX, toY, fromX, fromY, player1, player2, gridX, gridY))
 	{
 		player1.myX = toX;
 		player1.myY = toY;
-		player1.map [shootX][shootY] = '#';
+		if (!(shootX < 0 or shootX >= gridX or shootY < 0 or shootY >= gridY))
+			player1.map [shootX][shootY] = '#';
+		else
+		{
+			cout<<"player " << player1.player_num  << " lost"<<std::endl;
+			exit (0);
+		}
 	}
 	else
 	{
-		cout<<"player lost"<<std::endl;
-		while(true){}
+		cout<<"player " << player1.player_num << " lost"<<std::endl;
+		exit (0);
 	}
 
 }
@@ -106,14 +106,14 @@ int main ()
 	while (true)
 	{
 		turn_t player1_turn = player1->turn (player2->myX, player2->myY);
-		doAction (*player1, *player2, player1_turn);
+		doAction (*player1, *player2, player1_turn, gridX, gridY);
 		draw (map, gridX, gridY, player1->myX, player1->myY, player2->myX, player2->myY);
 
 		Ssleep (40);
 		system ("cls");
 
 		turn_t player2_turn = player2->turn (player1->myX, player1->myY);
-		doAction (*player2, *player1, player2_turn);
+		doAction (*player2, *player1, player2_turn, gridX, gridY);
 		draw (map, gridX, gridY, player1->myX, player1->myY, player2->myX, player2->myY);
 		Ssleep (40);
 	}
