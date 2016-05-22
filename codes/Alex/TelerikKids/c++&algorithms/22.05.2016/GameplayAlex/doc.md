@@ -1,6 +1,6 @@
 # Документация за ботове
 # How to make your AI?
-``cpp
+```cpp
 struct __<<Name of Your AI>>__ : player
 {
 	__<<Name of Your AI>>__ (int pl_n, char** map)
@@ -16,4 +16,4 @@ struct __<<Name of Your AI>>__ : player
 		return std::make_pair (std::make_pair (1, 2), std::make_pair (3, 4));
 	}
 };
-``
+```
