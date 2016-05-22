@@ -1,5 +1,5 @@
 #include<iostream>
-#include<windows.h>
+#include <unistd.h>
 #include<vector>
 #include<cmath>
 #include"testAi.h"
@@ -191,7 +191,7 @@ int Isola::play(){
             return 1;
         }
         print();
-        Sleep(sleepTimeMS);
+        sleep(sleepTimeMS / 1000);
 
         resP2=Isola::player2Play(resP1);
         if(!resP2.back()){
@@ -199,7 +199,7 @@ int Isola::play(){
             return 2;
         }
         print();
-        Sleep(sleepTimeMS);
+        sleep(sleepTimeMS / 1000);
 
     }
     if(this->firstPlayer==2){
@@ -219,7 +219,7 @@ int Isola::play(){
             return 1;
         }
         print();
-        Sleep(sleepTimeMS);
+        sleep(sleepTimeMS / 1000);
 
 
         resP2=Isola::player2Play(resP1);
@@ -228,12 +228,13 @@ int Isola::play(){
             return 2;
         }
         print();
-        Sleep(sleepTimeMS);
+        sleep(sleepTimeMS / 1000);
 
 
     }
 }
-int main(){
+int main ()
+{
     Isola game1(11,1);
     game1.play();
     return 0;
