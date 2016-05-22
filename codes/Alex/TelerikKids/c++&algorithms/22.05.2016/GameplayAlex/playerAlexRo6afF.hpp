@@ -5,7 +5,7 @@ struct AlexRo6afF : player
 		player_num = pl_n;
 		this->map = map;
 	}
-	turn_t turn (int plX, int plY)
+	turn_t turn (int plX, int plY) const
 	{
 		return std::make_pair (std::make_pair (1, 2), std::make_pair (3, 4));
 	}

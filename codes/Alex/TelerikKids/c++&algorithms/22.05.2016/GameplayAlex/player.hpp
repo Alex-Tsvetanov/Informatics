@@ -11,6 +11,6 @@ public:
 	char ** map;
 	int myX, myY;
 public:
-	virtual turn_t turn (int, int) = 0;
+	virtual turn_t turn (int, int) const = 0;
 };
 
