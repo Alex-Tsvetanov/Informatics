@@ -1,7 +1,7 @@
 # Документация за ботове
 # How to make your AI?
 ```cpp
-struct __<<Name of Your AI>>__ : player
+struct <i><<Name of Your AI>></i> : player
 {
 	__<<Name of Your AI>>__ (int pl_n, char** map)
 	{
