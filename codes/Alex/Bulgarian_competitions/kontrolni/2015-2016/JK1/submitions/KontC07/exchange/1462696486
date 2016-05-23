@@ -1,0 +1,13 @@
+(I2
+I20
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\n\r\nstruct chanta{\r\n    long long st,broi;\r\n}torba[256];\r\n\r\nlong long imaLiGo[256],dp[2500];\r\nconst long long MAX_N=256;\r\n\r\nbool cmp(chanta a,chanta b){\r\n    return a.st<b.st;\r\n}\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long suma,n,i,j,cpy=0,a;\r\n    cin>>suma>>n;\r\n    for(i=0;i<MAX_N;i++){\r\n        imaLiGo[i]=-1;\r\n    }\r\n    for(i=0;i<n;i++){\r\n        cin>>torba[i].st;\r\n        if(imaLiGo[torba[i].st]==-1){\r\n            imaLiGo[torba[i].st]=i;\r\n            torba[i].broi=0;\r\n            cpy++;\r\n        }else{\r\n            torba[i].broi=-13;\r\n        }\r\n    }\r\n    for(i=0;i<n;i++){\r\n        cin>>a;\r\n        if(torba[i].broi==-13){\r\n            torba[imaLiGo[torba[i].st]].broi+=a;\r\n            torba[i].st=1000000;\r\n        }else{\r\n            torba[i].broi=a;\r\n        }\r\n    }\r\n    sort(torba,torba+n,cmp);\r\n    n=cpy;\r\n    /*for(i=0;i<n;i++){\r\n        cout<<torba[i].st<<";"<<torba[i].broi<<" ";\r\n    }cout<<"\\n";*/\r\n    dp[0]=1;\r\n    for(i=0;i<=suma;i++){\r\n        for(j=0;j<n;j++){\r\n            dp[i+torba[j].st]+=dp[i];\r\n        }\r\n    }\r\n    /*for(i=0;i<=suma;i++){\r\n        cout<<i<<":"<<dp[i]<<"\\n";\r\n    }*/\r\n    cout<<dp[suma]<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

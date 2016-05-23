@@ -1,0 +1,13 @@
+(I2
+I22
+I4
+(dp0
+Vbest.%l
+p1
+(Vbest.cpp
+p2
+S'#include <iostream>\n#include <vector>\n#include <queue>\n#include <set>\n\nconst int MOD = 100000017;\nstd::vector<int> graph[20001];\nint globalIDP = 0;\nint ids[MOD];\nstd::set<int> all;\nstd::vector<int> groups;\nbool used[MOD];\n\nint knap1[10001][10001];\n\nvoid addGroup(int start)\n{\t\n\tstd::queue<int> next;\n\tnext.push(start);\n\n\tgroups.push_back(0);\n\tint gr = groups.size() - 1;\n\n\twhile(!next.empty())\n\t{\n\t\tint curr = next.front();\n\t\tnext.pop();\n\n\t\tused[curr] = true;\n\t\tgroups[gr] ++;\n\n\t\tfor(auto node : graph[curr])\n\t\t{\n\t\t\tif(!used[node])\n\t\t\t{\n\t\t\t\tused[node] = true;\n\t\t\t\tnext.push(node);\n\t\t\t}\n\t\t}\n\t}\n}\n\nint hash(std::string& name)\n{\n\tint res = 0;\n\tfor(int i = 0;i < name.size();++ i)\n\t{\n\t\tres += (name[i] * i);\n\t\tres %= MOD;\n\t}\n\treturn res;\n}\n\nint getID(std::string& name)\n{\n\tfor(auto& c : name)\n\t\tif(c >= \'A\' and c <= \'Z\')\n\t\t\tc -= (\'A\' - \'a\');\n\n\tint fn1 = hash(name);\n\n\tif(all.find(fn1) == all.end())\n\t{\n\t\tall.insert(fn1);\n\t\tids[fn1] = globalIDP ++;\n\t}\n\n\treturn ids[fn1];\n}\n\nint main()\n{\n\tint n, m;\n\tstd::cin >> n >> m;\n\n\tdouble p1, p2;\n\tint v1, v2;\n\tstd::cin >> p1 >> v1;\n\tstd::cin >> p2 >> v2;\n\n\tif(p2 < p1)\n\t{\n\t\tstd::swap(p1, p2);\n\t\tstd::swap(v1, v2);\n\t}\n\n\tstd::string name1, name2;\n\tfor(int i = 0;i < m;++ i)\n\t{\n\t\tstd::cin >> name1 >> name2;\n\n\t\tint fn1 = getID(name1);\n\t\tint fn2 = getID(name2);\n\n\t\tgraph[fn1].push_back(fn2);\n\t\tgraph[fn2].push_back(fn1);\n\t}\n\n\tfor(auto curr : all)\n\t{\n\t\tif(!used[ids[curr]])\n\t\t{\n\t\t\tused[ids[curr]] = true;\n\t\t\taddGroup(ids[curr]);\n\t\t}\n\t}\n\n\tint gsum = 0;\n\tfor(auto curr : groups)\n\t\tgsum += curr;\n\n\tfor(int i = 0;i < groups.size();++ i)\n\t{\n\t\tint curr = groups[i];\n\t\tfor(int j = 0;j <= v1;++ j)\n\t\t{\n\t\t\tif(j >= curr)\n\t\t\t\tknap1[i+1][j] = std::max(curr + knap1[i][j-curr], knap1[i][j]);\n\t\t\telse\n\t\t\t\tknap1[i+1][j] = knap1[i][j];\n\t\t}\n\t}\n\tint onCheap = knap1[groups.size()][v1];\n\n\tdouble res = ((double)onCheap) * p1 + ( (double) (gsum - onCheap)) * p2;\n\tn -= gsum;\n\tv1 -= onCheap;\n\tv2 -= (gsum - onCheap);\n\n\tint other = std::min(n, v1);\n\tres += (double)other * p1;\n\tn -= other;\n\tres += (double)n * p2;\n\t//std::cout << res << std::endl;\n\t\n\tint res2 = res * 100;\n\tint o2 = res2 % 100;\n\tint o1 = res2 / 100;\n\tif(o2 < 10)\n\t\tstd::cout << o1 << ".0" << o2 << std::endl;\n\telse\n\t\tstd::cout << o1 << \'.\' << o2 << std::endl;\n\n\t//std::cout << std::ios_base::setprecision(2) << res << std::endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

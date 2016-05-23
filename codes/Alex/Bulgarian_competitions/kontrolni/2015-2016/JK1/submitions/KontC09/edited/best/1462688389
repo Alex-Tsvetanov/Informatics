@@ -1,0 +1,104 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <cstdio>
+using namespace std;
+
+vector <int> g[10005],p;
+int vis[30],cnt;
+
+void DFS(int v)
+{
+ int i;
+
+ vis[v]=1;
+ //cout<<char('a'+v-1)<<endl;
+ cnt++;
+
+  for(i=0;i<g[v].size();i++)
+   if(vis[g[v][i]]==0)
+    DFS(g[v][i]);
+}
+
+int main()
+{
+
+int n,m,v1,v2,i,len,j,s=0,chr,exr;
+double p1,p2,ch,ex,ans=0;
+char u,v;
+
+cin>>n>>m;
+cin>>p1>>v1;
+cin>>p2>>v2;
+
+ if(p1<p2)
+ {
+  ch=p1;
+  ex=p2;
+
+  chr=v1;
+  exr=v2;
+ }
+ else
+ {
+  ch=p2;
+  ex=p1;
+
+  chr=v2;
+  exr=v1;
+ }
+
+ for(i=1;i<=m;i++)
+ {
+  cin>>u>>v;
+
+    if(u>='A' && u<='Z')
+     u=u+('a'-'A');
+
+    if(v>='A' && v<='Z')
+     v=v+('a'-'A');
+
+  g[u-'a'+1].push_back(v-'a'+1);
+  g[v-'a'+1].push_back(u-'a'+1);
+ }
+
+ for(i=1;i<=26;i++)
+ {
+  cnt=0;
+
+   if(vis[i]==0)
+    DFS(i);
+
+   if(cnt>1)
+   {
+    //cout<<i<<" "<<cnt<<endl;
+    p.push_back(cnt);
+    s=s+cnt;
+   }
+ }
+
+sort(p.begin(),p.end());
+
+ for(i=p.size()-1;i>=0;i--)
+ {
+  if(p[i]<=chr)
+  {
+   chr=chr-p[i];
+   ans=ans+ch*p[i];
+  }
+  else
+  {
+   exr=exr-p[i];
+   ans=ans+ex*p[i];
+  }
+ }
+
+s=n-s;
+ans=ans+min(s,chr)*ch;
+s=s-min(s,chr);
+ans=ans+min(s,exr)*ex;
+
+printf("%.2f\n",ans);
+
+return 0;
+}

@@ -1,0 +1,13 @@
+(I2
+I17
+I4
+(dp0
+Vbest.%l
+p1
+(Vbest1.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\ndouble a,b,otg;\r\nlong long n,m,k1,k2,k3,otg2;\r\nchar k[32];\r\ncin>>n>>m;\r\ncin>>a>>k1;\r\ncin>>b>>k2;\r\nif(k1+k2>n){\r\n    if(a<b){\r\n           // k3=k2;\r\n        k2=n-k1;\r\n    if(k2<0){\r\n        k1=k1+k2;\r\n    }\r\n    }else{\r\n     //   k3=k1;\r\n    k1=n-k2;\r\n        if(k1<0){\r\n        k2=k2+k1;\r\n    }\r\n    }\r\n}\r\nfor(long long i=0;i<m;i++){\r\ncin>>k>>k;\r\n}\r\notg=a*k1+b*k2;\r\notg2=otg*1000;\r\nif((otg2%10)>=5){\r\n        if((otg2/10)%100+1>=10){\r\ncout<<otg2/1000<<\'.\'<<(otg2/10)%100+1;\r\n        }else{\r\n        cout<<otg2/1000<<".0"<<(otg2/10)%100+1;\r\n        }\r\n}else{\r\n            if((otg2/10)%100>=10){\r\ncout<<otg2/1000<<\'.\'<<(otg2/10)%100;\r\n            }else{\r\n            cout<<otg2/1000<<".0"<<(otg2/10)%100;\r\n            }\r\n}\r\ncout<<"\\n";\r\n//cout<<otg2;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

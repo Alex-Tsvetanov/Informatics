@@ -1,0 +1,138 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <set>
+
+const int MOD = 100000017;
+std::vector<int> graph[20001];
+int globalIDP = 0;
+int ids[MOD];
+std::set<int> all;
+std::vector<int> groups;
+bool used[MOD];
+
+int knap1[10001][10001];
+
+void addGroup(int start)
+{	
+	std::queue<int> next;
+	next.push(start);
+
+	groups.push_back(0);
+	int gr = groups.size() - 1;
+
+	while(!next.empty())
+	{
+		int curr = next.front();
+		next.pop();
+
+		used[curr] = true;
+		groups[gr] ++;
+
+		for(auto node : graph[curr])
+		{
+			if(!used[node])
+			{
+				used[node] = true;
+				next.push(node);
+			}
+		}
+	}
+}
+
+int hash(std::string& name)
+{
+	int res = 0;
+	for(int i = 0;i < name.size();++ i)
+	{
+		res += (name[i] * i);
+		res %= MOD;
+	}
+	return res;
+}
+
+int getID(std::string& name)
+{
+	for(auto& c : name)
+		if(c >= 'A' and c <= 'Z')
+			c -= ('A' - 'a');
+
+	int fn1 = hash(name);
+
+	if(all.find(fn1) == all.end())
+	{
+		all.insert(fn1);
+		ids[fn1] = globalIDP ++;
+	}
+
+	return ids[fn1];
+}
+
+int main()
+{
+	int n, m;
+	std::cin >> n >> m;
+
+	double p1, p2;
+	int v1, v2;
+	std::cin >> p1 >> v1;
+	std::cin >> p2 >> v2;
+
+	if(p2 < p1)
+	{
+		std::swap(p1, p2);
+		std::swap(v1, v2);
+	}
+
+	std::string name1, name2;
+	for(int i = 0;i < m;++ i)
+	{
+		std::cin >> name1 >> name2;
+
+		int fn1 = getID(name1);
+		int fn2 = getID(name2);
+
+		graph[fn1].push_back(fn2);
+		graph[fn2].push_back(fn1);
+	}
+
+	for(auto curr : all)
+	{
+		if(!used[ids[curr]])
+		{
+			used[ids[curr]] = true;
+			addGroup(ids[curr]);
+		}
+	}
+
+	int gsum = 0;
+	for(auto curr : groups)
+		gsum += curr;
+
+	for(int i = 0;i < groups.size();++ i)
+	{
+		int curr = groups[i];
+		for(int j = 0;j <= v1;++ j)
+		{
+			if(j >= curr)
+				knap1[i+1][j] = std::max(curr + knap1[i][j-curr], knap1[i][j]);
+			else
+				knap1[i+1][j] = knap1[i][j];
+		}
+	}
+	int onCheap = knap1[groups.size()][v1];
+
+	double res = ((double)onCheap) * p1 + ( (double) (gsum - onCheap)) * p2;
+	n -= gsum;
+	v1 -= onCheap;
+	v2 -= (gsum - onCheap);
+
+	int other = std::min(n, v1);
+	res += other * p1;
+	n -= other;
+	res += n * p2;
+	std::cout << res << std::endl;
+
+	//std::cout << std::setprecision(2) << res << std::endl;
+	return 0;
+}

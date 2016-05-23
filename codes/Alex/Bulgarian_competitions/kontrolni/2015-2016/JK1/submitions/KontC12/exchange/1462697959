@@ -1,0 +1,13 @@
+(I2
+I15
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\n#include <queue>\r\n#define k first\r\n#define br second\r\nusing namespace std;\r\nint a[201],num[201],s,n,br=0,maxx[201];\r\npair <int,int> inv[202];\r\nstruct st{int sum,pos;};\r\nqueue<st> q;\r\n\r\nvoid rac(int su,int po)\r\n{\r\n int i,ts;\r\n st stt,st1;\r\n stt.sum=su; stt.pos=po;\r\n //cout <<sum<<" "<<pos<< endl;\r\n q.push(stt);\r\n while(!q.empty())\r\n{\r\n stt=q.front();\r\n if(stt.sum>s) return;\r\n for (i=0; i<=inv[stt.pos].br; i++)\r\n     {\r\n      ts=inv[stt.pos].k*i;\r\n      if(stt.sum+ts>s) return;\r\n      if(stt.pos!=0) {st1.sum=stt.sum+ts; st1.pos=stt.pos-1; q.push(st1);}\r\n      if(stt.pos==0)\r\n         {\r\n          //cout <<sum<<" "<<maxx[0]<<" "<<inv[0].k<< endl;\r\n          if((s-stt.sum)%inv[0].k==0 && s-stt.sum<=maxx[0]) br++;\r\n          break;\r\n         }\r\n     }\r\n q.pop();\r\n}\r\n}\r\n\r\nint main()\r\n{\r\nint b,i;\r\ncin >>s>>n;\r\nfor (i=1; i<=n; i++) cin>>a[i];\r\nfor (i=1; i<=n; i++)\r\n    {\r\n     cin>>b;\r\n     num[a[i]]+=b;\r\n    }\r\nn=0;\r\nfor (i=1; i<=200; i++) if(num[i]>0) {inv[n].k=i; inv[n++].br=num[i];}\r\n//for (i=0; i<n; i++) cout <<inv[i].k<<" "<<inv[i].br<< endl;\r\nsort(inv,inv+n);\r\nmaxx[0]=inv[0].k*inv[0].br;\r\nfor (i=1; i<=n-1; i++) maxx[i]=maxx[i-1]+inv[i].k*inv[i].br;\r\nrac(0,n-1);\r\ncout <<br<< endl;\r\nreturn 0;\r\n}\r\n/*\r\n50\r\n3\r\n10 20 10\r\n1 2 2\r\n*/\r\n'
+p3
+tp4
+stp5
+.

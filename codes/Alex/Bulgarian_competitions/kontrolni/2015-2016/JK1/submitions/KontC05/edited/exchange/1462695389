@@ -1,0 +1,40 @@
+#include <iostream>
+
+int coins[201], value[201];
+
+long long dp[201][5001];
+bool calc[201][5001];
+
+long long iwant(int idx, int tv)
+{
+	if(idx == -1)
+		return tv == 0;
+
+	if(calc[idx][tv])
+		return dp[idx][tv];
+	
+	long long res = 0;
+	for(int i = 0;i <= coins[idx];++ i)
+	{
+		long long add = iwant(idx-1, tv - value[idx]*i);
+		//std::cout << "Iw(" << idx-1 << " " << tv - value[idx]*i << ") = " << add << std::endl;
+		res += add;
+	}
+	calc[idx][tv] = true;
+	dp[idx][tv] = res;
+	return res;
+}
+
+int main()
+{
+	int s, n;
+	std::cin >> s >> n;
+
+	for(int i = 0;i < n;i ++)
+		std::cin >> value[i];
+	for(int i = 0;i < n;i ++)
+		std::cin >> coins[i];
+
+	std::cout << iwant(n-1, s) << std::endl;
+	return 0;
+}

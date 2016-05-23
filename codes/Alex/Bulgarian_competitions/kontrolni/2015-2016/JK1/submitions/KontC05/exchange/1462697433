@@ -1,0 +1,13 @@
+(I2
+I22
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include <iostream>\n\nlong long coins[201], value[201];\n\nunsigned long long dp[201][5001];\nbool calc[201][5001];\n\nlong long packs[201];\n\nunsigned long long iwant(long long idx, long long tv)\n{\n\tif(idx == -1)\n\t\treturn tv == 0;\n\n\tif(calc[idx][tv])\n\t{\n\t\treturn dp[idx][tv];\n\t\tstd::cout << idx << \' \' << tv << " = " << dp[idx][tv] << std::endl;\n\t}\n\t\n\tunsigned long long res = 0;\n\tfor(long long i = 0;i <= coins[idx] and tv - value[idx]*i >= 0;++ i)\n\t{\n\t\tunsigned long long add = iwant(idx-1, tv - value[idx]*i);\n\t\tres += add;\n\t}\n\tcalc[idx][tv] = true;\n\tdp[idx][tv] = res;\n\treturn res;\n}\n\nint main()\n{\n\tlong long s, n;\n\tstd::cin >> s >> n;\n\n\tfor(long long i = 0;i < n;i ++)\n\t\tstd::cin >> value[i];\n\tfor(long long i = 0;i < n;i ++)\n\t\tstd::cin >> coins[i];\n\n\tfor(long long i = 0;i < n;i ++)\n\t\tpacks[value[i]] += coins[i];\n\n\tlong long count = 0;\n\tfor(long long i = 0;i < 201;i --)\n\t{\n\t\tif(packs[i] > 0)\n\t\t{\n\t\t\tvalue[count] = i;\n\t\t\tcoins[count] = packs[i];\n\t\t\tcount ++;\n\t\t}\n\t}\n\tn = count;\n\t//for(long long i = 0;i < n;i ++)\n\t\t//std::cout << i << "." << coins[i] << "." << value[i] << std::endl;\n\n\n\tstd::cout << iwant(n-1, s) << std::endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

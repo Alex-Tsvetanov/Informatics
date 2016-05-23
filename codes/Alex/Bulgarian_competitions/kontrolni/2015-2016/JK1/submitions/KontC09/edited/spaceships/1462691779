@@ -1,0 +1,135 @@
+#include <iostream>
+using namespace std;
+
+int ans,n,m,cnt;
+char a[105][105],c[105][105];
+bool fl;
+
+void Rec(int x,int y,char b[105][105])
+{
+ cnt++;
+
+ if(x==0 || x==n+1)
+ {
+  if(cnt-1>ans)
+   ans=cnt-1;
+
+  return;
+ }
+
+ if(y==0 || y==m+1)
+ {
+  if(cnt-1>ans)
+   ans=cnt-1;
+
+  return;
+ }
+
+ if(b[x][y]=='v')
+ {
+  if(b[x+1][y]=='.')
+  {
+   swap(b[x][y],b[x+1][y]);
+   Rec(x+1,y,b);
+   return;
+  }
+  else
+  {
+   b[x][y]='.';
+   Rec(x+1,y,b);
+   return;
+  }
+ }
+
+ if(b[x][y]=='^')
+ {
+  if(b[x-1][y]=='.')
+  {
+   swap(b[x][y],b[x-1][y]);
+   Rec(x-1,y,b);
+   return;
+  }
+  else
+  {
+   b[x][y]='.';
+   Rec(x-1,y,b);
+   return;
+  }
+ }
+
+ if(b[x][y]=='<')
+ {
+  if(b[x][y-1]=='.')
+  {
+   swap(b[x][y],b[x][y-1]);
+   Rec(x,y-1,b);
+   return;
+  }
+  else
+  {
+   b[x][y]='.';
+   Rec(x,y-1,b);
+   return;
+  }
+ }
+
+ if(b[x][y]=='>')
+ {
+  if(b[x][y+1]=='.')
+  {
+   swap(b[x][y],b[x][y+1]);
+   Rec(x,y+1,b);
+   return;
+  }
+  else
+  {
+   b[x][y]='.';
+   Rec(x,y+1,b);
+   return;
+  }
+ }
+}
+
+int main()
+{
+
+int i,j,p,q;
+
+cin>>n>>m;
+
+ for(i=1;i<=n;i++)
+  for(j=1;j<=m;j++)
+   cin>>a[i][j];
+
+ for(i=0;i<=m+1;i++)
+ {
+  a[0][i]='.';
+  a[n+1][i]='.';
+ }
+
+ for(i=0;i<=n+1;i++)
+ {
+  a[i][0]='.';
+  a[i][m+1]='.';
+ }
+
+fl=false;
+
+ for(i=1;i<=n;i++)
+  for(j=1;j<=m;j++)
+  {
+   if(a[i][j]!='.')
+   {
+    for(p=1;p<=n;p++)
+     for(q=1;q<=m;q++)
+      c[p][q]=a[p][q];
+
+    cnt=0;
+    Rec(i,j,c);
+   }
+  }
+
+cout<<ans<<endl;
+
+return 0;
+}

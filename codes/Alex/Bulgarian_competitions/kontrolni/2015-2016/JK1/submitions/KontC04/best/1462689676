@@ -1,0 +1,13 @@
+(I2
+I23
+I4
+(dp0
+Vbest.%l
+p1
+(Vbest.cpp
+p2
+S'#include<iostream>\r\n#include<map>\r\n#include<vector>\r\n#include<queue>\r\nusing namespace std;\r\nstring malki(string s){\r\n    for(int i=0;i<s.size();i++){\r\n        if(s[i]!=\'-\' && s[i]>=\'A\' && s[i]<=\'Z\')   s[i]-=\'A\'-\'a\';\r\n    }\r\n    return s;\r\n}\r\n\r\n    map<string,vector<string> > rebr;\r\n    map<string,bool> obh;\r\n    vector<string> ime;\r\n    vector<int> grupi;\r\n    queue<string> opa;\r\n    int n,m;\r\n    double p1,p2,v1,v2;\r\nint max_cena(int last,int to_now,int aim){\r\n    if(to_now>aim)  return 0;\r\n    if(to_now==aim || last==grupi.size()-1) return to_now;\r\n    int maxi=0;\r\n    for(int i=last+1;i<grupi.size();i++){\r\n        maxi=max(max_cena(i,to_now+grupi[i],aim),maxi);\r\n        if(maxi==aim)   return maxi;\r\n    }\r\n    return maxi;\r\n}\r\nint main(){\r\n    cin>>n>>m>>p1>>v1>>p2>>v2;\r\n    string s1,s2;\r\n    for(int i=0;i<m;i++){\r\n        cin>>s1>>s2;\r\n        s1=malki(s1);\r\n        s2=malki(s2);\r\n        //cout<<s1<<s2;\r\n        if(rebr[s1].size()==0){\r\n            ime.push_back(s1);\r\n            obh[s1]=false;;\r\n\r\n        }\r\n        if(rebr[s2].size()==0){\r\n            ime.push_back(s2);\r\n            obh[s2]=false;\r\n        }\r\n        rebr[s1].push_back(s2);\r\n        rebr[s2].push_back(s1);\r\n    }\r\n    for(int i=0;i<ime.size();i++){\r\n        if(!obh[ime[i]]){\r\n            grupi.push_back(0);\r\n            opa.push(ime[i]);\r\n            obh[ime[i]]=true;\r\n            while(!opa.empty()){\r\n                grupi[grupi.size()-1]++;\r\n                for(int j=0;j<rebr[opa.front()].size();j++){\r\n                    if(!obh[rebr[opa.front()][j]]){\r\n                        opa.push(rebr[opa.front()][j]);\r\n                        obh[rebr[opa.front()][j]]=true;\r\n                    }\r\n                }\r\n                opa.pop();\r\n            }\r\n        }\r\n    }\r\n    int jkl=max_cena(-1,0,p1<p2?v1:v2);\r\n    jkl+=min((int)((p1<p2?v1:v2)-jkl),\r\n            (int)(n-ime.size()));\r\n    double ans=jkl*min(p1,p2)+(n-jkl)*max(p1,p2);\r\n    cout<<(int)(ans)<<"."<<((int)(ans*100)%100<10?"0":"")<<(int)(ans*100)%100+((int)(ans*1000)%10<5?0:1);\r\n}\r\n/*12 7\r\n25.17 6\r\n32.00 8\r\nRadko MisHo\r\nRadkO Stenli\r\nMiSho Daniel\r\nMisho Zdravko\r\nBoris IRina\r\nIrina Gabriel\r\nMaria-Yoana Maria*/\r\n'
+p3
+tp4
+stp5
+.

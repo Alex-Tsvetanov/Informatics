@@ -1,0 +1,13 @@
+(I2
+I25
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchanges_2.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nconst int maxN = 205, maxA = 205, maxB = 5005, maxS = 2005;\n\nstruct coin\n{\n\tint cost, count;\n\t\n\tcoin(){}\n\tcoin(int cost, int count)\n\t{\n\t\tthis->cost = cost;\n\t\tthis->count = count;\n\t}\n};\n\nbool used_states[250][150][1500];\nint s, n, a[maxN], b, coins[maxA], dp[250][200][1500];\nvector<coin> all_coins;\n\nint solve(int sum, int bag, int ind)\n{\n\t//cout<<"     "<<sum<<" "<<bag<<" "<<ind<<endl;\n\tif(sum == s) return 1;\n\telse if(bag >= all_coins.size() || ind > all_coins[bag].count || sum > s) return 0;\n\telse if(used_states[sum][bag][ind]) return dp[sum][bag][ind];\n\t\n\tint val1 = solve(sum, bag + 1, 0), val2 = solve(sum + all_coins[bag].cost, bag, ind + 1);\n\tif(ind == all_coins[bag].count) val2 = 0;\n\tused_states[sum][bag][ind] = true;\n\tdp[sum][bag][ind] = val1 + val2;\n\t\n\t//cout<<sum<<" "<<bag<<" "<<ind<<" "<<val1 + val2<<endl;\n\treturn dp[sum][bag][ind];\n}\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>s>>n;\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tcin>>a[i];\n\t}\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tcin>>b;\n\t\tcoins[a[i]] += b;\n\t}\n\t\n\tfor(int i = 0; i < maxA; i++)\n\t{\n\t\tif(coins[i] != 0) all_coins.push_back(coin(i, coins[i]));\n\t}\n\t\n\tcout<<solve(0, 0, 0)<<endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

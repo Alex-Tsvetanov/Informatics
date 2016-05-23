@@ -1,0 +1,65 @@
+#include<iostream>
+using namespace std;
+struct posoka{
+    int px=0,py=0;
+};
+    char t[200][200];
+    posoka pos[200][200];
+    int n,m;
+int how(int x,int y){
+    bool minato[200][200]={};
+    minato[x][y]=true;
+    posoka l=pos[x][y];
+    int ans=0;
+    while(x>=0 && x<m && y>=0 && y<n){
+        x+=l.px;
+        y+=l.py;
+        if(t[x][y]!='.' && !minato[x][y]){
+            l=pos[x][y];
+            minato[x][y]=true;
+        }
+        ans++;
+    }
+    return ans;
+}
+int main(){
+    cin>>n>>m;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            cin>>t[j][i];
+            switch(t[j][i]){
+                case 'v':
+                    pos[j][i].px=0;
+                    pos[j][i].py=1;
+                    break;
+                case '^':
+                    pos[j][i].px=0;
+                    pos[j][i].py=-1;
+                    break;
+                case '<':
+                    pos[j][i].px=-1;
+                    pos[j][i].py=0;
+                    break;
+                case '>':
+                    pos[j][i].px=1;
+                    pos[j][i].py=0;
+                    break;
+            }
+        }
+    }
+    int ma=0;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<m;j++){
+            if(t[j][i]!='.'){
+            ma=max(ma,how(j,i));
+            }
+        }
+    }
+    cout<<ma;
+}
+/*5 6
+vv.^>>
+.^.<>.
+>>.^>v
+.^v>..
+^^...<*/

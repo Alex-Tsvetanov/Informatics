@@ -1,0 +1,13 @@
+(I2
+I24
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include <iostream>\r\n#include <utility>\r\n#include <vector>\r\n#include <algorithm>\r\nusing namespace std;\r\n\r\nconst long long MAXN=256;\r\nconst long long MAXS=2048;\r\n\r\nlong long n, s;\r\nlong long a[MAXN], b[MAXN], c[MAXN];\r\n\r\nvector<pair<long long, long long>> coins;\r\nstring dp[MAXS];\r\n\r\nvoid Init()\r\n{\r\n    cin>>s>>n;\r\n    for (long long i=0; i<n; i++)\r\n    {\r\n        cin>>a[i];\r\n    }\r\n    for (long long i=0; i<n; i++)\r\n    {\r\n        cin>>b[i];\r\n        c[a[i]]+=b[i];\r\n    }\r\n    for (long long i=1; i<=200; i++)\r\n    {\r\n        if (c[i]!=0) coins.emplace_back(i, c[i]);\r\n    }\r\n    sort(coins.begin(), coins.end());\r\n}\r\n\r\nstring Plus(string x, string y)\r\n{\r\n    while (x.size()<y.size()) x="0"+x;\r\n    while (x.size()>y.size()) y="0"+y;\r\n\r\n    string res=""; int pren=0;\r\n    for (int i=x.size()-1; i>=0; i--)\r\n    {\r\n        int tmp=x[i]+y[i]-96+pren;\r\n        res=(char)((tmp%10)+48)+res;\r\n        pren=tmp/10;\r\n    }\r\n    if (pren!=0) res="1"+res;\r\n    return res;\r\n}\r\n\r\nvoid Solve()\r\n{\r\n    dp[0]="1";\r\n    for (long long i=0; i<coins.size(); i++)\r\n    {\r\n        for (long long j=s; j>=1; j--)\r\n        {\r\n            for (long long k=1; k<=coins[i].second; k++)\r\n            {\r\n                long long ind=j-coins[i].first*k;\r\n\r\n                if (ind<0) k=coins[i].second+1;\r\n                else dp[j]=Plus(dp[j], dp[ind]);\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint main()\r\n{\r\n    Init();\r\n    Solve();\r\n    cout<<dp[s]<<endl;\r\n    return 0;\r\n}\r\n\r\n'
+p3
+tp4
+stp5
+.

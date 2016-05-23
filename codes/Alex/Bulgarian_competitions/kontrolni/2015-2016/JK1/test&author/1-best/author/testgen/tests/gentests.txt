@@ -1,0 +1,45 @@
+best.exe < best.00.in > best.00.sol
+best.exe < best.01.in > best.01.sol
+best.exe < best.02.in > best.02.sol
+best.exe < best.03.in > best.03.sol
+best.exe < best.04.in > best.04.sol
+best.exe < best.05.in > best.05.sol
+best.exe < best.06.in > best.06.sol
+best.exe < best.07.in > best.07.sol
+best.exe < best.08.in > best.08.sol
+best.exe < best.09.in > best.09.sol
+best.exe < best.10.in > best.10.sol
+best.exe < best.11.in > best.11.sol
+best.exe < best.12.in > best.12.sol
+best.exe < best.13.in > best.13.sol
+best.exe < best.14.in > best.14.sol
+best.exe < best.15.in > best.15.sol
+best.exe < best.16.in > best.16.sol
+best.exe < best.17.in > best.17.sol
+best.exe < best.18.in > best.18.sol
+best.exe < best.19.in > best.19.sol
+best.exe < best.20.in > best.20.sol
+type best.00.sol
+type best.01.sol
+type best.02.sol
+type best.03.sol
+type best.04.sol
+type best.05.sol
+type best.06.sol
+type best.07.sol
+type best.08.sol
+type best.09.sol
+type best.10.sol
+type best.11.sol
+type best.12.sol
+type best.13.sol
+type best.14.sol
+type best.15.sol
+type best.16.sol
+type best.17.sol
+type best.18.sol
+type best.19.sol
+type best.20.sol
+
+
+

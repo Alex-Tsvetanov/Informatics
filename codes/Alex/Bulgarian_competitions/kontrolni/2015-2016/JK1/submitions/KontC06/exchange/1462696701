@@ -1,0 +1,13 @@
+(I2
+I21
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include<iostream>\r\n#include<vector>\r\n#include<queue>\r\n#include<algorithm>\r\n#include<stack>\r\nusing namespace std;\r\nint a,n;\r\nint m1[2005],m2[205],m[1000000];\r\nstruct st\r\n{\r\n    int a,b;\r\n};\r\nint main()\r\n{\r\n    int a;\r\n    cin>>a;\r\n    int n,br;\r\n    cin>>n;\r\n    for(int i=0; i<n; i++)\r\n    {\r\n        cin>>m1[i];\r\n    }\r\n    for(int i=0; i<n; i++)\r\n    {\r\n        cin>>br;\r\n        m2[m1[i]]+=br;\r\n    }\r\n    priority_queue<int> qu;\r\n    stack<int> qu2;\r\n    queue<int> q;\r\n    int brv;\r\n    int qus;\r\n    qu.push(0);\r\n    int a1;\r\n    for(int i=1; i<=a; i++)\r\n    {\r\n        brv=0;\r\n        if(m2[i]==0)continue;\r\n        while(brv<m2[i])\r\n        {\r\n            qus=qu.size();\r\n            brv++;\r\n            for(int k=0; k<qus; k++)\r\n            {\r\n                a1=qu.top();\r\n                q.push(a1);\r\n                if(m[a1+brv*i]<=a)\r\n                {\r\n                    m[a1+brv*i]++;\r\n            qu2.push(a1+brv*i);\r\n                    qu.pop();\r\n                }\r\n                else break;\r\n            }\r\n            for(int k=0; k<qus; k++)\r\n            {\r\n\r\n                qu.push(q.front());\r\n                q.pop();\r\n            }\r\n        }\r\n        for(int j=10; j<=a; j++)\r\n        {\r\n            if(m[j]==0)continue;\r\n        }\r\n        while(!qu2.empty())\r\n        {\r\n            qu.push(qu2.top());\r\n            qu2.pop();\r\n        }\r\n    }\r\n   // cout<<qu.size()<<endl;\r\n    cout<<m[a]<<endl;\r\n}\r\n\r\n/**\r\n\r\n50\r\n3\r\n10 20 10\r\n1 2 2\r\n\r\n\r\n\r\n\r\n\r\n*/\r\n'
+p3
+tp4
+stp5
+.

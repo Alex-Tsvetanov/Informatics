@@ -48,7 +48,9 @@ int main ()
 				vector < int > points;
 				int total;
 
-				readDB >> name >> city >> school >> grade;
+				readDB >> name;
+				if (name == "End") break;
+				readDB >> city >> school >> grade;
 				for (int i = 0 ; i < number_of_comps ; i ++)
 				{
 					int curr;
@@ -76,7 +78,10 @@ int main ()
 				vector < int > points;
 				int total;
 
-				readAddingDB >> name >> city >> school >> grade;
+				readAddingDB >> name;
+				if (name == "End") break;
+				readAddingDB >> city >> school >> grade;
+				cout << name << " " << city << " " << school << " " << grade << "\n";
 				for (int i = 0 ; i < number_of_comps ; i ++)
 				{
 					int curr;
@@ -86,9 +91,12 @@ int main ()
 
 				readAddingDB >> total;
 
+				cout << " " << total << "\n";
+
 				for (auto& x : currDB [name].points)
 					points.push_back (x);
 				currDB [name] = data (city, school, grade, points, total + currDB [name].total);
+				cout << "\tEnd" << endl;
 			}
 		}
 	}

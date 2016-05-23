@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+int main(){
+    cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    int p,k,res=1;
+    cin>>p>>k;
+    while(k!=0){
+        if(k%2!=0){
+            p*=p;
+        }
+        res*=p;
+        k/=2;
+    }
+    cout<<res<<"\n";
+    return 0;
+}

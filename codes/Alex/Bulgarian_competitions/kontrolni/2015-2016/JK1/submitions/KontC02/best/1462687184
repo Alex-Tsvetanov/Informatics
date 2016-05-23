@@ -1,0 +1,13 @@
+(I2
+I25
+I4
+(dp0
+Vbest.%l
+p1
+(Vbest.cpp
+p2
+S"#include <bits/stdc++.h>\n#define endl '\\n'\nusing namespace std;\n\nconst int maxN = 10005;\n\nbool visited[maxN], is_possible_sum[maxN];\nint n, m, v1, v2, ind_name, current_cnt, last_sum, nearest;\ndouble p1, p2;\nstring name1, name2;\nvector<int> graph[maxN], components;\nmap<string, int> names;\n\nstring make_with_small_letters(string s)\n{\n\tfor(int i = 0; i < s.size(); i++) \n\t{\n\t\tif(s[i] >= 'A' && s[i] <= 'Z') s[i] = s[i] - 'A' + 'a';\n\t}\n\t\n\treturn s;\n}\nvoid dfs(int current_node)\n{\n\tcurrent_cnt++;\n\tvisited[current_node] = true;\n\t\n\tfor(int i = 0; i < graph[current_node].size(); i++)\n\t{\n\t\tint node_to = graph[current_node][i];\n\t\tif(!visited[node_to]) dfs(node_to);\n\t}\n}\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>n>>m>>p1>>v1>>p2>>v2;\n\tfor(int i = 0; i < m; i++)\n\t{\n\t\tcin>>name1>>name2;\n\t\tname1 = make_with_small_letters(name1);\n\t\tname2 = make_with_small_letters(name2);\n\t\t\n\t\tif(names.find(name1) == names.end()) names[name1] = ind_name++;\n\t\tif(names.find(name2) == names.end()) names[name2] = ind_name++;\n\t\t\n\t\tgraph[names[name1]].push_back(names[name2]);\n\t\tgraph[names[name2]].push_back(names[name1]);\n\t}\n\t\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tif(!visited[i])\n\t\t{\n\t\t\tcurrent_cnt = 0;\n\t\t\tdfs(i);\n\t\t\tcomponents.push_back(current_cnt);\n\t\t}\n\t}\n\t\n\tif(p2 < p1)\n\t{\n\t\tswap(p1, p2);\n\t\tswap(v1, v2);\n\t}\n\t\n\t//sort(components.begin(), components.end());\n\t\n\tis_possible_sum[0] = true;\n\tfor(int i = 0; i < components.size(); i++)\n\t{\n\t\tfor(int j = last_sum; j >= 0; j--)\n\t\t{\n\t\t\tif(j + components[i] > v1) continue;\n\t\t\tif(is_possible_sum[j])\n\t\t\t{\n\t\t\t\tis_possible_sum[j + components[i]] = true;\n\t\t\t\tlast_sum = max(last_sum, j + components[i]);\n\t\t\t}\n\t\t}\n\t}\n\t\n\tfor(int i = v1; i >= 0; i--)\n\t{\n\t\tif(is_possible_sum[i])\n\t\t{\n\t\t\tnearest = i;\n\t\t\tbreak;\n\t\t}\n\t}\n\t\n\t//cout<<nearest<<endl;\n\tcout<<fixed<<setprecision(2);\n\tcout<<nearest * p1 + (n - nearest) * p2<<endl;\n\treturn 0;\n}\n"
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I2
+I22
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceships.cpp
+p2
+S"#include <iostream>\n#include <vector>\n\nchar _inp[101][101];\nchar inp[101][101];\n//std::vector<std::pair<long long, int> > graph[101][101];\nlong long n, m;\n\nlong long simulate(long long x, int y)\n{\n\tif(inp[x][y] == 'v')\n\t{\n\t\tfor(long long i = y+1;i < n;++ i)\n\t\t{\n\t\t\tif(inp[x][i] != '.')\n\t\t\t{\n\t\t\t\tinp[x][y] = '.';\n\t\t\t\tlong long res = i - y + simulate(x, i);\n\t\t\t\tinp[x][y] = _inp[x][y];\n\t\t\t\treturn res;\n\t\t\t}\n\t\t}\n\t\treturn n - y;\n\t}\n\tif(inp[x][y] == '^')\n\t{\n\t\tfor(long long i = y-1;i >= 0;-- i)\n\t\t{\n\t\t\tif(inp[x][i] != '.')\n\t\t\t{\n\t\t\t\tinp[x][y] = '.';\n\t\t\t\tlong long res = y - i + simulate(x, i);\n\t\t\t\tinp[x][y] = _inp[x][y];\n\t\t\t\treturn res;\n\t\t\t}\n\t\t}\n\t\treturn y + 1;\n\t}\n\tif(inp[x][y] == '<')\n\t{\n\t\tfor(long long i = x-1;i >= 0;-- i)\n\t\t{\n\t\t\tif(inp[i][y] != '.')\n\t\t\t{\n\t\t\t\tinp[x][y] = '.';\n\t\t\t\tlong long res = x - i + simulate(i, y);\n\t\t\t\tinp[x][y] = _inp[x][y];\n\t\t\t\treturn res;\n\t\t\t}\n\t\t}\n\t\treturn x + 1;\n\t}\n\tif(inp[x][y] == '>')\n\t{\n\t\tfor(long long i = x+1;i < m;++ i)\n\t\t{\n\t\t\tif(inp[i][y] != '.')\n\t\t\t{\n\t\t\t\tinp[x][y] = '.';\n\t\t\t\tlong long res = i - x + simulate(i, y);\n\t\t\t\tinp[x][y] = _inp[x][y];\n\t\t\t\treturn res;\n\t\t\t}\n\t\t}\n\t\treturn m - x;\n\t}\n}\n\nint main()\n{\n\tstd::cin >> n >> m;\n\tfor(long long i = 0;i < n;++ i)\n\t{\n\t\tfor(long long j = 0;j < m;++ j)\n\t\t{\n\t\t\tstd::cin >> _inp[j][i];\n\t\t\tinp[j][i] = _inp[j][i];\n\t\t}\n\t}\n\n\tlong long max = 0;\n\tfor(long long x = 0;x < m;++ x)\n\t{\n\t\tfor(long long y = 0;y < n;++ y)\n\t\t{\n\t\t\tif(inp[x][y] != '.')\n\t\t\t{\n\n\t\t\t\tlong long r = simulate(x, y);\n\t\t\t\tif(r > max)\n\t\t\t\t\tmax = r;\n\t\t\t}\n\t\t}\n\t}\n\tstd::cout << max << std::endl;\n\treturn 0;\n}\n"
+p3
+tp4
+stp5
+.

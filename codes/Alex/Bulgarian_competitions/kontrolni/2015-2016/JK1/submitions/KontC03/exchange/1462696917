@@ -1,0 +1,13 @@
+(I2
+I24
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include <iostream>\r\n#include <utility>\r\n#include <vector>\r\n#include <algorithm>\r\nusing namespace std;\r\n\r\nconst long long MAXN=256;\r\nconst long long MAXS=2048;\r\n\r\nlong long n, s;\r\nlong long a[MAXN], b[MAXN], c[MAXN];\r\n\r\nvector<pair<long long, long long>> coins;\r\nlong long dp[MAXS];\r\n\r\nvoid Init()\r\n{\r\n    cin>>s>>n;\r\n    for (long long i=0; i<n; i++)\r\n    {\r\n        cin>>a[i];\r\n    }\r\n    for (long long i=0; i<n; i++)\r\n    {\r\n        cin>>b[i];\r\n        c[a[i]]+=b[i];\r\n    }\r\n    for (long long i=0; i<n; i++)\r\n    {\r\n        /* if (c[i]!=0) */\r\n            coins.emplace_back(a[i], b[i]);\r\n    }\r\n    sort(coins.begin(), coins.end());\r\n}\r\n\r\nvoid Solve()\r\n{\r\n    dp[0]=1;\r\n    for (long long i=0; i<coins.size(); i++)\r\n    {\r\n        for (long long j=s; j>=1; j--)\r\n        {\r\n            for (long long k=1; k<=coins[i].second; k++)\r\n            {\r\n                long long ind=j-coins[i].first*k;\r\n\r\n                if (ind<0) k=coins[i].second+1;\r\n                else dp[j]+=dp[ind];\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint main()\r\n{\r\n    Init();\r\n    Solve();\r\n    cout<<dp[s]<<endl;\r\n    return 0;\r\n}\r\n\r\n'
+p3
+tp4
+stp5
+.

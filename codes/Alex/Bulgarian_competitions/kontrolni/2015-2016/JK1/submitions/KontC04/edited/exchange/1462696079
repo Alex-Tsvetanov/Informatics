@@ -1,0 +1,97 @@
+#include<iostream>
+#include<algorithm>
+#include<vector>
+using namespace std;
+struct dulgi{
+    int size=0;
+    vector<short>  cifri;
+};
+dulgi set(int i){
+    dulgi a;
+    while(i>0){
+        a.cifri.push_back(i%10);
+        i/=10;
+        a.size++;
+    }
+    return a;
+}
+dulgi add(dulgi a,dulgi b){
+    if(a.size==0)   return b;
+    if(b.size==0)   return a;
+    dulgi ans;
+    int ost=0;
+    if(a.size>b.size)   swap(a,b);
+    for(int i=0;i<max(a.size,b.size);i++){
+        ans.cifri.push_back(((i<a.size?a.cifri[i]:0)+b.cifri[i]+ost)%10);
+        ost=((i<a.size?a.cifri[i]:0)+b.cifri[i]+ost)/10;
+    }
+    if(ost>0){
+        ans.cifri.push_back(ost);
+    }
+    ans.size=ans.cifri.size();
+    return ans;
+}
+void print(dulgi abv){
+    for(int i=abv.size-1;i>=0;i--){
+        cout<<abv.cifri[i];
+    }
+}
+pair<unsigned long long,unsigned long long> ab[201];
+pair<dulgi,unsigned long long> how[2001],how2[2001];
+int main(){
+    /*dulgi abv=set(123);
+    abv=add(abv,set(999));*/
+    unsigned long long s,n;
+    cin>>s>>n;
+    for(unsigned long long i=0;i<n;i++){
+        cin>>ab[i].first;
+    }
+    for(unsigned long long i=0;i<n;i++){
+        cin>>ab[i].second;
+    }
+    sort(ab,ab+n);
+    unsigned long long pov=0;
+    for(unsigned long long i=0;i<n;i++){
+        if(ab[i].first==ab[i+1].first){
+            ab[i+1].second+=ab[i].second;
+            ab[i].first=2001;
+            pov++;
+        }
+    }
+    sort(ab,ab+n);
+    n-=pov;
+    how[0].first=set(1);
+    how[0].second=0;
+    /*for(unsigned long long i=0;i<n;i++){
+        cout<<ab[i].first<<" "<<ab[i].second<<endl;
+    }*/
+    for(unsigned long long i=0;i<n;i++){
+        for(unsigned long long l=0;l<=s;l++){
+            how2[l]=how[l];
+        }
+        for(unsigned long long j=1;j<=ab[i].second && ab[i].first*j<=s;j++){
+            //cout<<ab[i].first<<"*"<<j<<endl;
+            for(unsigned long long k=0;k+ab[i].first*j<=s;k++){
+                //print(how2[k].first);
+                if(how2[k].second!=ab[i].first && how2[k].first.size>0){
+                    how[k+ab[i].first*j].first=add(how[k+ab[i].first*j].first,how2[k].first);
+                    how[k+ab[i].first*j].second=ab[i].first;
+                }
+            }
+            /*for(unsigned long long l=0;l<=s;l++){
+                print(how[l].first);
+                cout<<" ";
+            }
+            cout<<endl;*/
+        }
+    }
+    print(how[s].first);
+}
+/*50
+3
+10 20 10
+1 2 2*/
+/*50
+3
+20 10 5
+10 10 10*/

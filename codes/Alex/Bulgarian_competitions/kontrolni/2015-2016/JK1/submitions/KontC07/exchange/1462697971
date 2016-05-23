@@ -1,0 +1,13 @@
+(I2
+I20
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include<iostream>\r\n#include<map>\r\n#include<algorithm>\r\nusing namespace std;\r\n\r\nstruct chanta{\r\n    int st,broi;\r\n}torba[256];\r\n\r\nint imaLiGo[256],dp[2500];\r\nconst int MAX_N=256;\r\nlong long variant[100][100][100];\r\nbool imaLiHesh[100][100000];\r\n\r\nbool cmp(chanta a,chanta b){\r\n    return a.st<b.st;\r\n}\r\n\r\nint main(){\r\n    //cin.tie(NULL);\r\n    //ios::sync_with_stdio(false);\r\n    int suma,n,i,j,cpy=0,a;\r\n    cin>>suma>>n;\r\n    for(i=0;i<MAX_N;i++){\r\n        imaLiGo[i]=-1;\r\n    }\r\n    for(i=0;i<n;i++){\r\n        cin>>torba[i].st;\r\n        if(imaLiGo[torba[i].st]==-1){\r\n            imaLiGo[torba[i].st]=i;\r\n            torba[i].broi=0;\r\n            cpy++;\r\n        }else{\r\n            torba[i].broi=-13;\r\n        }\r\n    }\r\n    for(i=0;i<n;i++){\r\n        cin>>a;\r\n        if(torba[i].broi==-13){\r\n            torba[imaLiGo[torba[i].st]].broi+=a;\r\n            torba[i].st=1000000;\r\n        }else{\r\n            torba[i].broi=a;\r\n        }\r\n    }\r\n    sort(torba,torba+n,cmp);\r\n    n=cpy;\r\n    /*for(i=0;i<n;i++){\r\n        cout<<torba[i].st<<";"<<torba[i].broi<<" ";\r\n    }cout<<"\\n";*/\r\n    for(j=0;j<n;j++){\r\n        dp[torba[j].st]=1;\r\n        variant[0][torba[j].st][j]=1;\r\n        int hesh=0,k=1,basa=257;\r\n        for(i=0;i<n;i++){\r\n            hesh=hesh+variant[0][torba[j].st][i]*k;\r\n            k*=basa;\r\n        }\r\n        imaLiHesh[torba[j].st][hesh]=true;\r\n    }\r\n    for(i=torba[0].st;i<=suma-torba[0].st;i++){\r\n        for(j=0;j<n;j++){\r\n            int curr=torba[j].st+i,k,l;\r\n            for(k=0;k<dp[i];k++){\r\n                if(variant[k][i][j]+1<torba[j].broi){\r\n                    ///hesh\r\n                    for(l=0;l<n;l++){\r\n                        variant[dp[curr]][i][l]=variant[k][i][l];\r\n                    }\r\n                    variant[dp[curr]][i][j]++;\r\n                    sort(variant[dp[curr]][i],variant[dp[curr]][i]+n);\r\n                    int hesh=0,p=1,basa=257;\r\n                    for(l=0;l<n;l++){\r\n                        hesh=hesh+variant[dp[curr]][i][l]*p;\r\n                        p*=basa;\r\n                    }\r\n                    if(imaLiHesh[curr][hesh]==0){\r\n                        for(l=0;l<n;l++){\r\n                            variant[dp[curr]][i][l]=variant[k][i][l];\r\n                        }\r\n                        dp[curr]++;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    /*for(i=0;i<=suma;i++){\r\n        cout<<i<<":"<<dp[i]<<"\\n";\r\n    }*/\r\n    cout<<dp[suma]<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I2
+I16
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include <iostream>\n\nint main ()\n{\n\tstd::cout << "2\\n"; \n}\n'
+p3
+tp4
+stp5
+.

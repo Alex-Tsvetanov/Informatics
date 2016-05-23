@@ -1,0 +1,97 @@
+#include <iostream>
+#include <vector>
+
+char _inp[101][101];
+char inp[101][101];
+//std::vector<std::pair<long long, int> > graph[101][101];
+long long n, m;
+
+long long simulate(long long x, int y)
+{
+	if(inp[x][y] == 'v')
+	{
+		for(long long i = y+1;i < n;++ i)
+		{
+			if(inp[x][i] != '.')
+			{
+				inp[x][y] = '.';
+				long long res = i - y + simulate(x, i);
+				inp[x][y] = _inp[x][y];
+				return res;
+			}
+		}
+		return n - y;
+	}
+	if(inp[x][y] == '^')
+	{
+		for(long long i = y-1;i >= 0;-- i)
+		{
+			if(inp[x][i] != '.')
+			{
+				inp[x][y] = '.';
+				long long res = y - i + simulate(x, i);
+				inp[x][y] = _inp[x][y];
+				return res;
+			}
+		}
+		return y + 1;
+	}
+	if(inp[x][y] == '<')
+	{
+		for(long long i = x-1;i >= 0;-- i)
+		{
+			if(inp[i][y] != '.')
+			{
+				inp[x][y] = '.';
+				long long res = x - i + simulate(i, y);
+				inp[x][y] = _inp[x][y];
+				return res;
+			}
+		}
+		return x + 1;
+	}
+	if(inp[x][y] == '>')
+	{
+		for(long long i = x+1;i < m;++ i)
+		{
+			if(inp[i][y] != '.')
+			{
+				inp[x][y] = '.';
+				long long res = i - x + simulate(i, y);
+				inp[x][y] = _inp[x][y];
+				return res;
+			}
+		}
+		return m - x;
+	}
+}
+
+int main()
+{
+	std::cin >> n >> m;
+	for(long long i = 0;i < n;++ i)
+	{
+		for(long long j = 0;j < m;++ j)
+		{
+			std::cin >> _inp[j][i];
+			inp[j][i] = _inp[j][i];
+		}
+	}
+
+	long long max = 0;
+	for(long long x = 0;x < m;++ x)
+	{
+		for(long long y = 0;y < n;++ y)
+		{
+			if(inp[x][y] != '.')
+			{
+
+				long long r = simulate(x, y);
+				if(r > max)
+					max = r;
+			}
+		}
+	}
+	std::cout << max << std::endl;
+	return 0;
+}

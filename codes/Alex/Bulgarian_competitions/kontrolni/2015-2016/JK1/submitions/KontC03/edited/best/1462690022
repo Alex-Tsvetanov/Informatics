@@ -1,0 +1,150 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <map>
+#include <algorithm>
+#include <cstdio>
+using namespace std;
+
+int n, m, v1, v2;
+double p1, p2;
+
+map<string, int> names;
+
+vector<int> g[10005];
+int used[10005];
+
+vector<int> group;
+int dp[10005];
+
+string Normal(string x)
+{
+    string res="";
+    for (int i=0; i<x.size(); i++)
+    {
+        if (x[i]>='A' and x[i]<='Z') res+=(char)(x[i]-'A'+'a');
+        else res+=x[i];
+    }
+    return res;
+}
+
+void Init()
+{
+    string x, y;
+
+    cin>>n>>m;
+    cin>>p1>>v1;
+    cin>>p2>>v2;
+
+    if (p1>p2)
+    {
+        swap(p1, p2);
+        swap(v1, v2);
+    }
+
+    for (int i=0; i<m; i++)
+    {
+        cin>>x>>y;
+        x=Normal(x);
+        y=Normal(y);
+
+        int ind1, ind2;
+
+        if (names.count(x)==0)
+        {
+            ind1=names.size();
+            names[x]=ind1;
+        }
+        else
+        {
+            map<string, int>::iterator it1=names.find(x);
+            ind1=(*it1).second;
+        }
+        if (names.count(y)==0)
+        {
+            ind2=names.size();
+            names[y]=ind2;
+        }
+        else
+        {
+            map<string, int>::iterator it2=names.find(y);
+            ind2=(*it2).second;
+        }
+
+        g[ind1].push_back(ind2);
+        g[ind2].push_back(ind1);
+    }
+}
+
+int BFS(int u)
+{
+    int comp=0;
+
+    queue<int> q;
+    used[u]=1;
+    q.push(u);
+
+    while (!q.empty())
+    {
+        u=q.front();
+        q.pop();
+
+        comp++;
+
+        for (auto v:g[u])
+        {
+            if (used[v]==0)
+            {
+                q.push(v);
+                used[v]=1;
+            }
+        }
+    }
+    return comp;
+}
+
+void Solve()
+{
+    dp[0]=1;
+    for (int i=0; i<group.size(); i++)
+    {
+        int c=group[i];
+        for (int j=10000; j>=c; j--)
+        {
+            if (dp[j-c]==1)
+            {
+                dp[j]=1;
+            }
+        }
+    }
+
+    int br;
+    for (int i=v1; i>=0; i--)
+    {
+        if (dp[i]==1)
+        {
+            br=i; break;
+        }
+    }
+
+    if (br<v1)
+    {
+        int extra=min(v1-br, n-(int)names.size());
+        br+=extra;
+    }
+
+    float ans=br*p1+(n-br)*p2;
+    printf("%.2f\n", ans);
+}
+
+int main()
+{
+    Init();
+    for (int i=0; i<names.size(); i++)
+    {
+        if (used[i]==0) group.push_back(BFS(i));
+    }
+    sort(group.begin(), group.end());
+    Solve();
+    return 0;
+}

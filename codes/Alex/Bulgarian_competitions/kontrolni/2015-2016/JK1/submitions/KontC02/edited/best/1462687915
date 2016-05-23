@@ -1,0 +1,99 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+using namespace std;
+
+const long long maxN = 10005;
+
+bool visited[maxN], is_possible_sum[maxN];
+long long n, m, v1, v2, ind_name, current_cnt, last_sum, nearest;
+double p1, p2;
+string name1, name2;
+vector<long long> graph[maxN], components;
+map<string, long long> names;
+
+string make_with_small_letters(string s)
+{
+	for(long long i = 0; i < s.size(); i++) 
+	{
+		if(s[i] >= 'A' && s[i] <= 'Z') s[i] = s[i] - 'A' + 'a';
+	}
+	
+	return s;
+}
+void dfs(long long current_node)
+{
+	current_cnt++;
+	visited[current_node] = true;
+	
+	for(long long i = 0; i < graph[current_node].size(); i++)
+	{
+		long long node_to = graph[current_node][i];
+		if(!visited[node_to]) dfs(node_to);
+	}
+}
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
+	cin>>n>>m>>p1>>v1>>p2>>v2;
+	for(long long i = 0; i < m; i++)
+	{
+		cin>>name1>>name2;
+		name1 = make_with_small_letters(name1);
+		name2 = make_with_small_letters(name2);
+		
+		if(names.find(name1) == names.end()) names[name1] = ind_name++;
+		if(names.find(name2) == names.end()) names[name2] = ind_name++;
+		
+		graph[names[name1]].push_back(names[name2]);
+		graph[names[name2]].push_back(names[name1]);
+	}
+	
+	for(long long i = 0; i < n; i++)
+	{
+		if(!visited[i])
+		{
+			current_cnt = 0;
+			dfs(i);
+			components.push_back(current_cnt);
+		}
+	}
+	
+	if(p2 < p1)
+	{
+		swap(p1, p2);
+		swap(v1, v2);
+	}
+	
+	//sort(components.begin(), components.end());
+	
+	is_possible_sum[0] = true;
+	for(long long i = 0; i < components.size(); i++)
+	{
+		for(long long j = last_sum; j >= 0; j--)
+		{
+			if(j + components[i] > v1) continue;
+			if(is_possible_sum[j])
+			{
+				is_possible_sum[j + components[i]] = true;
+				last_sum = max(last_sum, j + components[i]);
+			}
+		}
+	}
+	
+	for(long long i = v1; i >= 0; i--)
+	{
+		if(is_possible_sum[i])
+		{
+			nearest = i;
+			break;
+		}
+	}
+	
+	//cout<<nearest<<endl;
+	cout<<fixed<<setprecision(2);
+	cout<<nearest * p1 + (n - nearest) * p2<<endl;
+	return 0;
+}

@@ -1,0 +1,2 @@
+Time Limit  1.0s
+Feedback: 00, 01, 07, 13, 19 (Greedy Passes)

@@ -1,0 +1,212 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<algorithm>
+#include<stack>
+using namespace std;
+vector<int> v[10000];
+int used[10000];
+queue<int> qu;
+int bfs(int n)
+{
+    int br=0;
+    int a;
+    qu.push(n);
+    while(!qu.empty())
+    {
+        a=qu.front();
+        if(used[a]==1)
+        {
+            qu.pop();
+            continue;
+        }
+        used[a]=1;
+        br++;
+        if(v[a].size()==0)
+        {
+            br++;
+            used[a]=1;
+            continue;
+        }
+        for(int i=0; i<v[a].size(); i++)
+        {
+            qu.push(v[a][i]);
+        }
+        qu.pop();
+    }
+    return br;
+}
+int m1[10000];
+int f1,f2,b1,b2;
+double c1,c2,sum=0;
+int br1=0;
+int st(int i)
+{
+    if(i==br1)
+    {
+        return 1;
+    }
+    int resh=0;
+  //  cout<<sum<<" "<<b1<<" "<<m1[i]<<endl;
+    if(b1>=m1[i])
+    {
+        sum+=c1*m1[i];
+        b1-=m1[i];
+       // cout<<sum<<endl;
+        resh=st(i+1);
+        if(resh==0)sum=sum-c1*m1[i];
+    }
+    if(b2>=m1[i]&&resh==0)
+    {
+        sum+=c2*m1[i];
+        b2-=m1[i];
+        resh=st(i+1);
+        if(resh==0)sum=sum-c1*m1[i];
+    }
+
+    if(resh==0)return 0;
+    return sum;
+}
+int cmp(int a,int b)
+{
+    return a>b;
+
+
+}
+
+
+int main()
+{
+    int n, m, br=0;
+    string s1,s2;
+    char ch;
+    string s[10000];
+    cin>>n>>m;
+
+    cin>>c1>>f1;
+    cin>>c2>>f2;
+    if(c1>c2)
+    {
+        swap(c1,c2);
+        swap(f1,f2);
+    }
+    b1=f1;
+    b2=f2;
+    for(int i=0; i<m; i++)
+    {
+        cin>>s1;
+        string s2;
+        for(int j=0; j<s1.size(); j++)
+        {
+            ch=s1[j];
+            ch=toupper(ch);
+            s2+=ch;
+        }
+        string s3;
+        cin>>s1;
+        for(int j=0; j<s1.size(); j++)
+        {
+            ch=s1[j];
+            ch=toupper(ch);
+            s3+=ch;
+        }
+        int n1=-1,n2=-1;
+        for(int j=0; j<br; j++)
+        {
+            if(n1==-1&&s[j]==s2)
+            {
+                n1=j;
+            }
+            if(n2==-1&&s[j]==s3)n2=j;
+        }
+        if(n1==-1)
+        {
+            n1=br;
+            s[br]=s2;
+            br++;
+        }
+        if(s2==s3)
+        {
+            n2=n1;
+        }
+        if(n2==-1)
+        {
+            n2=br;
+            s[br]=s3;
+            br++;
+        }
+        v[n1].push_back(n2);
+        v[n2].push_back(n1);
+    }
+
+   /* for(int i=0; i<br; i++)
+    {
+        cout<<i<<" "<<s[i]<<endl;
+        for(int j=0; j<v[i].size(); j++)
+        {
+            cout<<v[i][j]<<" ";
+        }
+        cout<<endl;
+    }*/
+    for(int i=0; i<br; i++)
+    {
+        if(used[i]==0)
+        {
+            m1[br1]=bfs(i);
+            br1++;
+        }
+    }
+    sort(m1,m1+br1,cmp);
+   /* for(int i=0; i<br1; i++)
+    {
+        cout<<m1[i]<<" ";
+    }
+   / cout<<endl;*/
+    //st(0);
+    int br2=n-br;
+    int t1,t2;
+    t1=min(br2,b1);
+   // cout<<n<<endl;
+    t2=br2-t1;
+   // cout<<b1<<" "<<b2<<endl;
+   sum=sum+t1*c1+t2*c2;
+    printf("%2d",sum);
+
+
+
+
+
+
+
+
+
+
+    return 0;
+}
+
+/*
+12 7
+25.17 6
+32.00 8
+Radko MiSho
+Radko Stenli
+MisHo Daniel
+Misho Zdravko
+Boris IRina
+Irina Gabriel
+Maria-YoAna Maria
+
+
+8 7
+16.32 6
+8.16 4
+Stamat Stalin
+Stalin Hitler
+Hitler Stamat
+Stalin Geri-Nikol
+Geri-Nikol Krisko
+Mia Hristo
+Hristo Ivan
+
+
+*/

@@ -1,0 +1,13 @@
+(I2
+I20
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceships.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\n\r\nint redove,koloni,posokaX[5]={0,-1,0,1},posokaY[5]={1,0,-1,0};\r\nint korabX[10024],korabY[10024],broi,maxx=0;\r\nchar pole[128][128],cpyPole[128][128];\r\n///<^>v\r\n\r\ninline int prevurni(char c){\r\n    if(c==\'>\')\r\n        return 0;\r\n    if(c==\'^\')\r\n        return 1;\r\n    if(c==\'<\')\r\n        return 2;\r\n    return 3;\r\n}\r\n\r\nint main(){\r\n    //cin.tie(NULL);\r\n    //ios::sync_with_stdio(false);\r\n    int x,y,i,curr,koi,startX,startY;\r\n    cin>>redove>>koloni;\r\n    for(x=0;x<redove;x++){\r\n        for(y=0;y<koloni;y++){\r\n            cin>>pole[x][y];\r\n            if(pole[x][y]!=\'.\'){\r\n                korabX[broi]=x;\r\n                korabY[broi]=y;\r\n                broi++;\r\n            }\r\n        }\r\n    }\r\n    for(i=0;i<broi;i++){\r\n        //cout<<"I:"<<i<<endl;\r\n        x=korabX[i];\r\n        y=korabY[i];\r\n        startX=x;\r\n        startY=y;\r\n        curr=0;\r\n        koi=prevurni(pole[x][y]);\r\n        bool promeniLi=false;\r\n        while(true){\r\n            //cout<<"a"<<koi;\r\n            x+=posokaX[koi];\r\n            y+=posokaY[koi];\r\n            curr++;\r\n            if(x<0 or x>=redove or y<0 or y>=koloni)\r\n                break;\r\n            if(cpyPole[x][y]!=\'.\'){\r\n                promeniLi=true;\r\n                koi=prevurni(cpyPole[x][y]);\r\n                cpyPole[startX][startY]=\'.\';\r\n                startX=x;\r\n                startY=y;\r\n            }\r\n        }\r\n        if(curr>maxx)\r\n            maxx=curr;\r\n        if(promeniLi){\r\n            for(x=0;x<redove;x++){\r\n                for(y=0;y<koloni;y++){\r\n                    cpyPole[x][y]=pole[x][y];\r\n                }\r\n            }\r\n        }\r\n    }\r\n    cout<<maxx<<"\\n";\r\n    return 0;\r\n}\r\n/**\r\n5 6\r\nvv.^>>\r\n.^.<>.\r\n>>.^.v\r\n.^v>..\r\n^^...<\r\n\r\n*/\r\n'
+p3
+tp4
+stp5
+.

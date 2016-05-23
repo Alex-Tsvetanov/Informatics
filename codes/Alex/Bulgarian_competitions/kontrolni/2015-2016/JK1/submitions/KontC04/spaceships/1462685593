@@ -1,0 +1,13 @@
+(I2
+I23
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceships.cpp
+p2
+S"#include<iostream>\r\nusing namespace std;\r\nstruct posoka{\r\n    int px,py;\r\n};\r\n    char t[100][100];\r\n    posoka pos[100][100];\r\n    int n,m;\r\nint how(int x,int y){\r\n    bool minato[100][100]={};\r\n    minato[x][y]=true;\r\n    posoka l=pos[x][y];\r\n    int ans=0;\r\n    while(x>=0 && x<m && y>=0 && y<n){\r\n        x+=l.px;\r\n        y+=l.py;\r\n        if(t[x][y]!='.' && !minato[x][y]){\r\n            l=pos[x][y];\r\n            minato[x][y]=true;\r\n        }\r\n        ans++;\r\n    }\r\n    return ans;\r\n}\r\nint main(){\r\n    cin>>n>>m;\r\n    for(int i=0;i<n;i++){\r\n        for(int j=0;j<m;j++){\r\n            cin>>t[j][i];\r\n            switch(t[j][i]){\r\n                case 'v':\r\n                    pos[j][i].px=0;\r\n                    pos[j][i].py=1;\r\n                    break;\r\n                case '^':\r\n                    pos[j][i].px=0;\r\n                    pos[j][i].py=-1;\r\n                    break;\r\n                case '<':\r\n                    pos[j][i].px=-1;\r\n                    pos[j][i].py=0;\r\n                    break;\r\n                case '>':\r\n                    pos[j][i].px=1;\r\n                    pos[j][i].py=0;\r\n                    break;\r\n            }\r\n        }\r\n    }\r\n    int ma=0;\r\n    for(int i=0;i<n;i++){\r\n        for(int j=0;j<m;j++){\r\n            if(t[j][i]!='.'){\r\n            ma=max(ma,how(j,i));\r\n            }\r\n        }\r\n    }\r\n    cout<<ma;\r\n}\r\n/*5 6\r\nvv.^>>\r\n.^.<>.\r\n>>.^>v\r\n.^v>..\r\n^^...<*/\r\n"
+p3
+tp4
+stp5
+.

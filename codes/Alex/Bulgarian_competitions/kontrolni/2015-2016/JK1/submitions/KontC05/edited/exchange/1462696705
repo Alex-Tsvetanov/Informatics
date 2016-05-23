@@ -1,0 +1,57 @@
+#include <iostream>
+
+long long coins[201], value[201];
+
+unsigned long long dp[201][5001];
+bool calc[201][5001];
+
+long long packs[201];
+
+unsigned long long iwant(long long idx, long long tv)
+{
+	if(idx == -1)
+		return tv == 0;
+
+	if(calc[idx][tv])
+		return dp[idx][tv];
+	
+	unsigned long long res = 0;
+	for(long long i = 0;i <= coins[idx] and tv - value[idx]*i >= 0;++ i)
+	{
+		unsigned long long add = iwant(idx-1, tv - value[idx]*i);
+		res += add;
+	}
+	calc[idx][tv] = true;
+	dp[idx][tv] = res;
+	return res;
+}
+
+int main()
+{
+	long long s, n;
+	std::cin >> s >> n;
+
+	for(long long i = 0;i < n;i ++)
+		std::cin >> value[i];
+	for(long long i = 0;i < n;i ++)
+		std::cin >> coins[i];
+
+	for(long long i = 0;i < n;i ++)
+		packs[value[i]] += coins[i];
+
+	long long count = 0;
+	for(long long i = 200;i >= 0;i --)
+	{
+		if(packs[i] > 0)
+		{
+			value[count] = i;
+			coins[count] = packs[i];
+			count ++;
+		}
+	}
+	n = count;
+
+
+	std::cout << iwant(n-1, s) << std::endl;
+	return 0;
+}

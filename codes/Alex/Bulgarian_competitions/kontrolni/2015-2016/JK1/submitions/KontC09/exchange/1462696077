@@ -1,0 +1,13 @@
+(I2
+I18
+I6
+(dp0
+Vexchange.%l
+p1
+(Vex.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <algorithm>\r\nusing namespace std;\r\nint main()\r\n{\r\n\r\nint i,s,n,a[205],b[205];\r\n\r\ncin>>s>>n;\r\n\r\n for(i=1;i<=n;i++)\r\n  cin>>a[i];\r\n\r\n for(i=1;i<=n;i++)\r\n  cin>>b[i];\r\n\r\ncout<<0<<endl;\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

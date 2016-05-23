@@ -1,0 +1,140 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <string>
+#include <queue>
+using namespace std;
+int dinam[10005][10005];
+map <string,int> mapp;
+vector <int> v[10005];
+
+
+int a[10005],bra=0;
+int findsum(int w)
+{
+int i,j;
+for (i=1; i<=w; i++)
+    {for(j=1; j<=bra; j++)
+    {
+     if(i>=a[j]) dinam[i][j]=max(dinam[i][j-1],dinam[i-a[j]][j-1]+a[j]);
+     else dinam[i][j]=dinam[i][j-1];
+     //cout<<dinam[i][j]<<" ";
+    }}
+return dinam[w][bra];
+}
+
+string conv(string s)
+{
+int d,i;
+string s1="";
+d=s.size();
+for (i=0; i<d; i++)
+    if(s[i]>='A' && s[i]<='Z') s1+=s[i]+32;
+    else s1+=s[i];
+return s1;
+}
+
+queue <int> q;
+bool fl[10001];
+
+int bfs(int vr)
+{
+ int tek1,tek2,i,br=0;
+ if(fl[vr]==1) return 0;
+ fl[vr]=1;
+ q.push(vr);
+ while (!q.empty())
+    {
+     br++;
+     tek1=q.front();
+     for (i=0; i<v[tek1].size(); i++)
+         {
+          tek2=v[tek1][i];
+          if(fl[tek2]==0) {fl[tek2]=1; q.push(tek2);}
+         }
+     q.pop();
+    }
+ return br;
+}
+
+void format(float a)
+{
+ int b;
+ b=a*100;
+ cout<<b/100<<".";
+ if (b%100<10) cout<<"0"<<b%100<< endl;
+ else cout<<b%100<< endl;
+}
+
+int main()
+{
+string s1,s2,ns;
+int n,m,v1,v2,i,j,br=0;
+float p1,p2;
+cin >>n>>m>>p1>>v1>>p2>>v2;
+if (p1>p2) {swap(p1,p2); swap(v1,v2);}
+int from,to;
+for (i=1; i<=m; i++)
+    {
+     cin>>s1>>s2;
+     ns=conv(s1);
+     if(mapp[ns]==0) {br++; mapp[ns]=br;}
+     from=mapp[ns];
+     ns=conv(s2);
+     if(mapp[ns]==0) {br++; mapp[ns]=br;}
+     to=mapp[ns];
+    // cout <<from<<" "<<to<< endl;
+     v[from].push_back(to);
+     v[to].push_back(from);
+    }
+/*for (i=1; i<=br; i++)
+    {
+     cout <<i<<": ";
+     for(j=0; j<v[i].size(); j++) cout<<v[i][j]<<" "; cout << endl;}*/
+int siz;
+for (i=1; i<=br; i++)
+    {
+     siz=bfs(i);
+     if(siz>0) {a[++bra]=siz;}
+    }
+int rez,sum=0,slob;
+slob=n-br;
+if (n-br>=v1)
+    {
+     format(v1*p1+(n-v1)*p2);
+     return 0;
+    }
+else
+    {
+     rez=findsum(v1);
+    // cout<<rez<<" "<<br<< endl;
+     if (v1-rez>slob) {sum+=slob; slob=0;}
+     else {sum+=v1-rez; slob-=(v1-rez);}
+  //   cout <<rez+sum<<" "<<br-rez+slob<< endl;
+     format(rez*p1+sum*p1+(br-rez+slob)*p2);
+    }
+return 0;
+}
+/*
+12 7
+25.17 6
+32.00 8
+Radko MisHo
+RadkO Stenli
+MiSho Daniel
+Misho Zdravko
+Boris IRina
+Irina Gabriel
+Maria-Yoana Maria
+*/
+/*
+8 7
+16.32 6
+8.16 4
+Stamat Stalin
+Stalin Hitler
+Hitler Stamat
+Stalin Gery-Nikol
+Gery-Nikol Krisko
+Mia Hristo
+Hristo Ivan*/

@@ -1,0 +1,40 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+pair<int,int> ab[201];
+pair<int,int> how[2001],how2[2001];
+
+int main(){
+    int s,n;
+    cin>>s>>n;
+    for(int i=0;i<n;i++){
+        cin>>ab[i].first;
+    }
+    for(int i=0;i<n;i++){
+        cin>>ab[i].second;
+    }
+    sort(ab,ab+n);
+    how[0].first=1;
+    how[0].second=0;
+    for(int i=0;i<n;i++){
+            for(int l=0;l<2001;l++){
+                how2[l]=how[l];
+            }
+        for(int j=1;j<=ab[i].second;j++){
+            for(int k=0;k+ab[i].first*j<=s;k++){
+                if(how2[k].second!=ab[i].first && how2[k].first>0){
+                    how[k+ab[i].first*j].first+=how2[k].first;
+                    how[k+ab[i].first*j].second=ab[i].first;
+                }
+            }
+        }
+    }
+    cout<<how[s].first;
+}
+/*50 3
+10 20 10
+1 2 2*/
+/*50
+3
+20 10 5
+10 10 10*/

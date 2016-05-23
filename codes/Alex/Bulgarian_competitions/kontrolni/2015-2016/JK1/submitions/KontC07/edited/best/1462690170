@@ -1,0 +1,133 @@
+#include<iostream>
+#include<algorithm>
+#include<vector>
+#include<queue>
+#include<map>
+#include<iomanip>
+using namespace std;
+
+map<string,long long> imaLiGo;
+
+bool used[10024];
+long long componenti[10024],svurzani;
+vector<long long> susedi[10024];
+queue<long long> opa6ka;
+
+long long bfs(long long vruh){
+    long long otg=1,d,i;
+    used[vruh]=true;
+    opa6ka.push(vruh);
+    while(!opa6ka.empty()){
+        vruh=opa6ka.front();
+        //cout<<vruh<<" ";
+        opa6ka.pop();
+        d=susedi[vruh].size();
+        for(i=0;i<d;i++){
+            if(!used[susedi[vruh][i]]){
+                used[susedi[vruh][i]]=true;
+                otg++;
+                opa6ka.push(susedi[vruh][i]);
+            }
+        }
+    }
+    return otg;
+}
+
+bool cmp(long long a,long long b){
+    return a>b;
+}
+
+int main(){
+    cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    double otg=0,cena1,cena2;
+    long long vurhove,rebra,i,j,mesta1,mesta2,d,broiImena=1,a,b;
+    cin>>vurhove>>rebra;
+    cin>>cena1>>mesta1>>cena2>>mesta2;
+    if(cena1>cena2){
+        swap(cena1,cena2);
+        swap(mesta1,mesta2);
+    }
+    string purvo;
+    for(i=0;i<rebra;i++){
+        ///AAAAAAAAAAAA
+        cin>>purvo;
+        d=purvo.size();
+        for(j=0;j<d;j++){
+            if(purvo[j]>='A' and purvo[j]<='Z'){
+                purvo[j]=purvo[j]-'A'+'a';
+            }
+        }
+        if(imaLiGo[purvo]==0){
+            imaLiGo[purvo]=broiImena;
+            broiImena++;
+        }
+        a=imaLiGo[purvo];
+        //cout<<purvo<<" "<<a<<"\n";
+        ///BBBBBBBBBBBBBB
+        cin>>purvo;
+        d=purvo.size();
+        for(j=0;j<d;j++){
+            if(purvo[j]>='A' and purvo[j]<='Z'){
+                purvo[j]=purvo[j]-'A'+'a';
+            }
+        }
+        if(imaLiGo[purvo]==0){
+            imaLiGo[purvo]=broiImena;
+            broiImena++;
+        }
+        b=imaLiGo[purvo];
+        //cout<<purvo<<" "<<b<<"\n";
+        ///BFSSSSSSS
+        susedi[a].push_back(b);
+        susedi[b].push_back(a);
+    }
+    for(i=1;i<=vurhove;i++){
+        if(!used[i]){
+            componenti[svurzani]=bfs(i);
+            //cout<<i<<": "<<componenti[svurzani]<<"\n";
+            svurzani++;
+        }
+    }
+    sort(componenti,componenti+svurzani,cmp);
+    for(i=0;i<svurzani;i++){
+        //cout<<componenti[i]<<" ";
+        if(mesta1>=componenti[i]){
+            //cout<<"TUK\n";
+            otg=otg+componenti[i]*cena1;
+            mesta1-=componenti[i];
+        }else{
+            //cout<<"tam\n";
+            otg=otg+componenti[i]*cena2;
+            mesta2-=componenti[i];
+        }
+    }
+    cout<<setprecision(2)<<fixed<<otg<<"\n";
+    return 0;
+}
+/**
+12 7
+25.17 6
+32.00 8
+Radko MisHo
+RadkO Stenli
+MiSho Daniel
+Misho Zdravko
+Boris IRina
+Irina Gabriel
+Maria-Yoana Maria
+*/
+
+/**
+8 7
+16.32 6
+8.16 4
+Stamat Stalin
+Stalin Hitler
+Hitler Stamat
+Stalin Gery-Nikol
+Gery-Nikol Krisko
+Mia Hristo
+Hristo Ivan
+
+*/

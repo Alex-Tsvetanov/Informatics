@@ -1,0 +1,24 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<algorithm>
+using namespace std;
+bool isprime(int a)
+{
+    if(a<2)return 0;
+    if(a==2)return 1;
+    if(a%2==0)return 0;
+    for(int i=3; i*i<=a; i+=2)
+    {
+        if(a%i==0)return 0;
+    }
+    return 1;
+}
+int main()
+{
+    int a;
+    cin>>a;
+    cout<<a<<endl;
+    cout<<isprime(a)<<endl;
+    return 0;
+}

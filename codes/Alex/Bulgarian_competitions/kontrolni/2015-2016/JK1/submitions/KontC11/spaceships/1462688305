@@ -1,0 +1,13 @@
+(I2
+I16
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceship1.cpp
+p2
+S'#include <iostream>\n#include <map>\n\nusing namespace std;\n\nmap < char , int > code =\n{\n\t{\'>\', 0},\n\t{\'<\', 1},\n\t{\'v\', 2},\n\t{\'^\', 3},\n\t{\'.\', 4}\n};\nint dir [][2] = \n{\n\t{0, 1}, // \'>\'\n\t{0, -1},// \'<\'\n\t{1, 0}, // \'v\'\n\t{-1, 0},// \'^\'\n\t{0, 0}  // \'.\'\n};\n\nint Map [100][100];\nint Map2 [100][100];\nint n, m;\n\nint solve (int a, int b)\n{\n\tfor (int i = 0 ; i < n ; i ++)\n\t\tfor (int j = 0 ; j < m ; j ++)\n\t\t\tMap2 [i][j] = Map [i][j];\n\tint ans = 0;\n\tfor (int ind = 0 ; 1 ; ind ++)\n\t{\n\t\tfor (int i = 0 ; i < ind ; i ++)\n\t\t{\n\t\t\t//cout << "   ";\n\t\t}\n\t\t//cout << a << " " << b << " " << Map2 [a][b] << "\\n";\n\t\tif (Map2 [a][b] == code [\'.\'])\n\t\t\treturn -1;\n\t\tif (a < 0 or a >= n or b < 0 or b >= m)\n\t\t{\n\t\t\treturn ans;\n\t\t}\n\t\tfor (int k = 1 ; k < n + m ; k ++)\n\t\t{\n\t\t\tint A = a + dir [Map2 [a][b]][0] * k;\n\t\t\tint B = b + dir [Map2 [a][b]][1] * k;\n\t\t\tif (A < 0 or A >= n or B < 0 or B >= m)\n\t\t\t{\n\t\t\t\treturn ans + k;\n\t\t\t}\n\t\t\tif (Map2 [A][B] != code [\'.\'])\n\t\t\t{\n\t\t\t\tMap2 [a][b] = code [\'.\']; //free\n\t\t\t\tans += k;\n\t\t\t\ta = A, b = B;\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t}\n}\n\nint main ()\n{\n\tcin.tie (nullptr);\n\tios::sync_with_stdio (false);\n\tcin >> n >> m;\n\tfor (int i = 0 ; i < n ; i ++)\n\t{\n\t\tfor (int j = 0 ; j < m ; j ++)\n\t\t{\n\t\t\tchar a;\n\t\t\tcin >> a;\n\t\t\tMap2 [i][j] = Map [i][j] = code [a];\n\t\t}\n\t}\n\tfor (int i = 0 ; i < n ; i ++)//, cout << "\\n")\n\t\tfor (int j = 0 ; j < m ; j ++)\n\t\t{\n\t\t\t//cout << Map [i][j];\n\t\t}\n\tint ans = -1;\n\tfor (int i = 0 ; i < n ; i ++)\n\t\tfor (int j = 0 ; j < m ; j ++)\n\t\t\tif (Map [i][j] != \'.\')\n\t\t\t{\n\t\t\t\tans = max (ans, solve (i, j));\n\t\t\t}\n\tcout << ans << "\\n";\n}\n'
+p3
+tp4
+stp5
+.

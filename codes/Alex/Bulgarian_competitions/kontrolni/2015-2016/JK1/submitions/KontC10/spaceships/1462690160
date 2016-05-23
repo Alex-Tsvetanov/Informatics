@@ -1,0 +1,13 @@
+(I2
+I17
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceships.cpp
+p2
+S'#include<iostream>\r\n#include<cstring>\r\n#include<algorithm>\r\nusing namespace std;\r\nlong long n,m;\r\nlong long nms=0;\r\nchar pole[128][128];\r\nbool popylnenolie[128][128];\r\nlong long proveri(long long x,long long y,long long sekundi){\r\n//    cout<<sekundi<<"\\n"<<x<<" "<<y<<"\\n";\r\npopylnenolie[x][y]=1;\r\nif(pole[x][y]==\'v\'){\r\nwhile(x<n and (pole[x][y]==\'.\' or (pole[x][y]!=\'.\' and popylnenolie[x][y]==1))){\r\nsekundi++;\r\nx++;\r\n}\r\nif(x==n){\r\nreturn sekundi;\r\n}else{\r\nreturn proveri(x,y,sekundi);\r\n}\r\n}\r\nif(pole[x][y]==\'^\'){\r\nwhile(x>=0 and (pole[x][y]==\'.\' or (pole[x][y]!=\'.\' and popylnenolie[x][y]==1))){\r\nsekundi++;\r\nx--;\r\n}\r\nif(x==-1){\r\nreturn sekundi;\r\n}else{\r\nreturn proveri(x,y,sekundi);\r\n}\r\n}\r\nif(pole[x][y]==\'<\'){\r\nwhile(y>=0 and (pole[x][y]==\'.\' or (pole[x][y]!=\'.\' and popylnenolie[x][y]==1))){\r\nsekundi++;\r\ny--;\r\n}\r\nif(y==-1){\r\nreturn sekundi;\r\n}else{\r\nreturn proveri(x,y,sekundi);\r\n}\r\n}\r\nif(pole[x][y]==\'>\'){\r\nwhile(y<n and (pole[x][y]==\'.\' or (pole[x][y]!=\'.\' and popylnenolie[x][y]==1))){\r\nsekundi++;\r\ny++;\r\n}\r\nif(y==n){\r\nreturn sekundi;\r\n}else{\r\nreturn proveri(x,y,sekundi);\r\n}\r\n}\r\nreturn 0;\r\n}\r\nint main(){\r\nios::sync_with_stdio(false);\r\ncin>>n>>m;\r\nfor(long long i=0;i<n;i++){\r\ncin>>pole[i];\r\n}\r\nfor(long long i=0;i<n;i++){\r\nfor(long long r=0;r<m;r++){\r\nif(pole[i][r]!=\'.\'){ //and (pole[i][r]==\'v\' and (i==0 or pole[i-1][r]!=\'v\'))){\r\nnms=max(proveri(i,r,0),nms);\r\n}\r\nfor(long long k=0;k<n;k++){\r\n    for(long long j=0;j<m;j++){\r\n    popylnenolie[k][j]=0;\r\n    }\r\n}\r\n}\r\n}\r\ncout<<nms;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

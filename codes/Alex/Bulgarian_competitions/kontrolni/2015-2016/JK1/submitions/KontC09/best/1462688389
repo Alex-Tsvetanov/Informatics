@@ -1,0 +1,13 @@
+(I2
+I18
+I4
+(dp0
+Vbest.%l
+p1
+(Vbest.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\n#include <vector>\r\n#include <cstdio>\r\nusing namespace std;\r\n\r\nvector <int> g[10005],p;\r\nint vis[30],cnt;\r\n\r\nvoid DFS(int v)\r\n{\r\n int i;\r\n\r\n vis[v]=1;\r\n //cout<<char(\'a\'+v-1)<<endl;\r\n cnt++;\r\n\r\n  for(i=0;i<g[v].size();i++)\r\n   if(vis[g[v][i]]==0)\r\n    DFS(g[v][i]);\r\n}\r\n\r\nint main()\r\n{\r\n\r\nint n,m,v1,v2,i,len,j,s=0,chr,exr;\r\ndouble p1,p2,ch,ex,ans=0;\r\nchar u,v;\r\n\r\ncin>>n>>m;\r\ncin>>p1>>v1;\r\ncin>>p2>>v2;\r\n\r\n if(p1<p2)\r\n {\r\n  ch=p1;\r\n  ex=p2;\r\n\r\n  chr=v1;\r\n  exr=v2;\r\n }\r\n else\r\n {\r\n  ch=p2;\r\n  ex=p1;\r\n\r\n  chr=v2;\r\n  exr=v1;\r\n }\r\n\r\n for(i=1;i<=m;i++)\r\n {\r\n  cin>>u>>v;\r\n\r\n    if(u>=\'A\' && u<=\'Z\')\r\n     u=u+(\'a\'-\'A\');\r\n\r\n    if(v>=\'A\' && v<=\'Z\')\r\n     v=v+(\'a\'-\'A\');\r\n\r\n  g[u-\'a\'+1].push_back(v-\'a\'+1);\r\n  g[v-\'a\'+1].push_back(u-\'a\'+1);\r\n }\r\n\r\n for(i=1;i<=26;i++)\r\n {\r\n  cnt=0;\r\n\r\n   if(vis[i]==0)\r\n    DFS(i);\r\n\r\n   if(cnt>1)\r\n   {\r\n    //cout<<i<<" "<<cnt<<endl;\r\n    p.push_back(cnt);\r\n    s=s+cnt;\r\n   }\r\n }\r\n\r\nsort(p.begin(),p.end());\r\n\r\n for(i=p.size()-1;i>=0;i--)\r\n {\r\n  if(p[i]<=chr)\r\n  {\r\n   chr=chr-p[i];\r\n   ans=ans+ch*p[i];\r\n  }\r\n  else\r\n  {\r\n   exr=exr-p[i];\r\n   ans=ans+ex*p[i];\r\n  }\r\n }\r\n\r\ns=n-s;\r\nans=ans+min(s,chr)*ch;\r\ns=s-min(s,chr);\r\nans=ans+min(s,exr)*ex;\r\n\r\nprintf("%.2f\\n",ans);\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

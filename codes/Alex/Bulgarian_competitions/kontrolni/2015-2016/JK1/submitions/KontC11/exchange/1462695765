@@ -1,0 +1,13 @@
+(I2
+I16
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include <iostream>\n#include <set>\n#include <vector>\n\nusing namespace std;\n\nint a [256];\nint b [256];\nint c [256];\nvector <int> monets;\nint sum;\n\nint mem [2048][256];\n\nint rec (int s, int ind = 0)\n{\n\tif (ind >= monets.size ())\n\t\treturn s == sum;\n\tif (mem [s][ind] == 0)\n\t{\n\t\tint ans = 0;\n\t\tfor (int i = 0 ; i <= c [monets [ind]] ; i ++)\n\t\t\tans += rec (s + monets [ind] * i, ind + 1);\n\t\treturn mem [s][ind] = ans;\n\t}\n\treturn mem [s][ind];\n}\n\nint main ()\n{\n\tint n;\n\tcin >> sum >> n;\n\tfor (int i = 0 ; i < n ; i ++) cin >> a [i];\n\t\n\tfor (int i = 0 ; i < n ; i ++) cin >> b [i];\n\n\tset <int> tmp;\n\tfor (int i = 0 ; i < n ; i ++)\n\t{\n\t\tc [a [i]] += b [i];\n\t\ttmp.insert (a [i]);\n\t}\n\tmonets = vector <int> (tmp.begin (), tmp.end ());\n\t//cout << monets.size () << "\\n";\n\t//cout << monets [0] << "\\n";\n\t//cout << c [monets [0]] << "\\n";\n\t//cout << monets [1] << "\\n";\n\t//cout << c [monets [1]] << "\\n";\n\n\tcout << rec (0) << "\\n";\n\n\t//std::cout << "2\\n"; \n}\n'
+p3
+tp4
+stp5
+.

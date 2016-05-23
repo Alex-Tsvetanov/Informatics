@@ -1,0 +1,95 @@
+#include <iostream>
+#include <vector>
+
+char _inp[101][101];
+char inp[101][101];
+//std::vector<std::pair<int, int> > graph[101][101];
+int n, m;
+
+int simulate(int x, int y)
+{
+	if(inp[x][y] == 'v')
+	{
+		for(int i = y+1;i < n;++ i)
+		{
+			if(inp[x][i] != '.')
+			{
+				inp[x][y] = '.';
+				return i - y + simulate(x, i);
+			}
+		}
+		return n - y;
+	}
+	if(inp[x][y] == '^')
+	{
+		for(int i = y-1;i >= 0;-- i)
+		{
+			if(inp[x][i] != '.')
+			{
+				inp[x][y] = '.';
+				return y - i + simulate(x, i);
+			}
+		}
+		return y + 1;
+	}
+	if(inp[x][y] == '<')
+	{
+		for(int i = x-1;i >= 0;-- i)
+		{
+			if(inp[i][y] != '.')
+			{
+				inp[x][y] = '.';
+				return x - i + simulate(i, y);
+			}
+		}
+		return x + 1;
+	}
+}
+
+int main()
+{
+	std::cin >> n >> m;
+	for(int i = 0;i < n;++ i)
+		for(int j = 0;j < m;++ j)
+			std::cin >> _inp[j][i];
+
+	int max = 0;
+	for(int x = 0;x < m;++ x)
+	{
+		for(int y = 0;y < n;++ y)
+		{
+			if(inp[x][y] != '.')
+			{
+				for(int i = 0;i < n;++ i)
+					for(int j = 0;j < m;++ j)
+						inp[i][j] = _inp[i][j];
+
+				int r = simulate(x, y);
+				if(r > max)
+					max = r;
+			}
+		}
+	}
+	std::cout << max << std::endl;
+	/*
+	for(int x = 0;x < m;++ x)
+	{
+		for(int y = 0;y < n;++ y)
+		{
+			if(inp[x][y] == 'v')
+			{
+				for(int y1 = y;y1 < n;++ y1)
+					if(inp[x][y1] != '.')
+						graph[x][y].push_back({x, y1});
+			}
+			if(inp[x][y] == '^')
+			{
+				for(int y1 = y;y1 >= 0;-- y1)
+					if(inp[x][y1] != '.')
+						graph[x][y].push_back({x, y1});
+			}
+		}
+	}
+	*/
+	return 0;
+}

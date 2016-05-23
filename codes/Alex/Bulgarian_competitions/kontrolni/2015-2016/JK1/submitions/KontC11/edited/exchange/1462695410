@@ -1,0 +1,47 @@
+#include <iostream>
+#include <set>
+#include <vector>
+
+using namespace std;
+
+int a [256];
+int b [256];
+int c [256];
+vector <int> monets;
+int sum;
+
+int rec (int s, int ind = 0)
+{
+	if (ind >= monets.size ())
+		return s == sum;
+	int ans = 0;
+	for (int i = 0 ; i <= c [monets [ind]] ; i ++)
+		ans += rec (s + monets [ind] * i, ind + 1);
+	return ans;
+}
+
+int main ()
+{
+	int n;
+	cin >> sum >> n;
+	for (int i = 0 ; i < n ; i ++) cin >> a [i];
+	
+	for (int i = 0 ; i < n ; i ++) cin >> b [i];
+
+	set <int> tmp;
+	for (int i = 0 ; i < n ; i ++)
+	{
+		c [a [i]] += b [i];
+		tmp.insert (a [i]);
+	}
+	monets = vector <int> (tmp.begin (), tmp.end ());
+	//cout << monets.size () << "\n";
+	//cout << monets [0] << "\n";
+	//cout << c [monets [0]] << "\n";
+	//cout << monets [1] << "\n";
+	//cout << c [monets [1]] << "\n";
+
+	cout << rec (0) << "\n";
+
+	//std::cout << "2\n"; 
+}

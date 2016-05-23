@@ -1,0 +1,13 @@
+(I2
+I16
+I4
+(dp0
+Vbest.%l
+p1
+(Vbest_set.cpp
+p2
+S'#include <iostream>\n#include <string>\n//#include <string.h>\n#include <map>\n#include <stdlib.h>\n#include <vector>\n#include <queue>\n#include <set>\n\nusing namespace std;\n\nmap <string, int> code;\nvector < int > ln [10001];\nint groups [10001];\nbool visited [10001];\nset <int, greater <int> > knapsack;\n\nstring to_lower (string a)\n{\n\tfor (size_t i = 0 ; i < a.size () ; i ++)\n\t\tif (\'A\' <= a [i] and a [i] <= \'Z\')\n\t\t\ta [i] = a [i] - \'A\' + \'a\';\n\treturn a;\n}\n\nint bfs (int s, int num)\n{\n\t//memset (visited, 0, sizeof (visited));\n\tqueue <int> q;\n\tq.push (s);\n\tint N = 0;\n\twhile (!q.empty ())\n\t{\n\t\tint top = q.front (); q.pop ();\n\t\tvisited [top] = 1;\n\t\t//groups [top] = num;\n\t\tN ++;\n\t\tfor (auto& x : ln [top])\n\t\t{\n\t\t\tif (!visited [x])\n\t\t\t\tq.push (x);\n\t\t}\n\t}\n\treturn N;\n}\n\nint main ()\n{\n\tcin.tie (nullptr);\n\tios::sync_with_stdio (false);\n\tint n, m;\n\tcin >> n >> m;\n\tint p1, p2, v1, v2;\n\tstring P1, P2;\n\tcin >> P1 >> v1 >> P2 >> v2;\n\tif (P1.find (\'.\') != string::npos)\n\t\tP1.erase (P1.find (\'.\'), 1);\n\tif (P2.find (\'.\') != string::npos)\n\t\tP2.erase (P2.find (\'.\'), 1);\n\twhile (P1.size () < P2.size ()) P1 += \'0\';\n\twhile (P1.size () > P2.size ()) P2 += \'0\';\n\tp1 = atoi (P1.c_str ());\n\tp2 = atoi (P2.c_str ());\n\t//cout << p1 << " " << p2 << "\\n";\n\tfor (int i = 0 ; i < m ; i ++)\n\t{\n\t\tstring a, b;\n\t\tcin >> a >> b;\n\t\ta = to_lower (a);\n\t\tb = to_lower (b);\n\t\tint A, B;\n\t\tif (code.find (a) == code.end ())\n\t\t\tA = code [a] = code.size ();\n\t\tif (code.find (b) == code.end ())\n\t\t\tB = code [b] = code.size ();\n\t\tln [A].push_back (B);\n\t\tln [B].push_back (A);\n\t}\n\t//connected components\n\tvector <int> group;\n\tfor (size_t i = 0 ; i < n ; i ++)\n\t{\n\t\tif (!visited [i])\n\t\t\tgroup.push_back (bfs (i, group.size ()));\n\t}\n\t//DP = knapsack by groups and capacity of hotels\n\tknapsack.insert (0);\n\tfor (int i = 0 ; i < group.size () ; i ++)\n\t{\n\t\tvector <int> to_add;\n\t\tfor (auto& j : knapsack)\n\t\t{\n\t\t\tif (j + group [i] <= v1)\n\t\t\t\tto_add.push_back (j + group [i]);\n\t\t}\n\t\tfor (auto& x : to_add)\n\t\t\tknapsack.insert (x);\n\t}\n\tint optimal = (p1 + p2) * n;\n\tfor (auto& i : knapsack)\n\t{\n//\t\tcout << i << " -> " << knapsack [i] << "\\n";\n//\t\tcout << "\\t" << (i * p1 + (n - i) * p2) << "\\n";;\n\t\toptimal = min (optimal, i * p1 + (n - i) * p2);\n\t}\n\tcout << optimal / 100 << ((optimal % 100 < 10)?".0":".") << optimal % 100 << "\\n";\n}\n'
+p3
+tp4
+stp5
+.

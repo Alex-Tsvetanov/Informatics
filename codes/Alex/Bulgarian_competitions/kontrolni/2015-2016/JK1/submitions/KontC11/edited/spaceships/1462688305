@@ -1,0 +1,92 @@
+#include <iostream>
+#include <map>
+
+using namespace std;
+
+map < char , int > code =
+{
+	{'>', 0},
+	{'<', 1},
+	{'v', 2},
+	{'^', 3},
+	{'.', 4}
+};
+int dir [][2] = 
+{
+	{0, 1}, // '>'
+	{0, -1},// '<'
+	{1, 0}, // 'v'
+	{-1, 0},// '^'
+	{0, 0}  // '.'
+};
+
+int Map [100][100];
+int Map2 [100][100];
+int n, m;
+
+int solve (int a, int b)
+{
+	for (int i = 0 ; i < n ; i ++)
+		for (int j = 0 ; j < m ; j ++)
+			Map2 [i][j] = Map [i][j];
+	int ans = 0;
+	for (int ind = 0 ; 1 ; ind ++)
+	{
+		for (int i = 0 ; i < ind ; i ++)
+		{
+			//cout << "   ";
+		}
+		//cout << a << " " << b << " " << Map2 [a][b] << "\n";
+		if (Map2 [a][b] == code ['.'])
+			return -1;
+		if (a < 0 or a >= n or b < 0 or b >= m)
+		{
+			return ans;
+		}
+		for (int k = 1 ; k < n + m ; k ++)
+		{
+			int A = a + dir [Map2 [a][b]][0] * k;
+			int B = b + dir [Map2 [a][b]][1] * k;
+			if (A < 0 or A >= n or B < 0 or B >= m)
+			{
+				return ans + k;
+			}
+			if (Map2 [A][B] != code ['.'])
+			{
+				Map2 [a][b] = code ['.']; //free
+				ans += k;
+				a = A, b = B;
+				break;
+			}
+		}
+	}
+}
+
+int main ()
+{
+	cin.tie (nullptr);
+	ios::sync_with_stdio (false);
+	cin >> n >> m;
+	for (int i = 0 ; i < n ; i ++)
+	{
+		for (int j = 0 ; j < m ; j ++)
+		{
+			char a;
+			cin >> a;
+			Map2 [i][j] = Map [i][j] = code [a];
+		}
+	}
+	for (int i = 0 ; i < n ; i ++)//, cout << "\n")
+		for (int j = 0 ; j < m ; j ++)
+		{
+			//cout << Map [i][j];
+		}
+	int ans = -1;
+	for (int i = 0 ; i < n ; i ++)
+		for (int j = 0 ; j < m ; j ++)
+			if (Map [i][j] != '.')
+			{
+				ans = max (ans, solve (i, j));
+			}
+	cout << ans << "\n";
+}

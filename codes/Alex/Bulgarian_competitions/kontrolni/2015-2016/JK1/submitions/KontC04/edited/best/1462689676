@@ -1,0 +1,82 @@
+#include<iostream>
+#include<map>
+#include<vector>
+#include<queue>
+using namespace std;
+string malki(string s){
+    for(int i=0;i<s.size();i++){
+        if(s[i]!='-' && s[i]>='A' && s[i]<='Z')   s[i]-='A'-'a';
+    }
+    return s;
+}
+
+    map<string,vector<string> > rebr;
+    map<string,bool> obh;
+    vector<string> ime;
+    vector<int> grupi;
+    queue<string> opa;
+    int n,m;
+    double p1,p2,v1,v2;
+int max_cena(int last,int to_now,int aim){
+    if(to_now>aim)  return 0;
+    if(to_now==aim || last==grupi.size()-1) return to_now;
+    int maxi=0;
+    for(int i=last+1;i<grupi.size();i++){
+        maxi=max(max_cena(i,to_now+grupi[i],aim),maxi);
+        if(maxi==aim)   return maxi;
+    }
+    return maxi;
+}
+int main(){
+    cin>>n>>m>>p1>>v1>>p2>>v2;
+    string s1,s2;
+    for(int i=0;i<m;i++){
+        cin>>s1>>s2;
+        s1=malki(s1);
+        s2=malki(s2);
+        //cout<<s1<<s2;
+        if(rebr[s1].size()==0){
+            ime.push_back(s1);
+            obh[s1]=false;;
+
+        }
+        if(rebr[s2].size()==0){
+            ime.push_back(s2);
+            obh[s2]=false;
+        }
+        rebr[s1].push_back(s2);
+        rebr[s2].push_back(s1);
+    }
+    for(int i=0;i<ime.size();i++){
+        if(!obh[ime[i]]){
+            grupi.push_back(0);
+            opa.push(ime[i]);
+            obh[ime[i]]=true;
+            while(!opa.empty()){
+                grupi[grupi.size()-1]++;
+                for(int j=0;j<rebr[opa.front()].size();j++){
+                    if(!obh[rebr[opa.front()][j]]){
+                        opa.push(rebr[opa.front()][j]);
+                        obh[rebr[opa.front()][j]]=true;
+                    }
+                }
+                opa.pop();
+            }
+        }
+    }
+    int jkl=max_cena(-1,0,p1<p2?v1:v2);
+    jkl+=min((int)((p1<p2?v1:v2)-jkl),
+            (int)(n-ime.size()));
+    double ans=jkl*min(p1,p2)+(n-jkl)*max(p1,p2);
+    cout<<(int)(ans)<<"."<<((int)(ans*100)%100<10?"0":"")<<(int)(ans*100)%100+((int)(ans*1000)%10<5?0:1);
+}
+/*12 7
+25.17 6
+32.00 8
+Radko MisHo
+RadkO Stenli
+MiSho Daniel
+Misho Zdravko
+Boris IRina
+Irina Gabriel
+Maria-Yoana Maria*/

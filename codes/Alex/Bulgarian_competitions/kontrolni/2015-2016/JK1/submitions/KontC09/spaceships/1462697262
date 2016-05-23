@@ -1,0 +1,13 @@
+(I2
+I18
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceships.cpp
+p2
+S"#include <iostream>\r\nusing namespace std;\r\n\r\nint ans,n,m,cnt;\r\nchar a[105][105],b[105][105];\r\nbool fl;\r\n\r\nvoid Move(int x,int y)\r\n{\r\n while(1)\r\n {\r\n cnt++;\r\n\r\n if(x==0 || x==n+1)\r\n  break;\r\n\r\n if(y==0 || y==m+1)\r\n  break;\r\n\r\n if(b[x][y]=='v')\r\n {\r\n  if(b[x+1][y]=='.')\r\n  {\r\n   swap(b[x][y],b[x+1][y]);\r\n   x++;\r\n   continue;\r\n  }\r\n  else\r\n  {\r\n   b[x][y]='.';\r\n   x++;\r\n   continue;\r\n  }\r\n }\r\n\r\n if(b[x][y]=='^')\r\n {\r\n  if(b[x-1][y]=='.')\r\n  {\r\n   swap(b[x][y],b[x-1][y]);\r\n   x--;\r\n   continue;\r\n  }\r\n  else\r\n  {\r\n   b[x][y]='.';\r\n   x--;\r\n   continue;\r\n  }\r\n }\r\n\r\n if(b[x][y]=='<')\r\n {\r\n  if(b[x][y-1]=='.')\r\n  {\r\n   swap(b[x][y],b[x][y-1]);\r\n   y--;\r\n   continue;\r\n  }\r\n  else\r\n  {\r\n   b[x][y]='.';\r\n   y--;\r\n   continue;\r\n  }\r\n }\r\n\r\n if(b[x][y]=='>')\r\n {\r\n  if(b[x][y+1]=='.')\r\n  {\r\n   swap(b[x][y],b[x][y+1]);\r\n   y++;\r\n   continue;\r\n  }\r\n  else\r\n  {\r\n   b[x][y]='.';\r\n   y++;\r\n   continue;\r\n  }\r\n }\r\n }\r\n\r\n if(cnt-1>ans)\r\n  ans=cnt-1;\r\n}\r\n\r\nint main()\r\n{\r\n\r\nint i,j,p,q;\r\n\r\ncin>>n>>m;\r\n\r\n for(i=1;i<=n;i++)\r\n  for(j=1;j<=m;j++)\r\n   cin>>a[i][j];\r\n\r\n for(i=0;i<=m+1;i++)\r\n {\r\n  a[0][i]='.';\r\n  a[n+1][i]='.';\r\n }\r\n\r\n for(i=0;i<=n+1;i++)\r\n {\r\n  a[i][0]='.';\r\n  a[i][m+1]='.';\r\n }\r\n\r\nfl=false;\r\n\r\n for(i=1;i<=n;i++)\r\n  for(j=1;j<=m;j++)\r\n  {\r\n   if(a[i][j]!='.')\r\n   {\r\n    for(p=1;p<=n;p++)\r\n     for(q=1;q<=m;q++)\r\n      b[p][q]=a[p][q];\r\n\r\n    cnt=0;\r\n    Move(i,j);\r\n   }\r\n  }\r\n\r\ncout<<ans<<endl;\r\n\r\nreturn 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

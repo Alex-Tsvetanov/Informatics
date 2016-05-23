@@ -1,0 +1,87 @@
+#include<iostream>
+#include<vector>
+#include<queue>
+#include<algorithm>
+#include<stack>
+using namespace std;
+int a,n;
+int m1[2005],m2[205],m[2005];
+struct st
+{
+    int a,b;
+};
+int main()
+{
+    int a;
+    cin>>a;
+    int n,br;
+    cin>>n;
+    for(int i=0; i<n; i++)
+    {
+        cin>>m1[i];
+    }
+    for(int i=0; i<n; i++)
+    {
+        cin>>br;
+        m2[m1[i]]+=br;
+    }
+    priority_queue<int> qu;
+    stack<int> qu2;
+    queue<int> q;
+    int brv;
+    int qus;
+    qu.push(0);
+    int a1;
+    for(int i=1; i<=a; i++)
+    {
+        brv=0;
+        if(m2[i]==0)continue;
+        while(brv<m2[i])
+        {
+            qus=qu.size();
+            brv++;
+            for(int k=0; k<qus; k++)
+            {
+                a1=qu.top();
+                q.push(a1);
+                if(m[a1+brv*i]<=a)
+                {
+                    m[a1+brv*i]++;
+            qu2.push(a1+brv*i);
+                    qu.pop();
+                }
+                else break;
+            }
+            for(int k=0; k<qus; k++)
+            {
+
+                qu.push(q.front());
+                q.pop();
+            }
+        }
+        for(int j=10; j<=a; j++)
+        {
+            if(m[j]==0)continue;
+        }
+        while(!qu2.empty())
+        {
+            qu.push(qu2.top());
+            qu2.pop();
+        }
+    }
+   // cout<<qu.size()<<endl;
+    cout<<m[a]<<endl;
+}
+
+/**
+
+50
+3
+10 20 10
+1 2 2
+
+
+
+
+
+*/

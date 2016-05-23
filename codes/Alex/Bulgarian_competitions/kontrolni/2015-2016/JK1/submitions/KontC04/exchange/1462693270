@@ -1,0 +1,13 @@
+(I2
+I23
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\npair<int,int> ab[201];\r\npair<int,int> how[2001],how2[2001];\r\n\r\nint main(){\r\n    int s,n;\r\n    cin>>s>>n;\r\n    for(int i=0;i<n;i++){\r\n        cin>>ab[i].first;\r\n    }\r\n    for(int i=0;i<n;i++){\r\n        cin>>ab[i].second;\r\n    }\r\n    sort(ab,ab+n);\r\n    int pov=0;\r\n    for(int i=0;i<n;i++){\r\n        if(ab[i].first==ab[i+1].first){\r\n            ab[i+1].second+=ab[i].second;\r\n            ab[i].first=2001;\r\n            pov++;\r\n        }\r\n    }\r\n    sort(ab,ab+n);\r\n    n-=pov;\r\n    how[0].first=1;\r\n    how[0].second=0;\r\n    /*for(int i=0;i<n;i++){\r\n        cout<<ab[i].first<<" "<<ab[i].second<<endl;\r\n    }*/\r\n    for(int i=0;i<n;i++){\r\n            for(int l=0;l<2001;l++){\r\n                how2[l]=how[l];\r\n            }\r\n        for(int j=1;j<=ab[i].second;j++){\r\n            //cout<<ab[i].first<<"*"<<j<<endl;\r\n            for(int k=0;k+ab[i].first*j<=s;k++){\r\n                if(how2[k].second!=ab[i].first && how2[k].first>0){\r\n                    how[k+ab[i].first*j].first+=how2[k].first;\r\n                    how[k+ab[i].first*j].second=ab[i].first;\r\n                }\r\n            }\r\n            /*for(int l=0;l<=s;l++){\r\n                cout<<how[l].first<<" ";\r\n            }*/\r\n            //cout<<endl;\r\n        }\r\n    }\r\n    cout<<how[s].first;\r\n}\r\n/*50\r\n3\r\n10 20 10\r\n1 2 2*/\r\n/*50\r\n3\r\n20 10 5\r\n10 10 10*/\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,119 @@
+#include <iostream>
+#include <string>
+//#include <string.h>
+#include <map>
+#include <stdlib.h>
+#include <vector>
+#include <queue>
+#include <set>
+
+using namespace std;
+
+vector < int > ln [10001];
+int groups [10001];
+bool visited [10001];
+set <int, greater <int> > knapsack;
+
+string to_lower (string a)
+{
+	for (size_t i = 0 ; i < a.size () ; i ++)
+		if ('A' <= a [i] and a [i] <= 'Z')
+			a [i] = a [i] - 'A' + 'a';
+	return move (a);
+}
+struct comp
+{
+	bool operator () (string a, string b)
+	{
+		return to_lower (a) < to_lower (b);
+	}
+};
+map <string, int, comp> code;
+
+int bfs (int s/*, int num*/)
+{
+	//memset (visited, 0, sizeof (visited));
+	queue <int> q;
+	q.push (s);
+	int N = 0;
+	while (!q.empty ())
+	{
+		int top = q.front (); q.pop ();
+		visited [top] = 1;
+		//groups [top] = num;
+		N ++;
+		for (auto& x : ln [top])
+		{
+			if (!visited [x])
+				q.push (x);
+		}
+	}
+	return N;
+}
+
+int main ()
+{
+	cin.tie (nullptr);
+	ios::sync_with_stdio (false);
+	int n, m;
+	cin >> n >> m;
+	int p1, p2, v1, v2;
+	string P1, P2;
+	cin >> P1 >> v1 >> P2 >> v2;
+	if (P1.find ('.') != string::npos)
+		P1.erase (P1.find ('.'), 1);
+	if (P2.find ('.') != string::npos) 
+		P2.erase (P2.find ('.'), 1);
+	while (P1.size () < P2.size ()) P1 += '0';
+	while (P1.size () > P2.size ()) P2 += '0';
+	p1 = atoi (P1.c_str ());
+	p2 = atoi (P2.c_str ());
+	if (p1 > p2)
+	{
+		swap (p1, p2);
+		swap (v1, v2);
+	}
+	//cout << p1 << " " << p2 << "\n";
+	for (int i = 0 ; i < m ; i ++)
+	{
+		string a, b;
+		cin >> a >> b;
+		//a = to_lower (a);
+		//b = to_lower (b);
+		int A, B;
+		if (code.find (a) == code.end ())
+			A = code [a] = code.size ();
+		if (code.find (b) == code.end ())
+			B = code [b] = code.size ();
+		ln [A].push_back (B);
+		ln [B].push_back (A);
+	}
+	//connected components - O (N + 2M) ~ O (N + 4N) = O (5N)
+	vector <int> group;
+	for (size_t i = 0 ; i < n ; i ++)
+	{
+		if (!visited [i])
+			group.push_back (bfs (i/*, group.size ()*/));
+	}
+	//DP = knapsack by groups and capacity of hotels O (N^2)
+	knapsack.insert (0);
+	for (int i = 0 ; i < group.size () ; i ++)
+	{
+		vector <int> to_add;
+		for (auto& j : knapsack)
+		{
+			if (j + group [i] <= v1)
+				to_add.push_back (j + group [i]);
+		}
+		for (auto& x : to_add)
+			knapsack.insert (x);
+	}
+	int optimal = (p1 + p2) * n;
+	auto& i = *knapsack.begin ();
+	{
+//		cout << i << " -> " << knapsack [i] << "\n";
+//		cout << "\t" << (i * p1 + (n - i) * p2) << "\n";;
+		optimal = min (optimal, i * p1 + (n - i) * p2);
+	}
+	cout << optimal / 100 << ((optimal % 100 < 10)?".0":".") << optimal % 100 << "\n";
+}

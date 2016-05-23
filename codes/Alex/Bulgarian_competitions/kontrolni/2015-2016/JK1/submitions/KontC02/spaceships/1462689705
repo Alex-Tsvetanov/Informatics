@@ -1,0 +1,13 @@
+(I2
+I25
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceships.cpp
+p2
+S"#include <bits/stdc++.h>\n#define endl '\\n'\nusing namespace std;\n\nconst int maxN = 105, maxM = 105;\n\nchar board[maxN][maxM], board_copy[maxN][maxM];\nint n, m, ans;\n\n\nvoid copy_array()\n{\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tfor(int j = 0; j < m; j++)\n\t\t{\n\t\t\tboard_copy[i][j] = board[i][j];\n\t\t}\n\t}\n}\nvoid solve(int i, int j, int count_moves)\n{\n\tif(board_copy[i][j] == '^')\n\t{\n\t\tif(i <= 0) \n\t\t{\n\t\t\tif(count_moves + 1 > ans) ans = count_moves + 1;\n\t\t\treturn;\n\t\t}\n\t\t\n\t\t\n\t\tif(board_copy[i - 1][j] == '.') swap(board_copy[i - 1][j], board_copy[i][j]);\n\t\telse board_copy[i][j] = '.';\n\t\tsolve(i - 1, j, count_moves + 1);\n\t}\n\telse if(board_copy[i][j] == '>')\n\t{\n\t\tif(j >= m - 1)\n\t\t{\n\t\t\tif(count_moves + 1 > ans) ans = count_moves + 1;\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tif(board_copy[i][j + 1] == '.') swap(board_copy[i][j + 1], board_copy[i][j]);\n\t\telse board_copy[i][j] = '.';\n\t\tsolve(i, j + 1, count_moves + 1);\n\t}\n\telse if(board_copy[i][j] == 'v')\n\t{\n\t\tif(i >= n - 1)\n\t\t{\n\t\t\tif(count_moves + 1 > ans) ans = count_moves + 1;\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tif(board_copy[i + 1][j] == '.') swap(board_copy[i + 1][j], board_copy[i][j]);\n\t\telse board_copy[i][j] = '.';\n\t\tsolve(i + 1, j, count_moves + 1);\n\t}\n\telse\n\t{\n\t\tif(j <= 0)\n\t\t{\n\t\t\tif(count_moves + 1 > ans) ans = count_moves + 1;\n\t\t\treturn;\n\t\t}\n\t\t\n\t\tif(board_copy[i][j - 1] == '.') swap(board_copy[i][j - 1], board_copy[i][j]);\n\t\telse board_copy[i][j] = '.';\n\t\tsolve(i, j - 1, count_moves + 1);\n\t}\n}\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>n>>m;\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tfor(int j = 0; j < m; j++)\n\t\t{\n\t\t\tcin>>board[i][j];\n\t\t}\n\t}\n\t\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tfor(int j = 0; j < m; j++)\n\t\t{\n\t\t\tif(board[i][j] != '.') \n\t\t\t{\n\t\t\t\tcopy_array();\n\t\t\t\tsolve(i, j, 0);\n\t\t\t}\n\t\t}\n\t}\n\t\n\tcout<<ans<<endl;\n\treturn 0;\n}\n"
+p3
+tp4
+stp5
+.

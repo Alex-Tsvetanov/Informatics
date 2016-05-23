@@ -1,0 +1,79 @@
+#include<iostream>
+using namespace std;
+
+int redove,koloni,posokaX[5]={0,-1,0,1},posokaY[5]={1,0,-1,0};
+int korabX[10024],korabY[10024],broi,maxx=0;
+char pole[128][128],cpyPole[128][128];
+///<^>v
+
+inline int prevurni(char c){
+    if(c=='>')
+        return 0;
+    if(c=='^')
+        return 1;
+    if(c=='<')
+        return 2;
+    return 3;
+}
+
+int main(){
+    cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    int x,y,i,curr,koi,startX,startY;
+    cin>>redove>>koloni;
+    for(x=0;x<redove;x++){
+        for(y=0;y<koloni;y++){
+            cin>>pole[x][y];
+            if(pole[x][y]!='.'){
+                korabX[broi]=x;
+                korabY[broi]=y;
+                broi++;
+            }
+        }
+    }
+    for(i=0;i<broi;i++){
+        //cout<<"I:"<<i<<endl;
+        x=korabX[i];
+        y=korabY[i];
+        startX=x;
+        startY=y;
+        curr=0;
+        koi=prevurni(pole[x][y]);
+        bool promeniLi=false;
+        while(true){
+            //cout<<"a"<<koi;
+            x+=posokaX[koi];
+            y+=posokaY[koi];
+            curr++;
+            if(x<0 or x>=redove or y<0 or y>=koloni)
+                break;
+            if(cpyPole[x][y]!='.'){
+                promeniLi=true;
+                koi=prevurni(cpyPole[x][y]);
+                cpyPole[startX][startY]='.';
+                startX=x;
+                startY=y;
+            }
+        }
+        if(curr>maxx)
+            maxx=curr;
+        if(promeniLi){
+            for(x=0;x<redove;x++){
+                for(y=0;y<koloni;y++){
+                    cpyPole[x][y]=pole[x][y];
+                }
+            }
+        }
+    }
+    cout<<maxx<<"\n";
+    return 0;
+}
+/**
+5 6
+vv.^>>
+.^.<>.
+>>.^.v
+.^v>..
+^^...<
+
+*/

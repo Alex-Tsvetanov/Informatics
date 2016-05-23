@@ -1,0 +1,92 @@
+#include<iostream>
+#include<map>
+#include<algorithm>
+using namespace std;
+
+struct chanta{
+    int st,broi;
+}torba[256];
+
+int imaLiGo[256],dp[2500];
+const int MAX_N=256;
+long long variant[100][100][100];
+bool imaLiHesh[100][100000];
+
+bool cmp(chanta a,chanta b){
+    return a.st<b.st;
+}
+
+int main(){
+    //cin.tie(NULL);
+    //ios::sync_with_stdio(false);
+    int suma,n,i,j,cpy=0,a;
+    cin>>suma>>n;
+    for(i=0;i<MAX_N;i++){
+        imaLiGo[i]=-1;
+    }
+    for(i=0;i<n;i++){
+        cin>>torba[i].st;
+        if(imaLiGo[torba[i].st]==-1){
+            imaLiGo[torba[i].st]=i;
+            torba[i].broi=0;
+            cpy++;
+        }else{
+            torba[i].broi=-13;
+        }
+    }
+    for(i=0;i<n;i++){
+        cin>>a;
+        if(torba[i].broi==-13){
+            torba[imaLiGo[torba[i].st]].broi+=a;
+            torba[i].st=1000000;
+        }else{
+            torba[i].broi=a;
+        }
+    }
+    sort(torba,torba+n,cmp);
+    n=cpy;
+    /*for(i=0;i<n;i++){
+        cout<<torba[i].st<<";"<<torba[i].broi<<" ";
+    }cout<<"\n";*/
+    for(j=0;j<n;j++){
+        dp[torba[j].st]=1;
+        variant[0][torba[j].st][j]=1;
+        int hesh=0,k=1,basa=257;
+        for(i=0;i<n;i++){
+            hesh=hesh+variant[0][torba[j].st][i]*k;
+            k*=basa;
+        }
+        imaLiHesh[torba[j].st][hesh]=true;
+    }
+    for(i=torba[0].st;i<=suma-torba[0].st;i++){
+        for(j=0;j<n;j++){
+            int curr=torba[j].st+i,k,l;
+            for(k=0;k<dp[i];k++){
+                if(variant[k][i][j]+1<torba[j].broi){
+                    ///hesh
+                    for(l=0;l<n;l++){
+                        variant[dp[curr]][i][l]=variant[k][i][l];
+                    }
+                    variant[dp[curr]][i][j]++;
+                    sort(variant[dp[curr]][i],variant[dp[curr]][i]+n);
+                    int hesh=0,p=1,basa=257;
+                    for(l=0;l<n;l++){
+                        hesh=hesh+variant[dp[curr]][i][l]*p;
+                        p*=basa;
+                    }
+                    if(imaLiHesh[curr][hesh]==0){
+                        for(l=0;l<n;l++){
+                            variant[dp[curr]][i][l]=variant[k][i][l];
+                        }
+                        dp[curr]++;
+                    }
+                }
+            }
+        }
+    }
+    /*for(i=0;i<=suma;i++){
+        cout<<i<<":"<<dp[i]<<"\n";
+    }*/
+    cout<<dp[suma]<<"\n";
+    return 0;
+}

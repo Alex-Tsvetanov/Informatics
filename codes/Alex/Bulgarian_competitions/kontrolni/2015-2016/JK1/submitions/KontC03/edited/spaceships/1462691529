@@ -1,0 +1,115 @@
+#include <iostream>
+using namespace std;
+
+int n, m;
+char a[128][128], b[128][128];
+
+void Init()
+{
+    cin>>n>>m;
+    for (int i=1; i<=n; i++)
+    {
+        for (int j=1; j<=m; j++)
+        {
+            cin>>a[i][j];
+        }
+    }
+}
+
+int Solve(int x, int y)
+{
+    for (int i=1; i<=n; i++)
+    {
+        for (int j=1; j<=m; j++)
+        {
+            b[i][j]=a[i][j];
+        }
+    }
+    int p=0;
+    while (x>=1 and x<=n and y>=1 and y<=m)
+    {
+        if (b[x][y]=='^')
+        {
+            int ship=0;
+            for (int i=x-1; i>=1; i--)
+            {
+                if (b[i][y]!='.')
+                {
+                    ship=i;
+                    i=0;
+                }
+            }
+            b[x][y]='.';
+            p+=x-ship;
+            x=ship;
+            continue;
+        }
+        if (b[x][y]=='v')
+        {
+            int ship=n+1;
+            for (int i=x+1; i<=n; i++)
+            {
+                if (b[i][y]!='.')
+                {
+                    ship=i;
+                    i=n+1;
+                }
+            }
+            b[x][y]='.';
+            p+=ship-x;
+            x=ship;
+            continue;
+        }
+        if (b[x][y]=='<')
+        {
+            int ship=0;
+            for (int j=y-1; j>=1; j--)
+            {
+                if (b[x][j]!='.')
+                {
+                    ship=j;
+                    j=0;
+                }
+            }
+            b[x][y]='.';
+            p+=y-ship;
+            y=ship;
+            continue;
+        }
+        if (b[x][y]=='>')
+        {
+            int ship=m+1;
+            for (int j=y+1; j<=m; j++)
+            {
+                if (b[x][j]!='.')
+                {
+                    ship=j;
+                    j=m+1;
+                }
+            }
+            b[x][y]='.';
+            p+=ship-y;
+            y=ship;
+            continue;
+        }
+    }
+    return p;
+}
+
+int main()
+{
+    Init();
+
+    int maxt=0;
+    for (int i=1; i<=n; i++)
+    {
+        for (int j=1; j<=m; j++)
+        {
+            if (a[i][j]!='.')
+                maxt=max(maxt, Solve(i, j));
+        }
+    }
+    cout<<maxt<<endl;
+    return 0;
+}
+

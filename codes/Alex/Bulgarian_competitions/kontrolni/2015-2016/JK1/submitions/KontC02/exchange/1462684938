@@ -1,0 +1,13 @@
+(I2
+I25
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nconst int maxN = 205, maxB = 305, maxS = 2005;\n\nbool used_states[maxS][maxN * maxB];\nint s, n, a[maxN], b, dp[maxS][maxN * maxB];\nvector<int> all_coins;\n\nint solve(int current_sum, int ind_coin)\n{\n\tif(current_sum == s) return 1;\n\telse if(current_sum > s || ind_coin >= all_coins.size()) return 0;\n\telse if(used_states[current_sum][ind_coin]) return dp[current_sum][ind_coin];\n\t\n\tint val1 = solve(current_sum, ind_coin + 1), val2 = solve(current_sum + all_coins[ind_coin], ind_coin + 1);\n\tused_states[current_sum][ind_coin] = true;\n\t\n\t//cout<<current_sum<<" "<<ind_coin<<" "<<val1 + val2<<endl;\t\n\tdp[current_sum][ind_coin] = val1 + val2;\n\treturn dp[current_sum][ind_coin];\n}\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>s>>n;\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tcin>>a[i];\n\t}\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tcin>>b;\n\t\tfor(int j = 0; j < b; j++)\n\t\t{\n\t\t\tall_coins.push_back(a[i]);\n\t\t}\n\t}\n\t\n\tcout<<solve(0, 0)<<endl;\n\treturn 0;\n}\n\n'
+p3
+tp4
+stp5
+.

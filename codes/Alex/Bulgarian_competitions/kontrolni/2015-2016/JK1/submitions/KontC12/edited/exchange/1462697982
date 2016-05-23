@@ -1,0 +1,64 @@
+#include <iostream>
+#include <algorithm>
+#include <queue>
+#define k first
+#define br second
+using namespace std;
+int a[201],num[201],s,n,br=0,maxx[201];
+pair <int,int> inv[202];
+struct st{int sum,pos;};
+queue<st> q;
+
+void rac(int su,int po)
+{
+ int i,ts;
+ st stt,st1;
+ stt.sum=su; stt.pos=po;
+ //cout <<sum<<" "<<pos<< endl;
+ q.push(stt);
+ while(!q.empty())
+{
+ stt=q.front();
+ if(stt.sum>s) return;
+ for (i=0; i<=inv[stt.pos].br; i++)
+     {
+      ts=inv[stt.pos].k*i;
+      if(stt.sum+ts>s) return;
+      if(stt.pos!=0 && maxx[stt.pos-1]+stt.sum+ts>=s) {st1.sum=stt.sum+ts; st1.pos=stt.pos-1; q.push(st1);}
+      if(stt.pos==0)
+         {
+          //cout <<sum<<" "<<maxx[0]<<" "<<inv[0].k<< endl;
+          if((s-stt.sum)%inv[0].k==0 && s-stt.sum<=maxx[0]) br++;
+          break;
+         }
+     }
+ q.pop();
+}
+}
+
+int main()
+{
+int b,i;
+cin >>s>>n;
+for (i=1; i<=n; i++) cin>>a[i];
+for (i=1; i<=n; i++)
+    {
+     cin>>b;
+     num[a[i]]+=b;
+    }
+n=0;
+for (i=1; i<=200; i++) if(num[i]>0) {inv[n].k=i; inv[n++].br=num[i];}
+//for (i=0; i<n; i++) cout <<inv[i].k<<" "<<inv[i].br<< endl;
+sort(inv,inv+n);
+maxx[0]=inv[0].k*inv[0].br;
+for (i=1; i<=n-1; i++) maxx[i]=maxx[i-1]+inv[i].k*inv[i].br;
+rac(0,n-1);
+cout <<br<< endl;
+return 0;
+}
+/*
+50
+3
+10 20 10
+1 2 2
+*/

@@ -1,0 +1,57 @@
+#include <iostream>
+#include <utility>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int n, s;
+int dp[2048][2];
+int a[256], b[256], c[256];
+
+vector<pair<int, int>> coins;
+
+void Init()
+{
+    cin>>s>>n;
+    for (int i=0; i<n; i++)
+    {
+        cin>>a[i];
+    }
+    for (int i=0; i<n; i++)
+    {
+        cin>>b[i];
+        c[a[i]]+=b[i];
+    }
+    for (int i=1; i<=200; i++)
+    {
+        if (c[i]!=0) coins.emplace_back(i, c[i]);
+    }
+    sort(coins.begin(), coins.end());
+}
+
+void Solve()
+{
+    dp[0][0]=1;
+    for (int i=0; i<coins.size(); i++)
+    {
+        for (int j=s; j>=coins[i].first; j--)
+        {
+            for (int k=1; k<=coins[i].second; k++)
+            {
+                int ind=j-coins[i].first*k;
+
+                if (ind<0) k=coins[i].second+1;
+                else dp[j][0]+=dp[ind][0];
+            }
+        }
+    }
+}
+
+int main()
+{
+    Init();
+    Solve();
+    cout<<dp[s][0]<<endl;
+    return 0;
+}
+

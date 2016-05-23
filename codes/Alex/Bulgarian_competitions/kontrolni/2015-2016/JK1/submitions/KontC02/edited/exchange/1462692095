@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+#define endl '\n'
+using namespace std;
+
+const long long maxN = 205, maxA = 205, maxB = 5005, maxS = 2005;
+
+bool used[maxA * maxB][maxA], used_states[maxS][maxN];
+long long s, n, a[maxN], b, dp[maxS][maxN];
+vector<long long> all_coins[maxN];
+
+long long solve(long long sum, long long ind)
+{
+	if(sum == s) return 1;
+	else if(sum > s || ind == n) return 0;
+	else if(used_states[sum][ind]) return dp[sum][ind];
+	
+	long long current_ans = solve(sum, ind + 1);
+	for(long long i = 0; i < all_coins[ind].size(); i++)
+	{
+		current_ans += solve(sum + all_coins[ind][i], ind + 1);
+	}
+	
+	used_states[sum][ind] = true;
+	dp[sum][ind] = current_ans;
+	return current_ans;
+}
+
+int main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	
+	cin>>s>>n;
+	for(long long i = 0; i < n; i++)
+	{
+		cin>>a[i];
+	}
+	for(long long i = 0; i < n; i++)
+	{
+		cin>>b;
+		
+		for(long long j = 1; j <= b; j++)
+		{
+			if(!used[j * a[i]][a[i]]) 
+			{
+				used[j * a[i]][a[i]] = true;
+				all_coins[i].push_back(j * a[i]);
+			}
+		}
+	}
+	
+	cout<<solve(0, 0)<<endl;
+	return 0;
+}
+

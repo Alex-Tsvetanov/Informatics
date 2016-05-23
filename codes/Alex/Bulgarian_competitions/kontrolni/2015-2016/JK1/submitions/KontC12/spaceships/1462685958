@@ -1,0 +1,13 @@
+(I2
+I15
+I5
+(dp0
+Vspaceships.%l
+p1
+(Vspaceships.cpp
+p2
+S"#include <iostream>\r\nusing namespace std;\r\nchar a[100][100];\r\nbool fl[10000][100][100];\r\nint n,m;\r\n\r\nint solve(int x,int y)\r\n{\r\n int hod=x*n+y,sum=0,adx,ady;\r\n if(a[x][y]=='.') return 0;\r\n while(x<n && x>=0 && y<m && y>=0)\r\n     {\r\n      sum++;\r\n      if(fl[hod][x][y]==0){\r\n      if(a[x][y]=='^') {adx=-1; ady=0;}\r\n      if(a[x][y]=='>') {adx=0; ady=1;}\r\n      if(a[x][y]=='<') {adx=0; ady=-1;}\r\n      if(a[x][y]=='v') {adx=1; ady=0;}}\r\n      fl[hod][x][y]=1;\r\n      x+=adx; y+=ady;\r\n     }\r\n return sum;\r\n}\r\n\r\nint main ()\r\n{\r\nint i,j,maxl=0,l;\r\ncin >>n>>m;\r\nfor (i=0; i<n; i++)\r\n    for (j=0; j<m; j++)\r\n        {\r\n         cin>>a[i][j];\r\n        }\r\nfor (i=0; i<n; i++)\r\n    for (j=0; j<m; j++)\r\n        {\r\n         l=solve(i,j);\r\n         if(maxl<l) maxl=l;\r\n        }\r\ncout<<maxl<< endl;\r\nreturn 0;\r\n}\r\n/*\r\n5 6\r\nvv.^>>\r\n.^.<>.\r\n>>.^>v\r\n.^v>..\r\n^^...<\r\n*/\r\n"
+p3
+tp4
+stp5
+.

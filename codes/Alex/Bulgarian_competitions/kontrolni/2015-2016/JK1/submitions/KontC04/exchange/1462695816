@@ -1,0 +1,13 @@
+(I2
+I23
+I6
+(dp0
+Vexchange.%l
+p1
+(Vexchange.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\n#include<vector>\r\nusing namespace std;\r\nstruct dulgi{\r\n    int size=0;\r\n    vector<short>  cifri;\r\n};\r\ndulgi set(int i){\r\n    dulgi a;\r\n    while(i>0){\r\n        a.cifri.push_back(i%10);\r\n        i/=10;\r\n        a.size++;\r\n    }\r\n    return a;\r\n}\r\ndulgi add(dulgi a,dulgi b){\r\n    dulgi ans;\r\n    int ost=0;\r\n    if(a.size>b.size)   swap(a,b);\r\n    for(int i=0;i<max(a.size,b.size);i++){\r\n        ans.cifri.push_back(((i<a.size?a.cifri[i]:0)+b.cifri[i]+ost)%10);\r\n        ost=((i<a.size?a.cifri[i]:0)+b.cifri[i]+ost)/10;\r\n    }\r\n    if(ost>0){\r\n        ans.cifri.push_back(ost);\r\n    }\r\n    ans.size=ans.cifri.size();\r\n    return ans;\r\n}\r\nvoid print(dulgi abv){\r\n    for(int i=abv.size-1;i>=0;i--){\r\n        cout<<abv.cifri[i];\r\n    }\r\n}\r\npair<unsigned long long,unsigned long long> ab[201];\r\npair<dulgi,unsigned long long> how[2001],how2[2001];\r\nint main(){\r\n    /*dulgi abv=set(123);\r\n    abv=add(abv,set(999));*/\r\n    unsigned long long s,n;\r\n    cin>>s>>n;\r\n    for(unsigned long long i=0;i<n;i++){\r\n        cin>>ab[i].first;\r\n    }\r\n    for(unsigned long long i=0;i<n;i++){\r\n        cin>>ab[i].second;\r\n    }\r\n    sort(ab,ab+n);\r\n    unsigned long long pov=0;\r\n    for(unsigned long long i=0;i<n;i++){\r\n        if(ab[i].first==ab[i+1].first){\r\n            ab[i+1].second+=ab[i].second;\r\n            ab[i].first=2001;\r\n            pov++;\r\n        }\r\n    }\r\n    sort(ab,ab+n);\r\n    n-=pov;\r\n    how[0].first=set(1);\r\n    how[0].second=0;\r\n    /*for(unsigned long long i=0;i<n;i++){\r\n        cout<<ab[i].first<<" "<<ab[i].second<<endl;\r\n    }*/\r\n    for(unsigned long long i=0;i<n;i++){\r\n            for(unsigned long long l=0;l<=s;l++){\r\n                how2[l]=how[l];\r\n            }\r\n        for(unsigned long long j=1;j<=ab[i].second;j++){\r\n            //cout<<ab[i].first<<"*"<<j<<endl;\r\n            for(unsigned long long k=0;k+ab[i].first*j<=s;k++){\r\n                //print(how2[k].first);\r\n                if(how2[k].second!=ab[i].first && how2[k].first.size>0){\r\n                    how[k+ab[i].first*j].first=add(how[k+ab[i].first*j].first,how2[k].first);\r\n                    how[k+ab[i].first*j].second=ab[i].first;\r\n                }\r\n            }\r\n            /*for(unsigned long long l=0;l<=s;l++){\r\n                print(how[l].first);\r\n                cout<<" ";\r\n            }\r\n            cout<<endl;*/\r\n        }\r\n    }\r\n    print(how[s].first);\r\n}\r\n/*50\r\n3\r\n10 20 10\r\n1 2 2*/\r\n/*50\r\n3\r\n20 10 5\r\n10 10 10*/\r\n'
+p3
+tp4
+stp5
+.
