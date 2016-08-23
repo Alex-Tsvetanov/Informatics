@@ -1,0 +1,13 @@
+(I7
+I243
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\r\nusing namespace std;\r\n\r\nint main()\r\n{\r\n    cout<<"Impossible"<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

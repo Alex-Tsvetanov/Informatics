@@ -1,0 +1,13 @@
+(I7
+I222
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nint main()\r\n{\r\n long long a,b,c,i,j,mina=100000000000,x,y;\r\n cin>>a>>b>>c;\r\n for(i=-3000000;i<=3000000;i++)\r\n {\r\n     x=c-(i*b);\r\n     if(x<0)\r\n     x=-x;\r\n     if(x%a==0)\r\n     {\r\n       if(i<0)\r\n        y=-i;\r\n       else\r\n        y=i;\r\n       if(y+x/a<mina)\r\n        mina=y+x/a;\r\n     }\r\n }\r\n if(mina==100000000000)\r\n  cout<<"Impossible"<<endl;\r\n else\r\n  cout<<mina<<endl;\r\n return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

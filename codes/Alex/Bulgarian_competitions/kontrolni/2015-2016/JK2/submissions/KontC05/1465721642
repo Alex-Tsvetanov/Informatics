@@ -1,0 +1,13 @@
+(I7
+I235
+I21
+(dp0
+Vproject.%l
+p1
+(Vproject.cpp
+p2
+S'#include <iostream>\n#include <vector>\n#include <utility>\n#include <queue>\n\nconst int MAX_N = 100000;\nconst int MAX_M = 200000;\n\nstruct Task {\n\tint to, price;\n};\nstruct asd {\n\tint from, to, price;\n};\n\nstd::vector<Task> graph[MAX_N];\nstd::vector<Task> reverse[MAX_N];\nint n, m;\n\nbool ins[MAX_N];\nbool outs[MAX_N];\nint min[MAX_N];\nint backs[MAX_N];\nasd tlist[MAX_N];\n\nvoid dij(int start)\n{\n\tstd::priority_queue<std::pair<int, int>> next;\n\tnext.push({0, start});\n\tmin[start] = 0;\n\n\twhile(!next.empty())\n\t{\n\t\tauto curr = next.top();\n\t\tnext.pop();\n\n\t\tcurr.first = -curr.first;\n\n\t\tif(curr.first > min[curr.second])\n\t\t\tcontinue;\n\n\t\tfor(auto nei : graph[curr.second])\n\t\t{\n\t\t\tif(curr.first + nei.price < min[nei.to])\n\t\t\t{\n\t\t\t\tmin[nei.to] = curr.first + nei.price;\n\t\t\t\tnext.push({ -(curr.first + nei.price), nei.to });\n\t\t\t}\n\t\t}\n\t}\n}\n\nvoid backp(int start)\n{\n\tstd::priority_queue<std::pair<int, int>> next;\n\tnext.push({ -(min[tlist[start].from] + tlist[start].price), tlist[start].to});\n\tbacks[tlist[start].to] = min[tlist[start].from] + tlist[start].price;\n\n\twhile(!next.empty())\n\t{\n\t\tauto curr = next.top();\n\t\tnext.pop();\n\n\t\tcurr.first = -curr.first;\n\n\t\tif(curr.first < backs[curr.second])\n\t\t\tcontinue;\n\n\t\tfor(auto nei : reverse[curr.second])\n\t\t{\n\t\t\tif(curr.first - nei.price > backs[nei.to])\n\t\t\t{\n\t\t\t\tbacks[nei.to] = curr.first - nei.price;\n\t\t\t\tnext.push({ -(curr.first - nei.price), nei.to });\n\t\t\t}\n\t\t}\n\t}\n\n}\n\nint main()\n{\n\tstd::cin >> m >> n;\n\n\tfor(int i = 0;i < m;++ i)\n\t{\n\t\tint a, b, c;\n\t\tstd::cin >> a >> b >> c;\n\t\tgraph[a].push_back({b, c});\n\t\treverse[b].push_back({a, c});\n\t\ttlist[i] = {a, b, c};\n\t\tins[b] = true;\n\t\touts[a] = true;\n\t}\n\n\tfor(int i = 0;i < n;++ i)\n\t\tmin[i] = (1 << 30);\n\n\tfor(int i = 0;i < n;++ i)\n\t\tif(!ins[i])\n\t\t\tdij(i);\n\n\t//for(int i = 0;i < n;++ i)\n\t\t//std::cout << i << \'.\' << min[i]  << std::endl;\n\n\t// Output\n\t// TODO multiple backps\n\tint finalMax = 0, idx;\n\tfor(int i = 0;i < m;++ i)\n\t{\n\t\tif(min[tlist[i].from] + tlist[i].price > finalMax)\n\t\t{\n\t\t\tfinalMax = min[tlist[i].from] + tlist[i].price;\n\t\t\tidx = i;\n\t\t}\n\t}\n\t//std::cout << "K: " << tlist[idx].to << std::endl;\n\tbackp(idx);\n\t//for(int i = 0;i < n;++ i)\n\t\t//std::cout << i << \'.\' << backs[i]  << std::endl;\n\n\tstd::cout << finalMax << \'\\n\';\n\tfor(int i = 0;i < m;++ i)\n\t\t//std::cout << min[tlist[i].from] << \' \' << back[tlist[i].from] << \'\\n\';\n\t\tstd::cout << min[tlist[i].from] << \' \' << backs[tlist[i].from] << \'\\n\';\n\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

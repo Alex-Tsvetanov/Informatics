@@ -1,0 +1,13 @@
+(I1
+I18
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S'#include<iostream>\r\n#include<cstring>\r\n#include<cmath>\r\n#include<algorithm>\r\n#include<cstdlib>\r\n#include<queue>\r\n#include<stack>\r\n#include<set>\r\n#include<map>\r\nusing namespace std;\r\nchar table[251][251];long long n,m;\r\nint main(){\r\nios::sync_with_stdio(false);\r\ncin>>n>>m;\r\nfor(long long i=0;i<n;i++){\r\ncin>>table[i];\r\n}\r\ncout<<1;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

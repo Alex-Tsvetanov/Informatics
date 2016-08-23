@@ -1,0 +1,13 @@
+(I7
+I232
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare2222.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\n\r\nlong long const MOD=10000000;\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long maluk,golqm,krai,otg=0,edno=0,dve=0,broi,curr,i;\r\n    cin>>maluk>>golqm>>krai;\r\n    otg+=(krai/golqm);\r\n    krai%=golqm;\r\n    otg+=(krai/maluk);\r\n    krai%=maluk;\r\n    if(krai==0){\r\n        cout<<otg<<endl;\r\n        return 0;\r\n    }\r\n    bool da1=true,da2=true,da3=true,da4=true;\r\n    bool ad1=true,ad2=true,ad3=true,ad4=true;\r\n    for(i=0;(da1 or da3 or ad2 or ad4) and i<MOD;i++){\r\n        edno+=maluk;\r\n        dve+=golqm;\r\n        curr=MOD;\r\n        ///#########\r\n        if((edno+krai)%golqm==0){\r\n            curr=edno/maluk+(edno+krai)/golqm;\r\n            if(curr>broi)\r\n                da1=false;\r\n        }\r\n        ///#########\r\n        if((edno-krai)%golqm==0){\r\n            curr=edno/maluk+(edno-krai)/golqm;\r\n            if(curr>broi)\r\n                da3=false;\r\n        }\r\n        ///#########\r\n        if((dve+krai)%maluk==0){\r\n            curr=dve/golqm+(dve+krai)/maluk;\r\n            if(curr>broi)\r\n                ad2=false;\r\n        }\r\n        ///#########\r\n        if((dve-krai)%maluk==0){\r\n            curr=dve/golqm+(dve-krai)/maluk;\r\n            if(curr>broi)\r\n                ad4=false;\r\n        }\r\n        if(curr<broi)\r\n            broi=curr;\r\n    }\r\n    if(broi!=MOD)\r\n        cout<<broi<<endl;\r\n    else\r\n        cout<<"Impossible\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

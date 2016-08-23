@@ -1,0 +1,13 @@
+(I1
+I13
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S"#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\n\r\nint n, m;\r\nint cnt;\r\n\r\nbool pole[256][256];\r\n\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    cin >> n >> m;\r\n    for(int i = 0; i < n; i++)\r\n    {\r\n        for(int j = 0; j < m; j++)\r\n        {\r\n            char ch;\r\n            cin >> ch;\r\n            pole[i][j] = (ch == '*');\r\n        }\r\n    }\r\n    for(int i = 0; i < n - 2; i++)\r\n    {\r\n        for(int j = 0; j < m - 2; j++)\r\n        {\r\n            if(pole[i][j])\r\n            {\r\n                for(int p = i + 2; p < n; p ++)\r\n                {\r\n                    for(int q = j + 2; q < m; q++)\r\n                    {\r\n                        if(pole[p][q])\r\n                        {\r\n                            for(int x = i; x <= p; x++)\r\n                            {\r\n                                if((!pole[x][j]) || (!pole[x][q]))\r\n                                {\r\n                                    goto Go;\r\n                                }\r\n                            }\r\n                            for(int y = j; y <= q; y++)\r\n                            {\r\n                                if((!pole[i][y]) || (!pole[p][y]))\r\n                                {\r\n                                    goto Go;\r\n                                }\r\n                            }\r\n                            cnt ++;\r\nGo:\r\n                            i ++;\r\n                            i --;\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    cout << cnt << endl;\r\n\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

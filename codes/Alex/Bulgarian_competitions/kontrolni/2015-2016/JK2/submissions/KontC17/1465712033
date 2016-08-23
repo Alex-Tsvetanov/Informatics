@@ -1,0 +1,13 @@
+(I7
+I223
+I19
+(dp0
+Vhare.%l
+p1
+(Vz1.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nlong long a,b,c;\r\nlong long nod(long long a,long long b)\r\n{\r\nif(a%b==0)return b;\r\n    return nod(b,a%b);\r\n}\r\nlong long ab(long long x)\r\n{\r\nif(x<0)x=(-x);\r\n    return x;\r\n}\r\nint main()\r\n{\r\ncin>>a>>b>>c;\r\nif(c<0)c=(-c);\r\nlong long n=nod(a,b);\r\nif(c%n!=0){cout<<"Impossible"<<endl;return 0;}\r\na=a/n;\r\nb=b/n;\r\nc=c/n;\r\nif(c%b==0){cout<<c/b<<endl;return 0;}\r\nlong long best=0,ba=0;\r\nlong long s=0;\r\nwhile((c-s)%b!=0)ba++,s=s+a;\r\nbest=ba+ab((c-s)/b);\r\nba=0;\r\ns=0;\r\nwhile((c-s)%b!=0)ba--,s=s-a;\r\nif(ba+ab((c-ba*a)/b)>best)best=ba+ab((c-ba*a)/b);\r\ncout<<best<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

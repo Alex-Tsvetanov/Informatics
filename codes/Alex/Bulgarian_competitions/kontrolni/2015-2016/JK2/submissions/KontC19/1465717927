@@ -1,0 +1,13 @@
+(I7
+I221
+I19
+(dp0
+Vhare.%l
+p1
+(Vzad1.cpp
+p2
+S'# include<iostream>\r\n# include<cmath>\r\n# include<map>\r\nusing namespace std;\r\nint a,b,c;\r\n\r\nint main()\r\n{\r\n\r\n    cin>>a>>b>>c;\r\n    int ans=10000000;\r\n    for(int i=-5000000; i<=5000000; i++)\r\n    {\r\n        int y=(c-a*i);\r\n        if(y<0) y=-y;\r\n        if(y%b==0)\r\n        {\r\n            y=y/b;\r\n            if(ans>y+abs(i)) ans=y+abs(i);\r\n        }\r\n\r\n    }\r\n    if(ans==10000000) cout<<"Impossible"<<endl;\r\n    else\r\n    cout<<ans<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

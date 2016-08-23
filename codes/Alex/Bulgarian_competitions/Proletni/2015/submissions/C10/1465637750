@@ -1,0 +1,13 @@
+(I1
+I10
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include <iostream>\r\n#include <string>\r\n#include <algorithm>\r\nusing namespace std;\r\nint t[300][300];\r\nint main( )\r\n{\r\n    string s;\r\n    getline(cin,s);\r\n    int n=0,i,j,a[6],ch=0,p,r[6],c[6];\r\n    for(i=0;i<s.size( );i++)\r\n    {\r\n        if(isdigit(s[i]))\r\n        {\r\n            ch=ch*10+(s[i]-\'0\');\r\n        }\r\n        else\r\n        {\r\n           a[n++]=ch;\r\n           ch=0;\r\n        }\r\n    }\r\n    if(ch!=0)a[n++]=ch;\r\n    sort(a,a+n);\r\n    if(n!=3 && n!=4 && n!=6)cout<<"INCORRECT"<<endl;\r\n    else {\r\n        t[0][0]=1;\r\n        p=0;\r\n        if(a[0]==1)\r\n        {\r\n            r[0]=0;\r\n            c[0]=0;\r\n            p++;\r\n        }\r\n        ch=2;\r\n        for(i=1;i<270;i++)\r\n        {\r\n            for(j=0;j<=i;j++)\r\n            {\r\n                t[i][j]=ch;\r\n                if(ch==a[p])\r\n                {\r\n                    r[p]=i;\r\n                    c[p++]=j;\r\n                }\r\n                ch++;\r\n            }\r\n        };\r\n         if(n==3)\r\n         {\r\n             if(c[0]==c[1] && r[1]==r[2] && r[1]-r[0]==c[2]-c[1])cout<<"T "<<r[1]-r[0]<<endl;\r\n             else if(r[0]==r[1] && c[1]==c[2] && r[2]-r[1]==c[1]-c[0])cout<<"T "<<c[1]-c[0]<<endl;\r\n             else cout<<"INCORRECT"<<endl;\r\n         }\r\n         else if(n==4)\r\n         {\r\n             if(a[2]-a[0]==a[3]-a[1] && a[1]-a[0]==a[3]-a[2] && r[2]-r[0]==c[1]-c[0])cout<<"R "<<c[1]-c[0]<<endl;\r\n             else if(r[1]-r[0]==c[2]-c[1] && c[2]-c[1]==r[3]-r[2])cout<<"R "<<c[2]-c[1]<<endl;\r\n             else cout<<"INCORRECT"<<endl;\r\n         }\r\n         else if(n==6)\r\n         {\r\n             if(r[0]==r[1] && r[2]==r[3] && r[4]==r[5] && c[0]==c[2] && c[1]==c[4] && c[3]==c[5])\r\n             {\r\n                 if(r[2]-r[0]==r[5]-r[3] && c[1]-c[0]==c[5]-c[4] && r[2]-r[0]==c[1]-c[0])cout<<"H "<<c[1]-c[0]<<endl;\r\n                 else cout<<"INCORRECT"<<endl;\r\n             }\r\n             else cout<<"INCORRECT"<<endl;\r\n         }\r\n    }\r\n}\r\n'
+p3
+tp4
+stp5
+.

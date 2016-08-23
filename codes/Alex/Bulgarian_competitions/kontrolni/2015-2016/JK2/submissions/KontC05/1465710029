@@ -1,0 +1,13 @@
+(I7
+I235
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\n\nint main()\n{\n\tlong long a, b, c;\n\tstd::cin >> a >> b >> c;\n\n\tlong long diff = (a > b ? a - b : b - a);\n\tc = (c < 0 ? -c : c);\n\n\tif(c % diff == 0)\n\t\tstd::cout << c / diff << std::endl;\n\telse\n\t\tstd::cout << "Impossible" << std::endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

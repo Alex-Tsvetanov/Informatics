@@ -1,0 +1,13 @@
+(I1
+I23
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nbool result[100001];\r\nint main(){\r\n\r\n    ios_base::sync_with_stdio(false);\r\n    cin.tie(0);\r\n\r\n    long long redici;\r\n    cin>>redici;\r\n    long long chisla_za_redici[redici],chisla[redici][1001];\r\n    for(long long i=0;i<redici;i++){\r\n        cin>>chisla_za_redici[i];\r\n        for(long long j=0;j<chisla_za_redici[i];j++){\r\n            cin>>chisla[i][j];\r\n        }\r\n    }\r\n\r\n    for(long long i=0;i<redici;i++){\r\n        sort(chisla[i]+0,chisla[i]+chisla_za_redici[i]);\r\n        for(long long j=1;j<chisla_za_redici[i];j++){\r\n            do {\r\n                long long sumA = 0, sumB = 0;\r\n                for(long long k=0;k<j;k++){\r\n                    sumA = sumA + chisla[i][k];\r\n                }\r\n                for(long long k=j;k<chisla_za_redici[i];k++){\r\n                    sumB = sumB + chisla[i][k];\r\n                }\r\n                if(sumA==sumB){\r\n                    result[i] = true;\r\n                    j = chisla_za_redici[i]+1;\r\n                    break;\r\n                }\r\n            }while(prev_permutation(chisla[i]+0,chisla[i]+chisla_za_redici[i]));\r\n        }\r\n        cout<<result[i]<<endl;\r\n    }\r\n\r\n\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

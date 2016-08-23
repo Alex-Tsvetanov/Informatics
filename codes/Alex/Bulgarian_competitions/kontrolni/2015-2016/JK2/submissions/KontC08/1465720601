@@ -1,0 +1,13 @@
+(I7
+I232
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare_asdf.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\n    long long a,b,c;\r\n    cin>>a>>b>>c;\r\n    b/=2;\r\n    b/=2;\r\n    b/=2;\r\n    if(b%2==0){\r\n        for(b=0;true;b++){\r\n            a+=c;\r\n        }\r\n        cout<<a<<endl;\r\n    }\r\n}\r\n'
+p3
+tp4
+stp5
+.

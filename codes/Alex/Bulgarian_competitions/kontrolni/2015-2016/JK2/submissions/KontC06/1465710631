@@ -1,0 +1,13 @@
+(I7
+I234
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nlong long ol(long long ax,long long ay,long long bx,long long by,long long cx,long long cy){\r\nreturn(bx-ax)*(cy-ay)-(by-ay)*(cx-ax);\r\n}\r\nlong long a,b,c;\r\nint main(){\r\nios::sync_with_stdio(false);\r\ncin>>a>>b>>c;\r\nc=abs(c);\r\ncout<<"Impossible";\r\n\r\n\r\n\r\n\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I7
+I235
+I20
+(dp0
+Veconomy.%l
+p1
+(Vpizza.cpp
+p2
+S'#include <iostream>\n\nlong long freeMin, pizzaPrice, normalPrice, candyCount;\nlong long candies[1001];\n\nlong long closest(long long wanted)\n{\n\treturn -1;\n}\n\nint main()\n{\n\n\tstd::cin >> pizzaPrice >> normalPrice >> freeMin;\n\tstd::cin >> candyCount;\n\n\tfor(int i = 0;i < candyCount;++ i)\n\t\tstd::cin >> candies[i];\n\n\tif(pizzaPrice > freeMin)\n\t{\n\t\tstd::cout << pizzaPrice << \'\\n\' << 0 << std::endl;\n\t}\n\telse\n\t{\n\t\tlong long c = closest(freeMin - pizzaPrice);\n\t\tif(c == -1)\n\t\t\tstd::cout << pizzaPrice + normalPrice << "\\n-1\\n";\n\t}\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

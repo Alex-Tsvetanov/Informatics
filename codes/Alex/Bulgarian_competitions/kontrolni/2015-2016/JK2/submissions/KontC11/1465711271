@@ -1,0 +1,13 @@
+(I7
+I229
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main()\r\n{\r\nint na,d,minfre;\r\ncin>>na>>d>>minfre;\r\nint n;\r\ncin>>n;\r\nint a;\r\nfor(int i=0;i<n;i++)\r\n{\r\ncin>>a;\r\n}\r\n\r\n\r\nif(na>=minfre)\r\n{\r\ncout<<na<<endl;\r\ncout<<0<<endl;\r\nreturn 0;\r\n}\r\nif(na+d<=minfre)\r\n{\r\ncout<<na+d<<endl;\r\ncout<<-1<<endl;\r\nreturn 0;\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

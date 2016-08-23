@@ -1,0 +1,13 @@
+(I1
+I3
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include <iostream>\r\n#include <string>\r\n#include <cstdio>\r\n#include <algorithm>\r\nusing namespace std;\r\nlong long a[7],n,red[7],pos[7],i=1,ai=1,dg=2,gg=3,r=2,raz,p=512541,j;\r\nint main()\r\n{\r\n\r\n char c[500];\r\n cin.get(c[i]);\r\n while(c[i]!=\'\\n\')\r\n {\r\n     if(c[i]>=\'0\' && c[i]<=\'9\')\r\n        a[ai]=a[ai]*10+(c[i]-\'0\');\r\n     else\r\n        ai++;\r\n     i++;\r\n     cin.get(c[i]);\r\n }\r\n n=ai;\r\n for(i=1;i<n;i++)\r\n {\r\n     for(j=i+1;j<=n;j++)\r\n     {\r\n         if(a[i]==a[j])\r\n         {\r\n             a[j]=p;\r\n             p--;\r\n             ai--;\r\n         }\r\n     }\r\n }\r\n n=ai;\r\n if(n==1 || n==2 || n==5)\r\n {\r\n    cout<<"INCORRECT"<<endl;\r\n    return 0;\r\n }\r\n sort(a+1,a+n+1);\r\n if(a[1]==1)\r\n {\r\n    red[1]=1;\r\n    pos[1]=1;\r\n }\r\n while(red[n]==0)\r\n {\r\n\r\n     for(i=1;i<=n;i++)\r\n     {\r\n         if(a[i]>=dg && a[i]<=gg)\r\n         {\r\n             red[i]=r;\r\n             pos[i]=a[i]-dg+1;\r\n         }\r\n\r\n     }\r\n    // cout<<dg<<" "<<gg<<endl;\r\n     dg=dg+r;\r\n     gg=gg+r+1;\r\n     r++;\r\n }\r\n /*for(i=1;i<=n;i++)\r\n    cout<<red[i]<<" "<<pos[i]<<endl;*/\r\n if(n==3)\r\n {\r\n     raz=red[2]-red[1];\r\n     if(red[2]==red[3])\r\n      if(pos[1]==pos[2])\r\n       if(pos[3]-pos[1]==raz)\r\n       {\r\n        cout<<"T "<<raz<<endl;\r\n        return 0;\r\n       }\r\n     raz=red[3]-red[2];\r\n     if(pos[2]==pos[3])\r\n      if(red[1]==red[2])\r\n        if(pos[3]-pos[1]==raz)\r\n        {\r\n         cout<<"T "<<raz<<endl;\r\n         return 0;\r\n        }\r\n     cout<<"INCORRECT"<<endl;\r\n }\r\n if(n==4)\r\n {\r\n     if(pos[4]-pos[3]==pos[2]-pos[1])\r\n      if(red[1]==red[2] && red[3]==red[4])\r\n       if(pos[1]==pos[3] && pos[2]==pos[4])\r\n       {\r\n        cout<<"R "<<pos[2]-pos[1]<<endl;\r\n        return 0;\r\n       }\r\n     raz=red[3]-red[1];\r\n     if(red[1]==red[2] && red[3]==red[4])\r\n      if(pos[3]-pos[1]==raz && pos[4]-pos[2]==raz)\r\n      {\r\n       cout<<"R "<<pos[2]-pos[1]<<endl;\r\n       return 0;\r\n      }\r\n      cout<<"INCORRECT"<<endl;\r\n }\r\n if(n==6)\r\n {\r\n     raz=red[5]-red[3];\r\n     if(red[1]==red[2] && red[3]==red[4] && red[5]==red[6])\r\n      if(red[5]-red[3]==red[3]-red[1])\r\n       if(pos[3]==pos[1] && pos[4]==pos[6])\r\n        if(pos[5]-pos[3]==raz && pos[4]-pos[2]==raz)\r\n        {\r\n            cout<<"H "<<raz<<endl;\r\n            return 0;\r\n        }\r\n     cout<<"INCORRECT"<<endl;\r\n }\r\n return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

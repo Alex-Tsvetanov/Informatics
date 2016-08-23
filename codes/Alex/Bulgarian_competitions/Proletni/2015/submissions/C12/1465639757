@@ -1,0 +1,13 @@
+(I1
+I12
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S"#include <iostream>\r\n#include <string>\r\n\r\nusing namespace std;\r\n\r\nint main ()\r\n{\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n\r\n    string input[251];\r\n    int m, n;\r\n    cin >> m >> n;\r\n    for (int i = 0; i < m; ++i)\r\n        cin >> input[i];\r\n\r\n    int res = 0;\r\n\r\n    for (int i = 0; i < m - 2; ++i)\r\n    {\r\n        for (int j = 0; j < n - 2; ++j)\r\n        {\r\n            if (input[i][j] == '.')\r\n                continue;\r\n            for (int a = i + 2; a < m and input[a][j] == '*'; ++a)\r\n            {\r\n                for (int b = j + 2; b < n and input[i][b] == '*'; ++b)\r\n                {\r\n                    bool OK = true;\r\n                    for (int k = i; k < a and OK; ++k)\r\n                        if (input[k][j] == '.')\r\n                            OK = false;\r\n                    for (int k = j; k < b and OK; ++k)\r\n                        if (input[i][k] == '.')\r\n                            OK = false;\r\n                    for (int k = i; k < a and OK; ++k)\r\n                        if (input[k][b] == '.')\r\n                            OK = false;\r\n                    for (int k = j; k < b and OK; ++k)\r\n                        if (input[a][k] == '.')\r\n                            OK = false;\r\n                    if (OK)\r\n                    {\r\n                        ++res;\r\n                        //cout << i << ' ' << j << ' ' << a << ' ' << b << endl;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    cout << res << '\\n';\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

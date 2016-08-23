@@ -1,0 +1,13 @@
+(I1
+I1
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\r\nusing namespace std;\r\nint n,a[202],sum,s;\r\n\r\nbool solve()\r\n{\r\n int i,j;\r\n bool din[200000][201];\r\n for(i=1; i<=n; i++) din[0][i]=1;\r\n for (i=0; i<=sum/2; i++)\r\n    for (j=1; j<=n; j++)\r\n     {\r\n      if(i>=a[j]) din[i][j]=max(din[i][j-1],din[i-a[j]][j-1]);\r\n      else din[i][j]=din[i][j-1];\r\n     }\r\n return din[sum/2][n];\r\n}\r\n\r\nint main()\r\n{\r\nint k,i,j,nech;\r\ncin>>k;\r\nfor (i=1; i<=k; i++)\r\n    {\r\n     cin>>n;\r\n     sum=0;\r\n     nech=0;\r\n     for(j=1; j<=n; j++) {cin>>a[j]; sum+=a[j];}\r\n     if(sum%2==1) cout<<0<< endl;\r\n     else cout<<solve()<< endl;\r\n    }\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

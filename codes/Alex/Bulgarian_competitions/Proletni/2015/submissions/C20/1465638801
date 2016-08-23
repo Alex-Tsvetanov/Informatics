@@ -1,0 +1,13 @@
+(I1
+I20
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartitions.2.cpp
+p2
+S'#include <iostream>\n#include <vector>\n\nusing namespace std;\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio(false);\n\t\tint tests;\n\t\tcin >> tests;\n\t\tfor (int t = 0 ; t < tests ; t ++)\n\t\t{\n\t\t\t\tvector <bool> possible;\n\t\t\t\tvector <int> seq;\n\t\t\t\tint n, sum = 0;\n\t\t\t\tcin >> n;\n\t\t\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t\t\t{\n\t\t\t\t\t\tint a;\n\t\t\t\t\t\tcin >> a;\n\t\t\t\t\t\tseq.push_back (a);\n\t\t\t\t\t\tsum += a;\n\t\t\t\t}\n\t\t\t\tif (sum % 2 == 0)\n\t\t\t\t{\n\t\t\t\t\t\tpossible.resize (sum / 1 + 10, false);\n\t\t\t\t\t\tpossible [0] = true;\n\t\t\t\t\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t\t\t\t\t\t\tfor (int j = sum / 2 + 5 ; j >= 0 ; j --)\n\t\t\t\t\t\t\t\t\t\tif (possible [j] and j + seq [i] <= sum / 2)\n\t\t\t\t\t\t\t\t\t\t\t\tpossible [j + seq [i]] = true;\n\t\t\t\t\t\tcout << possible [sum / 2] << "\\n";\n\t\t\t\t}\n\t\t\t\telse \n\t\t\t\t\t\tcout << "0 \\n";\n\t\t}\n\n}\n'
+p3
+tp4
+stp5
+.

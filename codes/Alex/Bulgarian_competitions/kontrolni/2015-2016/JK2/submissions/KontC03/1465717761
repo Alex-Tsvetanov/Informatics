@@ -1,0 +1,13 @@
+(I7
+I237
+I20
+(dp0
+Veconomy.%l
+p1
+(Vpici.cpp
+p2
+S'#include<iostream>\r\n#include<stack>\r\n#include<algorithm>\r\nusing namespace std;\r\nstack<int> st;\r\nint d[1000],how[1000];\r\nint main(){\r\n    int a,b,c;\r\n    cin>>a>>b>>c;\r\n    if(a>c){\r\n        cout<<a<<endl<<0<<endl;\r\n        return 0;\r\n    }\r\n    if(a+b<c){\r\n        cout<<a+b<<endl<<-1;\r\n        return 0;\r\n    }\r\n    int n;\r\n    cin>>n;\r\n    int maxd=0;\r\n    for(int i=0;i<n;i++){\r\n        cin>>d[i];\r\n    }\r\n    sort(d,d+n);\r\n    //int how[c-a+1];\r\n    for(int i=0;i<=c-a;i++){\r\n        how[i]=-1;\r\n    }\r\n    how[0]=-2;\r\n    int minc=1000000000,minc_=-1;\r\n    for(int i=0;i<n;i++){\r\n        for(int j=0;j<=c-a;j++){\r\n            //cout<<"a";\r\n            if(j+d[i]<=c-a && how[j]!=-1 && how[j]<i && how[j+d[i]]==-1){\r\n                how[j+d[i]]=i;\r\n            }\r\n            if(j+d[i]>c-a && how[j]!=-1 && how[j]<i && j+d[i]<minc){\r\n                minc=j+d[i];\r\n                minc_=i;\r\n            }\r\n        }\r\n    }\r\n    cout<<"a";\r\n    /*for(int i=0;i<=c-a;i++){\r\n        cout<<how[i]<<" ";\r\n    }\r\n\r\n    cout<<minc<<" ";*/\r\n    if(minc!=1000000000){\r\n        cout<<minc<<endl;\r\n        int br=0;\r\n        while(minc_!=-2){\r\n            st.push(minc_);\r\n            int p=minc_;\r\n            //cout<<minc_<<how[minc]<<" ";\r\n            minc_=how[minc-d[minc_]];\r\n            minc=minc-d[p];\r\n            br++;\r\n        }\r\n        cout<<br<<endl;\r\n        while(!st.empty()){\r\n            cout<<st.top()+1<<" ";\r\n            st.pop();\r\n        }\r\n        return 0;\r\n    }else{\r\n        cout<<a+b<<endl<<-1;\r\n    }\r\n}\r\n/*\r\n10 17 25\r\n5\r\n2 7 5 3 7\r\n*/\r\n'
+p3
+tp4
+stp5
+.

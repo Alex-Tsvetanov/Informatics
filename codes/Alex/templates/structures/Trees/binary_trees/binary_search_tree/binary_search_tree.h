@@ -66,8 +66,26 @@ template <typename T> struct binary_search_tree
 			return false;
 	}
 
-	T findMin ()
+	bool find (T a)
 	{
-
+		if (root != nullptr)
+		{
+			//cout << *root << " " << a << "\n";
+			if (*root == a)
+				return true;
+			if (*root > a)
+			{
+				if (left != nullptr)
+					return left->find (a);
+				return false;
+			}
+			if (*root < a)
+			{
+				if (right != nullptr)
+					return right->find (a);
+				return false;
+			}
+		}
+		return false;
 	}
 };

@@ -1,0 +1,13 @@
+(I7
+I226
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nint main( )\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(NULL);\r\n    int a,b,c,d[1001],n,i,j,pr[1002]={0},maxc;\r\n    cin>>a>>b>>c;\r\n    cin>>n;\r\n    for(i=1;i<=n;i++)\r\n    {\r\n        cin>>d[i];\r\n    }\r\n    if(a>c)cout<<a<<"\\n"<<0<<endl;\r\n    else if(a+b<c)cout<<a+b<<"\\n"<<-1<<endl;\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

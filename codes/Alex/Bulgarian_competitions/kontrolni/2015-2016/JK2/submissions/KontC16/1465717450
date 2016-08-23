@@ -1,0 +1,13 @@
+(I7
+I224
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<iostream>\nusing namespace std;\r\nlong long a,b,n,minb;\r\nvoid rek(long long br,long long sum)\r\n{\r\n    while(sum<n)\r\n    {\r\n        br++;\r\n        sum+=b;\r\n        rek(br,sum);\r\n        sum+=a;\r\n        rek(br,sum);\r\n    }\r\n    if(sum==n&&minb>br)minb=br;\r\n    while(sum>n)\r\n    {\r\n        br++;\r\n        sum-=a;\r\n        rek(br,sum);\r\n    }\r\n    if(sum==n&&minb>br)minb=br;\r\n    return ;\r\n}\nint main()\n{\n    long long r,br;\r\n    cin>>a>>b>>n;\r\n    r=b-a;\r\n    if(n%r==0||n%b==0||n%a==0)\r\n    {\r\n        if(n%b&&n%a)\r\n        {\r\n            br=n/r;\r\n            br*=2;\r\n            if(br>=0)cout<<br<<endl;\r\n            else cout<<br*-1<<endl;\r\n            return 0;\r\n        }\r\n        else\r\n        {\r\n            rek(0,0);\r\n            cout<<minb<<endl;\r\n            return 0;\r\n        }\r\n    }\r\n    cout<<"Impossible"<<endl;\n    return 0;\n}\r\n'
+p3
+tp4
+stp5
+.

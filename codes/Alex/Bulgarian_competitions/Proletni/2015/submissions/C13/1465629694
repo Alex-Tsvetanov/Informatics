@@ -1,0 +1,13 @@
+(I1
+I13
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\n\r\nint inp[8];\r\n\r\nint getDist(int a, int b)\r\n{\r\n\r\n    return -1;\r\n}\r\n\r\nint main()\r\n{\r\n    int cnt = 0;\r\n    int cur;\r\n    while(cin >> cur)\r\n    {\r\n        inp[cnt] = cur;\r\n        cnt++;\r\n        if(cnt == 7)\r\n        {\r\n            cout << "INCORRECT"<< endl;\r\n            return 0;\r\n        }\r\n    }\r\n    if(cnt != 3 && cnt != 4 && cnt != 6)\r\n    {\r\n        cout << "INCORRECT"<< endl;\r\n        return 0;\r\n    }\r\n    sort(inp, inp + cnt);\r\n    if(cnt == 3)\r\n    {\r\n        cout << "T " << min(inp[1] - inp[0], inp[2] - inp[1])<<endl;\r\n        return 0;\r\n    }\r\n    if(cnt == 4)\r\n    {\r\n        cout << "R " << min(inp[1] - inp[0], min(inp[2] - inp[1], inp[3] - inp[2]))<<endl;\r\n        return 0;\r\n    }\r\n    if(cnt == 6)\r\n    {\r\n        cout << "H " << min(inp[1] - inp[0], min(inp[2] - inp[1], min(inp[3] - inp[2], min(inp[4] - inp[3], inp[5] - inp[4]))))<<endl;\r\n        return 0;\r\n    }\r\n}\r\n'
+p3
+tp4
+stp5
+.

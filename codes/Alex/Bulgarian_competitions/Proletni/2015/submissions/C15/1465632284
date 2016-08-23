@@ -1,0 +1,13 @@
+(I1
+I15
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nint arr[202], i = 0, j = 0, take[202];\r\nint answ[101];\r\nbool foundIt = false;\r\nlong long n, arrSize, sum1 = 0, sum2 = 0, indexOfFirst = 0, sumAll = 0;\r\nbool findSum(long long sum, long long index, bool taken){\r\n    //cout << sum << endl;\r\n    if(index == arrSize or sum > sumAll / 2){\r\n        return false;\r\n    }else if(taken == true){\r\n     if(sum + arr[index] == sumAll / 2){\r\n       //cout << "I found it " << sum + arr[index];\r\n       foundIt = true;\r\n       return true;\r\n     }\r\n     findSum(sum + arr[index], index + 1, true);\r\n     findSum(sum + arr[index], index + 1, false);\r\n    }else{\r\n        if(sum == sumAll / 2){\r\n         foundIt = true;\r\n         //cout << "I found it " << sum;\r\n         return true;\r\n        }\r\n        findSum(sum, index + 1, true);\r\n        findSum(sum, index + 1, false);\r\n    }\r\n}\r\nint main(){\r\n   cin>>n;\r\n   for(i = 0; i < n; i++){\r\n     cin>>arrSize;\r\n     for(j = 0; j < arrSize; j++){\r\n        cin>> arr[j];\r\n        sumAll += arr[j];\r\n     }\r\n     foundIt = false;\r\n     if(sumAll % 2 == 0){\r\n        findSum(0, 0, true);\r\n        findSum(0, 0, false);\r\n     }\r\n     if(foundIt){\r\n        answ[i] = 1;\r\n     }\r\n   }\r\n   for(i = 0; i < n; i++){\r\n    cout << answ[i] << endl;\r\n   }\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

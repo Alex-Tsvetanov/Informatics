@@ -1,0 +1,13 @@
+(I7
+I226
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nlong long a,b,c,x,y;\r\nvoid rae(long long a,long long b,long long c)\r\n{\r\n    long long x1=1,y1=0,x2=0,y2=1,q,r;\r\n    while(b)\r\n    {\r\n        q=a/b;\r\n        r=a-q*b; a=b; b=r;\r\n        x1=x-q*x2; x=x1;x1=x2;\r\n        y1=y-q*y2; y=y1;y1=y2;\r\n        cout<<x<<" "<<y<<" "<<x1<<" "<<y1<<" "<<x2<<" "<<y2<<endl;\r\n\r\n    }\r\n    a=b,x=x1,y=y1;\r\n}\r\nint main( )\r\n{\r\n  long long nod,i,j,minj=999999999,u,v;\r\n  cin>>a>>b>>c;\r\n  nod=__gcd(a,b);\r\n  if(c%nod!=0)cout<<"Impossible"<<endl;\r\n  else {\r\n    a/=nod;\r\n    b/=nod;\r\n    c/=nod;\r\n  }\r\n  if(a>0 && b>0 && c>0 && a+b<=c)\r\n  {\r\n\r\n      for(i=0;i<=c/a;i++)\r\n      {\r\n          for(j=0;j<=c/b;j++)\r\n          {\r\n             if(i*a+j*b==c){\r\n                if(minj>i+j)minj=i+j;\r\n             }\r\n          }\r\n      }\r\n      cout<<minj<<endl;\r\n  }\r\n  else\r\n  {\r\n      for(i=-3*c;i<=3*c;i++)\r\n      {\r\n          for(j=-3*c;j<=3*c;j++)\r\n          {\r\n             if(i*a+j*b==c){\r\n                v=i;\r\n                u=j;\r\n                if(v<0)v=-v;\r\n                if(u<0)u=-u;\r\n                if(minj>u+v)minj=u+v;\r\n             }\r\n          }\r\n      }\r\n      cout<<minj<<endl;\r\n\r\n  }\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

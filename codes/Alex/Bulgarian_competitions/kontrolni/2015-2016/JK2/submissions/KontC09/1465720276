@@ -1,0 +1,13 @@
+(I7
+I231
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare3.cpp
+p2
+S'#include <iostream>\n#include <cmath>\n#include <vector>\n#include <algorithm>\n\nusing namespace std;\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio (false);\n\t\tint a, b, c;\n\t\tcin >> a >> b >> c;\n\t\tc = abs (c);\n\t\tvector <bool> knapsack (c + 10, false);\n\t\tknapsack [0] = true;\n\t\tif (c == 0)\n\t\t{\n\t\t\t\tcout << 0 << "\\n";\n\t\t\t\treturn 0;\n\t\t}\n\t\tvector <int> asdf;\n\t\tif (c % __gcd (a, b) != 0)\n\t\t{\n\t\t\t\tcout << "Impossible\\n";\n\t\t\t\treturn 0;\n\t\t}\n\t\tif (c % a == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / a));\n\t\t}\n\t\tif (c % (b - a) == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / (b - a) * 2));\n\t\t}\n\t\tif (c % b == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / b));\n\t\t}\n\t\tif (c % (a + b) == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / (a + b) * 2));\n\t\t}\n\t\tif (asdf.size () > 0)\n\t\t{\n\t\t\t\tcout << *min_element (asdf.begin (), asdf.end ()) << "\\n";\n\t\t\t\treturn 0;\n\t\t}\n\t\tfor (int ans = 1 ; ; ans ++)\n\t\t{\n\t\t\t\tfor (int i = c + 10 ; i >= 0 ; i --)\n\t\t\t\t{\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti - a > 0)\n\t\t\t\t\t\t\t\tknapsack [i - a] = true;\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti - b > 0)\n\t\t\t\t\t\t\t\tknapsack [i - b] = true;\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti + a < c + 10)\n\t\t\t\t\t\t\t\tknapsack [i + a] = true;\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti + b < c + 10)\n\t\t\t\t\t\t\t\tknapsack [i + b] = true;\n\t\t\t\t}\n\t\t\t\tif (knapsack [c])\n\t\t\t\t{\n\t\t\t\t\t\tcout << ans << "\\n";\n\t\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t}\n}\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I1
+I9
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint r[256][256],k[256][256];\r\nint n,m;\r\nint next_begi(int i, int j)\r\n{\r\n    for(; j<=m; j++)\r\n    {\r\n        if(r[i][j]>=3)return j;\r\n    }\r\n    return -1;\r\n}\r\nint trie(int num, int i, int j)\r\n{\r\n    int br=0;\r\n    for(int i1=i-3; i1>=r[i][i-r[i][j]]; i--)\r\n    {\r\n       // cout<<i1<<endl;\r\n        if(k[i1][j]==0)break;\r\n        if(k[i1][j]>=3)\r\n        {\r\n            br++;\r\n        }\r\n    }\r\n    return br;\r\n}\r\nint main()\r\n{\r\n    ios::sync_with_stdio(NULL);\r\n    cin.tie(0);\r\n    char c;\r\n    cin>>n>>m;\r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        for(int j=1; j<=m; j++)\r\n        {\r\n            cin>>c;\r\n            if(c==\'*\')\r\n            {\r\n                r[i][j]=r[i-1][j]+1;\r\n                k[i][j]=k[i][j-1]+1;\r\n            }\r\n        }\r\n    }\r\n\r\n    int begi;\r\n    int p=0;\r\n    int br=0;\r\n    int num=0;\r\n    for(int i=3; i<=n; i++)\r\n    {\r\n        int j=0;\r\n        p=-1;\r\n        while(j<=m+1)\r\n        {\r\n            num=0;\r\n            j=next_begi(i,p+1);\r\n            if(j==-1)break;\r\n            p=j;\r\n            //cout<<endl<<j<<endl;\r\n            int aj=j+1;\r\n            for(; aj<=m+1; aj++)\r\n            {\r\n\r\n                num++;\r\n                if(r[i][aj]==0)break;\r\n\r\n                if(num<2)continue;\r\n                if(r[i][aj]<3)continue;\r\n                br++;\r\n             //  cout<<"aj:"<<aj;\r\n            }\r\n        }\r\n    }\r\n    cout<<br<<endl;\r\n}\r\n/**\r\n\r\n4 7\r\n*****..\r\n*..****\r\n*****.*\r\n...****\r\n\r\nr\r\n1 1 1 1 1 0 0\r\n2 0 0 2 2 1 1\r\n3 1 1 3 3 0 2\r\n0 0 0 4 4 1 3\r\nk\r\n1 2 3 4 5 0 0\r\n1 0 0 1 2 3 4\r\n1 2 3 4 5 0 1\r\n0 0 0 1 2 3 4\r\n\r\n\r\n3 5\r\n*****\r\n*****\r\n*****\r\n*/\r\n'
+p3
+tp4
+stp5
+.

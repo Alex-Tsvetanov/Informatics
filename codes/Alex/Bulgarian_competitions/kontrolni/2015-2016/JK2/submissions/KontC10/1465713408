@@ -1,0 +1,13 @@
+(I7
+I230
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\r\n#include <cmath>\r\nusing namespace std;\r\n\r\nlong long GCD(long long a,long long b)\r\n{\r\n long long q;\r\n\r\n  while(b!=0)\r\n  {\r\n   q=a%b;\r\n   a=b;\r\n   b=q;\r\n  }\r\n\r\n return a;\r\n}\r\n\r\nint main()\r\n{\r\n\r\nlong long a,b,c,d,x,y,p,q,s,ans;\r\n\r\ncin>>a>>b>>c;\r\n\r\nd=GCD(a,b);\r\n\r\n if(c%d!=0)\r\n {\r\n  cout<<"Impossible"<<endl;\r\n  return 0;\r\n }\r\n else\r\n {\r\n  ans=1000000;\r\n\r\n   for(x=-3000;x<=3000;x++)\r\n    for(y=-3000;y<=3000;y++)\r\n     if(x*a+y*b==c)\r\n     {\r\n      s=abs(x)+abs(y);\r\n       if(s<ans)\r\n        ans=s;\r\n     }\r\n }\r\n\r\ncout<<ans<<endl;\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

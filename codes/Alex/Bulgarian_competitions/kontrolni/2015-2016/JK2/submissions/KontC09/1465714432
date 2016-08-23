@@ -1,0 +1,13 @@
+(I7
+I231
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\n#include <cmath>\n#include <queue>\n#include <set>\n#include <algorithm>\n\nusing namespace std;\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio (false);\n\t\tint a, b, c, c1;\n\t\tcin >> a >> b >> c;\n\t\tc1 = c;\n\t\tc = abs (c);\n\t\tif (c == 0)\n\t\t{\n\t\t\t\tcout << 0 << "\\n";\n\t\t\t\treturn 0;\n\t\t}\n\t\tvector <int> asdf;\n\t\tif (c % __gcd (a, b) != 0)\n\t\t{\n\t\t\t\tcout << "Impossible\\n";\n\t\t\t\treturn 0;\n\t\t}\n\t\tif (c % a == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / a));\n\t\t}\n\t\tif (c % b == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / b));\n\t\t}\n\t\tif (c % (a - b) == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / (a - b) * 2));\n\t\t} \n\t\tif (c % (b - a) == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / (b - a) * 2));\n\t\t}\n\t\tif (c % (a + b) == 0)\n\t\t{\n\t\t\t\tasdf.push_back (abs (c / (a + b) * 2));\n\t\t}\n\t\tif (asdf.size () > 0)\n\t\t{\n\t\t\t\tcout << *min_element (asdf.begin (), asdf.end ()) << "\\n";\n\t\t\t\treturn 0;\n\t\t}/*\n\t\tset <int> s;\n\t\tqueue <pair <int,int> > q;\n\t\tq.push ({0, 0});\n\t\twhile (!q.empty ())\n\t\t{\n\t\t\t\tint f = q.front ().first;\n\t\t\t\tint pos = q.front ().second;\n\t\t\t\tq.pop ();\n//\t\t\t\tcout << f << "\\n";\n\t\t\t\tif (f == c or f == -c)\n\t\t\t\t{\n\t\t\t\t\t\tcout << pos << "\\n";\n\t\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t\t\tif (s.find (f) == s.end ())\n\t\t\t\t{\n\t\t\t\t\t\ts.insert (f);\n\t\t\t\t\t\tq.push ({f + a, pos + 1});\n\t\t\t\t\t\tq.push ({f + b, pos + 1});\n\t\t\t\t\t\tq.push ({f - a, pos + 1});\n\t\t\t\t\t\tq.push ({f - b, pos + 1});\n\t\t\t\t}\n\t\t}*/\n\t\tcout << "Impossible\\n";\n\t\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

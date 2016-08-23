@@ -1,0 +1,13 @@
+(I7
+I238
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nlong long a, b, c, nod, ans = LLONG_MAX;\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>a>>b>>c;\n\t\n\tnod = __gcd(a, b);\n\t\n\tif(c % nod != 0) \n\t{\n\t\tcout<<"Impossible"<<endl;\n\t\treturn 0;\n\t}\n\telse if(abs(c) % max(a, b) == 0)\n\t{\n\t\tcout<<abs(c) / max(abs(a), abs(b))<<endl;\n\t}\n\telse \n\t{\n\t\tfor(long long i = -5500000; i <= 5500000; i++)\n\t\t{\n\t\t\t//if(i == -1) cout<<abs(c - i * a)<<endl;\n\t\t\tif(abs(c - i * a) % b == 0 && abs(i) + abs((c - i * a) / b) < ans) \n\t\t\t{\n\t\t\t\tans = abs(i) + abs((c - i * a) / b);\n\t\t\t\t//cout<<i<<" "<<abs(c - i * a) / b<<endl;\n\t\t\t}\n\t\t}\n\t}\n\t\n\tcout<<ans<<endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

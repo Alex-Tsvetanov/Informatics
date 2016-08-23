@@ -1,0 +1,13 @@
+(I1
+I18
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include<iostream>\r\n#include<cstring>\r\n#include<cmath>\r\n#include<algorithm>\r\n#include<cstdlib>\r\n#include<queue>\r\n#include<stack>\r\n#include<set>\r\n#include<map>\r\nusing namespace std;\r\nint main(){\r\nios::sync_with_stdio(false);\r\nlong long a;\r\nwhile(cin){\r\n    cin>>a;\r\n}cout<<"INCORRECT";\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

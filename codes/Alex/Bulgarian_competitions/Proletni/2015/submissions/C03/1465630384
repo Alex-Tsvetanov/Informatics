@@ -1,0 +1,13 @@
+(I1
+I3
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <cstdio>\r\nusing namespace std;\r\nvector <int> sums[101];\r\nint sm[200001];\r\nint a[205],ans[105];\r\nint main()\r\n{\r\n int n,brt,i,j,k,target,p=1,fl,x;\r\n cin>>brt;\r\n for(i=1;i<=brt;i++)\r\n {\r\n     target=0;\r\n     scanf("%d",&n);\r\n     for(j=1;j<=n;j++)\r\n     {\r\n      scanf("%d",&a[j]);\r\n      target=target+a[j];\r\n     }\r\n     if(target%2==1)\r\n     {\r\n         ans[i]=0;\r\n         continue;\r\n     }\r\n     fl=0;\r\n     sums[i].push_back(0);\r\n     for(j=1;j<=n;j++)\r\n     {\r\n         x=sums[i].size();\r\n         for(k=0;k<x;k++)\r\n         {\r\n             if(sm[a[j]+sums[i][k]]!=p)\r\n             {\r\n                 sm[a[j]+sums[i][k]]=p;\r\n                 sums[i].push_back(a[j]+sums[i][k]);\r\n                 if(a[j]+sums[i][k]==target)\r\n                 {\r\n                  fl=1;\r\n                  break;\r\n                 }\r\n             }\r\n         }\r\n         if(fl==1)\r\n         {\r\n             break;\r\n         }\r\n     }\r\n     if(fl==1)\r\n      ans[i]=1;\r\n     else\r\n      ans[i]=0;\r\n     p++;\r\n }\r\n for(i=1;i<=brt;i++)\r\n    cout<<ans[i]<<endl;\r\n return 0;\r\n}\r\n\r\n\r\n/*\r\n\r\n2\r\n6\r\n8 5 6 5 6 4\r\n3\r\n2 2 5\r\n\r\n*/\r\n'
+p3
+tp4
+stp5
+.

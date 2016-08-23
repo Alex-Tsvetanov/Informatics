@@ -1,0 +1,13 @@
+(I1
+I15
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\n   long long arr[7], Size = 0;\r\n   string input;\r\n   cin>>input;\r\n   cout<<"INCORRECT"<<endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

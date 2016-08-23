@@ -1,0 +1,13 @@
+(I7
+I243
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include<iostream>\r\n#include<utility>\r\n#include<algorithm>\r\n#include<deque>\r\nusing namespace std;\r\n\r\nint a,b,c,n,sum=0,minmaxsum=1<<29;\r\npair<int,int> d[1024];\r\ndeque<int> res,dm;\r\n\r\nvoid init()\r\n{   cin>>a>>b>>c;\r\n    cin>>n;\r\n    for(int i=0;i<n;i++)\r\n        {cin>>d[i].first;d[i].second=i;sum+=d[i].first;}\r\n    sort(d,d+n);\r\n}\r\n\r\nvoid rec(int pos,int sumd)\r\n{   //cout<<sumd<<endl;\r\n    if(sumd>c-a&&sumd<minmaxsum)\r\n    {   res=dm;\r\n        minmaxsum=sumd;\r\n        return;\r\n    }\r\n    if(sumd>=minmaxsum)return;\r\n    for(int i=pos+1;i<n;i++)\r\n    {   if(sumd+d[i].first>c)break;\r\n        if(sumd+d[i].first>minmaxsum)return;\r\n        {   dm.push_back(i);\r\n            //cout<<i<<" "<<sumd+d[i].first<<endl;\r\n            rec(i,sumd+d[i].first);\r\n            dm.pop_back();\r\n        }\r\n    }\r\n\r\n\r\n}\r\n\r\nint main()\r\n{   init();\r\n    if(a>c){cout<<a<<endl<<0<<endl;return 0;}\r\n    else if(a+b<c){cout<<a+b<<endl<<-1<<endl;return 0;}\r\n    rec(-1,0);\r\n    cout<<minmaxsum+a<<endl;\r\n    cout<<res.size()<<endl;\r\n    vector<int> resi;\r\n    for(auto x:res)\r\n    {   resi.push_back(d[x].second+1);\r\n    }\r\n    sort(resi.begin(),resi.end());\r\n    for(auto x:resi)\r\n    {   cout<<x<<" ";\r\n    }\r\n    cout<<endl;\r\n\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

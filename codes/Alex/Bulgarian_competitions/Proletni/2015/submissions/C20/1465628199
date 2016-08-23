@@ -1,0 +1,13 @@
+(I1
+I20
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include <iostream>\n#include <string>\n#include <vector>\n#include <stdlib.h>\n\nusing namespace std;\n\nconstexpr int nums_to_row (int r)\n{\n\t\treturn (r * (r + 1)) / 2;\n}\n\nint row_of (int num)\n{\n\t\tfor (int row = 0 ; row < 256 ; row ++)\n\t\t\t\tif (nums_to_row (row) < num and num <= nums_to_row (row + 1))\n\t\t\t\t\t\treturn row;\n}\n\nint col_of (int num)\n{\n\t\treturn num - nums_to_row (row_of (num));\n}\n\nint num (int row, int col)\n{\n\t\treturn nums_to_row (row - 1) + col;\n}\n\nint main ()\n{\n////////init\n\t\tfor (int row = 0 ; row < 256 ; row ++)\n\t\t\t\tnums_to_row (row);\n////////input\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio(false);\n\t\tstring input;\n\t\tvector < int > vertexes;\n\t\tgetline (cin, input);\n\t\tinput += " ";\n\t\tsize_t pos = 0;\n\t\tfor (int i = 0 ; i < input.size () ; i ++)\n\t\t\t\tif (input [i] == \' \')\n\t\t\t\t{\n\t\t\t\t\t\tvertexes.push_back (atoi (input.substr (pos, i - pos).c_str ()));\n\t\t\t\t\t\tpos = i + 1;\n\t\t\t\t}\n////////for (auto& x : vertexes)\n////////{\n////////\t\tcout << x << " -> " << row_of (x) << ", " << col_of (x) << "\\n";\n////////}\n\t\tif (vertexes.size () != 3 and vertexes.size () != 4 ot vertexes.size () != 6)\n\t\t\t\tcout << "INCORRECT\\n";\n}\n'
+p3
+tp4
+stp5
+.

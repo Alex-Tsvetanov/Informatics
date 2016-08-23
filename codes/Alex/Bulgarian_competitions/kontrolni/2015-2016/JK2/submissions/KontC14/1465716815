@@ -1,0 +1,13 @@
+(I7
+I226
+I19
+(dp0
+Vhare.%l
+p1
+(Vhareimp.cpp
+p2
+S'#include <iostream>\r\nusing namespace std;\r\nint main( )\r\n{\r\n    long long a,b,c;\r\n    cin>>a>>b>>c;\r\n    cout<<"Impossible"<<endl;\r\n}\r\n'
+p3
+tp4
+stp5
+.

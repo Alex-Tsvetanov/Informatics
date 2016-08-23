@@ -1,0 +1,13 @@
+(I7
+I233
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include <iostream>\r\nusing namespace std;\r\nint s[1002],din[2016][1002],out[1002];\r\n\r\nint main()\r\n{\r\nint a,b,c,n,i,j,sum=0,f,p;\r\ncin>>a>>b>>c>>n;\r\nfor(i=1; i<=n; i++) {cin>>s[i]; sum+=s[i];}\r\nif(a+b<=c) {cout<<a+b<<endl<<-1<<endl; return 0;}\r\nif(a>c) {cout<<a<<endl<<0<<endl; return 0;}\r\nif(sum<=c-a) {cout<<a+b<<endl<<0<<endl; return 0;}\r\nfor(i=0; i<=n; i++) din[0][i]=1;\r\nfor(i=1; i<=b; i++)\r\n    {\r\n     f=0;\r\n     //cout<<i<<": ";\r\n     for(j=1; j<=n; j++)\r\n        {\r\n         if(din[i][j-1]!=0) din[i][j]=din[i][j-1];\r\n         else if(s[j]<=i)\r\n            if(din[i-s[j]][j-1]>0)\r\n                {\r\n                 din[i][j]=s[j];\r\n                 f=1;\r\n                }\r\n          //cout<<din[i][j]<<" ";\r\n         }\r\n     //cout<<"f: "<<f<< endl;\r\n     if(f==1 && i>c-a) {p=i; goto F;}\r\n    }\r\n//cout<<a+b<<endl<<0<<endl;\r\nreturn 0;\r\nF:\r\ni=p;\r\nint m=0;\r\nj=n;\r\nwhile(i>0)\r\n    {\r\n     while(din[i][j]==din[i][j-1]) j--;\r\n     out[m]=j;\r\n     m++;\r\n     i=i-din[i][j];\r\n     j--;\r\n    }\r\ncout<<m<<endl;\r\nfor(i=m-1; i>=0; i--)\r\n{\r\n if(i!=m-1) cout<<" ";\r\n cout<<out[i];\r\n}\r\ncout<< endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I7
+I231
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include <iostream>\n#include <map>\n#include <algorithm>\n\nusing namespace std;\n\nint arr [1024];\nmultimap <int, int> m;\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio (false);\n\t\tint a, b, c, n;\n\t\tcin >> a >> b >> c >> n;\n\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t{\n\t\t\tcin >> arr [i];\n\t\t\tm.insert ({arr [i], i});\n\t\t}\n\t\tif (a > c)\n\t\t{\n\t\t\tcout << a << "\\n" << 0 << "\\n";\n\t\t\treturn 0;\n\t\t}\n\t\tif (a + b < c)\n\t\t{\n\t\t\tcout << a + b << "\\n" << -1 << "\\n";\n\t\t\treturn 0;\n\t\t}\n////////knapsack\n\t\tmap <int, int> s, cop;\n\t\ts [0] = -1;\n\t\tcop [0] = -1;\n\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t{\n\t\t\t\tfor (auto& x : s)\n\t\t\t\t\t\tcop [x.first + arr [i]] = arr [i];\n\t\t\t\ts = cop;\n\t\t}\n\t\tauto it = s.lower_bound (c + 1 - a);\n\t\tint ans1 = it->first + a;\n\t\tcout << ans1 << "\\n";\n\t\tint ind = it->first;\n\t\tvector <int> v;\n\t\twhile (s [ind] != -1)\n\t\t{\n\t\t\t\tv.push_back (m.find (s [ind])->second);\n\t\t\t\tm.erase (m.find (s [ind]));\n\t\t\t\tind -= s [ind];\n\t\t}\n\t\tsort (v.begin (), v.end ());\n\t\tcout << v.size () << "\\n";\n\t\tfor (auto& x : v)\n\t\t{\n\t\t\tcout << x + 1 << " ";\n\t\t}\n\t\tcout << "\\n";\n}\n'
+p3
+tp4
+stp5
+.

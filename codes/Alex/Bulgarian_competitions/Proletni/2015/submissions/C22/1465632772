@@ -1,0 +1,13 @@
+(I1
+I22
+I2
+(dp0
+Vpartition.%l
+p1
+(VC-partition.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nint red_number;\r\nint red[128][256],sizeOfRed[128];\r\nint answer[128];\r\nint main(){\r\n    ios::sync_with_stdio(false);\r\n    cin>>red_number;\r\n    for(int i=0;i<red_number;i++){\r\n        cin>>sizeOfRed[i];\r\n        long long total_sbor=0,current_sbor=0;\r\n        bool it_is_1=false;\r\n        for(int j=0;j<sizeOfRed[i];j++){\r\n            cin>>red[i][j];\r\n            total_sbor+=red[i][j];\r\n        }\r\n        sort(red[i],red[i]+sizeOfRed[i]);\r\n\r\n        for(int reached=0;reached<sizeOfRed[i]&&!it_is_1&&total_sbor%2==0;reached++){\r\n            current_sbor+=red[i][reached];\r\n            if(current_sbor==total_sbor/2){\r\n                it_is_1=true;\r\n            }\r\n            if(current_sbor>total_sbor/2){\r\n                for(int j=0;j<sizeOfRed[i]&&!it_is_1;j++){\r\n                    if(current_sbor-red[i][j]==total_sbor/2){\r\n                        it_is_1=true;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n\r\n        if(it_is_1){\r\n            answer[i]=1;\r\n        }else{\r\n            answer[i]=0;\r\n        }\r\n    }\r\n    for(int i=0;i<red_number;i++){\r\n        cout<<answer[i]<<"\\n";\r\n    }\r\n}\r\n\r\n'
+p3
+tp4
+stp5
+.

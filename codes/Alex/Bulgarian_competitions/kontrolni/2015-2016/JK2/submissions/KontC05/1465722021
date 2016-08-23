@@ -1,0 +1,13 @@
+(I7
+I235
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare_old.cpp
+p2
+S'#include <iostream>\n\n//#define MAX 1000000001\n#define MAX 100000001\n//#define MAX 35000001\n\nlong long abs(long long n)\n{\n\treturn (n < 0 ? -n : n);\n}\n\nint main()\n{\n\tlong long a, b, c;\n\tstd::cin >> a >> b >> c;\n\tlong long best = (1ll << 60);\n\n\tfor(long long m = 0;;++ m)\n\t{\n\t\tif(m * b > MAX)\n\t\t\tbreak;\n\t\tlong long left = c - m*b;\n\t\tif(left % a == 0)\n\t\t{\n\t\t\tif(abs(left / a) + m < best)\n\t\t\t\tbest = abs(left / a) + m;\n\t\t\telse\n\t\t\t\tbreak;\n\t\t}\n\t}\n\tfor(long long m = 0;;++ m)\n\t{\n\t\tif(m * b > MAX)\n\t\t\tbreak;\n\t\tlong long left = c + m*b;\n\t\tif(left % a == 0)\n\t\t{\n\t\t\tif(abs(left / a) + m < best)\n\t\t\t\tbest = abs(left / a) + m;\n\t\t\telse\n\t\t\t\tbreak;\n\t\t}\n\t}\n\n\tif(best == (1ll << 60))\n\t\tstd::cout << "Impossible" << std::endl;\n\telse\n\t\tstd::cout << best << std::endl;\n\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

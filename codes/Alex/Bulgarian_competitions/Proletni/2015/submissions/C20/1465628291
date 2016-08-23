@@ -1,0 +1,13 @@
+(I1
+I20
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include <iostream>\n#include <string>\n#include <vector>\n#include <stdlib.h>\n\nusing namespace std;\n\n\nint main ()\n{\n\t\t\t\tcout << "INCORRECT\\n";\n}\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I1
+I1
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures3.cpp
+p2
+S'#include <iostream>\r\n//#include <bits/stdc++.h>\r\n#include <string>\r\n#include <algorithm>\r\nusing namespace std;\r\nint a[6],b[6];\r\nstring s;\r\n\r\nint findcol(int a)\r\n{\r\n int col=1;\r\n while (a>(col*(col+1))/2) col++;\r\n return col;\r\n}\r\n\r\nint calc(int c)\r\n{\r\n return c*(c+1)/2;\r\n}\r\n\r\nint main()\r\n{\r\nint i,n=0,t=0,d;\r\ngetline(cin,s);\r\nwhile(s.size()>0)\r\n{\r\n //cout<<s<< endl;\r\n while(s[0]!=\' \')\r\n     {\r\n      t=t*10+int(s[0])-\'0\';\r\n      s.erase(0,1);\r\n      if(s.size()==0) break;\r\n     }\r\n if(s.size()>0) s.erase(0,1);\r\n a[n]=t;\r\n n++; t=0;\r\n}\r\nif(n!=3 && n!=4 && n!=6) goto fin;\r\nsort(a,a+n);\r\nfor(i=0; i<n; i++) b[i]=findcol(a[i]);\r\nfor(i=1; i<n; i++) if(a[i]==a[i-1]) goto fin;\r\nif(n==4)\r\n    {\r\n     if(b[1]==b[0])\r\n        {\r\n         d=a[1]-a[0];\r\n         if(b[2]-b[0]!=d || b[3]-b[1]!=d) goto fin;\r\n         if(a[3]-a[2]!=d) goto fin;\r\n         if(\r\n             calc(b[3])-a[3]==calc(b[0])-a[0]\r\n            ||\r\n             calc(b[3])-a[3]==calc(b[1])-a[1])\r\n            goto R;}\r\n     else\r\n         {\r\n          if(b[1]!=b[2]) goto fin;\r\n          d=a[2]-a[1];\r\n          if(b[1]-b[0]!=d || b[3]-b[1]!=d) goto fin;\r\n          if(\r\n             calc(b[2])-a[2]==calc(b[0])-a[0]\r\n             &&\r\n             calc(b[3])-a[3]==calc(b[1])-a[1]\r\n             ) goto R;\r\n         }\r\n     goto fin;\r\n     R:\r\n     cout<<\'R\'<<" "<<d<< endl;\r\n    }\r\nif(n==3)\r\n    {\r\n     if(b[0]==b[1])\r\n         {\r\n          d=a[1]-a[0];\r\n          if(b[2]-b[0]!=d) goto fin;\r\n          if(calc(b[2])-a[2]==calc(b[0])-a[0]) goto T;\r\n         }\r\n     else{\r\n          if(b[1]!=b[2]) goto fin;\r\n          d=b[1]-b[0];\r\n          if(a[2]-a[1]!=d) goto fin;\r\n          if(calc(b[2])-a[2]==calc(b[0])-a[0]) goto T;\r\n         }\r\n     goto fin;\r\n     T:\r\n     cout<<\'T\'<<" "<<d<< endl;\r\n    }\r\nif(n==6)\r\n    {\r\n     if(b[0]!=b[1] || b[2]!=b[3] || b[4]!=b[5]) goto fin;\r\n     d=a[1]-a[0];\r\n     if(a[3]-a[2]!=2*d) goto fin;\r\n     if(a[5]-a[4]!=d) goto fin;\r\n     if(b[3]-b[1]!=d) goto fin;\r\n     if(b[5]-b[3]!=d) goto fin;\r\n     if(calc(b[3])-a[3]==calc(b[1])-a[1]\r\n        &&\r\n        calc(b[5])-a[5]==calc(b[0])-a[0])\r\n        goto H;\r\n     goto fin;\r\n     H:\r\n     cout<<\'H\'<<" "<<d<< endl;\r\n    }\r\nreturn 0;\r\nfin:\r\ncout<<"INCORRECT"<< endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

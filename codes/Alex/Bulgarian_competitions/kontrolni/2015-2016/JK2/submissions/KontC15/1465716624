@@ -1,0 +1,13 @@
+(I7
+I225
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\n#include<vector>\r\nusing namespace std;\r\nint k[1024];\r\nint main()\r\n{\r\n    long long int a,b,c,n,d[1024],i,j,sum=0,br=0,minn=0;\r\n    cin>>a>>b>>c>>n;\r\n    for(i=0; i<n; i++)cin>>d[i];\r\n    if(a>c)\r\n    {\r\n        cout<<a<<endl<<0<<endl;\r\n        return 0;\r\n    }\r\n    else if(a+b<=c)\r\n    {\r\n        cout<<a+b<<endl<<-1<<endl;\r\n        return 0;\r\n    }\r\n    sort(d,d+n);\r\n    minn=d[0];\r\n    sum=a;\r\n    for(i=n-1; i>=0; i--)\r\n    {\r\n        if(sum+d[i]<a+b||(sum+d[i]<=a+b&&d[i]==minn))\r\n        {\r\n            sum+=d[i];\r\n            k[br]=n-i;\r\n            br++;\r\n        }\r\n        if(sum>c)break;\r\n    }\r\n    if(sum<=a+b&&sum>c)\r\n    {\r\n        cout<<sum<<endl;\r\n        cout<<br<<endl;\r\n        cout<<k[0];\r\n        for(i=1; i<br; i++)\r\n        {\r\n            cout<<" "<<k[i];\r\n        }\r\n        cout<<endl;\r\n    }\r\n    else cout<<a+b<<" "<<-1<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

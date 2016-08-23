@@ -1,0 +1,13 @@
+(I1
+I16
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition2.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nbool moje(int arr[],int i,int sbor,int now,int n){\r\n    //cout<<i<<" "<<now<<"\\t";\r\n    if(now==sbor)   return true;\r\n    if(i==n || now<sbor)    return false;\r\n    if(moje(arr,i+1,sbor,now+arr[i],n))   return true;\r\n    if(moje(arr,i+1,sbor,now,n))   return true;\r\n    return false;\r\n}\r\nstruct comp{\r\n    bool operator()(int a,int b){\r\n        return a<b;\r\n    }\r\n};\r\nint main(){\r\n    int t;\r\n    cin>>t;\r\n    for(int _=0;_<t;_++){\r\n        int n;\r\n        cin>>n;\r\n        int ch[n],sbor=0;\r\n        for(int i=0;i<n;i++){\r\n            cin>>ch[i];\r\n            sbor-=ch[i];\r\n            ch[i]=-ch[i];\r\n        }\r\n        sort(ch,ch+n);\r\n        /*for(int i=0;i<n;i++){\r\n            cout<<ch[i]<<" ";\r\n        }*/\r\n        if(-sbor%2==1)   cout<<0;\r\n        else{\r\n            cout<<moje(ch,0,sbor/2,0,n);\r\n        }\r\n        cout<<endl;\r\n    }\r\n}\r\n/*\r\n2\r\n6\r\n8 5 6 5 6 4\r\n3\r\n2 2 5\r\n*/\r\n'
+p3
+tp4
+stp5
+.

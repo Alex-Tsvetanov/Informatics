@@ -1,0 +1,13 @@
+(I1
+I19
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\n\r\nint dp[200001];\r\nint variant[200001][201];\r\nint const ASD=1024;\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    int test,t,n,a[201],i,j,suma=0,minn,broi[1024];\r\n    cin>>test;\r\n    for(t=0;t<test;t++){\r\n        cin>>n;\r\n        suma=0;\r\n        minn=ASD;\r\n        for(i=0;i<ASD;i++){\r\n            broi[i]=0;\r\n            dp[i]=0;\r\n        }\r\n        for(i=0;i<n;i++){\r\n            cin>>a[i];\r\n            suma+=a[i];\r\n            if(a[i]<minn)\r\n                minn=a[i];\r\n            broi[a[i]]++;\r\n        }\r\n        if(suma&2==1){\r\n            cout<<"0\\n";\r\n        }else{\r\n            bool da=false;\r\n            for(i=0;i<n;i++){\r\n                for(j=0;j<n;j++)\r\n                    variant[i][j]=0;\r\n            }\r\n            suma/=2;\r\n            for(i=0;i<suma-minn;i++){\r\n                for(j=0;j<n;j++){\r\n                    //cout<<variant[i+a[j]][a[j]]<<" "<<variant[i][a[j]]<<" "<<a[j]<<" "<<i<<" "<<dp[i+a[j]]<<endl;\r\n                    if(variant[i+a[j]][a[j]]<broi[a[j]] and variant[i][a[j]]<broi[a[j]]){\r\n                        //cout<<"DA";\r\n                        variant[i+a[j]][a[j]]++;\r\n                        dp[i+a[j]]++;\r\n                        if(i+a[j]==suma and dp[i+a[j]]==2){\r\n                            da=true;\r\n                            cout<<"1\\n";\r\n                            j=n;\r\n                            i=suma;\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            if(!da){\r\n                cout<<"0\\n";\r\n            }\r\n        }\r\n    }\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

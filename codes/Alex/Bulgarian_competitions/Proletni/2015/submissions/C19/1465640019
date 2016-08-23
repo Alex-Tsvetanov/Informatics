@@ -1,0 +1,13 @@
+(I1
+I19
+I2
+(dp0
+Vpartition.%l
+p1
+(VpartitionASSDF.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\n\r\nlong long n,a[201],dp[200002];\r\nbool da;\r\n\r\nvoid reshenie(long long suma, long long index){\r\n    if(dp[suma]==1)\r\n        return;\r\n    if(suma==0){\r\n        da=true;\r\n        return;\r\n    }\r\n    if(index==n or suma<0){\r\n        return;\r\n    }\r\n    if(!da)\r\n        reshenie(suma,index+1);\r\n    if(!da)\r\n        reshenie(suma-a[index],index+1);\r\n    if(!da)\r\n        dp[suma]=1;\r\n    return;\r\n}\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long test,t,i,j,suma=0;\r\n    cin>>test;\r\n    for(t=0;t<test;t++){\r\n        cin>>n;\r\n        for(i=0;i<suma;i++)\r\n            dp[i]=0;\r\n        suma=0;\r\n        for(i=0;i<n;i++){\r\n            cin>>a[i];\r\n            suma+=a[i];\r\n        }\r\n        if(suma%2!=0){\r\n            cout<<"0\\n";\r\n        }else{\r\n            da=false;\r\n            suma/=2;\r\n            reshenie(suma,0);\r\n            cout<<da<<endl;\r\n        }\r\n    }\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

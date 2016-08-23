@@ -1,0 +1,13 @@
+(I7
+I235
+I20
+(dp0
+Veconomy.%l
+p1
+(Vpizza.cpp
+p2
+S'#include <iostream>\n#include <algorithm>\n\nlong long freeMin, pizzaPrice, normalPrice, candyCount;\nlong long candies[1001], res[1001], hint;\nlong long best[1001], backtrack[1001];\n\nlong long closest(long long wanted)\n{\n\tbest[0] = wanted - candies[0];\n\tbacktrack[0] = -1;\n\n\tfor(int i = 1;i < candyCount;++ i)\n\t{\n\t\tlong long idx = i-1, cb = best[i-1];\n\t\tfor(int j = i-1;j >= 0;-- j)\n\t\t{\n\t\t\tif(cb < 0)\n\t\t\t{\n\t\t\t\tif(best[j] - candies[i] > cb\n\t\t\t\t\tand best[j] - candies[i] <= 0)\n\t\t\t\t{\n\t\t\t\t\tcb = best[j] - candies[i];\n\t\t\t\t\tidx = j;\n\t\t\t\t}\n\t\t\t}\n\t\t\telse if(cb > 0)\n\t\t\t{\n\t\t\t\tif(best[j] - candies[i] < cb)\n\t\t\t\t{\n\t\t\t\t\tcb = best[j] - candies[i];\n\t\t\t\t\tidx = j;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tbest[i] = cb;\n\t\tbacktrack[i] = idx;\n\t}\n\n\tlong long ans = best[0], ansIdx = 0;\n\tfor(int i = 1;i < candyCount;++ i)\n\t{\n\t\tif(ans > 0)\n\t\t{\n\t\t\tif(best[i] < ans)\n\t\t\t{\n\t\t\t\tans = best[i];\n\t\t\t\tansIdx = i;\n\t\t\t}\n\t\t}\n\t\telse\n\t\t{\n\t\t\tif(best[i] > ans and best[i] <= 0)\n\t\t\t{\n\t\t\t\tans = best[i];\n\t\t\t\tansIdx = i;\n\t\t\t}\n\t\t}\n\t}\n\t\n\tlong long count = 0;\n\twhile(ansIdx != -1)\n\t{\n\t\tres[count] = ansIdx;\n\t\tansIdx = backtrack[ansIdx];\n\t\tcount ++;\n\t}\n\thint = count;\n\n\treturn ans;\n}\n\nint main()\n{\n\n\tstd::cin >> pizzaPrice >> normalPrice >> freeMin;\n\tstd::cin >> candyCount;\n\n\tfor(int i = 0;i < candyCount;++ i)\n\t\tstd::cin >> candies[i];\n\n\tif(pizzaPrice > freeMin)\n\t{\n\t\tstd::cout << pizzaPrice << \'\\n\' << 0 << std::endl;\n\t}\n\telse\n\t{\n\t\tlong long c = closest(freeMin - pizzaPrice + 1);\n\t\tif(c > 0)\n\t\t\tstd::cout << pizzaPrice + normalPrice << "\\n-1\\n";\n\t\tif(c <= 0)\n\t\t{\n\t\t\tif(freeMin - c + 1 <= pizzaPrice + normalPrice)\n\t\t\t{\n\t\t\t\tstd::cout << freeMin - c + 1 << std::endl;\n\t\t\t\tstd::cout << hint << \'\\n\';\n\t\t\t\tstd::sort(res, res + hint);\n\t\t\t\tfor(int i = 0;i < hint;++ i)\n\t\t\t\t\tstd::cout << res[i] + 1 << \' \';\n\t\t\t\tstd::cout << \'\\n\';\n\t\t\t}\n\t\t\telse\n\t\t\t{\n\t\t\t\tstd::cout << pizzaPrice + normalPrice << "\\n-1\\n";\n\t\t\t}\n\t\t}\n\t}\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I7
+I234
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nbool prodylji=true;\r\nlong long ol(long long ax,long long ay,long long bx,long long by,long long cx,long long cy){\r\nreturn(bx-ax)*(cy-ay)-(by-ay)*(cx-ax);\r\n}\r\nlong long a,b,c,d,nm=999999999999999,p=0;\r\nlong long nim(long long ko,long long s){\r\n   if(ko-a>0){\r\n    nim(ko-a,s+1);\r\n   }\r\n      if(ko-b>0){\r\n    nim(ko-b,s+1);\r\n   }\r\n      if(ko-d>0){\r\n    nim(ko-d,s+2);\r\n   }\r\nif(ko-a==0 or ko-b==0){\r\n    nm=min(nm,s+1);\r\n    return 0;\r\n}\r\nif(ko-d==0){\r\n    nm=min(nm,s+2);\r\n    return 0;\r\n}\r\n}\r\nint main(){\r\nios::sync_with_stdio(false);\r\ncin>>a>>b>>c;\r\nd=b-a;\r\nc=abs(c);\r\nnim(c,0);\r\nif(nm<999999999999999){\r\ncout<<nm;\r\n}else{\r\ncout<<"Impossible";\r\n}\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

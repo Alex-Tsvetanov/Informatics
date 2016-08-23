@@ -1,0 +1,13 @@
+(I1
+I9
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main()\r\n{\r\nint n;\r\nint a;\r\nwhile(cin>>a)\r\n{\r\nn++;\r\n}\r\ncout<<"INCORRECT"<<endl;\r\n\r\n\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

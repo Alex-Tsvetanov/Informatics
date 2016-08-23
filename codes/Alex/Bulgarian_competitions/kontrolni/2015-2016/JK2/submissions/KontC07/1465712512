@@ -1,0 +1,13 @@
+(I7
+I233
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nlong long eeuc(long long a,long long b,long long &x1,long long &y1)\r\n{\r\n long long x2=0,y2=1,q,r,t;\r\n x1=1; y1=0;\r\n while(b!=0)\r\n     {\r\n      q=a/b; r=a%b;\r\n      a=b; b=r;\r\n      t=x2; x2=x1-x2*q; x1=t;\r\n      t=y2; y2=y1-y2*q; y1=t;\r\n     }\r\n return a;\r\n}\r\n\r\nint main ()\r\n{\r\nlong long a,b,c,d,x,y,k,r;\r\ncin>>a>>b>>c;\r\nd=eeuc(a,b,x,y);\r\nif(c%d!=0) {cout<<"Impossible"<< endl; return 0;}\r\nx=x*c/d; y=y*c/d;\r\n//cout<<x<<" "<<y<< endl;\r\nif(x>0)\r\n    {\r\n     k=x/b;\r\n     k=k*-1;\r\n     if(abs((k-1)*b+x)+abs(y-a*(k-1))<abs(k*b+x)+abs(y-a*k)) k--;\r\n    }\r\nif(x<0)\r\n    {\r\n     k=x/b;\r\n     k=k*-1;\r\n     if(abs((k+1)*b+x)+abs(y-a*(k+1))<abs(k*b+x)+abs(y-a*k)) k++;\r\n    }\r\n//cout<<k<<endl;\r\n/*k=(x+y)/(b-a);\r\nr=(x+y)%(b-a);\r\n//cout<<k<<" "<<r<< endl;\r\nif(x+y>0)\r\n    {\r\n     k=k*-1;\r\n     if(r>(b-a)/2) k--;\r\n    }\r\nif(x+y<0)\r\n    {\r\n     k=k*-1;\r\n     if(-1*r>(b-a)/2) k++;\r\n    }*/\r\ncout<<abs(x+b*k)+abs(y-a*k)<< endl;\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

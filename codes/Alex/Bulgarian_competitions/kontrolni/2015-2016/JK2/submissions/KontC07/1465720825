@@ -1,0 +1,13 @@
+(I7
+I233
+I21
+(dp0
+Vproject.%l
+p1
+(Vproject.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <queue>\r\nusing namespace std;\r\nstruct st{\r\nint vr,t,t1,t2;\r\n};\r\nvector <st> v[100001];\r\nvector <int> from[100001];\r\nst vv;\r\nint n,br=0;\r\nbool f[100001];\r\nint inc[100001];\r\nqueue <int> q;\r\nint tim[100001],maxt=0;\r\n\r\nvoid solve(int V)\r\n{\r\n int tek,i;\r\n st tek2;\r\n q.push(V);\r\n while(!q.empty())\r\n     {\r\n      tek=q.front();\r\n      for(i=0; i<v[tek].size(); i++)\r\n          {\r\n           tek2=v[tek][i];\r\n           tim[tek2.vr]=max(tim[tek2.vr],tek2.t+tim[tek]);\r\n           maxt=max(maxt,tim[tek2.vr]);\r\n           inc[tek2.vr]--;\r\n           if(inc[tek2.vr]==0) {q.push(tek2.vr);}\r\n          }\r\n      q.pop();\r\n     }\r\n}\r\n\r\nint zaqv[200001][2];\r\n\r\nint main ()\r\n{\r\nint m,i,a,b,c,fl,V,j;\r\ncin>>m>>n;\r\nfor (i=1; i<=m; i++)\r\n    {\r\n     cin>>a>>b>>c;\r\n     vv.vr=b; vv.t=c;\r\n     zaqv[i][0]=a;\r\n     zaqv[i][1]=b;\r\n     from[b].push_back(a);\r\n     inc[b]++;\r\n     v[a].push_back(vv);\r\n    }\r\nfor (i=0; i<n; i++) if(inc[i]==0) {V=i; break;}\r\nsolve(V);\r\nint v1,v2;\r\ncout<<maxt<< endl;\r\nfor(i=1; i<=m; i++)\r\n    {\r\n     v1=zaqv[i][0]; v2=zaqv[i][1];\r\n     for (j=0; j<=v[v1].size(); j++)\r\n         {\r\n          if(v[v1][j].vr==v2)\r\n              {\r\n               cout<<tim[v1]<<" "<<tim[v2]-v[v1][j].t<< endl;\r\n              }\r\n         }\r\n    }\r\nreturn 0;\r\n}\r\n/*\r\n5 4\r\n3 1 50\r\n3 2 20\r\n2 0 25\r\n0 1 15\r\n2 1 60\r\n*/\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I7
+I229
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include<bits/stdc++.h>\r\nusing namespace std;\r\nint m[1000];\r\nstruct node\r\n{\r\n    int st, par;\r\n};\r\nnode b[5000],b1[5000];\r\nint main()\r\n{\r\n    int na,d,minfre;\r\n    cin>>na>>d>>minfre;\r\n    int n;\r\n    cin>>n;\r\n    int a;\r\n    int n1=1;\r\n    bool p=0;\r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        cin>>a;\r\n        if(a>d)\r\n        {\r\n            m[n1]=0;\r\n            continue;\r\n        }\r\n        m[n1]=a;\r\n        n1++;\r\n        p=1;\r\n    }\r\n    if(na>=minfre)\r\n    {\r\n        cout<<na<<endl;\r\n        cout<<0<<endl;\r\n        return 0;\r\n    }\r\n    //if(na+d<minfre||p==0)\r\n    {\r\n        cout<<na+d<<endl;\r\n        cout<<-1<<endl;\r\n        return 0;\r\n    }\r\n    //cout<<n1<<endl;\r\n   /* int maxa=0,maxi=d+1;\r\n    b[0].st=1;\r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        if(m[i]==0)continue;\r\n        for(int j=0; j<=min(maxa,maxi)+5; j++)\r\n        {\r\n            if(b[j].st!=0)\r\n            {\r\n                b1[j+m[i]].st=i;\r\n                b1[j+m[i]].par=j;\r\n                if(j+m[i]>maxa)maxa=j+m[i];\r\n            }\r\n        }\r\n        for(int j=0; j<=min(maxa,maxi); j++)\r\n        {\r\n            if(b1[j].st>0&&b[j].st==0)\r\n            {\r\n                b[j].par=b1[j].par;\r\n                b[j].st=b1[j].st;\r\n            }\r\n        }\r\n    }\r\n  /*  for(int i=0;i<d+3;i++)\r\n    {\r\n        cout<<i<<" "<<b[i].par<<" st:"<<b[i].st<<endl;\r\n    }\r\n*/\r\n   /* stack<int>st;\r\n    int pari;\r\n    int pos=minfre-na+1;\r\n    for(; pos<=d; pos++)\r\n    {\r\n        if(b[pos].st>0)\r\n        {\r\n            pari=b[pos].par;\r\n            st.push(b[pos].st);\r\n            break;\r\n        }\r\n    }\r\n    if(st.size()==0)\r\n    {\r\n        cout<<na+d<<endl;\r\n        cout<<-1<<endl;\r\n        return 0;\r\n    }\r\n    cout<<pos+na<<endl;;\r\n    while(b[pari].par!=0)\r\n    {\r\n        st.push(b[pari].st);\r\n        pari=b[pari].par;\r\n\r\n    }\r\n    st.push(b[pari].st);\r\n    cout<<st.size()<<endl;\r\n    while(!st.empty())\r\n    {\r\n        cout<<st.top()<<" ";\r\n        st.pop();\r\n    }\r\n    cout<<endl;*/\r\n}\r\n\r\n\r\n/**\r\n10 17 25\r\n5\r\n2 7 5 3 7\r\n\r\n10 14 23\r\n5\r\n2 7 5 3 7\r\n\r\n\r\n\r\n*/\r\n'
+p3
+tp4
+stp5
+.

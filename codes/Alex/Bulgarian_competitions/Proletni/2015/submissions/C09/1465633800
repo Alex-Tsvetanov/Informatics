@@ -1,0 +1,13 @@
+(I1
+I9
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include<iostream>\r\n#include<queue>\r\n#include<algorithm>\r\nusing namespace std;\r\nint main()\r\n{\r\n    ios::sync_with_stdio(NULL);\r\n    cin.tie(0);\r\n    int t;\r\n    cin>>t;\r\n    int n;\r\n    for(int j=0; j<t; j++)\r\n    {\r\n         int sum=0;\r\n         int m[1005]={0};\r\n        cin>>n;\r\n        for(int i=0; i<n; i++)\r\n        {\r\n            cin>>m[i];\r\n            sum+=(long long)m[i];\r\n        }\r\n\r\n        if(sum & 1)\r\n        {\r\n            cout<<"0"<<endl;\r\n            continue;\r\n        }\r\n        sum=sum>>1;\r\n\r\n       // sort(m,m+n);\r\n        int maxa=0;\r\n        bool b[210000]= {0};\r\n        bool b1[210000]= {0};\r\n        b[0]=1;\r\n        bool p=0;\r\n        for(int j=0; j<n; j++)\r\n        {\r\n            if(p==1)break;\r\n            for(int i=0; i<=sum; i++)\r\n            {\r\n               // if(b[i]==1||b1[i]==1)b[i]=1;\r\n                if(b[i]==1)\r\n                {\r\n                    if(i+m[j]>maxa)maxa=i+m[j];\r\n                    b1[i+m[j]]=1;\r\n                    if(i+m[j]==sum)\r\n                    {\r\n                       // cout<<"blabal"<<i<<endl;\r\n                        cout<<1<<endl;\r\n                        p=1;\r\n                    }\r\n                }\r\n            }\r\n             for(int i=0; i<=sum; i++)\r\n            {\r\n                if(b[i]==1||b1[i]==1)b[i]=1;\r\n            }\r\n        }\r\n        if(p==0)cout<<0<<endl;\r\n    }\r\n}\r\n'
+p3
+tp4
+stp5
+.

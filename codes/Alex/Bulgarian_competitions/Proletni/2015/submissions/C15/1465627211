@@ -1,0 +1,13 @@
+(I1
+I15
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nint main(){\r\n   long long n, arrSize, sum1 = 0, sum2 = 0;\r\n   cin>>n;\r\n   int arr[202], i = 0, j = 0;\r\n   int answ[101];\r\n   for(i = 0; i < n; i++){\r\n     cin>>arrSize;\r\n     for(j = 0; j < arrSize; j++){\r\n        cin>> arr[j];\r\n     }\r\n     sort(arr, arr + arrSize);\r\n     sum1 = sum1 + arr[arrSize  - 1];\r\n     for(j = arrSize - 2; j >= 0; j--){\r\n        if(sum1 < sum2){\r\n           sum1 += arr[j];\r\n        }else if(sum2 < sum1){\r\n           sum2 += arr[j];\r\n        }\r\n     }\r\n     if(sum1 == sum2){\r\n        answ[i] = 1;\r\n     }else{\r\n       answ[i] = 0;\r\n     }\r\n     sum1 = 0;\r\n     sum2 = 0;\r\n   }\r\n   for(i = 0; i < n; i++){\r\n    cout << answ[i] << endl;\r\n   }\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

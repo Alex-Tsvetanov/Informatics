@@ -1,0 +1,13 @@
+(I7
+I237
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint evklid(int a,int b){\r\n    int p,r=0;\r\n    if(a<b) swap(a,b);\r\n    while(b!=0){\r\n        //cout<<a<<" "<<b<<endl;\r\n        r=a%b;\r\n        a=b;\r\n        b=r;\r\n    }\r\n    return a;\r\n}\r\nint nod(int a,int b){\r\n    return a*b/evklid(a,b);\r\n}\r\nint abs(int a){\r\n    return a>0?a:-a;\r\n}\r\nint main(){\r\n    int a,b,c;\r\n    cin>>a>>b>>c;\r\n    c=abs(c);\r\n    int za0=c,za1=(c-a)-za0,ost=b-c%b;\r\n    int ans=-1;\r\n    /*\r\n    if(a%b!=0){\r\n        if((b-c%b)%(a%b)==0){\r\n            //cout<<(b-c%b)/(a%b)<<" "<<(c+a*((b-c%b)/(a%b)));\r\n            if(ans==-1 || ans>abs((b-c%b)/(a%b))+abs((c+a*((b-c%b)/(a%b)))/b)){\r\n                ans=abs((b-c%b)/(a%b))+abs((c+a*((b-c%b)/(a%b)))/b);\r\n            }\r\n        }\r\n    }\r\n    if(a%b!=0){\r\n        swap(a,b);\r\n        if((b-c%b)%(a%b)==0){\r\n            //cout<<(b-c%b)/(a%b)<<" "<<(c+a*((b-c%b)/(a%b)));\r\n            if(ans==-1 || ans>abs((b-c%b)/(a%b))+abs((c+a*((b-c%b)/(a%b)))/b)){\r\n                ans=abs((b-c%b)/(a%b))+abs((c+a*((b-c%b)/(a%b)))/b);\r\n            }\r\n        }\r\n    }\r\n    if(ans==-1){\r\n        cout<<"Impossible";\r\n    }else{\r\n        cout<<ans++++\r\n    */\r\n    /*if((b-c%b)%(a%b)!=0 && (b-c%b)%(a%b)!=0){\r\n        cout<<"Impossible1";\r\n        return 0;\r\n    }*/\r\n    for(int i=0;i<nod(a,b);i++){\r\n        int minx=-1,miny=-1;\r\n        if((c-a*i)%b==0)    minx=(minx==-1?(c-a*i)/b:(minx>(c-a*i)%b?(c-a*i)/b:minx));\r\n        if((c-b*i)%a==0)    miny=(miny==-1?(c-b*i)/a:(miny>(c-b*i)%a?(c-b*i)/a:miny));\r\n        if((c+a*i)%b==0)    minx=(minx==-1?(c+a*i)/b:(minx>(c+a*i)%b?(c+a*i)/b:minx));\r\n        if((c+b*i)%a==0)    miny=(miny==-1?(c+b*i)/a:(miny>(c+b*i)%a?(c+b*i)/a:miny));\r\n        int mina=-1;\r\n        if(minx!=-1){\r\n            mina=abs(i)+abs(minx);\r\n        }\r\n        if(miny!=-1 && mina==-1){\r\n            mina=abs(i)+abs(miny);\r\n        }\r\n        if(mina!=-1){\r\n            cout<<mina;\r\n            return 0;\r\n        }\r\n    }\r\n    cout<<"Impossible";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I1
+I5
+I3
+(dp0
+Vfigures.%l
+p1
+(Vzad3.cpp
+p2
+S'# include<iostream>\r\n# include<algorithm>\r\nusing namespace std;\r\n\r\nint a[8];\r\nint red[8];\r\nint b[512];\r\n\r\nbool tri(int i, int j)\r\n{\r\n    if(red[i]==red[j]) return true;\r\n    int sum=a[i],x=red[i];\r\n    while(sum<a[j]) {sum=sum+x; x++;}\r\n    if(sum==a[j]) return true;\r\n    sum=a[i];\r\n    x=red[i]+1;\r\n    while(sum<a[j]) {sum=sum+x; x++;}\r\n    if(sum==a[j]) return true;\r\n\r\n    return false;\r\n}\r\n\r\nint strana(int i, int j)\r\n{\r\n\r\n    if(red[i]==red[j]) return a[j]-a[i];\r\n    return red[j]-red[i];\r\n}\r\n\r\nint main()\r\n{\r\n    int n=0;\r\n    do\r\n    {\r\n        cin>>a[n];\r\n        n++;\r\n    }while(cin.good());\r\n    n--;\r\n    if(n!=3 && n!=4 && n!=6) {cout<<"INCORRECT"<<endl; return 0;}\r\n    sort(a,a+n);\r\n\r\n    int sum=0;\r\n    int k=0;\r\n    while(sum<a[n-1])\r\n    {\r\n        sum=sum+k;\r\n        b[k]=sum;\r\n        k++;\r\n    }\r\n    for(int i=0; i<n; i++)\r\n    {\r\n        int j=0;\r\n        while(a[i]>b[j]) j++;\r\n        red[i]=j;\r\n    }\r\n   /* if(n==3)\r\n    {\r\n        if(tri(0,1) && tri(0,2) && tri(1,2) && strana(0,1)==strana(1,2) && strana(1,2)==strana(0,2)) cout<<"T "<<strana(1,2)<<endl;\r\n        else cout<<"INCORRECT"<<endl;\r\n    }*/\r\n    if(n==4)\r\n    {\r\n        if(tri(0,1) && tri(0,2) && tri(2,3) && tri(1,3) && strana(0,1)==strana(0,2) && strana(0,2)==strana(2,3) && strana(2,3)==strana(1,3)) cout<<"R "<<strana(0,1)<<endl;\r\n        else cout<<"INCORRECT"<<endl;\r\n    }\r\n    /*if(n==6)\r\n    {\r\n        if(tri(0,1) && tri(0,2) && tri(1,3) && tri(2,4) && tri(4,5) && tri(3,5) && strana(0,1)==strana(0,2) && strana(0,2)==strana(2,4) && strana(2,4)==strana(4,5) && strana(4,5)==strana(3,5) && strana(3,5)==strana(1,3)) cout<<"H "<<strana(0,1)<<endl;\r\n        else cout<<"INCORRECT"<<endl;\r\n    }*/\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

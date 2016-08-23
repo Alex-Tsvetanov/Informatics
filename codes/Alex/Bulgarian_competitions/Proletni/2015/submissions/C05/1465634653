@@ -1,0 +1,13 @@
+(I1
+I5
+I1
+(dp0
+Vrect.%l
+p1
+(Vzad1.cpp
+p2
+S'# include<iostream>\r\n# include<fstream>\r\nusing namespace std;\r\n\r\n\r\nint n,m;\r\nchar a[256][256];\r\npair<int,int> lr[256][256],ud[256][256];\r\n\r\nvoid make()\r\n{\r\n     for(int i=1; i<=n; i++)\r\n    {\r\n        for(int j=1; j<=m; j++)\r\n        {\r\n            if(a[i][j]==\'*\') lr[i][j].first=lr[i][j-1].first+1;\r\n            else lr[i][j].first=0;\r\n        }\r\n    }\r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        for(int j=m; j>=1; j--)\r\n        {\r\n            if(a[i][j]==\'*\') lr[i][j].second=lr[i][j+1].second+1;\r\n            else lr[i][j].second=0;\r\n        }\r\n    }\r\n    for(int j=1; j<=m; j++)\r\n    {\r\n        for(int i=1; i<=n; i++)\r\n        {\r\n            if(a[i][j]==\'*\') ud[i][j].first=ud[i-1][j].first+1;\r\n            else ud[i][j].first=0;\r\n        }\r\n    }\r\n    for(int j=1; j<=m; j++)\r\n    {\r\n        for(int i=n; i>=1; i--)\r\n        {\r\n            if(a[i][j]==\'*\') ud[i][j].second=ud[i+1][j].second+1;\r\n            else ud[i][j].second=0;\r\n        }\r\n    }\r\n}\r\n\r\nlong long solve(int i, int j)\r\n{\r\n    if(lr[i][j].second<3) return 0;\r\n    if(ud[i][j].second<3) return 0;\r\n\r\n    long long br=0;\r\n    //cout<<i<<" "<<j<<endl;\r\n    for(int x=2; x<lr[i][j].second; x++)\r\n    {\r\n        if(ud[i][j+x].second>=3)\r\n        {\r\n            //cout<<i<<" "<<j+x<<endl;\r\n            for(int y=2; y<ud[i][j+x].second; y++)\r\n            {\r\n                //cout<<lr[i+y][j+x].first<<" "<<lr[i+y][j+x].second<<endl;\r\n                if(lr[i+y][j+x].first>=x+1)\r\n                    if(ud[i+y][j].first>=y+1) br++;\r\n            }\r\n        }\r\n    }\r\n    return br;\r\n}\r\n//ifstream fin("izhod.out");\r\nint main()\r\n{\r\n    cin>>n>>m;\r\n    for(int i=1; i<=n; i++)\r\n        for(int j=1; j<=m; j++) cin>>a[i][j];\r\n    make();\r\n\r\n    long long ans=0;\r\n    for(int i=1; i<=n; i++)\r\n    {\r\n        for(int j=1; j<=m; j++)\r\n        {\r\n            ans+=solve(i,j);\r\n           // cout<<ans<<" ";\r\n        }\r\n    }\r\n    cout<<ans<<endl;\r\n}\r\n'
+p3
+tp4
+stp5
+.

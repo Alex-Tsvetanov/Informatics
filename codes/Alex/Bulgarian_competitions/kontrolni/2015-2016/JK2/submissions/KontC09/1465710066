@@ -1,0 +1,13 @@
+(I7
+I231
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare2.cpp
+p2
+S'#include <iostream>\n\nusing namespace std;\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio (false);\n\t\tcout << "Impossible\\n";\n}\n'
+p3
+tp4
+stp5
+.

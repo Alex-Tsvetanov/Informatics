@@ -1,0 +1,13 @@
+(I7
+I238
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nconst int maxN = 1005, maxC = 1005, maxD = 1e6 + 5;\n\nbool dp[maxC + maxD];\nint a, b, c, n, d[maxN], parent[maxC + maxD], min_sum = INT_MAX, max_sum, ind;\nvector<int> v;\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>a>>b>>c>>n;\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tcin>>d[i];\n\t}\n\t\n\tif(a > c) \n\t{\n\t\tcout<<a<<endl;\n\t\tcout<<0<<endl;\n\t\treturn 0;\n\t}\n\t\n\tdp[a] = true;\n\tmax_sum = a;\n\tmemset(parent, -1, sizeof(parent));\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tfor(int j = max_sum; j >= a; j--)\n\t\t{\n\t\t\tif(dp[j] == true && j <= c && !dp[j + d[i]]) \n\t\t\t{\n\t\t\t\tdp[j + d[i]] = true;\n\t\t\t\tparent[j + d[i]] = i;\n\t\t\t\tif(j + d[i] > c && j + d[i] < min_sum) \n\t\t\t\t{\n\t\t\t\t\tmin_sum = j + d[i];\n\t\t\t\t\tind = i;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\t\n\t\tmax_sum += d[i];\n\t}\n\t\n\t/*for(int i = a; i <= c + 5; i++)\n\t{\n\t\tcout<<i<<" "<<dp[i]<<" "<<parent[i]<<endl;\n\t}*/\n\t\n\tif(min_sum > a + b)\n\t{\n\t\tcout<<a + b<<endl;\n\t\tcout<<-1<<endl;\n\t\treturn 0;\n\t}\n\t\n\tcout<<8 / 0<<endl;\n\t\n\tcout<<min_sum<<endl;\n\twhile(ind != -1)\n\t{\n\t\tv.push_back(ind);\n\t\tmin_sum -= d[ind];\n\t\tind = parent[min_sum];\n\t}\n\t\n\tsort(v.begin(), v.end());\n\t\n\tcout<<v.size()<<endl;\n\tfor(int i = 0; i < v.size(); i++)\n\t{\n\t\tcout<<v[i] + 1<<" ";\n\t}\n\tcout<<endl;\n\t\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

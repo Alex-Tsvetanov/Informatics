@@ -1,0 +1,13 @@
+(I7
+I232
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy2.cpp
+p2
+S'#include<iostream>\r\n#include<queue>\r\n#include<algorithm>\r\nusing namespace std;\r\n\r\nstruct chisla{\r\n    long long suma,broi;\r\n    bool izpolzvani[1024];\r\n    chisla(){\r\n        this->broi=1;\r\n        for(long long i=0;i<1024;i++)\r\n            this->izpolzvani[i]=false;\r\n    }\r\n}otg,asdf;\r\n\r\nqueue<chisla> q;\r\n\r\nlong long pica,dostavka,minSuma,brLakomstva,ceni[1024];\r\nvoid reshenie(){\r\n    otg.broi=-1;\r\n    otg.suma=pica+dostavka;\r\n    while(!q.empty()){\r\n        asdf=q.front();\r\n        q.pop();\r\n       // cout<<asdf.suma<<endl;\r\n        for(long long i=0;i<brLakomstva;i++){\r\n            if(!asdf.izpolzvani[i] and asdf.suma+ceni[i]+pica<=otg.suma){\r\n                asdf.suma+=ceni[i];\r\n                asdf.izpolzvani[i]=true;\r\n                asdf.broi++;\r\n                q.push(asdf);\r\n                if(pica+asdf.suma>minSuma){\r\n                    otg=asdf;\r\n                    //maxx=asdf.suma;\r\n                    if(asdf.suma+pica==minSuma+1){\r\n                        return;\r\n                    }\r\n                }\r\n                asdf.suma-=ceni[i];\r\n                asdf.izpolzvani[i]=false;\r\n                asdf.broi--;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long i;\r\n    cin>>pica>>dostavka>>minSuma;\r\n    if(pica>minSuma){\r\n        cout<<pica<<"\\n0\\n";\r\n        return 0;\r\n    }\r\n    if(pica+dostavka<=minSuma){\r\n        cout<<pica+dostavka<<"\\n-1\\n";\r\n        return 0;\r\n    }\r\n    cin>>brLakomstva;\r\n    for(i=0;i<brLakomstva;i++){\r\n        cin>>ceni[i];\r\n        asdf.suma=ceni[i];\r\n        asdf.izpolzvani[i]=true;\r\n        q.push(asdf);\r\n        asdf.izpolzvani[i]=false;\r\n    }\r\n    reshenie();\r\n    if(otg.broi==-1){\r\n        cout<<pica+dostavka<<"\\n-1\\n";\r\n        return 0;\r\n    }\r\n    cout<<otg.suma+pica<<"\\n"<<otg.broi<<"\\n";\r\n    for(i=0;i<brLakomstva;i++){\r\n        if(otg.izpolzvani[i]){\r\n            cout<<i+1;\r\n            if(i+1<brLakomstva)\r\n                cout<<" ";\r\n        }\r\n    }\r\n    cout<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

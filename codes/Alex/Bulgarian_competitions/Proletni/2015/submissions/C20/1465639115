@@ -1,0 +1,13 @@
+(I1
+I20
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\n#include <vector>\n#include <set>\n#include <algorithm>\n\nusing namespace std;\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio(false);\n\t\tint tests;\n\t\tcin >> tests;\n\t\tfor (int t = 0 ; t < tests ; t ++)\n\t\t{\n\t\t\t\tset <int> possible, cop;\n\t\t\t\tvector <int> seq;\n\t\t\t\tint n, sum = 0;\n\t\t\t\tcin >> n;\n\t\t\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t\t\t{\n\t\t\t\t\t\tint a;\n\t\t\t\t\t\tcin >> a;\n\t\t\t\t\t\tseq.push_back (a);\n\t\t\t\t\t\tsum += a;\n\t\t\t\t}\n\n\t\t\t\tif (sum % 2 == 0)\n\t\t\t\t{\n\t\t\t\t\t\tpossible.insert (0);\n\t\t\t\t\t\tcop.insert (0);\n\t\t\t\t\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tfor (int j : possible)\n\t\t\t\t\t\t\t\t\t\tif (j + seq [i] <= sum / 2)\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\tcop.insert (j + seq [i]);\n\t\t\t\t\t\t\t\t\t\t\t\tif (j + seq [i] == sum / 2)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tgoto BReak;\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tpossible = cop;\n\t\t\t\t\t\t}\n\t\t\t\t\t\tBReak:\n\t\t\t\t\t\tcout << ((possible.find (sum / 2) != possible.end ()) or\n\t\t\t\t\t\t         (cop.find (sum / 2) != cop.end ())) << "\\n";\n\t\t\t\t}\n\t\t\t\telse \n\t\t\t\t\t\tcout << "0 \\n";\n\t\t}\n\n}\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I7
+I222
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include <iostream>\r\n#include <vector>\r\n#include <algorithm>\r\nusing namespace std;\r\nint d[5000],xs=0;\r\nstruct lel{\r\n int s;\r\n int reali;\r\n}x[5000];\r\nstruct prex{\r\n int cur;\r\n int minal;\r\n}prevv[5000];\r\nvector <int> sums;\r\nvector <int> answer;\r\nbool sortlel(lel x,lel y)\r\n{\r\n    return x.s<y.s;\r\n}\r\nbool sm[5000];\r\nint main()\r\n{\r\n long long a,b,c,n,i,j,ans=0,p;\r\n cin>>a>>b>>c;\r\n cin>>n;\r\n for(i=1;i<=n;i++)\r\n {\r\n  cin>>d[i];\r\n  if(d[i]<=b)\r\n  {\r\n      xs++;\r\n      x[xs].s=d[i];\r\n      x[xs].reali=i;\r\n  }\r\n }\r\n if(a+b<c)\r\n {\r\n  cout<<a+b<<endl;\r\n  cout<<-1<<endl;\r\n  return 0;\r\n }\r\n if(a>c)\r\n {\r\n  cout<<a<<endl;\r\n  cout<<0<<endl;\r\n  return 0;\r\n }\r\n sort(x+1,x+xs+1,sortlel);\r\n sums.push_back(0);\r\n prevv[0].cur=0;\r\n prevv[0].minal=-1;\r\n /*for(i=1;i<=xs;i++)\r\n {\r\n  p=sums.size();\r\n  for(j=0;j<p;j++)\r\n  {\r\n      /*if(x[i]+sums[j]>=a+b)\r\n      {\r\n        break;\r\n      }\r\n      if(sm[x[i].s+sums[j]]==false && x[i].s+sums[j]<=a+b)\r\n      {\r\n        //  cout<<x[i]+sums[j]<<" ";\r\n          sm[x[i].s+sums[j]]=true;\r\n          sums.push_back(x[i].s+sums[j]);\r\n          prevv[x[i].s+sums[j]].cur=i;\r\n          prevv[x[i].s+sums[j]].minal=sums[j];\r\n      //   cout<<prevv[x[i].s+sums[j]].cur<<" "<<prevv[x[i].s+sums[j]].minal<<endl;\r\n      }\r\n  }\r\n }*/\r\n sort(sums.begin(),sums.end());\r\n /*for(i=0;i<sums.size();i++)\r\n    cout<<sums[i]<<" ";\r\n cout<<endl;*/\r\n for(i=0;i<sums.size();i++)\r\n {\r\n     if(sums[i]>=c-a+1 && sums[i]<=b)\r\n     {\r\n         ans=sums[i];\r\n         break;\r\n     }\r\n }\r\n i=ans;\r\n if(a+ans>a+b)\r\n {\r\n     cout<<a+b<<endl;\r\n     cout<<-1<<endl;\r\n     return 0;\r\n }\r\n cout<<a+ans<<endl;\r\n while(prevv[i].minal>-1)\r\n {\r\n  answer.push_back(x[prevv[i].cur].reali);\r\n  i=prevv[i].minal;\r\n // cout<<i<<endl;\r\n }\r\n sort(answer.begin(),answer.end());\r\n cout<<answer.size()<<endl;\r\n for(i=0;i<answer.size()-1;i++)\r\n    cout<<answer[i]<<" ";\r\n cout<<answer[answer.size()-1]<<endl;\r\n return 0;\r\n}\r\n\r\n\r\n/*\r\n\r\n10 17 25\r\n5\r\n2 7 5 3 7\r\n\r\n*/\r\n'
+p3
+tp4
+stp5
+.

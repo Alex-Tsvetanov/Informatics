@@ -1,0 +1,13 @@
+(I7
+I231
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include <iostream>\n\nusing namespace std;\n\nint arr [1024];\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio (false);\n\t\tint a, b, c, n;\n\t\tcin >> a >> b >> c >> n;\n\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t\tcin >> arr [i];\n\t\tif (a > c)\n\t\t{\n\t\t\tcout << a << "\\n" << 0 << "\\n";\n\t\t\treturn 0;\n\t\t}\n\t\tif (a + b < c)\n\t\t{\n\t\t\tcout << a + b << "\\n" << -1 << "\\n";\n\t\t\treturn 0;\n\t\t}\n\n}\n'
+p3
+tp4
+stp5
+.

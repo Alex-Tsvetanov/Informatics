@@ -1,0 +1,13 @@
+(I7
+I236
+I21
+(dp0
+Vproject.%l
+p1
+(Vproject.cpp
+p2
+S"#include <iostream>\r\n#include <vector>\r\n#include <utility>\r\n#include <stack>\r\nusing namespace std;\r\n\r\nconst int MAXN=131072;\r\nconst int MAXM=262144;\r\n\r\nvector<pair<int, int>> gp[MAXN];\r\nvector<pair<int, int>> gs[MAXN];\r\n\r\nvector<pair<pair<int, int>, int>> e;\r\n\r\nlong long tmin[MAXN], tmax[MAXN];\r\nint n, m;\r\n\r\nstack<int> toporder;\r\nstack<int> botorder;\r\n\r\nint used[MAXN];\r\n\r\nvoid Init()\r\n{\r\n    int u, v, w;\r\n    cin>>m>>n;\r\n    for (int i=0; i<m; i++)\r\n    {\r\n        cin>>u>>v>>w;\r\n        gp[u].emplace_back(v, w);\r\n        gs[v].emplace_back(u, w);\r\n        e.emplace_back(make_pair(u, v), w);\r\n    }\r\n    for (int i=0; i<n; i++)\r\n    {\r\n        tmin[i]=1ll<<60;\r\n        tmax[i]=0;\r\n    }\r\n}\r\n\r\nvoid DFS(int u)\r\n{\r\n    for (auto p:gp[u])\r\n    {\r\n        int v=p.first;\r\n        if (used[v]==0)\r\n        {\r\n            used[v]=1;\r\n            DFS(v);\r\n        }\r\n    }\r\n    toporder.push(u);\r\n}\r\n\r\nint main()\r\n{\r\n    Init();\r\n\r\n    for (int i=1; i<=n; i++)\r\n    {\r\n        if (gs[i].size()==0)\r\n        {\r\n            DFS(i);\r\n            break;\r\n        }\r\n    }\r\n\r\n    int last;\r\n    tmin[toporder.top()]=tmax[toporder.top()]=0;\r\n    while (!toporder.empty())\r\n    {\r\n        int u=toporder.top();\r\n        toporder.pop();\r\n        botorder.push(u);\r\n        for (auto p:gp[u])\r\n        {\r\n            tmin[p.first]=min(tmin[u]+p.second, tmin[p.first]);\r\n            tmax[p.first]=max(tmax[u]+p.second, tmax[p.first]);\r\n        }\r\n        last=u;\r\n    }\r\n    while (!botorder.empty())\r\n    {\r\n        int u=botorder.top();\r\n        botorder.pop();\r\n\r\n        long long ans=1ll<<60;\r\n        for (auto p:gp[u])\r\n        {\r\n            ans=min(tmax[p.first]-p.second, ans);\r\n        }\r\n        if (ans!=(1ll<<60)) tmax[u]=max(tmax[u], ans);\r\n        //cout<<u<<' '<<tmin[u]<<' '<<tmax[u]<<' '<<ans<<endl;\r\n    }\r\n\r\n    cout<<tmax[last]<<endl;\r\n    for (int i=0; i<m; i++)\r\n    {\r\n        int u=e[i].first.first;\r\n        int v=e[i].first.second;\r\n        int w=e[i].second;\r\n        cout<<tmin[u]<<' '<<tmax[v]-w<<endl;\r\n    }\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

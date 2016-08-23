@@ -1,0 +1,13 @@
+(I7
+I231
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\n#include <cmath>\n#include <vector>\n\nusing namespace std;\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio (false);\n\t\tint a, b, c;\n\t\tcin >> a >> b >> c;\n\t\tc = abs (c);\n\t\tvector <bool> knapsack (c + 10, false);\n\t\tknapsack [0] = true;\n\t\tif (c == 0)\n\t\t{\n\t\t\t\tcout << 0 << "\\n";\n\t\t\t\treturn 0;\n\t\t}\n\t\tfor (int ans = 1 ; ; ans ++)\n\t\t{\n\t\t\t\tfor (int i = c + 10 ; i >= 0 ; i --)\n\t\t\t\t{\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti - a > 0)\n\t\t\t\t\t\t\t\tknapsack [i - a] = true;\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti - b > 0)\n\t\t\t\t\t\t\t\tknapsack [i - b] = true;\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti + a < c + 10)\n\t\t\t\t\t\t\t\tknapsack [i + a] = true;\n\t\t\t\t\t\tif (knapsack [i] and\n\t\t\t\t\t\t\ti + b < c + 10)\n\t\t\t\t\t\t\t\tknapsack [i + b] = true;\n\t\t\t\t}\n\t\t\t\tif (knapsack [c])\n\t\t\t\t{\n\t\t\t\t\t\tcout << ans << "\\n";\n\t\t\t\t\t\treturn 0;\n\t\t\t\t}\n\t\t}\n}\n'
+p3
+tp4
+stp5
+.

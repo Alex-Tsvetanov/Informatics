@@ -1,0 +1,13 @@
+(I7
+I236
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S"#include <iostream>\r\n#include <vector>\r\n#include <algorithm>\r\n#include <queue>\r\nusing namespace std;\r\n\r\nconst int MAXN=1024;\r\nconst int MAXS=1024;\r\n\r\nint a, b, c, n;\r\nint d[MAXN], t[MAXS], u[MAXS];\r\n\r\nvector<int> p[MAXN];\r\nvector<int> ind;\r\n\r\nvoid Init()\r\n{\r\n    cin>>a>>b>>c;\r\n    cin>>n;\r\n    for (int i=1; i<=n; i++)\r\n    {\r\n        cin>>d[i];\r\n    }\r\n}\r\n\r\nvoid Solve()\r\n{\r\n    t[0]=1;\r\n    for (int i=1; i<=MAXS; i++)\r\n    {\r\n        t[i]=0;\r\n    }\r\n    for (int i=1; i<=n; i++)\r\n    {\r\n        for (int j=MAXS-1; j>=d[i]; j--)\r\n        {\r\n            if (t[j-d[i]]==1)\r\n            {\r\n                t[j]=1;\r\n                p[j].push_back(i);\r\n            }\r\n        }\r\n    }\r\n    t[0]=0;\r\n}\r\n\r\nvoid getSum(int x)\r\n{\r\n    while (x!=0)\r\n    {\r\n        for (int i=0; i<p[x].size(); i++)\r\n        {\r\n            if (u[p[x][i]]==0)\r\n            {\r\n                u[p[x][i]]=1;\r\n                ind.push_back(p[x][i]);\r\n                x-=d[p[x][i]];\r\n                break;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint main()\r\n{\r\n    Init();\r\n\r\n    if (a>c)\r\n    {\r\n        cout<<a<<endl<<0<<endl;\r\n        return 0;\r\n    }\r\n    if (a+b<c)\r\n    {\r\n        cout<<a+b<<endl<<-1<<endl;\r\n        return 0;\r\n    }\r\n\r\n    Solve();\r\n\r\n    int lower=c-a+1;\r\n    int upper=b+c-a;\r\n\r\n    bool flag=false;\r\n\r\n    for (int i=lower; i<=upper; i++)\r\n    {\r\n        if (t[i]==1)\r\n        {\r\n            cout<<i<<endl;\r\n            getSum(i);\r\n            flag=true;\r\n            break;\r\n        }\r\n    }\r\n\r\n    if (!flag)\r\n    {\r\n        cout<<upper<<endl;\r\n        cout<<-1<<endl;\r\n    }\r\n    else\r\n    {\r\n        cout<<ind.size()<<endl;\r\n        sort(ind.begin(), ind.end());\r\n        for (int i=0; i<ind.size(); i++)\r\n        {\r\n            cout<<ind[i]<<' ';\r\n        }\r\n        cout<<endl;\r\n    }\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

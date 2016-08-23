@@ -1,0 +1,13 @@
+(I7
+I232
+I20
+(dp0
+Veconomy.%l
+p1
+(Vproba.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    int a;\r\n    cin>>a;\r\n    cout<<a<<"\\n0\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

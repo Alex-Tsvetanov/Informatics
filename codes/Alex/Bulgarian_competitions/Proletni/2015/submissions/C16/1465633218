@@ -1,0 +1,13 @@
+(I1
+I16
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nint main(){\r\n    int line[300]={0};\r\n    line[0]=1;\r\n    for(int i=1;line[i-1]<32767;i++){\r\n        line[i]=line[i-1]+i;\r\n        //cout<<line[i]<<" ";\r\n    }\r\n    int dots[7]={0},s=0;\r\n    /*\r\n    string vh;\r\n    getline(cin,vh);\r\n    for(int i=0;i<vh.length();i++){\r\n        if(vh[i]==\' \')  s++;\r\n        else{\r\n            dots[s]*=10;\r\n            dots[s]+=vh[i]-\'0\';\r\n        }\r\n    }\r\n    s++;*/\r\n    while(cin>>dots[s]){\r\n        s++;\r\n    }\r\n    int l[s];\r\n    sort(dots,dots+s);\r\n    if(dots[0]==dots[s-1]){\r\n        if(s==3){\r\n            cout<<"T 0";\r\n            return 0;\r\n        }\r\n        if(s==4){\r\n            cout<<"R 0";\r\n            return 0;\r\n        }\r\n        if(s==6){\r\n            cout<<"H 0";\r\n            return 0;\r\n        }\r\n    }\r\n    for(int i=0;i<s;i++){\r\n        for(l[i]=0;line[l[i]+1]<=dots[i];l[i]++){}\r\n    }\r\n    /*cout<<s<<": ";\r\n    for(int i=0;i<s;i++){\r\n        cout<<dots[i]<<"-"<<l[i]<<" ";\r\n    }*/\r\n    if(s==3){\r\n        if(l[1]!=l[0] && l[1]==l[2]){\r\n            int str=l[1]-l[0];\r\n            if(dots[0]-line[l[0]]==dots[1]-line[l[1]] && l[1]==l[2] && dots[2]-dots[1]==str){\r\n                cout<<"T "<<str;\r\n                return 0;\r\n            }\r\n        }\r\n        if(l[1]==l[0] && l[1]!=l[2]){\r\n            int str=l[2]-l[0];\r\n            if(dots[1]-line[l[1]]==dots[2]-line[l[2]] && l[1]==l[0] && dots[1]-dots[0]==str){\r\n                cout<<"T "<<str;\r\n                return 0;\r\n            }\r\n        }\r\n    }\r\n    if(s==4){\r\n        if(l[0]==l[1]){\r\n            int str=dots[1]-dots[0];\r\n            if(dots[0]-line[l[0]]==dots[2]-line[l[2]] && l[2]==l[3] && dots[3]-dots[2]==str){\r\n                cout<<"R "<<str;\r\n                return 0;\r\n            }\r\n            if(dots[0]-line[l[0]+1]==dots[2]-line[l[2]+1] && l[2]==l[3] && dots[3]-dots[2]==str){\r\n                cout<<"R "<<str;\r\n                return 0;\r\n            }\r\n        }\r\n    }\r\n    if(s==6){\r\n        if(l[0]==l[1]){\r\n            int str=dots[1]-dots[0];\r\n            if(dots[0]-line[l[0]]==dots[2]-line[l[2]] && dots[1]-line[l[1]+1]==dots[3]-line[l[3]+1] && l[2]==l[3] && l[4]==l[5] && dots[4]-line[l[4]]==str && dots[5]-dots[4]==str){\r\n                cout<<"H "<<str;\r\n                return 0;\r\n            }\r\n        }\r\n    }\r\n    cout<<"INCORRECT";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

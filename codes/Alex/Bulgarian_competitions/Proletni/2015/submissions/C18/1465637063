@@ -1,0 +1,13 @@
+(I1
+I18
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include<iostream>\r\n#include<cstring>\r\n#include<cmath>\r\n#include<algorithm>\r\n#include<cstdlib>\r\n#include<queue>\r\n#include<stack>\r\n#include<set>\r\n#include<map>\r\nusing namespace std;\r\nlong long masiv[256][201201],sborove[201000],n,m,k=0,sbor[201201],otg=0,prodylji=1;\r\nlong long mem[201][201];\r\nlong long ranica(long long N,long long ot,long long kdt){\r\n    if(mem[kdt][ot]!=N){\r\n//cout<<kdt<<" "<<ot<<"\\n";\r\nmem[kdt][ot]=N;\r\n    if(kdt==sbor[N]/2 and prodylji==1){\r\n        otg=1;\r\n        prodylji=0;\r\n        return 0;\r\n    }\r\n    if(ot==sborove[N]-1){\r\n        return 0;\r\n    }\r\n            long long oT=ot;\r\n        if(prodylji==1){\r\n    ranica(N,ot+1,kdt);\r\n        }\r\n    for(oT;oT<sborove[N];oT++){\r\nif(kdt+masiv[N][oT]<=sbor[N]/2 and prodylji==1){\r\n    ranica(N,ot+1,kdt+masiv[N][oT]);\r\n}else{\r\nreturn 0;\r\n}\r\n    }\r\nreturn 0;\r\n    }\r\n}\r\nint main(){\r\nios::sync_with_stdio(false);\r\ncin>>n;\r\nfor(long long s=1;s<=n;s++){\r\n        cin>>sborove[s];\r\n        k=0;\r\n    for(long long i=0;i<sborove[s];i++){\r\n        cin>>masiv[s][i];\r\n        sbor[s]=sbor[s]+masiv[s][i];\r\n        /*\r\n        sborove[masiv[k]]++;\r\n        long long g=k;\r\n        for(long long r=g-1;r>=0;r=r-1){\r\n            if(sborove[masiv[g]+masiv[r]]==0){\r\n                    k++;\r\n                masiv[k]=masiv[g]+masiv[r];\r\n            }\r\n            sborove[masiv[g]+masiv[r]]++;\r\n        }\r\n        k++;\r\n    }\r\n    if(sborove[sbor/2]>=2 and sbor%2==0){\r\n        otg[s]=1;\r\n    }else{\r\n    otg[s]=0;\r\n    }\r\n    /*for(long long i=0;i<k;i++){\r\n        cout<<masiv[i]<<" ";\r\n    }*/\r\n}\r\nsort(masiv[s]+0,masiv[s]+sborove[s]);\r\n}\r\nfor(long long i=1;i<=n;i++){\r\n        //cout<<otg[i]<<"\\n";\r\n        otg=0;\r\n        prodylji=1;\r\n        if(sbor[i]%2==0){\r\n    ranica(i,0,0);\r\n        }\r\ncout<<otg<<"\\n";\r\n    }\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

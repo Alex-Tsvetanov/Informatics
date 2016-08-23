@@ -1,0 +1,13 @@
+(I7
+I235
+I19
+(dp0
+Vhare.%l
+p1
+(Vhere2.cpp
+p2
+S'#include <iostream>\n#include <set>\n\n//#define MAX 1000000001\n//#define MAX 50000001\n#define MAX 100000001\n\nlong long abs(long long n)\n{\n\treturn (n < 0 ? -n : n);\n}\n\nstd::set<long long> cycle;\n\nint main()\n{\n\tlong long a, b, c;\n\tstd::cin >> a >> b >> c;\n\tlong long best = (1ll << 60), res, step = 0, first;\n\tbool found = false;\n\tc = abs(c);\n\n\tfor(long long m = 0;;++ m)\n\t{\n\t\tif(m * b > MAX)\n\t\t\tbreak;\n\t\tlong long left = c - m*b;\n\t\tres = abs(left % a);\n\t\tif(cycle.find(res) != cycle.end() and res != 0)\n\t\t{\n\t\t\tif(!found)\n\t\t\t{\n\t\t\t\tstd::cout << "Impossible" << std::endl;\n\t\t\t\treturn 0;\n\t\t\t}\n\t\t}\n\t\tif(res == 0 and !found)\n\t\t{\n\t\t\tfirst = m;\n\t\t\tfound = true;\n\t\t}\n\t\telse if(res == 0 and found)\n\t\t{\n\t\t\tstep = m - first;\n\t\t\tbreak;\n\t\t}\n\t\tcycle.insert(res);\n\t}\n\tfor(long long m = first;m < MAX / b;m += step)\n\t{\n\t\tlong long left = c - m*b;\n\t\tif(m + abs(left / a) < best)\n\t\t{\n\t\t\t//std::cout << m << \' \' << left << \' \' << left / a << std::endl;\n\t\t\tbest = m + abs(left / a);\n\t\t}\n\t\t//else\n\t\t\t//break;\n\t}\n\n\tif(best == (1ll << 60))\n\t\tstd::cout << "Impossible" << std::endl;\n\telse\n\t\tstd::cout << best << std::endl;\n\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

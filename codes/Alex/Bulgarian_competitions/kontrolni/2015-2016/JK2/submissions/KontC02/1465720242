@@ -1,0 +1,13 @@
+(I7
+I238
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nint a, b, c;\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>a>>b>>c;\n\tcout<<"Impossible"<<endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

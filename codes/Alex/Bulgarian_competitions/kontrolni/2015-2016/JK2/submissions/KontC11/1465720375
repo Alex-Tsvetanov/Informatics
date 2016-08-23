@@ -1,0 +1,13 @@
+(I7
+I229
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<bits/stdc++.h>\r\nusing namespace std;\r\nint main()\r\n{\r\n    int a,b,c;\r\n    cin>>a>>b>>c;\r\n    int nod1=__gcd(a,b);\r\n    int nod2=__gcd(b,c);\r\n    if(nod1!=nod2)\r\n    {\r\n        cout<<"Impossible"<<endl;\r\n        return 0;\r\n    }\r\n    if(c<0)c=-c;\r\n    a=a/nod1;\r\n    b=b/nod1;\r\n    c=c/nod1;\r\n    if(a+b==c)\r\n    {\r\n        cout<<2<<endl;\r\n        return 0;\r\n    }\r\n    if(b-a==c)\r\n    {\r\n        cout<<2<<endl;\r\n        return 0;\r\n    }\r\n    if(c%b==0)\r\n    {\r\n        cout<<c/b<<endl;\r\n        return 0;\r\n\r\n    }\r\n    if(c%a==0)\r\n    {\r\n        cout<<c/a<<endl;\r\n        return 0;\r\n    }\r\n\r\n\r\n\r\n\r\n}\r\n\r\n'
+p3
+tp4
+stp5
+.

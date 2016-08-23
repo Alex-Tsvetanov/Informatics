@@ -1,18 +1,20 @@
 #include <iostream>
-#include "big_integer.hpp"
+#include <uinfint.hpp>
+//#include <infint.hpp>
 
 using namespace std;
 
 int main ()
 {
-	big_int a (10);
-	big_int b (5);
-	{
-		a += b;
-		a += -7;
-		b += +7;
-	}
-	cout << a << " " << b << " " << big_int(0)-b << "\n";
-	a += big_int(0)-b;
-	cout << a << " " << b << "\n";
+	cin.tie (nullptr);
+	ios::sync_with_stdio (false);
+	uinfint a (10);
+	uinfint b (5);
+	cin >> a >> b;
+////cout << a + b << "\n";
+////cout << a - b << "\n";
+	cout << a * b << "\n";
+////cout << a / b << "\n";
+////cout << a % b << "\n";
+////infint c, d;
 }

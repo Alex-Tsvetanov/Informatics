@@ -1,0 +1,13 @@
+(I7
+I237
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint evklid(int a,int b){\r\n    int p,r=0;\r\n    if(a<b) swap(a,b);\r\n    while(b!=0){\r\n        cout<<a<<" "<<b<<endl;\r\n        r=a%b;\r\n        a=b;\r\n        b=r;\r\n    }\r\n    return a;\r\n}\r\nint abs(int a){\r\n    return a>0?a:-a;\r\n}\r\nint main(){\r\n    int a,b,c;\r\n    cin>>a>>b>>c;\r\n    int nok=evklid(a,b);\r\n    cout<<nok;\r\n    if(abs(c)%nok!=0){\r\n        cout<<"Impossible";\r\n        return 0;\r\n    }\r\n}\r\n'
+p3
+tp4
+stp5
+.

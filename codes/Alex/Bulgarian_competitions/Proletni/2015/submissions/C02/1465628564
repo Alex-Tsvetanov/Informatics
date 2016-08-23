@@ -1,0 +1,13 @@
+(I1
+I2
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\r\n#include <cstdio>\r\nusing namespace std;\r\n\r\nbool fl[100005];\r\nint v[100005],a[205];\r\n\r\nint main()\r\n{\r\n\r\nint i,t,n,ti,j,s,uk,sum;\r\n\r\ncin>>t;\r\n\r\n //for(ti=1;ti<=t;ti++)\r\n //{\r\n  cin>>n;\r\n  s=0;\r\n\r\n   for(i=1;i<=n;i++)\r\n   {\r\n    cin>>a[i];\r\n    s=s+a[i];\r\n   }\r\n\r\n   if(s%2==1)\r\n   {\r\n    cout<<0<<endl;\r\n    //continue;\r\n   }\r\n\r\n   for(i=1;i<=s/2;i++)\r\n    fl[i]=false;\r\n\r\n  uk=1;\r\n  v[1]=0;\r\n\r\n   /*for(i=1;i<=n;i++)\r\n    for(j=1;j<=uk;j++)\r\n    {\r\n     sum=v[j]+a[i];\r\n\r\n      if(!fl[sum])\r\n      {\r\n       uk++;\r\n       v[uk]=sum;\r\n       fl[sum]=true;\r\n      }\r\n    }*/\r\n\r\n  if(fl[s/2])\r\n   cout<<1<<endl;\r\n  else\r\n   cout<<0<<endl;\r\n //}\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

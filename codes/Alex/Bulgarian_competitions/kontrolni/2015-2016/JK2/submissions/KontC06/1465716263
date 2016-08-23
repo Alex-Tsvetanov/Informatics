@@ -1,0 +1,13 @@
+(I7
+I234
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nlong long ol(long long ax,long long ay,long long bx,long long by,long long cx,long long cy){\r\nreturn(bx-ax)*(cy-ay)-(by-ay)*(cx-ax);\r\n}\r\nlong long a,b,c,n,d[1001],realno[1001],nms=999999999,st[1001],cel,k=0,koi[1001],kak[1001][1001],dosega[1001],otg[1001],j,red[1001];\r\nint main(){\r\nios::sync_with_stdio(false);\r\ncin>>a>>b>>c>>n;\r\ncel=c-a+1;\r\nfor(long long i=0;i<n;i++){\r\ncin>>d[i];\r\nrealno[i]=d[i];\r\n}\r\nif(a+b<=c){\r\n    cout<<a+b;\r\n    cout<<"\\n";\r\n    cout<<-1;\r\n}else{\r\nif(a>c){\r\n    cout<<a;\r\n    cout<<"\\n";\r\n    cout<<0;\r\n}else{\r\nsort(d+0,d+n);\r\nfor(long long i=0;i<n;i++){\r\nst[k]=d[i];\r\nred[k]=i;\r\ndosega[k]=1;\r\nkak[k][0]=k;\r\nlong long g=k;\r\nfor(long long r=g-1;r>=0;r=r-1){\r\n      //  cout<<st[g]+st[r]<<"\\n";\r\n    if(st[g]+st[r]>=cel){\r\n        if(nms>st[g]+st[r]){\r\n        for(long long t=0;t<dosega[r];t++){\r\n            otg[t]=kak[r][t];\r\n        }\r\n        otg[dosega[r]]=g;\r\n        j=dosega[r]+1;\r\n        nms=st[g]+st[r];\r\n        }\r\n    }else{\r\n        if(koi[st[g]+st[r]]==0){\r\n        k++;\r\n        st[k]=st[g]+st[r];\r\n        koi[st[g]+st[r]]=1;\r\nfor(long long t=0;t<dosega[r];t++){\r\n    kak[k][t]=kak[r][t];\r\n}\r\nkak[k][dosega[r]]=g;\r\ndosega[k]=dosega[r]+1;\r\n/*cout<<"ZA "<<st[k]<<" : ";\r\nfor(long long t=0;t<dosega[k];t++){\r\ncout<<st[kak[k][t]]<<" ";\r\n}\r\ncout<<"\\n";*/\r\n        }\r\n    }\r\n}\r\nk++;\r\n}\r\n//cout<<nms;\r\nif(nms<=b){\r\n    cout<<nms+a<<"\\n"<<j<<"\\n";\r\n    long long bla=0;\r\n    for(long long t=0;t<n and bla<j;t++){\r\n            if(st[otg[bla]]==realno[t]){\r\n        cout<<t+1<<" ";\r\nbla++;\r\n            }\r\n    }\r\n}else{\r\ncout<<a+b<<"\\n";\r\ncout<<-1;\r\n}\r\n}\r\n}\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

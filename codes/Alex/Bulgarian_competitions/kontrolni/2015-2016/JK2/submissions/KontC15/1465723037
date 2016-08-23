@@ -1,0 +1,13 @@
+(I7
+I225
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nint main()\r\n{\r\n    long long int a,b,c,sum=0,i=0,k=0;\r\n    cin>>a>>b>>c;\r\n    if(c<0)c*=-1;\r\n    if(c%a==0)\r\n    {\r\n        k=c/a;\r\n    }\r\n    if(c%b==0)\r\n    {\r\n        if(k==0)k=1<<30;\r\n        k=min(k,c/b);\r\n    }\r\n    if(c%(b-a)==0)\r\n    {\r\n        if(k==0)k=1<<30;\r\n        k=min(k,c/(b-a)*2);\r\n    }\r\n    while(sum!=c)\r\n    {\r\n        if(c==sum+b-a&&a!=c-sum)\r\n        {\r\n            sum+=b-a;\r\n            i+=2;\r\n            //cout<<"line 29"<<endl;\r\n        }\r\n        else if(c>=sum+b)\r\n        {\r\n            sum+=b;\r\n            i++;\r\n            //cout<<"line 35"<<endl;\r\n        }\r\n        else if(c==sum+a-b&&b!=c-sum)\r\n        {\r\n            sum+=a-b;\r\n            i+=2;\r\n            //cout<<"line 41"<<endl;\r\n        }\r\n        else  if(c<=sum-b)\r\n        {\r\n            sum-=b;\r\n            i++;\r\n            //cout<<"line 47"<<endl;\r\n        }\r\n        else if(c<=sum-a)\r\n        {\r\n            sum-=a;\r\n            i++;\r\n            //cout<<"line 53"<<endl;\r\n        }\r\n        else if(c>=sum+a)\r\n        {\r\n            sum+=a;\r\n            i++;\r\n        }\r\n        else\r\n        {\r\n            if(c>sum&&sum-a!=c)\r\n            {\r\n                sum+=b;\r\n                i++;\r\n                //cout<<"line 61"<<endl;\r\n            }\r\n            else if(c>sum&&sum-a==c)\r\n            {\r\n                sum+=a;\r\n                i++;\r\n            }\r\n            if(c<sum&&sum!=b)\r\n            {\r\n                sum-=b;\r\n                i++;\r\n                //cout<<"line 67"<<endl;\r\n            }\r\n            else if(c<sum&&sum==b)\r\n            {\r\n                sum-=a;\r\n                i++;\r\n                //cout<<"line 73"<<endl;\r\n            }\r\n        }\r\n        if(k!=0&&k<i)break;\r\n        if(i*min(b-a,a)>c)break;\r\n    }\r\n    if(k!=0)\r\n    {\r\n        cout<<min(k,i)<<endl;\r\n        return 0;\r\n    }\r\n    if(sum==c)\r\n    {\r\n        cout<<i<<endl;\r\n        return 0;\r\n    }\r\n    cout<<"Impossible"<<endl;\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

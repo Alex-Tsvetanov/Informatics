@@ -1,0 +1,13 @@
+(I1
+I11
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nint numbers[201], n, sum1, cnt;\r\nbool br[200001];\r\nvoid podqlba (int numbers[])\r\n{\r\n    sort (numbers, numbers+n);\r\n    br[0]=1;\r\n    int sum=0;\r\n    for (int i=0; i<n; i++)\r\n    {\r\n        for (int j=sum; j>0; j--)\r\n        {\r\n            if (br[j]) br[j+numbers[i]]=1;\r\n        }\r\n        if (br[sum1/2])\r\n        {\r\n            cout <<"1\\n";\r\n            break;\r\n        }\r\n        br[numbers[i]]=1;\r\n        sum+=numbers[i];\r\n    }\r\n    if (!br[sum1/2])\r\n    {\r\n        cout <<"0\\n";\r\n    }\r\n}\r\nint main ()\r\n{\r\n    cin >>cnt;\r\n    for (int j=0; j<cnt; j++)\r\n    {\r\n        cin >>n;\r\n        sum1=0;\r\n        for (int i=0; i<n; i++)\r\n        {\r\n            cin >>numbers[i];\r\n            sum1+=numbers[i];\r\n        }\r\n        if (sum1&1)\r\n        {\r\n            cout <<"0\\n";\r\n            continue;\r\n        }\r\n        podqlba (numbers);\r\n    }\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I1
+I6
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S'#include<iostream>\r\n#include<cstdio>\r\nusing namespace std;\r\n\r\nint m,n;\r\nchar l[256][256];\r\n\r\nvoid init()\r\n{   //ios::sync_with_stdio(false);\r\n    scanf("%d%d",&m,&n);getchar();//cin>>m>>n;\r\n    for(int i=0;i<m;i++)\r\n    {   for(int j=0;j<n;j++)\r\n            {l[i][j]=getchar();}\r\n        getchar();\r\n    }\r\n}\r\n\r\nint max_left(const int &i,int j)\r\n{   int res=0;\r\n    while(l[i][++j]==\'*\')res++;\r\n    return res;\r\n}\r\n\r\nint max_down(int i,const int &j)\r\n{   int res=0;\r\n    while(l[++i][j]==\'*\')res++;\r\n    return res;\r\n}\r\n\r\nbool check_line (int x,int y1,int y2)\r\n{   y1++;\r\n    for(int i=y1;i<=y2;i++)\r\n        if(l[x][i]==\'.\')return false;\r\n    return true;\r\n}\r\n\r\nbool check_collon (int x1,int x2,int y)\r\n{   x1++;\r\n    for(int i=x1;i<=x2;i++)\r\n        if(l[i][y]==\'.\')return false;\r\n    return true;\r\n}\r\n\r\nint main()\r\n{   init();\r\n    unsigned long long br=0;\r\n    for(int i=0;i<m-2;i++)\r\n        for(int j=0;j<n-2;j++)\r\n            if(l[i][j]==\'*\')\r\n            {   int d2=max_left(i,j),d1=max_down(i,j);\r\n                if(d1>=2&&d2>=2)\r\n                {   for(int x=i+2;x<=d1+i;x++)\r\n                        for(int y=j+2;y<=d2+j;y++)\r\n                        {   int pos1x=x,pos1y=j;\r\n                            int pos2x=i,pos2y=y;\r\n                            //cout<<pos1x<<" "<<pos1y<<" "<<pos2x<<" "<<pos2y<<endl;\r\n                            if(check_line(pos1x,pos1y,pos2y)&&check_collon(pos2x,pos1x,pos2y)){br++;}\r\n                        }\r\n                }\r\n            }\r\n    printf("%llu\\n",br);//cout<<br<<endl;\r\n\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

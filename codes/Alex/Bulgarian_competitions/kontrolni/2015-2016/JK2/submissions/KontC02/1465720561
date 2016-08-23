@@ -1,0 +1,13 @@
+(I7
+I238
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nint a, b, c, nod;\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>a>>b>>c;\n\t\n\tnod = __gcd(a, b);\n\t\n\tif(c % nod != 0) cout<<"Impossible"<<endl;\n\telse cout<<8 / 0<<endl;\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

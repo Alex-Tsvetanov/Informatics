@@ -1,0 +1,13 @@
+(I7
+I243
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\r\n#include <cmath>\r\n#define N 1000000\r\nusing namespace std;\r\n\r\nint a,b,c;\r\n\r\nint nod (int a,int b)\r\n{   int c;\r\n    do\r\n    {   c=a%b;\r\n        a=b;b=c;\r\n    }while(c>0);\r\n    return a;\r\n}\r\n\r\n\r\nint main()\r\n{   cin>>a>>b>>c;\r\n    c=abs(c);\r\n    if(c%nod(a,b)){cout<<"Impossible"<<endl;return 0;}\r\n    int minsum=2<<29;\r\n    for(int x=-N;x<N;x++)\r\n    {   if(a>b)\r\n        {   if(double(a*x-c)/double(b)==(a*x-c)/b)\r\n                if(minsum>(a*x-c)/b)minsum=(abs((a*x-c)/b)+abs(x));\r\n        }\r\n        else if(double(b*x-c)/double(a)==(b*x-c)/a)\r\n            if(minsum>(b*x-c)/a)minsum=(abs((b*x-c))/a+abs(x));\r\n    }\r\n    cout<<minsum<<endl;\r\n\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

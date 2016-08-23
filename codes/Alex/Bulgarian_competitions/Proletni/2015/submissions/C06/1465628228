@@ -1,0 +1,13 @@
+(I1
+I6
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include<iostream>\r\n#include<string>\r\n#include<cmath>\r\nusing namespace std;\r\n\r\nint n;\r\nint v[8];\r\n\r\nint stoi (const string &s)\r\n{   int res=0;\r\n    for(int i=0;i<s.size();i++)\r\n        {res=res*10+(s[i]-\'0\');}\r\n    return res;\r\n}\r\n\r\nvoid init()\r\n{   string s;\r\n    while(cin>>s)\r\n    {   v[n]=stoi(s);\r\n        //cout<<v[n]<<endl;\r\n        n++;\r\n    }\r\n}\r\n\r\nint main()\r\n{   init();\r\n    if(n==3)cout<<"T ";\r\n    else if(n==4)cout<<"R ";\r\n    else if(n==6)cout<<"H ";\r\n    else cout<<"INCORRECT"<<endl;\r\n    int razmin=1<<30;\r\n    for(int i=0;i<n;i++)\r\n        for(int j=i+1;j<n;j++)\r\n            if(razmin>abs(v[i]-v[j]))razmin=abs(v[i]-v[j]);\r\n    cout<<razmin<<endl;\r\n\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

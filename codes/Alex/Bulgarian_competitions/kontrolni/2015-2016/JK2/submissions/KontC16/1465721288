@@ -1,0 +1,13 @@
+(I7
+I224
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\nusing namespace std;\r\nlong long c,minn=1000003,n,p[1002],ot[1002],l;\r\nbool used[10002];\r\nvoid rek(int i,long long sum)\r\n{\r\n    long long j;\r\n    used[i]=1;\r\n    sum+=p[i];\r\n    if(sum>c)\r\n    {\r\n        if(sum<minn)\r\n        {\r\n            minn=sum;\r\n            l=0;\r\n            for(j=0;j<n;j++)\r\n            {\r\n                if(used[j]){ot[l]=j+1;l++;}\r\n            }\r\n        }\r\n        return ;\r\n    }\r\n    for(j=0;j<n;j++)\r\n    {\r\n        if(!used[j])\r\n        {\r\n            rek(j,sum);\r\n            used[j]=0;\r\n        }\r\n    }\r\n}\r\nint main()\n{\n    long long a,b,i,x;\r\n    cin>>a>>b>>c;\r\n    cin>>n;\r\n    for(i=0;i<n;i++)\r\n    {\r\n        cin>>p[i];\r\n    }\r\n    if(a>c){cout<<a<<endl<<0<<endl;return 0;}\r\n    if(a+b<c){cout<<a+b<<endl<<"-1"<<endl;return 0;}\r\n    rek(0,a);\r\n    if(minn>a+b){cout<<a+b<<endl<<"-1"<<endl;return 0;}\r\n    cout<<minn<<endl<<l<<endl<<ot[0];\r\n    for(i=1;i<l;i++)\r\n    {\r\n        cout<<" "<<ot[i];\r\n    }\r\n    cout<<endl;\n    return 0;\n}\r\n/*\r\n100 1 50\r\n5\r\n2 7 5 3 7\r\n*/\r\n'
+p3
+tp4
+stp5
+.

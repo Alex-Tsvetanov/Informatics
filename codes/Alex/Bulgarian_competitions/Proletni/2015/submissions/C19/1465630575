@@ -1,0 +1,13 @@
+(I1
+I19
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S'#include<iostream>\r\n#include<vector>\r\nusing namespace std;\r\n\r\nchar pole[256][256];\r\n\r\nstruct edge{\r\n    int x,y;\r\n};\r\nedge start;\r\nvector<edge> susedi[1024];\r\nint deltaX[8]={1,0,-1,0};\r\nint deltaY[8]={0,1,0,-1};\r\nint daleche[8]={2,4,2};\r\nint redove,koloni,otg;\r\n\r\nvoid bfs(edge vruh,int posoka,int broi){\r\n    //cout<<"POSOKA: "<<posoka<<" "<<broi<<": "<<vruh.x<<" "<<vruh.y<<" ";\r\n    if(vruh.x>=0 and vruh.x<redove and vruh.y>=0 and vruh.y<koloni){\r\n        //cout<<pole[vruh.x][vruh.y]<<" ";\r\n        if(pole[vruh.x][vruh.y]!=\'*\'){\r\n            //cout<<" NE e *\\n";\r\n            return;\r\n        }\r\n        if(posoka==3 and vruh.x==start.x and vruh.y==start.y){\r\n            //cout<<" BROI: "<<broi<<"\\n";\r\n            if(broi>=8)\r\n                otg++;\r\n            return;\r\n        }\r\n        if(posoka!=3){\r\n            //cout<<"POSOKA: "<<posoka<<" ne e tri ";\r\n            edge next=vruh;\r\n            next.x+=deltaX[posoka+1];\r\n            next.y+=deltaY[posoka+1];\r\n            if(vruh.x-start.x+vruh.y-start.y>=daleche[posoka]){\r\n                //cout<<"novo\\n";\r\n                bfs(next,posoka+1,broi+1);\r\n            }\r\n        }\r\n        //cout<<"POSOKA: "<<posoka<<" staro\\n";\r\n        vruh.x+=deltaX[posoka];\r\n        vruh.y+=deltaY[posoka];\r\n        bfs(vruh,posoka,broi+1);\r\n    }\r\n    //cout<<"NEVALIDNO\\n";\r\n    return;\r\n}\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    int x,y,d;\r\n    cin>>redove>>koloni;\r\n    for(x=0;x<redove;x++)\r\n        cin>>pole[x];\r\n    for(x=0;x<redove-2;x++){\r\n        for(y=0;y<koloni-2;y++){\r\n            if(pole[x][y]==\'*\' and pole[x+1][y]==\'*\' and pole[x][y+1]==\'*\')\r\n                susedi[0].push_back({x,y});\r\n        }\r\n    }\r\n    d=susedi[0].size();\r\n    for(int i=0;i<d;i++){\r\n        start=susedi[0][i];\r\n        edge cpy=start;\r\n        cpy.x++;\r\n        //cout<<"\\n\\n##############\\n";\r\n        bfs(cpy,0,1);\r\n    }\r\n    cout<<otg<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

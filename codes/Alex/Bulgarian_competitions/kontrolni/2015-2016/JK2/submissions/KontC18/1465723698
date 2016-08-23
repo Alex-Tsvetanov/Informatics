@@ -1,0 +1,13 @@
+(I7
+I222
+I19
+(dp0
+Vhare.%l
+p1
+(Veconomy.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nlong long nodd(long long a,long long b)\r\n{\r\n    long long x;\r\n    do\r\n    {\r\n        x=a%b;\r\n        a=b;\r\n        b=x;\r\n\r\n    }\r\n    while(x>0);\r\n    return a;\r\n}\r\nint main()\r\n{\r\n long long a,b,c,i,j,mina=1<<30,x,y,nod;\r\n cin>>a>>b>>c;\r\n nod=nodd(a,b);\r\n if(c%nod!=0)\r\n {\r\n     cout<<"Impossible"<<endl;\r\n     return 0;\r\n }\r\n nod=nodd(nod,c);\r\n a=a/nod;\r\n b=b/nod;\r\n c=c/nod;\r\n for(i=-7000000;i<=7000000;i++)\r\n {\r\n     x=c-(i*b);\r\n     if(x<0)\r\n     x=-x;\r\n     if(x%a==0)\r\n     {\r\n       if(i<0)\r\n        y=-i;\r\n       else\r\n        y=i;\r\n       if(y+x/a<mina)\r\n        mina=y+x/a;\r\n     }\r\n }\r\n\r\n  cout<<mina<<endl;\r\n return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

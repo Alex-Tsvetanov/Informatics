@@ -1,0 +1,13 @@
+(I1
+I4
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S"#include <iostream>\r\nusing namespace std;\r\n\r\nconst int MAXM=256;\r\nconst int MAXN=256;\r\n\r\nint a[MAXM][MAXN];\r\nint u[MAXM][MAXN], d[MAXM][MAXN], l[MAXM][MAXN], r[MAXM][MAXN];\r\nint m, n, cnt=0;\r\n\r\nbool flag=true;\r\n\r\nvoid Init()\r\n{\r\n    char ch;\r\n    cin>>m>>n;\r\n    for (int i=1; i<=m; i++)\r\n    {\r\n        for (int j=1; j<=n; j++)\r\n        {\r\n            cin>>ch;\r\n            if (ch=='*') a[i][j]=1;\r\n            else\r\n            {\r\n                a[i][j]=0;\r\n                flag=false;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nvoid Calc()\r\n{\r\n    int last;\r\n    for (int i=1; i<=m; i++)\r\n    {\r\n        last=1;\r\n        for (int j=1; j<=n; j++)\r\n        {\r\n            if (a[i][j]==1)\r\n            {\r\n                l[i][j]=j-last;\r\n            }\r\n            else\r\n            {\r\n                last=j+1;\r\n            }\r\n        }\r\n        last=n;\r\n        for (int j=n; j>=1; j--)\r\n        {\r\n            if (a[i][j]==1)\r\n            {\r\n                r[i][j]=last-j;\r\n            }\r\n            else\r\n            {\r\n                last=j-1;\r\n            }\r\n        }\r\n    }\r\n    for (int j=1; j<=n; j++)\r\n    {\r\n        last=1;\r\n        for (int i=1; i<=m; i++)\r\n        {\r\n            if (a[i][j]==1)\r\n            {\r\n                u[i][j]=i-last;\r\n            }\r\n            else\r\n            {\r\n                last=i+1;\r\n            }\r\n        }\r\n        last=m;\r\n        for (int i=m; i>=1; i--)\r\n        {\r\n            if (a[i][j]==1)\r\n            {\r\n                d[i][j]=last-i;\r\n            }\r\n            else\r\n            {\r\n                last=i-1;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint Form()\r\n{\r\n    int s1=0, s2=0;\r\n    for (int i=1; i<m-1; i++)\r\n    {\r\n        s1+=i;\r\n    }\r\n    for (int j=1; j<n-1; j++)\r\n    {\r\n        s2+=j;\r\n    }\r\n    return s1*s2;\r\n}\r\n\r\nint main()\r\n{\r\n    Init();\r\n\r\n    if (flag)\r\n    {\r\n        cout<<Form()<<endl;\r\n        return 0;\r\n    }\r\n    else Calc();\r\n\r\n    for (int i=1; i<=m; i++)\r\n    {\r\n        for (int j=1; j<=n; j++)\r\n        {\r\n            for (int x=i+2; x<=i+d[i][j]; x++)\r\n            {\r\n                for (int y=j+2; y<=j+r[i][j]; y++)\r\n                {\r\n                    if (x-u[x][y]<=i and y-l[x][y]<=j) cnt++;\r\n                }\r\n            }\r\n        }\r\n    }\r\n    cout<<cnt<<endl;\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

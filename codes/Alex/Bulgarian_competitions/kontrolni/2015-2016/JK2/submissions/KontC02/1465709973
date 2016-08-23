@@ -1,0 +1,13 @@
+(I7
+I238
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy.cpp
+p2
+S"#include <bits/stdc++.h>\n#define endl '\\n'\nusing namespace std;\n\nconst int maxN = 1005, maxC = 1005;\n\nint a, b, c, n, d[maxN], dp[maxC];\n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>a>>b>>c>>n;\n\tfor(int i = 0; i < n; i++)\n\t{\n\t\tcin>>d[i];\n\t}\n\t\n\tif(a > c) \n\t{\n\t\tcout<<a<<endl;\n\t\treturn 0;\n\t}\n}\n"
+p3
+tp4
+stp5
+.

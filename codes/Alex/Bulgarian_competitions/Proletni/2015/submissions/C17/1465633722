@@ -1,0 +1,13 @@
+(I1
+I17
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S"#include <iostream>\n\nbool input[251][251];\nbool matrow[251][251][251];\nbool matcol[251][251][251];\n\nint main()\n{\n\tint n, m;\n\tstd::cin >> n >> m;\n\tfor(int i = 0;i < n;++ i)\n\t{\n\t\tfor(int j = 0;j < m;++ j)\n\t\t{\n\t\t\tchar c;\n\t\t\tstd::cin >> c;\n\t\t\tinput[i][j] = (c == '*');\n\t\t}\n\t}\n\n\tfor(int i = 0;i < n;++ i)\n\t{\n\t\tfor(int j = 0;j < m;++ j)\n\t\t{\n\t\t\tif(input[i][j])\n\t\t\t{\n\t\t\t\tfor(int curr = j+1;curr < m;++ curr)\n\t\t\t\t{\n\t\t\t\t\tif(!input[i][curr])\n\t\t\t\t\t\tbreak;\n\t\t\t\t\tmatrow[i][j][curr] = true;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tfor(int i = 0;i < m;++ i)\n\t{\n\t\tfor(int j = 0;j < n;++ j)\n\t\t{\n\t\t\tif(input[j][i])\n\t\t\t{\n\t\t\t\tfor(int curr = j+1;curr < n;++ curr)\n\t\t\t\t{\n\t\t\t\t\tif(!input[curr][i])\n\t\t\t\t\t\tbreak;\n\t\t\t\t\tmatcol[i][j][curr] = true;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\n\t//int a, b, c;\n\t//std::cin >> a >> b >> c;\n\t//std::cout << matcol[a][b][c] << std::endl;\n\n\tlong long count = 0;\n\tfor(int fi = 0;fi < n;++ fi)\n\t{\n\t\tfor(int fj = 0;fj < m;++ fj)\n\t\t{\n\t\t\tfor(int si = fi+2;si < n;++ si)\n\t\t\t{\n\t\t\t\tfor(int sj = fj + 2;sj < m;++ sj)\n\t\t\t\t{\n\t\t\t\t\tif(matrow[fi][fj][sj] and matrow[si][fj][sj])\n\t\t\t\t\t{\n\t\t\t\t\t\tif(matcol[fj][fi][si] and matcol[sj][fi][si])\n\t\t\t\t\t\t\tcount ++;\n\t\t\t\t\t}\n\t\t\t\t\telse\n\t\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tstd::cout << count << std::endl;\n\treturn 0;\n}\n"
+p3
+tp4
+stp5
+.

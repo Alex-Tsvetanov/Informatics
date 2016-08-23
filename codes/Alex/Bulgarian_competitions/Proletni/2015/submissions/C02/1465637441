@@ -1,0 +1,13 @@
+(I1
+I2
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S'#include <iostream>\r\n#include <cstdio>\r\nusing namespace std;\r\n\r\nchar a[255][255];\r\n\r\nbool Valid(int i,int j,int x,int y)\r\n{\r\n int k;\r\n\r\n for(k=i;k<=i+x-1;k++)\r\n  if(a[k][j]==\'.\')\r\n   return false;\r\n\r\n for(k=i;k<=i+x-1;k++)\r\n  if(a[k][j+y-1]==\'.\')\r\n   return false;\r\n\r\n for(k=j;k<=j+y-1;k++)\r\n  if(a[i][k]==\'.\')\r\n   return false;\r\n\r\n for(k=j;k<=j+y-1;k++)\r\n  if(a[i+x-1][k]==\'.\')\r\n   return false;\r\n\r\n return true;\r\n}\r\n\r\nint main()\r\n{\r\n\r\nint n,m,cnt=0,i,j,x,y;\r\nchar ch;\r\n\r\ncin>>n>>m;\r\n\r\n for(i=1;i<=n;i++)\r\n  for(j=1;j<=m;j++)\r\n   cin>>a[i][j];\r\n\r\n for(i=1;i<=n;i++)\r\n  for(j=1;j<=m;j++)\r\n   for(x=3;x<=n-i+1;x++)\r\n    for(y=3;y<=m-j+1;y++)\r\n     if(Valid(i,j,x,y))\r\n     {\r\n      //cout<<i<<" "<<j<<" "<<x<<" "<<y<<endl;\r\n      cnt++;\r\n     }\r\n\r\ncout<<cnt<<endl;\r\n\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

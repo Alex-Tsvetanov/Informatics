@@ -11,114 +11,94 @@ struct data
 {
 	string city;
 	string school;
-	int grade;
-	vector < int > points;
+	string grade;
 	int total;
 
-	data (string _city = "", string _school = "", int _grade = -1, vector < int > _points = vector <int>(), int _total = 0) : city (_city), school (_school), grade (_grade), points (_points), total (_total)
+	data (string _city = "", string _school = "", string _grade = "", int _total = 0) : city (_city), school (_school), grade (_grade), total (_total)
 	{}
+	static pair <string, data> Split (string parse = "", string by = "\t")
+	{
+		parse += by [0];
+		vector < string > things;
+		int s = 0;
+		for (int i = 0 ; i < (int)parse.size () ; i ++)
+		{
+			if (by.find (parse [i]) != string::npos)
+			{
+				things.push_back (parse.substr (s, i - s));
+				s = i + 1;
+			}
+		}
+		data Return;
+		string name;
+		name = things [0];
+		Return.city = things [1];
+		Return.school = things [2];
+		Return.grade = things [3];
+		Return.total = atoi (things [4].c_str ());
+//		cout << name << "\n";
+		return {name, Return};
+	}
 };
 
-map < string, data > currDB;
+map < string, data > curDB;
+map < string, data > addDB;
+map < string, data > merge;
+
+void read (string in, map < string, data >& db)
+{
+	ifstream fin (in.c_str ()); 
+	while (!fin.eof ())
+	{
+		string to_parse;
+		getline (fin, to_parse);
+//		cout << "to_parse: " << to_parse << "\n";
+		if (to_parse == "")
+			break;
+		db.insert (data::Split (to_parse, "\t"));
+	}
+}
+
+void Merge ()
+{
+	for (auto x : addDB)
+	{
+		if (curDB.find (x.first) != curDB.end ())
+		{
+			x.second.total += curDB [x.first].total;
+			merge.insert (x);
+		}
+		else
+			merge.insert (x);
+	}
+}
+void output ()
+{
+//	for (auto& x : curDB)
+//	{
+//		printf ("%s\t%s\t%s\t%s\t%d\n", x.first.c_str (), x.second.city.c_str (), x.second.school.c_str (), x.second.grade.c_str (), x.second.total);
+//	}
+//	cout << "-----------------------\n";
+//	for (auto& x : addDB)
+//	{
+//		printf ("%s\t%s\t%s\t%s\t%d\n", x.first.c_str (), x.second.city.c_str (), x.second.school.c_str (), x.second.grade.c_str (), x.second.total);
+//	}
+//	cout << "-----------------------\n";
+	for (auto& x : merge)
+	{
+		printf ("%s\t%s\t%s\t%s\t%d\n", x.first.c_str (), x.second.city.c_str (), x.second.school.c_str (), x.second.grade.c_str (), x.second.total);
+	}
+}
 
 int main ()
 {
 	char GROUP;
 	cin >> GROUP;
-	string ouput = "./db";
-	ouput += GROUP;
-	cout << ouput << endl;
-	ifstream readDB (ouput.c_str ());
-	ifstream readAddingDB ("./additionDB");
-	ofstream writeNewDB ("./newDB");
-	
-	int number_of_comps_res = 0;
-
-	{
-		if (!readDB.eof ())
-		{
-			int number_of_comps;
-			readDB >> number_of_comps;
-			cout << number_of_comps << endl;
-			number_of_comps_res += number_of_comps;
-			while (!readDB.eof ())
-			{
-				string name, city, school; 
-				int grade;
-				vector < int > points;
-				int total;
-
-				readDB >> name;
-				if (name == "End") break;
-				readDB >> city >> school >> grade;
-				for (int i = 0 ; i < number_of_comps ; i ++)
-				{
-					int curr;
-					readDB >> curr;
-					points.push_back (curr);
-				}
-
-				readDB >> total;
-
-				currDB [name] = data (city, school, grade, points, total);
-			}
-		}
-	}
-	{
-		if (!readAddingDB.eof ())
-		{
-			int number_of_comps;
-			readAddingDB >> number_of_comps;
-			cout << number_of_comps << endl;
-			number_of_comps_res += number_of_comps;
-			while (!readAddingDB.eof ())
-			{
-				string name, city, school; 
-				int grade;
-				vector < int > points;
-				int total;
-
-				readAddingDB >> name;
-				if (name == "End") break;
-				readAddingDB >> city >> school >> grade;
-				cout << name << " " << city << " " << school << " " << grade << "\n";
-				for (int i = 0 ; i < number_of_comps ; i ++)
-				{
-					int curr;
-					readAddingDB >> curr;
-					points.push_back (curr);
-				}
-
-				readAddingDB >> total;
-
-				cout << " " << total << "\n";
-
-				for (auto& x : currDB [name].points)
-					points.push_back (x);
-				currDB [name] = data (city, school, grade, points, total + currDB [name].total);
-				cout << "\tEnd" << endl;
-			}
-		}
-	}
-
-	writeNewDB << number_of_comps_res << endl;
-	map <string, data>::iterator it;
-	for (it = currDB.begin () ; it != prev (currDB.end ()) ; it ++)
-	{
-		auto& x = *it;
-		writeNewDB << x.first << "\t" << x.second.city << "\t" << x.second.school << "\t" << x.second.grade << "\t";
-		for (auto& X : x.second.points)
-			writeNewDB << X << "\t";
-		writeNewDB << x.second.total << endl;
-	}
-	{
-		auto& x = *it;
-		writeNewDB << x.first << "\t" << x.second.city << "\t" << x.second.school << "\t" << x.second.grade << "\t";
-		for (auto& X : x.second.points)
-			writeNewDB << X << "\t";
-		writeNewDB << x.second.total;
-	}
-
-	string command = "mv newDB " + ouput;
-	system (command.c_str ());
+	string read_from = string ("db") + GROUP;
+	string add_read = string ("addDB");
+	read (read_from, curDB);
+	read (add_read, addDB);
+	Merge ();
+	output ();
 }
+

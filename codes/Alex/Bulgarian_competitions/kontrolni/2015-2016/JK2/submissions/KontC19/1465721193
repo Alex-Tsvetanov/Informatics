@@ -1,0 +1,13 @@
+(I7
+I221
+I21
+(dp0
+Vproject.%l
+p1
+(Vzad3.cpp
+p2
+S'# include<iostream>\r\nusing namespace std;\r\n\r\nint main()\r\n\r\n{\r\n    cout<<80<<endl<<"0 30"<<endl<<"0 0"<<endl<<"20 40"<<endl<<"45 65"<<endl<<"20 20"<<endl;\r\n}\r\n'
+p3
+tp4
+stp5
+.

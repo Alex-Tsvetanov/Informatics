@@ -1,0 +1,13 @@
+(I1
+I9
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main()\r\n{\r\n    int n=0;\r\n    int m[10];\r\n    bool p=0;\r\n    while(cin>>m[n])\r\n   // for(int i=0; i<3; i++)\r\n    {\r\n       // cin>>m[i];\r\n        n++;\r\n        if(n>6)\r\n        {\r\n            p=1;\r\n            n=7;\r\n        }\r\n    }\r\n    if(p==1)\r\n    {\r\n        cout<<"INCORRECT"<<endl;\r\n        return 0;\r\n    }\r\n\r\n    if(n==3)\r\n    {\r\n        // int a;\r\n        int r1,r2,r3;\r\n        int a=m[0],b=m[1],c=m[2];\r\n        if(a<b)swap(a,b);\r\n        if(a<c)swap(a,c);\r\n        if(c>b)swap(c,b);\r\n        //cout<<a<<" "<<b<<" "<<c<<endl;;\r\n        int sum=0;\r\n        int prsum=0;\r\n        for(int o=1; sum<=a; o++)\r\n        {\r\n            prsum=sum;\r\n            sum+=o;\r\n            if(a>prsum&&a<=sum)r1=o;\r\n            if(b>prsum&&b<=sum)r2=o;\r\n            if(c>prsum&&c<=sum)r3=o;\r\n\r\n        }\r\n //cout<<r1<<" "<<r2<<" "<<r3<<endl;\r\n\r\nif(r1==r2)\r\n            {\r\n                if(max(a-b,b-a)==max(r3-r1,r1-r3))\r\n                {\r\n                    cout<<"T "<<max(a-b,b-a)<<endl;;\r\n                    return 0;\r\n                }\r\n                else\r\n                {\r\n                    cout<<"INCORRECT"<<endl;\r\n                    return 0;\r\n                }\r\n            }\r\n            if(r1==r3)\r\n            {\r\n                if(max(a-c,c-a)==max(r2-r1,r1-r2))\r\n                {\r\n                    cout<<"T "<<max(a-c,c-a)<<endl;;\r\n                    return 0;\r\n                }\r\n                else\r\n                {\r\n                    cout<<"INCORRECT"<<endl;\r\n                    return 0;\r\n                }\r\n            }\r\n             if(r2==r3)\r\n            {\r\n                if(max(b-c,c-b)==max(r2-r1,r1-r2))\r\n                {\r\n                    cout<<"T "<<max(b-c,c-b)<<endl;;\r\n                    return 0;\r\n                }\r\n                else\r\n                {\r\n                    cout<<"INCORRECT"<<endl;\r\n                    return 0;\r\n                }\r\n            }\r\n\r\n\r\n    }\r\n\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

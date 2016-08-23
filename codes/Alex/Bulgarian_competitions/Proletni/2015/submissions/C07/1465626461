@@ -1,0 +1,13 @@
+(I1
+I7
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S"#include <bits/stdc++.h>\n#define endl '\\n'\nusing namespace std;\n\nconst int maxN = 205, maxSum = maxN * 1000;\n\nbool is_ready;\nint cnt_tests, n, a[maxN], sum, dp[maxSum]; \n\nint main()\n{\n\tios_base::sync_with_stdio(false);\n\tcin.tie(NULL);\n\t\n\tcin>>cnt_tests;\n\tfor(int cs = 1; cs <= cnt_tests; cs++)\n\t{\n\t\tcin>>n;\n\t\tsum = 0;\n\t\tfor(int i = 0; i < n; i++)\n\t\t{\n\t\t\tcin>>a[i];\n\t\t\tsum += a[i];\n\t\t}\n\t\t\n\t\tif(sum % 2 != 0)\n\t\t{\n\t\t\tcout<<0<<endl;\n\t\t\tcontinue;\n\t\t}\n\t\t\n\t\tmemset(dp, 0, sizeof(dp));\n\t\t\n\t\tis_ready = false;\n\t\tdp[0] = true;\n\t\tfor(int i = 0; i < n; i++)\n\t\t{\n\t\t\tfor(int j = sum / 2 - 1; j >= 0; j--)\n\t\t\t{\n\t\t\t\tif(dp[j] && j + a[i] <= sum / 2) dp[j + a[i]] = true;\n\t\t\t\t\n\t\t\t\tif(dp[j + a[i]])\n\t\t\t\t{\n\t\t\t\t\tis_ready = true;\n\t\t\t\t\tbreak;\n\t\t\t\t}\n\t\t\t}\n\t\t\t\n\t\t\tif(is_ready) break;\n\t\t}\n\t\t\n\t\tif(is_ready) cout<<1<<endl;\n\t\telse cout<<0<<endl;\n\t}\n\t\n\treturn 0;\n}\n\n"
+p3
+tp4
+stp5
+.

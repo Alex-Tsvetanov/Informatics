@@ -1,0 +1,13 @@
+(I1
+I10
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nint main( )\r\n{\r\n    int n,m,i,j,u,v,a[205],sum[205],half;\r\n    bool part;\r\n    cin>>n;\r\n    for(i=1;i<=n;i++)\r\n    {\r\n        cin>>m;\r\n        cin>>a[0];\r\n        for(j=1;j<m;j++)\r\n        {\r\n            cin>>a[j];\r\n        }\r\n        sort(a,a+m);\r\n        sum[0]=a[0];\r\n        for(j=1;j<m;j++)\r\n        {\r\n            sum[j]=sum[j-1]+a[j];\r\n        }\r\n        if(sum[m-1]&1)cout<<0<<endl;\r\n        else {\r\n            part=false;\r\n            half=sum[m-1]>>1;\r\n            for(u=0;u<m-1;u++)\r\n            {\r\n                for(v=u+1;v<m;v++)\r\n                {\r\n                    if(sum[v]-sum[u]==half)\r\n                    {\r\n                        part=true;\r\n                        break;\r\n                    }\r\n                }\r\n                if(part==true)break;\r\n            }\r\n            if(part==true)cout<<1<<endl;\r\n            else cout<<0<<endl;\r\n        }\r\n    }\r\n}\r\n'
+p3
+tp4
+stp5
+.

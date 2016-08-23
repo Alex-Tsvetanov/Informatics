@@ -1,0 +1,13 @@
+(I7
+I221
+I20
+(dp0
+Veconomy.%l
+p1
+(Vzad2.cpp
+p2
+S'# include<iostream>\r\nusing namespace std;\r\n\r\nint a,b,c;\r\nint n;\r\nint k[1024];\r\nint mins;\r\nint ans[1024],brans;\r\nint p1[1024];\r\nint p2[1024];\r\n\r\nvoid copy_table(int a[], int b[], int k)\r\n{\r\n    for(int i=0; i<k; i++) a[i]=b[i];\r\n}\r\n\r\nvoid solve(int sum, int i, int brn)\r\n{\r\n    if(i>n) return;\r\n    if(sum>c) {if(mins>=sum) {mins=sum; copy_table(ans,p1,brn); brans=brn;} return;}\r\n    solve(sum,i+1,brn);\r\n\r\n    copy_table(p2,p1,brn);\r\n    p1[brn]=i;\r\n    solve(sum+k[i],i+1,brn+1);\r\n    copy_table(p1,p2,brn);\r\n}\r\n\r\nint main()\r\n{\r\n    cin>>a>>b>>c;\r\n    cin>>n;\r\n    for(int i=0; i<n; i++) cin>>k[i];\r\n\r\n    if(a>=c) {cout<<a<<endl<<endl; return 0;}\r\n    c=c-a;\r\n    mins=b;\r\n    if(mins<c) {cout<<mins<<endl<<-1<<endl; return 0;}\r\n\r\n\r\n    solve(0,0,0);\r\n    cout<<mins+a<<endl;\r\n    for(int i=0; i<brans; i++) cout<<ans[i]+1<<" ";\r\n    cout<<endl;\r\n}\r\n'
+p3
+tp4
+stp5
+.

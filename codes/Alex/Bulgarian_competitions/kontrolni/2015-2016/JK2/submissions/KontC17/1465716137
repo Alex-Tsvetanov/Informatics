@@ -1,0 +1,13 @@
+(I7
+I223
+I20
+(dp0
+Veconomy.%l
+p1
+(Vz2.cpp
+p2
+S'#include<iostream>\r\n#include<stack>\r\nusing namespace std;\r\nconst int nmax=1024;\r\nlong long a,b,c;\r\nint p[nmax];\r\nint n;\r\nbool sum[nmax][nmax*2];\r\n\r\n//\xe4\xee i-\xf2\xe0 \xef\xe8\xf6\xe0 \xf1\xfa\xf1 \xf1\xf3\xec\xe0 j\r\nint main()\r\n{\r\ncin>>a>>b>>c>>n;\r\nfor(int i=1;i<=n;i++)cin>>p[i];\r\nlong long best=a+b;\r\nif(best<=c){cout<<best<<"\\n-1"<<endl;return 0;}\r\nif(a>c){cout<<a<<"\\n0"<<endl;return 0;}\r\nsum[0][a]=true;\r\nint i,j;\r\nfor(i=1;i<=n;i++)\r\n{\r\n    for(j=1;j<=a+b;j++)\r\n    {\r\n    if(sum[i-1][j]==true)sum[i][j]=true;\r\n    if(j-p[i]>=0)if(sum[i-1][j-p[i]]==true)sum[i][j]=true;\r\n    //if(sum[i][j])cout<<i<<" "<<j<<endl;\r\n    }\r\n}\r\nint s=0;\r\nbool g=true;\r\nfor(i=c+1;i<nmax;i++)\r\n    if(sum[n][i]==true)\r\n        {cout<<i<<endl;s=i;g=false;break;}\r\nif(s>best){cout<<best<<"\\n-1"<<endl;return 0;}\r\nif(g==true){cout<<best<<"\\n-1"<<endl;return 0;}\r\nstack<int> h;\r\nfor(i=n;i>=1;i--)\r\n    {\r\n    if(s-p[i]>=a)if(sum[i-1][s-p[i]]==true){s=s-p[i];h.push(i);}\r\n    }\r\ncout<<h.size()<<endl;\r\n    while(h.size())\r\n    {\r\n    cout<<h.top();\r\n    h.pop();\r\n    if(h.size()!=0)cout<<" ";\r\n    }\r\n    cout<<endl;\r\nreturn 0;\r\n}\r\n/*\r\n10 17 25\r\n5\r\n2 7 5 3 7\r\n\r\n26\r\n3\r\n1 2 5\r\n*/\r\n'
+p3
+tp4
+stp5
+.

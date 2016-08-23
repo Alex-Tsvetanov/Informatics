@@ -1,0 +1,13 @@
+(I1
+I23
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S"#include<iostream>\r\n#include<set>\r\n#include<algorithm>\r\nusing namespace std;\r\nchar grid[251][251];\r\nset<long long> rect;\r\nlong long rects=0;\r\nbool is_rectangle(long long x, long long y,long long ex, long long ey, long long width, long long height){\r\n    if(x>=ex || y>=ey){\r\n        return false;\r\n    }\r\n    if(width < 3 || height < 3){\r\n        return false;\r\n    }\r\n    for(long long i=x;i<=ex;i++){\r\n        if(grid[i][y]=='.' || grid[i][ey]=='.'){\r\n            return false;\r\n        }\r\n    }\r\n    for(long long i=y;i<=ey;i++){\r\n        if(grid[x][i]=='.' || grid[ex][i]=='.'){\r\n            return false;\r\n        }\r\n    }\r\n    return true;\r\n}\r\nint main()\r\n{\r\n\r\n    long long x,y,size_x,size_y;\r\n    cin>>size_y>>size_x;\r\n    for(long long y=0; y<size_y; y++)\r\n    {\r\n        for(long long x=0; x<size_x; x++)\r\n        {\r\n            cin>>grid[x][y];\r\n        }\r\n\r\n    }\r\n    for(long long x=0;x<size_x;x++){\r\n        for(long long y=0;y<size_y;y++){\r\n            for(long long lx=0;lx<x;lx++){\r\n                for(long long ly=0;ly<y;ly++){\r\n                    long long width = abs(x-lx+1);\r\n                    long long height = abs(y-ly+1);\r\n                    if(is_rectangle(lx,ly,x,y,width,height)){\r\n                       rect.insert(rects);\r\n                       rects++;\r\n                    }\r\n                }\r\n            }\r\n        }\r\n    }\r\n    cout<<rect.size()<<endl;\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I1
+I12
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\r\n\r\nusing namespace std;\r\n\r\nint n, input[201];\r\n\r\nbool solve(int doKude, int s1, int s2)\r\n{\r\n    if (doKude == n and s1 == s2)\r\n        return true;\r\n    if (doKude == n)\r\n        return false;\r\n    return (solve(doKude + 1, s1 + input[doKude], s2) or solve(doKude + 1, s1, s2 + input[doKude]));\r\n}\r\n\r\nint main ()\r\n{\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n\r\n    int dul;\r\n    cin >> dul;\r\n\r\n    for (int i = 0; i < dul; ++i)\r\n    {\r\n        cin >> n;\r\n        int sum = 0;\r\n        for (int j = 0; j < n; ++j)\r\n        {\r\n            cin >> input[j];\r\n            sum += input[j];\r\n        }\r\n        if (sum % 2 == 1)\r\n        {\r\n            cout << "0\\n";\r\n            continue;\r\n        }\r\n        cout << solve(0, 0, 0) << \'\\n\';\r\n    }\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

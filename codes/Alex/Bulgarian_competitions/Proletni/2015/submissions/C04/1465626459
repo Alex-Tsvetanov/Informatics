@@ -1,0 +1,13 @@
+(I1
+I4
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S'#include <iostream>\r\nusing namespace std;\r\n\r\nconst int MAXN=256;\r\nconst int MAXS=131072;\r\n\r\nint n, k, s, a[MAXN], b[MAXS];\r\n\r\nvoid Part()\r\n{\r\n    b[0]=b[s]=1;\r\n    for (int i=1; i<s; i++)\r\n    {\r\n        b[i]=0;\r\n    }\r\n\r\n    for (int i=1; i<=n; i++)\r\n    {\r\n        for (int j=s-1; j>=a[i]; j--)\r\n        {\r\n            if (b[j-a[i]]==1) b[j]=1;\r\n        }\r\n    }\r\n    if (b[s/2]==1) cout<<1<<endl;\r\n    else cout<<0<<endl;\r\n}\r\n\r\nint main()\r\n{\r\n    cin>>k;\r\n    for (int i=1; i<=k; i++)\r\n    {\r\n        s=0;\r\n        cin>>n;\r\n        for (int j=1; j<=n; j++)\r\n        {\r\n            cin>>a[j];\r\n            s+=a[j];\r\n        }\r\n        if (s%2==1) cout<<0<<endl;\r\n        else Part();\r\n    }\r\n}\r\n'
+p3
+tp4
+stp5
+.

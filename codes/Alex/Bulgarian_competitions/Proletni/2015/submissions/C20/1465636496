@@ -1,0 +1,13 @@
+(I1
+I20
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect.cpp
+p2
+S'#include <iostream>\n\nusing namespace std;\n\nchar map [256][256];\n\nint main ()\n{\n\t\tcin.tie (nullptr);\n\t\tios::sync_with_stdio(false);\n\t\tint n, m;\n\t\tcin >> n >> m;\n\t\tfor (int i = 0 ; i < n ; i ++)\n\t\t\t\tcin >> map [i];\n\t\t\t\tint ans = 0;\n\t\tfor (int i2 = 0 ; i2 < n ; i2 ++)\n\t\t\t\tfor (int j2 = 0 ; j2 < m ; j2 ++)\n\t\t\t\t\t\tfor (int i1 = i2 + 3 ; i1 <= n ; i1 ++)\n\t\t\t\t\t\t\t\tfor (int j1 = j2 + 3 ; j1 <= m ; j1 ++)\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\tfor (int k = i2; k < i1 ; k ++)\n\t\t\t\t\t\t\t\t\t\tfor (int l = j2; l < j1 ; l ++)\n\t\t\t\t\t\t\t\t\t\t\t\tif (map [k][l] == \'.\')\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tgoto noncountable;\n\t\t\t\t\t\t\t\t\t\tans ++;\n\t\t\t\t\t\t\t\t\t\tnoncountable:\n\t\t\t\t\t\t\t\t\t\t{\n\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t}\n\t\tcout << ans << "\\n";\n}\n'
+p3
+tp4
+stp5
+.

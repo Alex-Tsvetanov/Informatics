@@ -1,0 +1,13 @@
+(I7
+I236
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include <iostream>\r\n#include <cmath>\r\n#include <algorithm>\r\nusing namespace std;\r\n\r\nint a, b, c;\r\n\r\nint main()\r\n{\r\n    cin>>a>>b>>c;\r\n    int nod=__gcd(a, b);\r\n\r\n\r\n\r\n    if (c%nod!=0)\r\n    {\r\n        cout<<"Impossible"<<endl;\r\n        return 0;\r\n    }\r\n\r\n    int mins=1<<30;\r\n    if (c%a==0) mins=c/a;\r\n    if (c%b==0) mins=c/b;\r\n\r\n\r\n    cout<<mins<<endl;\r\n    return 0;\r\n}\r\n\r\n'
+p3
+tp4
+stp5
+.

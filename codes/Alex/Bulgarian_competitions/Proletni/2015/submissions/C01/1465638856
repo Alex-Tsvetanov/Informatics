@@ -1,0 +1,13 @@
+(I1
+I1
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition5.cpp
+p2
+S'#include <iostream>\r\n#include <algorithm>\r\nusing namespace std;\r\nint n,a[202],sbor,s[202];\r\nbool ans;\r\n\r\nvoid bf(int sum, int pos)\r\n{\r\n if(sum+a[pos]==sbor/2) {ans=1; return;}\r\n if(pos==0) return;\r\n if(ans==0)\r\n     {\r\n      if(s[pos-1]+sum>sbor/2)\r\n          {\r\n           bf(sum,pos-1);\r\n          }\r\n      if(s[pos-1]+sum==sbor/2) {ans=1; return;}\r\n      if(s[pos-1]+sum+a[pos]==sbor/2) {ans=1; return;}\r\n      if(s[pos-1]+sum+a[pos]>sbor/2) bf(sum+a[pos],pos-1);\r\n     }\r\n}\r\n\r\nbool solve()\r\n{\r\n int i,j;\r\n sort(a+1,a+n+1);\r\n for(i=1; i<=n; i++) s[i]=s[i-1]+a[i];\r\n bf(0,n);\r\n return ans;\r\n}\r\n\r\nint main()\r\n{\r\nint k,i,j,nech;\r\ncin>>k;\r\nfor (i=1; i<=k; i++)\r\n    {\r\n     cin>>n;\r\n     sbor=0;\r\n     nech=0;\r\n     for(j=1; j<=n; j++) {cin>>a[j]; sbor+=a[j];}\r\n     if(sbor%2==1) cout<<0<< endl;\r\n     else cout<<solve()<< endl;\r\n    }\r\nreturn 0;\r\n}\r\n/*\r\n2\r\n6\r\n8 5 6 5 6 4\r\n3\r\n2 2 5\r\n*/\r\n'
+p3
+tp4
+stp5
+.

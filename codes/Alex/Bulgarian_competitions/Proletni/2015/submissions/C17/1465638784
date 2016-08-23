@@ -1,0 +1,13 @@
+(I1
+I17
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpart2.cpp
+p2
+S'#include <iostream>\n\nbool possible[1201];\nint input[210];\n\nint main()\n{\n\tstd::ios_base::sync_with_stdio(false);\n\tint count;\n\tstd::cin >> count;\n\tfor(int i = 0;i < count;++ i)\n\t{\n\t\tint n, sum = 0;\n\t\tstd::cin >> n;\n\t\tfor(int j = 0;j < n;++ j)\n\t\t{\n\t\t\tstd::cin >> input[j];\n\t\t\tsum += input[j];\n\t\t}\n\t\tif(sum % 2 == 1)\n\t\t{\n\t\t\tstd::cout << "0\\n";\n\t\t\tcontinue;\n\t\t}\n\t\tint wanted = sum / 2;\n\t\tif(input[0] > wanted)\n\t\t{\n\t\t\tstd::cout << "0\\n";\n\t\t\tcontinue;\n\t\t}\n\t\tfor(int j = 0;j < 1201;++ j)\n\t\t\tpossible[j] = false;\n\n\t\tpossible[wanted - input[0]] = true;\n\t\tpossible[wanted] = true;\n\n\t\tbool ok = false;\n\n\t\tfor(int j = 1;j < n;++ j)\n\t\t{\n\t\t\t//std::cout << "On " << input[j] << std::endl;\n\t\t\tif(possible[0])\n\t\t\t{\n\t\t\t\tstd::cout << "1\\n";\n\t\t\t\tbreak;\n\t\t\t}\n\t\t\tfor(int k = input[j];k < 1201;++ k)\n\t\t\t{\n\t\t\t\tif(possible[k])\n\t\t\t\t{\n\t\t\t\t\t//std::cout << "F: " << k << std::endl;\n\t\t\t\t\tpossible[k - input[j]] = true;\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t\tif(!possible[0])\n\t\t\tstd::cout << "0\\n";\n\t}\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

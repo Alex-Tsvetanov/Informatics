@@ -1,0 +1,13 @@
+(I1
+I10
+I1
+(dp0
+Vrect.%l
+p1
+(Vrect2.cpp
+p2
+S"#include <iostream>\r\nusing namespace std;\r\nint main( )\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(NULL);\r\n    int a[251][251],m,n,i,j,u,v,br=0,o,p;\r\n    bool rec;\r\n    char e;\r\n    cin>>n>>m;\r\n    for(i=1;i<=n;i++)\r\n    {\r\n        for(j=1;j<=m;j++)\r\n        {\r\n            cin>>e;\r\n            if(e=='.')a[i][j]=0;\r\n            else a[i][j]=1;\r\n        }\r\n    }\r\n    for(i=1;i<=n-2;i++)\r\n    {\r\n        for(j=1;j<=m-2;j++)\r\n        {\r\n            for(u=i+2;u<=n;u++)\r\n            {\r\n                for(v=j+2;v<=m;v++)\r\n                {\r\n                   rec=true;\r\n                   for(p=j;p<=v;p++)\r\n                   {\r\n                       if(a[i][p]==0 || a[u][p]==0)rec=false;\r\n                   }\r\n                    for(o=i;o<=u;o++)\r\n                   {\r\n                       if(a[o][j]==0 || a[o][v]==0)rec=false;\r\n                   }\r\n                   if(rec==true)br++;\r\n                }\r\n            }\r\n        }\r\n    }\r\n    cout<<br<<endl;\r\n}\r\n/**\r\n4 7\r\n*****..\r\n*..****\r\n*****.*\r\n...****\r\n*/\r\n"
+p3
+tp4
+stp5
+.

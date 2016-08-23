@@ -1,0 +1,13 @@
+(I7
+I230
+I21
+(dp0
+Vproject.%l
+p1
+(Vproject.cpp
+p2
+S'#include <iostream>\r\n#include <cstdio>\r\n#include <vector>\r\nusing namespace std;\r\n\r\nvector <int> g[100005],t[100005];\r\nbool son[100005],fl;\r\nint mx,u[200005],v[200005],x[200005],mint[200005],maxt[200005],last,uk[200005];\r\n\r\nvoid DFS(int v,int time)\r\n{\r\n int i;\r\n\r\n last=0;\r\n\r\n  if(mint[v]==0)\r\n   mint[v]=time;\r\n\r\n  if(time>mx)\r\n   mx=time;\r\n\r\n  for(i=0;i<g[v].size();i++)\r\n  {\r\n   DFS(g[v][i],time+t[v][i]);\r\n   last=last+t[v][i];\r\n  }\r\n\r\n maxt[v]=mx-last;\r\n}\r\n\r\nint main()\r\n{\r\n\r\nint m,n,root,i,j;\r\n\r\nscanf("%d%d",&m,&n);\r\n\r\n for(i=0;i<n;i++)\r\n  son[i]=false;\r\n\r\n for(i=1;i<=m;i++)\r\n {\r\n  scanf("%d%d%d",&u[i],&v[i],&x[i]);\r\n\r\n  son[v[i]]=true;\r\n  g[u[i]].push_back(v[i]);\r\n  t[u[i]].push_back(x[i]);\r\n }\r\n\r\n for(i=0;i<n;i++)\r\n  if(!son[i])\r\n   root=i;\r\n\r\nDFS(root,0);\r\n//DFS(root,0);\r\n\r\nprintf("%d\\n",mx);\r\n\r\n /*for(i=0;i<n;i++)\r\n {\r\n  printf("%d %d\\n",mint[i],maxt[i]);\r\n }*/\r\n\r\n for(i=1;i<=m;i++)\r\n {\r\n  printf("%d ",mint[u[i]]);\r\n  printf("%d\\n",maxt[v[i]]-t[u[i]][uk[u[i]]]);\r\n  uk[u[i]]++;\r\n }\r\n}\r\n'
+p3
+tp4
+stp5
+.

@@ -1,0 +1,13 @@
+(I7
+I238
+I21
+(dp0
+Vproject.%l
+p1
+(Vproject.cpp
+p2
+S'#include <bits/stdc++.h>\n#define endl \'\\n\'\nusing namespace std;\n\nconst long long maxN = 1e5 + 5, maxM = 2e5 + 5;\n\nstruct edge\n{\n\tlong long node_to, weight;\n\t\n\tedge(){}\n\tedge(long long node_to, long long weight)\n\t{\n\t\tthis->node_to = node_to;\n\t\tthis->weight = weight;\n\t}\n};\n\nlong long n, m, a[maxM], b[maxM], c[maxM], cnt_in[maxN], cnt_out[maxN], dist_max[maxN], max_time, dist_min[maxN], dist_reversed[maxN];\nvector<edge> graph[maxN], reversed_graph[maxN];\n\nvoid dfs(long long current_node, long long current_time)\n{\n\tdist_max[current_node] = max(dist_max[current_node], current_time);\n\tif(dist_min[current_node] == -1) dist_min[current_node] = current_time;\n\telse dist_min[current_node] = min(dist_min[current_node], current_time);\n\t\n\tfor(long long i = 0; i < graph[current_node].size(); i++)\n\t{\n\t\tdfs(graph[current_node][i].node_to, current_time + graph[current_node][i].weight);\n\t}\n}\nvoid dfs_reversed(long long current_node, long long current_time)\n{\n\tdist_reversed[current_node] = max(dist_reversed[current_node], current_time);\n\t\n\tfor(long long i = 0; i < reversed_graph[current_node].size(); i++)\n\t{\n\t\tdfs_reversed(reversed_graph[current_node][i].node_to, current_time + reversed_graph[current_node][i].weight);\n\t}\n}\n\nint main()\n{\n\t//ios_base::sync_with_stdio(false);\n\t//cin.tie(NULL);\n\t\n\tcin>>m>>n;\n\tfor(long long i = 0; i < m; i++)\n\t{\n\t\tcin>>a[i]>>b[i]>>c[i];\n\t\t\n\t\tgraph[a[i]].push_back(edge(b[i], c[i]));\n\t\treversed_graph[b[i]].push_back(edge(a[i], c[i]));\n\t\tcnt_in[b[i]]++;\n\t\tcnt_out[a[i]]++;\n\t}\n\n\tmemset(dist_min, -1, sizeof(dist_min));\n\tfor(long long i = 0; i < n; i++)\n\t{\n\t\tif(cnt_in[i] == 0) dfs(i, 0);\n\t\tif(cnt_out[i] == 0) dfs_reversed(i, 0);\n\t}\n\t\n\t/*cout<<"control print"<<endl;\n\tfor(long long i = 0; i < n; i++)\n\t{\n\t\tcout<<i<<" "<<dist_min[i]<<" "<<dist_max[i]<<" "<<dist_reversed[i]<<endl;\n\t}*/ \n\t\n\tfor(long long i = 0; i < n; i++)\n\t{\n\t\tif(dist_max[i] > max_time) max_time = dist_max[i];\n\t\t//cout<<dist_reversed[i]<<endl;\n\t}\n\t\n\tcout<<max_time<<endl;\n\tfor(long long i = 0; i < m; i++)\n\t{\n\t\tcout<<dist_min[a[i]]<<" "<<max_time - dist_reversed[b[i]] - c[i]<<endl;\n\t}\n\treturn 0;\n}\n'
+p3
+tp4
+stp5
+.

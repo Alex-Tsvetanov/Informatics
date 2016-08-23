@@ -1,0 +1,13 @@
+(I7
+I232
+I20
+(dp0
+Veconomy.%l
+p1
+(Veconomy2.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\n\r\nbool used[1024],otg[1024];\r\n\r\nlong long pica,dostavka,minSuma,brLakomstva,ceni[1024],maxx,broi=-1;\r\nvoid reshenie(long long suma,long long index){\r\n    //cout<<"Ne";\r\n    //cout<<suma<<" "<<ceni[index]<<endl;\r\n    if(suma+pica>maxx)\r\n        return;\r\n    if(suma+pica>minSuma){\r\n        //cout<<"da";\r\n        maxx=suma+pica;\r\n        broi=0;\r\n        for(long long i=0;i<brLakomstva;i++){\r\n            otg[i]=true;\r\n            if(used[i]){\r\n                broi++;\r\n            }\r\n        }\r\n        return;\r\n    }\r\n    if(index==brLakomstva)\r\n        return;\r\n    used[index]=true;\r\n    reshenie(suma+ceni[index],index+1);\r\n    used[index]=false;\r\n    reshenie(suma,index+1);\r\n}\r\n\r\nint main(){\r\n    cin.tie(NULL);\r\n    ios::sync_with_stdio(false);\r\n    long long i;\r\n    cin>>pica>>dostavka>>minSuma;\r\n    maxx=pica+dostavka;\r\n    if(pica>minSuma){\r\n        cout<<pica<<"\\n0\\n";\r\n        return 0;\r\n    }\r\n    if(pica+dostavka<=minSuma){\r\n        cout<<pica+dostavka<<"\\n-1\\n";\r\n        return 0;\r\n    }\r\n    cin>>brLakomstva;\r\n    for(i=0;i<brLakomstva;i++){\r\n        cin>>ceni[i];\r\n    }\r\n    reshenie(0,0);\r\n    if(broi==-1){\r\n        cout<<pica+dostavka<<"\\n-1\\n";\r\n        return 0;\r\n    }\r\n    cout<<maxx<<"\\n"<<broi<<"\\n";\r\n    for(i=0;i<brLakomstva;i++){\r\n        if(otg[i]){\r\n            cout<<i+1;\r\n            if(i+1<brLakomstva)\r\n                cout<<" ";\r\n        }\r\n    }\r\n    cout<<"\\n";\r\n    return 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

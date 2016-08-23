@@ -1,0 +1,13 @@
+(I7
+I234
+I19
+(dp0
+Vhare.%l
+p1
+(Vhare.cpp
+p2
+S'#include<iostream>\r\n#include<algorithm>\r\nusing namespace std;\r\nbool prodylji=true;\r\nlong long ol(long long ax,long long ay,long long bx,long long by,long long cx,long long cy){\r\nreturn(bx-ax)*(cy-ay)-(by-ay)*(cx-ax);\r\n}\r\nlong long a,b,c,nm=999999999999999,p=0;\r\nint main(){\r\nios::sync_with_stdio(false);\r\ncin>>a>>b>>c;\r\nc=abs(c);\r\n//cout<<"Impossible";\r\n/*for(long long i=0;i<30 and a*i<=c;i++){\r\n   for(long long r=0;r<30 and a*i-a*r<=c and r<i;r++){\r\n    for(long long t=0;t<30 and a*i-a*r+b*t<=c;t++){\r\n    for(long long k=0;k<30 and a*i-a*r+b*t-b*k<=c;k++){\r\nif((a*i-a*r+b*t-b*k)==c){\r\n    nm=min((i+r+t+k))\r\n}\r\n}\r\n}\r\n}\r\n}*/\r\nfor(long long i=0;i<10000;i++){\r\n    for(long long r=0;r<10000;r++){\r\n        p=0;\r\n        if(i*a+r*b==c){\r\n            nm=min((i+r),nm);\r\n        }\r\n        if(i*a-r*b==c){\r\n            nm=min((i+r),nm);\r\n        }\r\n        if(r*b-i*a==c){\r\n            nm=min((i+r),nm);\r\n        }\r\n        if((i*a-r*b)>c and i*a-r*b>=0){\r\n            p=1;\r\n        }\r\n        if((i*a+r*b)<c and i*a+r*b>=0){\r\n            p=1;\r\n        }\r\n        if((r*b-i*a)<c){\r\n            p=1;\r\n        }\r\nif(p==0){\r\n    break;\r\n    cout<<"tuk";\r\n}\r\n    }\r\n}\r\nif(nm<999999999999999){\r\ncout<<nm;\r\n}else{\r\ncout<<"Impossible";\r\n}\r\nreturn 0;\r\n}\r\n'
+p3
+tp4
+stp5
+.

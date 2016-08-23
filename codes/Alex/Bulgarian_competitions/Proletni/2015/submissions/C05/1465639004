@@ -1,0 +1,13 @@
+(I1
+I5
+I2
+(dp0
+Vpartition.%l
+p1
+(Vzad2.cpp
+p2
+S'# include<iostream>\r\n# include<cstring>\r\nusing namespace std;\r\n\r\nint a[1024],sumi[2000001];\r\nint sum=0;\r\nint n;\r\n\r\nvoid solve()\r\n{\r\n    sumi[0]=1;\r\n    for(int i=0; i<n; i++)\r\n    for(int j=sum; j>=0; j--) if(a[i]<=j && sumi[j-a[i]]==1) sumi[j]=1;\r\n\r\n    if(sumi[sum/2]==1) cout<<1<<endl;\r\n    else cout<<0<<endl;\r\n}\r\n\r\nint main()\r\n{\r\n    int t;\r\n    cin>>t;\r\n    for(int tc=0; tc<t; tc++)\r\n    {\r\n        cin>>n;\r\n        sum=0;\r\n        memset(sumi,0,sizeof(sumi));\r\n        for(int i=0; i<n; i++){cin>>a[i]; sum+=a[i];}\r\n\r\n        if(sum%2==1) {cout<<0<<endl; continue;}\r\n        solve();\r\n\r\n    }\r\n\r\n}\r\n'
+p3
+tp4
+stp5
+.

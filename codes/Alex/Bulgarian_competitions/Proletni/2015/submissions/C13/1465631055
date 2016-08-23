@@ -1,0 +1,13 @@
+(I1
+I13
+I2
+(dp0
+Vpartition.%l
+p1
+(Vpartition.cpp
+p2
+S"#include <bits/stdc++.h>\r\n\r\nusing namespace std;\r\n\r\nvector<int> nums;\r\nint n;\r\nbool is_valid(__uint128_t a)\r\n{\r\n    int q = n - 1;\r\n    int s1 = 0, s2 = 0;\r\n    while(q >= 0)\r\n    {\r\n        if(a % 2 == 0)\r\n        {\r\n            s1 += nums[q];\r\n        }\r\n        else\r\n        {\r\n            s2 += nums[q];\r\n        }\r\n        a /= 2;\r\n        q--;\r\n    }\r\n    if(s1 == s2)\r\n        return true;\r\n    else\r\n        return false;\r\n}\r\n\r\nint main()\r\n{\r\n    ios::sync_with_stdio(false);\r\n    cin.tie(nullptr);\r\n    int q;\r\n    cin >> q;\r\n    for(int j = 0; j < q; j++)\r\n    {\r\n        nums.clear();\r\n        cin >> n;\r\n        nums.resize(n);\r\n        int s1 = 0, s2 = 0;\r\n        for(int i = 0; i < n; i++)\r\n        {\r\n            int a;\r\n            cin >> a;\r\n            nums[i] = a;\r\n        }\r\n        for(__uint128_t i = 1; i < (1 << n) - 1; i++)\r\n        {\r\n            if(is_valid(i))\r\n            {\r\n                goto Go;\r\n            }\r\n        }\r\n        cout<<0<<'\\n';\r\n        goto Goo;\r\nGo:\r\n        cout<<1<<'\\n';\r\nGoo:\r\n        j++;\r\n        j--;\r\n    }\r\n    return 0;\r\n}\r\n"
+p3
+tp4
+stp5
+.

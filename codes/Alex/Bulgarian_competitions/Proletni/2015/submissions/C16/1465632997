@@ -1,0 +1,13 @@
+(I1
+I16
+I3
+(dp0
+Vfigures.%l
+p1
+(Vfigures_dumb.cpp
+p2
+S'#include<iostream>\r\nusing namespace std;\r\nint main(){\r\n    cout<<"INCORRECT";\r\n}\r\n'
+p3
+tp4
+stp5
+.
