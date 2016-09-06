@@ -1,0 +1,34 @@
+#define X2(f,t) X(f,PFNGL##t##PROC)
+
+X2(CreateShader, CREATESHADER)
+X2(DeleteShader, DELETESHADER)
+X2(ShaderSource, SHADERSOURCE)
+X2(CompileShader, COMPILESHADER)
+X2(GetShaderiv, GETSHADERIV)
+X2(GetShaderInfoLog, GETSHADERINFOLOG)
+
+X2(CreateProgram, CREATEPROGRAM)
+X2(DeleteProgram, DELETEPROGRAM)
+X2(AttachShader, ATTACHSHADER)
+X2(DetachShader, ATTACHSHADER)
+X2(LinkProgram, LINKPROGRAM)
+X2(GetProgramiv, GETPROGRAMIV)
+X2(GetProgramInfoLog, GETPROGRAMINFOLOG)
+X2(UseProgram, USEPROGRAM)
+
+X2(GenBuffers, GENBUFFERS)
+X2(DeleteBuffers, DELETEBUFFERS)
+X2(BindBuffer, BINDBUFFER)
+X2(BufferData, BUFFERDATA)
+
+X2(GenVertexArrays, GENVERTEXARRAYS)
+X2(DeleteVertexArrays, DELETEVERTEXARRAYS)
+X2(BindVertexArray, BINDVERTEXARRAY)
+X2(EnableVertexAttribArray, ENABLEVERTEXATTRIBARRAY)
+X2(DisableVertexAttribArray, DISABLEVERTEXATTRIBARRAY)
+X2(VertexAttribPointer, VERTEXATTRIBPOINTER)
+X2(VertexAttribIPointer, VERTEXATTRIBIPOINTER)
+X2(VertexAttribLPointer, VERTEXATTRIBLPOINTER)
+
+#undef X2
+#undef X

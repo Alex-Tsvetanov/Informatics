@@ -15,9 +15,7 @@ struct BIT
 		if (a == 0)
 			;
 		else if (std::next (a) == b)
-		{
 			root = new T (*a);
-		}
 		else
 		{
 			left  = new BIT <T> (a + 0, a + n / 2, func, s);

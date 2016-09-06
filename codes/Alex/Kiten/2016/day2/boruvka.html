@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="../dark.css">
+<big>
+<big>
+<big>
+<meta charset="utf-8">
+Designating each vertex or set of connected vertices a "component", pseudocode for Borůvka's algorithm is:
+<code><pre>
+	Input: A connected graph G whose edges have distinct weights 
+	Initialize a forest T to be a set of one-vertex trees, one for each vertex of the graph.
+	While T has more than one component:
+		For each component C of T:
+			Begin with an empty set of edges S
+			For each vertex v in C:
+				Find the cheapest edge from v to a vertex outside of C, and add it to S
+				Add the cheapest edge in S to T
+		Combine trees connected by edges to form bigger components
+	Output: T is the minimum spanning tree of G.
+</pre></code>
+As in Kruskal's algorithm, tracking components of T can be done efficiently using a disjoint-set data structure. In graphs where edges have identical weights, edges with equal weights can be ordered based on the lexicographic order of their endpoints.
+
+<img width="100%" src="./Boruvka.gif" />
+</big>
+</big>
+</big>
+Powered by Arch Linux and Wikipedia

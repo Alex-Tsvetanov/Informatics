@@ -73,27 +73,8 @@ void PrintVector2Container (vector <Point> c)
 {
     for(int i = 0 ; i < c.size () ; i ++)
     {
-        cout << c [i].x << " " << c [i].y << endl;
+        cout << c [i].x << " " << c [i].y << "\n";
     }
-}
-
-double CalculateSurface (vector <Point> polyPoints)
-{
-    Point basePoint = polyPoints [0];
-
-    double surface = 0;
-
-    for(int i = 1 ; i < polyPoints.size () - 1 ; i ++)
-    {
-
-        Point baseToFirst = polyPoints [i] - basePoint;
-        Point baseToSecond = polyPoints [i + 1] - basePoint;
-
-        surface += Point::CrossProduct (baseToFirst, baseToSecond) / 2;
-    }
-
-
-    return abs (surface);
 }
 
 int main ()
@@ -112,6 +93,4 @@ int main ()
     }
 
     PrintVector2Container (convex_hull (poly));
-
-    cout << CalculateSurface (convex_hull (poly)) << endl;
 }

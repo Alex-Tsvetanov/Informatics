@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SGI - Solutions: SAP HANA</title>
+
+<meta name="description" content="SGI - Real-Time Business with SAP HANA" />
+<meta name="keywords" content="SGI, SAP, SAPPHIRE, SAP HANA, real time, insight" />
+<meta name="owner" content="Silicon Graphics International Corp." />
+
+<!--- This style will define the main link title to look inactive --->
+<style type="text/css"><!-- #sap_hana {color: #5c5c5c !important; text-decoration: none;} --></style>
+
+<link rel="stylesheet" href="/styles/new/lightbox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/js/prototype.js"></script>
+<script type="text/javascript" src="/js/scriptaculous.js?load=effects"></script>
+<script type="text/javascript" src="/js/lightbox.js"></script>
+
+<style type="text/css"><!-- 
+.quotes {width:480px; background-color: #ffffff; margin:20px; padding:20px; border-top:1px solid #4aaa42; border-bottom:1px solid #4aaa42;}
+.quote {font-size:1.2em; color:#777777; margin-bottom:10px; font-style:italic; line-height:1.3em;}
+.attr {float:right; font-weight:bold;}
+ --></style>
+
+<!-- Begin Header -->
+ <meta http-equiv="imagetoolbar" content="no" />
+ <!--script type="text/javascript" src="/js/redesign_style_sniffer.js"></script-->
+ <link rel="stylesheet" href="/styles/new/master.css" type="text/css" />
+ <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+ <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1614576-2']);
+  _gaq.push(['_setDomainName', '.sgi.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+var _elqQ = _elqQ || [];
+_elqQ.push(['elqSetSiteId', '912409556']);
+_elqQ.push(['elqTrackPageViewDisplayOptInBannerByCountry']);
+(function () {
+function async_load() {
+var s = document.createElement('script');
+s.type = 'text/javascript';
+s.async = true; s.src = '//img.en25.com/i/elqCfg.min.js';
+var x = document.getElementsByTagName('script')[0];
+x.parentNode.insertBefore(s, x);
+}
+if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+else if (window.attachEvent) window.attachEvent('onload', async_load);
+})();
+function elqVisitorTrackingOptIn() { _elqQ.push(['elqOptIn']); } function elqVisitorTrackingOptOut() { _elqQ.push(['elqOptOut']); }
+</script>
+
+</head>
+<body>
+
+<div id="topPageCorner">
+	<div id="container"> 
+	<!-- Start Header -->
+		<div id="globalContainer">
+			<div id="globalHeader2">
+				<!-- Start Logo -->
+				<div class="logodiv2">
+				<a href="/"><img src="/images/main_template/topbar_logo.png" alt="SGI" style="border:0px" /></a>
+				</div>
+				<!-- End Logo -->
+				<!-- Start Tagline -->
+				<div class="taglinediv2">
+				<h1>The Trusted Leader in High Performance Computing</h1>
+				</div>
+				<!-- End Tagline -->
+				<!-- Start Search -->
+				<div class="searchdiv2">
+						<form action="/search/results.html" id="cse-search-box">
+							<input type="text" name="q" size="31" class="box" value=" Search" style="color:#ffffff" onfocus="this.value='';this.style.color='#ffffff';this.onfocus='';" />
+							<button type="submit" name="btnG" class="search"></button>
+						    <input type="hidden" name="cx" value="012778446633271376432:xd_z7pteusu" />
+						    <input type="hidden" name="cof" value="FORID:11;NB:1" />
+						    <input type="hidden" name="ie" value="UTF-8" />
+						    <input type="submit" name="sa" value="Search" class="hideButton" />
+						</form>
+				</div>
+				<!-- End Search -->
+			</div>
+		</div>
+		<!-- End Header -->
+		<!-- Start Topnav -->
+		<div id="nav2">
+			<div id="nav-category2"><a href="/products/">Products</a></div>
+			<div id="nav-category2"><a href="/solutions/">Solutions</a></div>
+			<div id="nav-category2"><a href="/services/">Services</a></div>
+			<div id="nav-category2"><a href="/partners/">Partners</a></div>
+			<div id="nav-category2"><a href="/company_info/">About SGI</a></div>
+			<div id="nav-subnav2"><a href="/sales/askarep.html">Questions?&nbsp;&nbsp;Contact Sales &raquo;</a></div>
+		</div>
+		<!-- End Topnav -->
+	<!-- End Header -->
+
+<table width="960" border="0" cellpadding="0" cellspacing="0" align="left" id="core">
+	<tr>
+		<td colspan="2">
+
+<!-- End Header -->
+
+<!-- Begin Breadcrumbs -->
+<!-- Start Breadcrumbs -->
+<div class="vspace" style="height: 7px;">&nbsp;</div>
+<!-- End Breadcrumbs -->
+
+
+<!-- End Breadcrumbs -->
+
+<!--- Do not remove the next four lines before the sidenav --->
+</td>
+</tr>
+<tr valign="top">
+	<td id="leftSideColumn">
+
+<!-- Start Side Nav -->
+<div id="sidenav2">
+     <div class="first"><a href="/solutions/" id="homeLink">Solutions</a></div>
+     <div class="second"><a href="/solutions/compute/" id="compute">Compute</a></div>
+     <div class="second"><a href="/solutions/data_management/" id="data_management">Data Management</a></div>
+     <div class="second"><a href="/solutions/data_analytics/" id="data_analytics">Data Analytics</a></div>
+     <div class="second"><a href="/solutions/sap_hana/" id="sap_hana">SAP HANA</a></div>
+     <div class="second"><a href="/solutions/oracle/" id="oracle">Oracle Database<br />In-Memory</a></div>
+     <div class="first">Industry Solutions</div>
+     <div class="second"><a href="/solutions/government/" id="government">Government</a></div>
+     <div class="second"><a href="/solutions/earth_sciences/" id="earth_sciences">Earth Sciences</a></div>
+     <div class="second"><a href="/solutions/research/" id="research">Higher Education &amp; Research</a></div>
+     <div class="second"><a href="/solutions/life_sciences/" id="life_sciences">Life Sciences</a></div>
+     <div class="second"><a href="/solutions/manufacturing/" id="manufacturing">Manufacturing / VPD</a></div>
+     <div class="second"><a href="/solutions/oil_gas/" id="oil_gas">Oil &amp; Gas</a></div>
+     <div class="first"><a href="/company_info/resources/" id="resources">Resources</a></div>
+     <div class="second"><a href="/company_info/resources/case_studies.html" id="case_studies">Case Studies</a></div>
+     <div class="second"><a href="/company_info/resources/whitepapers.html" id="whitepapers">White Papers</a></div>
+     <div class="second"><a href="/company_info/resources/datasheets.html" id="datasheets">Datasheets</a></div>
+     <div class="second"><a href="/company_info/resources/briefs.html" id="briefs">Briefs</a></div>
+     <div class="second"><a href="/company_info/resources/videos.html" id="videos">Videos</a></div>
+</div>
+
+<!-- End Side Nav -->
+
+<!-- Begin Left Seperator -->
+<!-- Start i_sep_left.html-->
+</td>
+<td valign="TOP">
+
+
+<!-- End i_sep_left.html-->
+
+<div id="contentAreaContainer">
+<div id="contentArea">
+
+<!-- End Left Seperator -->
+
+<!-- Content Starts Here -->
+
+<h1>SAP HANA&reg; Solutions</h1>
+
+<p><b>Powerfully Simple</b></p>
+
+<div class="banner"><img src="images/saphana_banner.jpg" border="0" alt="SAP HANA Solutions" /></div>
+
+<div class="sidebar180">
+<h2>Learn More</h2><br />
+<div style="text-align:left;">
+<a href="/pdfs/sap_insider_real_time.pdf">Why Real-Time Analytics</a> (PDF)
+<div class="modsep"></div>
+<a href="/pdfs/4539.pdf">Customer Case Study: Sigma-Aldrich</a> (PDF)
+<div class="modsep"></div>
+<a href="/pdfs/4497.pdf">SGI UV for SAP HANA Solution Brief</a> (PDF)
+<div class="modsep"></div>
+<a href="/pdfs/4559.pdf">SGI UV 300H Specifications</a> (PDF)
+<div class="modsep"></div>
+<a href="/pdfs/4558.pdf">SGI UV 300H TDI with EMC Solution Brief</a> (PDF)
+<div class="modsep"></div>
+<a href="/pdfs/4548.pdf">SGI UV 300H TDI with EMC Best Practices</a> (PDF)
+
+<br /><br />
+<h2>White Papers</h2><br />
+<a href="/pdfs/4554.pdf">SGI UV 300H</a> (PDF)
+<div class="modsep"></div>
+<a href="/pdfs/4575.pdf">HA/DR with SGI UV 300H</a> (PDF)
+<div class="modsep"></div>
+<a href="/pdfs/4551.pdf">SGI UV 300 System RAS</a> (PDF)
+
+<br /><br />
+<h2>Videos</h2><br />
+<a href="https://www.youtube.com/watch?list=PLT0g4VdghLMgD8rczOGBVX435VXZubxuC&v=a5caqnU-Nno" target="_blank">HA/DR with SGI UV for SAP HANA</a>
+<div class="modsep"></div>
+<a href="http://events.sap.com/sapphirenow/en/session/15942" target="_blank">BlueFin Runs Live S/4 HANA Demo on SGI UV at SAPPHIRE</a><br />
+<div class="modsep"></div>
+<a href="https://www.youtube.com/watch?list=PLT0g4VdghLMgD8rczOGBVX435VXZubxuC&v=iVuHilUZkbc" target="_blank">SGI UV for SAP HANA - Upgrade from 4 to 32 Sockets</a>
+
+<br /><br />
+<h2>Resources</h2><br />
+<a href="/products/servers/uv/service.html#saphana">SAP HANA Professional Services</a>
+<div class="modsep"></div>
+<a href="/partners/technology/sap/">SAP Certified Hardware</a><br />
+</div>
+</div>
+
+<p><b>Run Your Business in Real-Time with SAP HANA</b><br />
+Is the data you're basing business decisions hours, days or weeks old? Imagine if you knew when, where, and how customers were buying without delay.  View inventories, supply chains, or financials with up to the second accuracy. Spot market changes early and adjust with precision. This is running in "real-time".  SGI helps make this possible with SAP HANA at near limitless scale and mission-critical reliability.</p>
+
+<p><b>Achieve Greater Insight.  Gain Competitive Advantage.</b><br />
+SGI UV 300H enables running SAP Business Suite, SAP Bank Analyzer, SAP S/4HANA Finance, and other business-critical applications on SAP HANA. It combines OLTP and OLAP workloads and eliminates the time-consuming extract, transform, and load processes to generate real-time reports on demand.</p>
+
+<div class="quotes">
+<div class="quote">"Our implementation of the 12TB SGI UV 300H in our In-Memory Research Laboratory has freed researchers to experiment with enterprise applications on very large in-memory databases and predictive applications."</div>
+<div class="attr">- Hasso Plattner, Prof. Dr. h.c. mult., Hasso Plattner Institute.</div>
+<!-- for future rotation
+<div class="quote">"SGI's superior scale-up technology and their close work with SAP weighed heavily in our selection of the SGI UV system."</div>
+<div class="attr">Toshinari Sato, senior vice president and chief information officer (CIO), NIDEC CORPORATION.</div>
+<div class="quote">"As a result of our pre-production testing with the SGI UV systems, we've expanded our plans and our vision of what SAP HANA can provide our business."</div>
+<div class="attr">Silji Abraham, vice president and chief information officer at Sigma-Aldrich.</div>
+-->
+<br />
+</div>
+
+<p><b>Run Simple. Run Big.</b><br />
+Perform complex joins, run multiple analytic engines simultaneously (including text, geo-spatial, and live data streaming), and eliminate silos. Plus with the SGI UV 300H there are no cluster nodes, cluster network, or SAN to configure and administer, and no need for data re-balancing.</p>
+
+<div style="float:right; text-align:center; padding:10px; margin:5px 0 10px 20px; border:1px solid #cbcdcc;">
+<h2>Scale Up vs. Scale Out</h2><br />
+<a href="/solutions/sap_hana/images/nodes.png" rel="lightbox[]" title=""><img src="/solutions/sap_hana/images/nodes_sm.png" /></a><br /><br /><a href="/solutions/sap_hana/images/nodes.png" rel="lightbox[]" title="">View Larger &raquo;</a></div>
+
+<p><b>Scale Up Seamlessly in a Single Node</b><br />
+Featuring Intel&reg; Xeon&reg; E7-8800 v3 and v4 processors and 7th generation SGI NUMAlink technology, SGI UV 300H is SAP-certified under general availability from 4 to 20 sockets with up to 20TBs of in-memory computing capacity as a single node - <i>making SGI UV 300H #1 in scale-up capacity for SAP HANA</i>.  Pending certification, it's designed to scale even further with up to 32 sockets and 32TB of shared memory!</p>
+
+<p><b>Depend on Mission-critical Reliability</b><br />
+Equipped with robust RAS features, SGI UV 300H delivers four 9's system resiliency. Single-node simplicity also extends to High Availability and Disaster Recovery with local automated system failover and remote system replication to achieve five 9's application availability.</p>
+
+<p><b>Capitalize on Future-ready Design</b><br />
+The unique modular chassis architecture of the UV 300H enables you to start small and scale up in 4-socket increments.  No over-provisioning. No forklift upgrades. Never outgrow.</p>
+
+<p><b>Leverage SGI Solution Flexibility</b><br />
+Pre-installed with SUSE&reg; Linux Enterprise Server or Red Hat Enterprise Linux for SAP HANA&reg;*, SGI UV 300H can be deployed as an appliance pre-configured with SAP HANA** or in an SAP HANA Tailored Datacenter Integration (TDI) configuration. SGI UV 300H solutions are rapidly installed by an SGI systems engineer and supported 24x7 by SGI's renowned global services team.</p>
+
+<br />
+<div class="modsep570"></div>
+<p>* Currently E7 v3 processor only.</p>
+<p>** SAP provides licensing.</p>
+
+
+
+
+<!-- Content Ends Here -->
+
+<!-- Begin Right Separator -->
+</div>
+</div>
+</td></tr>
+
+<!-- End Right Separator -->
+
+<!-- Begin Footer -->
+<!-- Begin trademark footer -->
+<tr>
+<td colspan="2" valign="bottom" align="center">
+<div id="footer-full2">
+	<a href="/company_info/privacy.html">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/company_info/terms.html">Terms of Use</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/subscribe/">Subscribe</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/site_contents.html">Site Map</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/company_info/contact_us.html">Contact Us</a>
+</div>
+<div id="footer-close2">&copy; 2009 - 2016 Silicon Graphics International Corp. All Rights Reserved.<br /><br /><a href="https://www.twitter.com/sgi_corp" target="_blank"><img src="/images/main_template/sm_twitter.png" style="border:0;" /></a>&nbsp;<a href="https://www.facebook.com/sgiglobal" target="_blank"><img src="/images/main_template/sm_facebook.png" style="border:0;" /></a>&nbsp;<a href="https://plus.google.com/+silicongraphics" target="_blank"><img src="/images/main_template/sm_googleplus.png" style="border:0;" /></a>&nbsp;<a href="http://www.youtube.com/sgicorp" target="_blank"><img src="/images/main_template/sm_youtube.png" style="border:0;" /></a>&nbsp;<a href="http://www.linkedin.com/company/sgi" target="_blank"><img src="/images/main_template/sm_linkedin.png" style="border:0;" /></a>&nbsp;<a href="http://blog.sgi.com/"><img src="/images/main_template/sm_blog.png" style="border:0;" /></a></div>
+</td>
+</tr>
+</table>
+<!-- End trademark footer -->
+</div>
+</div>
+</body>
+
+<!-- End Footer -->
+
+</html>

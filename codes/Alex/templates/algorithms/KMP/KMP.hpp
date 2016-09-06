@@ -4,7 +4,7 @@ const char* kmp_search(const char *text, const char *pattern)
 {
 	int* T;
 	int i, j;
-	const char* result = NULL;
+	const char* result = nullptr;
 
 	if (pattern [0] == '\0')
 		return text;
@@ -30,7 +30,7 @@ const char* kmp_search(const char *text, const char *pattern)
 		else j = T[j];
 	}
 
-	free(T);
+	delete[] T;
 	return result;
 }
 

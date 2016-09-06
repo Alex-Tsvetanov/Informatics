@@ -1,0 +1,415 @@
+@import url(/styles/new/win_ie.css);
+@import url(/styles/new/opera.css);
+@import url(/styles/new/mozilla.css);
+
+/* Basic Elements */
+* {padding: 0; margin: 0;} /*ie hack */
+body {font-size: 1.0em; font-family: verdana, arial, sans-serif; color: #5C5C5C; margin-top: 0px; text-align: center; background: #ffffff;}
+body#iframe {background: #ffffff !important;}
+
+html table {font-size: 1.0em;}
+html h3 {font-size: 1.0em;}
+
+p {margin-top: 0px; text-align: left;}
+p.center {text-align: center;}
+a:link {text-decoration: none; color: #0066CC;}
+a:visited {text-decoration: none; color: #0066CC;}
+a:hover, a:active {text-decoration: underline; color: #0066CC;}
+/* End Basic Elements */
+
+/* Begin Font */
+h1, h2 {margin-bottom: 0px; margin-top: 0px;}
+h1 {font-size: 1.65em; color: #4AAA42; line-height: 1em; letter-spacing: 0.0025em; word-spacing: -0.05em;}
+h2 {font-size: 1.1em; color: #4AAA42;}
+.h1reg {font-size: 0.65em;}
+.h2reg {font-size: 0.75em;}
+
+.med {font-size: 0.9em; font-weight: normal;}
+tt {font-size: 1.2em;}
+pre {font-size: 1.2em;}
+
+.center {text-align: center;}
+.hidden {visibility: hidden;}
+code {font-family: monospace; font-size: 1.4em;}
+
+sup {font-size:0.6em; vertical-align:top;} 
+.number {color:#ffffff; background-color:#4aaa42; padding:3px; -moz-border-radius: 15px; border-radius: 15px;}
+.bold {font-weight:bold; }
+
+.button a {padding:7px 15px; color:#ffffff; background:#4aaa42; border:0 none; cursor:pointer; -webkit-border-radius: 5px; border-radius: 5px; text-align:center; font-weight:normal;}
+
+/* from old-styles.css */
+.header {font-size: 1.45em; color: #4aaa42; line-height: 1.5em; letter-spacing: 0.05em; word-spacing: -0.05em; font-weight: bold;}
+.subhead2 {font-size: 1.1em; font-weight: bold; color: #4aaa42;}
+.subhead3 {font-weight: bold;}
+.reg {font-size: 1.0em; color: #4aaa42;}
+.tm	{font-size: .70em; text-decoration: none;}
+
+/* End Font */
+
+
+/* Begin Tables */
+/* font color */
+table, tr, td {color: #5C5C5C; border-color:#cbcdcc;}
+/* background color */
+.ttophead {background-color: #777777; vertical-align: top; font-weight: bold; color: #ffffff;}
+.tsubhead {background-color: #cbcdcc; vertical-align: top; font-weight: bold;}
+.trow1 {background-color: #ffffff;}
+.trow2 {background-color: #f5f5f5;}
+/* font decoration */
+.thead, .tsubhead, .ttophead  {font-weight: bold;}
+/* font alignment */
+.thead, .tsubhead, .ttophead, .trow1, .trow2 {vertical-align: top; border:1px solid #cbcdcc;}
+/* font alignment */
+.thead, .ttophead, .tsubhead, .trow1, .trow2 {padding: 10px;}
+/* Commented out because its creating problems with images in IE */
+table {border-collapse: collapse; margin:15px 0 5px 0;}
+/* End Tables */
+
+
+/* Specific Divs */
+#topPageCorner {
+	position: relative; 
+	background: transparent url(http://www.sgi.com/images/main_template/top_page_corner.gif) no-repeat center top; 
+	height: 4px; 
+	border-top: 1px solid #ffffff;
+	border-left: 1px solid #ffffff;
+	border-right: 1px solid #ffffff;
+	display: block;
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#container { 
+	display: block;
+	position: relative;
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 960px;
+	background: #ffffff; 
+	}
+/* End Specific Divs */
+
+
+/* globalHeader - contains the logo, tagline, and search */
+#globalContainer #globalHeader {background: #ffffff; height: 60px; border-right: 4px solid #FFFFFF; border-left: 4px solid #FFFFFF;}
+#globalContainer fieldset {border: 0; margin: 0; padding: 0; width: 180px;}
+#globalHeader h1 img {border: 0;}
+#globalHeader h1 {float: left;	margin: 0px; width: 112px; height: 60px;}
+#globalHeader form {float: right; font-family: verdana; border: 0;	width: 225px; margin: 0; padding: 0;}
+/* These styles are hidden text to create the sgi logo link. The background image could not be linked because it makes ie6.0 blink */
+#globalHeader a.logo {visibility: hidden; display: none;}
+#globalHeader h1 a:hover {text-decoration: none;}
+/* End hidden text */
+
+#globalContainer #globalHeader2 {height: 89px; border-right: 4px solid #FFFFFF; border-left: 4px solid #FFFFFF;	border-bottom: 0px solid #ffffff; background:url(/images/main_template/topbar_moire.jpg) left top no-repeat #000000;}
+#globalContainer fieldset {border: 0; margin: 0; padding: 0; width: 180px;}
+#globalHeader2 h1 img {border: 0;}
+#globalHeader2 h1 {float: left;	margin: 0px;}
+#globalHeader2 form {float: right; font-family: verdana; border: 0;	margin: 0; padding: 0;}
+/* These styles are hidden text to create the sgi logo link. The background image could not be linked because it makes ie6.0 blink */
+#globalHeader2 a.logo {visibility: hidden; display: none;}
+#globalHeader2 h1 a:hover {text-decoration: none;}
+/* End hidden text */
+
+.logodiv {float:left; width:112px;}
+.logodiv2 {float:left; width:125px;}
+.taglinediv { 
+	float:left;
+	width:580px;
+	text-align:right;
+	font-size: 0.8em;
+	font-weight:bold;
+	font-family: verdana, arial, sans-serif; 
+	color: #4aaa42; 
+	margin-top: 0px; 
+	background: #ffffff;
+}
+.taglinediv2 {float:left; margin: 36px 0 0 22px;}
+.taglinediv2 h1 {font-size: 0.8em; font-weight:bold; font-family: verdana, arial, sans-serif; color: #4aaa42;}
+.searchdiv {float:right; width:222px; vertical-align:center; border:0; text-align:right; padding-right:3px;}
+.searchdiv2 {float:right; vertical-align:center; border:0; text-align:right; padding-right:0px; margin:32px 16px 0 0;}
+
+.search {background: transparent no-repeat center bottom; width: 0px; height: 0px; padding: 0; border: 0; overflow: hidden; vertical-align: middle;}
+.box {margin: 0px 0px 0 0; background-color: #000000; color: #ffffff; font-size: 0.7em; font-family: verdana; padding:7px; border:0px solid #000000;}
+.hideButton {display: none;}
+
+/* for use on homepage only for Dr. Goh image link */
+.searchdiv2hp {float:right; vertical-align:center; border:0; text-align:right; padding-right:0px; margin:0px 16px 0 0;}
+/* End globalHeader */
+
+
+/* Top Nav */
+#nav2 {
+	width: 902px;
+	height: 15px;
+	background: #000000;
+	font-size: 0.7em;
+	clear: both;
+	text-align: left;
+	color: #cbcdcc;
+	border-right: 4px solid #FFFFFF; 
+	border-left: 4px solid #FFFFFF;
+	border-top: 0px solid #ffffff;
+	padding: 6px 0px 5px 50px;
+}
+#nav2 a {color: #ffffff !important; text-decoration: none;}
+#nav2 a:hover {color: #ffffff; text-decoration: underline;}
+#nav-subnav2 {float:right; color: #FDB913; margin-right:22px; font-weight:normal;}
+#nav-subnav2 a {color: #FDB913 !important; text-decoration: none;}
+#nav-subnav2 a:hover {color: #FDB913; text-decoration: underline;}
+#nav-category2 {float: left; width: 100px; font-size: 1.0em; color: #ffffff; font-weight: normal;}
+/* End Top Nav */
+
+
+/* Sidenav */
+#leftSideColumn {width: 155px; border-right:1px solid #cbcdcc; text-align: left;}
+#sidenav2 { float: left; padding: 10px 0 0 4px; width: 150px; font-size: 0.65em; margin-bottom: 30px;}
+#sidenav2 a { color: #0066CC;}
+#sidenav2 div { padding: 4px 7px 4px 7px;}
+#sidenav2 div.zero { background-color: #cbcdcc; font-weight: bold; margin: 7.5px 0px;}
+#sidenav2 div.first { background-color: #efefef; font-weight: bold; margin: 7.5px 0 5px 0;}
+#sidenav2 div.second { margin-top: 0.5px;}
+#sidenav2 div.third { display: list-item; list-style-position: outside; margin-left: 30px; list-style-type: square; padding: 0px 0px 2px;}
+#sidenav2 div.ad { width: 136px;vertical-align: top; margin-top: 10px; padding: 7px; line-height: 1.4em;  background: transparent url(/images/main_template/box_bg_top.gif) top right repeat-x;}
+#sidenav2 div.ad img { margin:3px 7px 25px 0; float: left; width: 35px; height: 35px; border: 1px solid #cbcdcc;}
+/* End Sidenav */
+
+
+/* Footer */
+#footer-full2 .footer {padding-top: 3px;}
+#footer-full2 {width: 939px; height: 20px; background-color: #efefef; font-size: 0.7em; clear: both; text-align: center; color: #cbcdcc; border-right: 4px solid #efefef; border-left: 4px solid #efefef; border-top: 1px solid #cbcdcc; padding: 6px 0px 0px 0px;}
+#footer-full2 a {text-decoration: none; color:#0066CC;}
+#footer-full2 a:hover {text-decoration: underline; color:#5C5C5C;}
+#footer-close2 {width: 939px; background: #ffffff; font-size: 0.7em; clear: both; text-align: center; color: #5C5C5C; padding: 15px 0px 50px 0px; vertical-align:center;}
+#footer-close2 a {color: #ffffff !important; text-decoration: none;}
+/* End Footer */
+
+
+/* Content */
+#contentAreaContainerFull {
+	width: 952px;
+	padding: 4px 4px 0px 4px;
+	text-align: left;
+	font-size: 0.70em;
+	line-height: 1.5em;
+	margin-top: -1px;
+	min-height: 350px;
+}
+#contentAreaContainer {
+	width: 794px;
+	padding: 4px 4px 0px 4px;
+	text-align: left;
+	font-size: 0.70em;
+	line-height: 1.35em;
+	margin-top: -1px;
+	min-height: 350px;
+}
+#contentAreaContainer2 {
+	width: 794px;
+	padding: 4px 4px 0px 4px;
+	text-align: left;
+	font-size: 0.70em;
+	line-height: 1.35em;
+	margin-top: -1px;
+	min-height: 350px;
+}
+#contentArea select {font-size: 0.90em;}
+#contentArea {
+	padding: 15px 0px 30px 11px; 
+	text-align: left;
+	/* position: relative; */
+} 
+#contentArea p {
+	margin: 8px 0px;
+}
+#contentArea ul {
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#contentArea ul li {
+	display: list-item;
+	list-style: none;
+	background: transparent url(http://www.sgi.com/images/common/list_bullet.gif) left top no-repeat; 
+	margin-left: 10px;
+	margin-bottom: 3px;
+	padding-left: 7px;
+}
+#contentArea ul li.nobullet {
+	display: list-item;
+	list-style: none;
+	margin-left: 10px;
+	margin-bottom: 3px;
+	padding-left: 7px;
+}
+#contentArea ul li p {
+	margin-bottom: 7px;	
+}
+#contentArea ul.nested {
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#contentArea ul.nested li {
+	display: list-item;
+	list-style: none;
+	background: transparent url(http://www.sgi.com/images/common/list_bullet.gif) left top no-repeat; 
+	margin-left: 34px;
+	margin-bottom: 3px;
+	padding-left: 7px;
+}
+#contentArea ul.nested li p {
+	margin-bottom: 7px;	
+}
+#contentArea ol {
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#contentArea ol li {
+	display: list-item;
+	margin-left: 40px;
+	margin-bottom: 3px;
+	padding-left: 0;
+}
+#contentArea ol li p {
+	margin-bottom: 7px;	
+}
+#contentArea ol.nested {
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+#contentArea ol.nested li {
+	display: list-item;
+	list-style: decimal;
+	margin-left: 40px;
+	margin-bottom: 3px;
+	padding-left: 0;
+	background: none;
+}
+#contentArea ol.nested li p {
+	margin-bottom: 7px;	
+}
+#noContent {margin-bottom: -32px;}
+/* End Content */
+
+
+/* Newsroom */
+table .newsroom {width: 785px;}
+.newsroomImgIcon {float: left; margin-top: 4px; padding-right: 6px;}
+.newsroomImgIconPR {float: right; margin-top: -22px;}
+.newsroom img {margin-top: 4px;}
+.newsroom .listing td {padding: 6px 12px 6px 12px !important; border-top:1px solid #cbcdcc;} 
+.newsroom .trow2 td {padding: 4px 12px 6px 12px !important;} 
+.newsroom .date {width: 50px; border-right:1px solid #cbcdcc; font-weight: bold;}
+.newsroom .month {border-top:0px solid #cbcdcc; color:#4aaa4a; font-weight: bold; padding: 6px 12px 8px 12px !important; background:#efefef;}
+.newsroomHeader {font-size: 1.3em; font-weight: bold; margin-bottom: 10px !important; line-height: 1.2em; text-align:left;}
+.newsroomSubHeader 	{font-size: 1.15em; font-weight: normal; padding-bottom: 10px; text-align:left;}
+.newsroomSeperator {background-image: url(http://www.sgi.com/company_info/newsroom/images/sepNewsroom.gif) repeat-x;}
+/* for Newsroom Archive pages */
+.newsroomMonth {padding: 2px 0 2px 0; font-weight: bold;}
+.newsroomLink1 {background-color: #edf0f9; padding: 2px 0 2px 22px;}
+.newsroomLink2 {background-color: #ffffff; padding: 2px 0 2px 22px;}
+/* Newsroom main page */
+table .newsroom2 {width: 449px;}
+.newsroom2 img {margin-top: 4px;}
+.newsroom2 .listing td {padding: 8px 12px 8px 12px !important; border-bottom:1px solid #cbcdcc; background:#ffffff;} 
+.newsroom2 .trow2 td {padding: 4px 12px 12px 12px !important;} 
+.newsroom2 .date {width: 40px; border-right:1px solid #cbcdcc; font-weight: bold;}
+.newsroom2 .month {border-top:1px solid #cbcdcc; color:#4aaa4a; font-weight: bold;}
+.prpdf {float:right; width:175px;}
+
+/* Customer Education course page schedule box */
+.custedBox2 {width:750px; border:1px solid #cbcdcc;	background-color: #f9f9f9; padding:5px 10px 5px 10px; margin:20px 0px 20px 0px;}
+.custedLogo {float:right; margin:0 0 20px 20px; border:1px solid #cbcdcc;}
+.custedClassroom {float:right; width:158px; height:78px; margin:10px 0 20px 20px; border:1px solid #cbcdcc; padding:10px; text-align:center;}
+
+/* Right Column Sidebars */
+.sidebar250 {float:right; width:250px; padding:10px 0 20px 20px; text-align:left; margin:10px 10px 10px 30px; border-left:1px solid #cbcdcc;}
+.sidebar250 h2 {padding:5px; border:1px solid #efefef; background-color:#efefef; text-align:center;}
+.sidebar180 {float:right; width:180px; padding:10px 0 20px 20px; text-align:center; margin:0px 0px 10px 30px; border-left:1px solid #cbcdcc;}
+.sidebar180 h2 {padding:5px; border:1px solid #efefef; background-color:#efefef; text-align:center;}
+
+/* New alternatives to modules */
+.bodybox1, .bodybox2, .bodybox3, .bodybox23, .bodybox4, .bodybox550 {
+	float:left;
+	padding:20px;
+	border-right:1px solid #cbcdcc;
+	background:url(/images/main_template/box_bg_top.gif) left top repeat-x;
+	text-align:left;
+	margin-bottom:5px;
+}
+.bodybox1 {width:742px;}
+.bodybox2 {width:346px;}
+.bodybox3 {width:214px;}
+.bodybox23 {width:477px;}
+.bodybox4 {width:148px;}
+.bodybox1 h2 {color:#4aaa42; font-size:1.5em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox1 h3 {color:#4aaa42; font-size:1.3em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox2 h2 {color:#4aaa42; font-size:1.5em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox2 h3 {color:#4aaa42; font-size:1.3em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox3 h1 {color:#4aaa42; font-size:1.5em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox3 h2 {color:#4aaa42; font-size:1.3em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox23 h1 {color:#4aaa42; font-size:1.5em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox23 h2 {color:#4aaa42; font-size:1.3em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.bodybox4 h2 {color:#4aaa42; font-size:1.3em; font-weight:bold; text-align:center; margin-bottom:15px;}
+.right8 {margin-right:8px;}
+.right9 {margin-right:9px;}
+.boxsection {background-color:#efefef; padding:5px 0 5px 10px; font-weight:bold; text-align:left; margin:20px 0 10px 0;}
+.bodybox1 iframe {padding:3px; border:1px solid #cbcdcc;}
+
+.banner {margin:15px 0 15px 0;}
+.intro {margin:0px 15px 15px 15px;}
+
+/* From old modules stylesheet */
+.modsep {background: transparent url(http://www.sgi.com/images/common/bg_dotrule.gif) repeat-x; padding: 1px 0; margin: 7px 0 4px 0;}
+.modsep2 {background: transparent url(http://www.sgi.com/images/common/bg_dotrule.gif) repeat-x; padding: 1px 0; margin: 15px 0 7px 0;}
+.modsep570 {background: transparent url(http://www.sgi.com/images/common/bg_dotrule.gif) repeat-x; padding: 1px 0; margin: 7px 0 4px 0; width:570px;}
+.modTnail {width: 35px; height: 35px; border: 1px solid #bfc2cb; margin-right: 8px; float: left; margin-top:3px;}
+
+/* Styles for the Tabs */
+#contentArea #tab-main ul li {background: transparent; margin-left: -7px;}
+#tab-main {
+	position: relative;
+	min-height: 21px;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+	margin-left: -11px;
+	z-index: 1;
+	width: 100%;
+	margin-bottom: 20px;
+}
+#tab-main li {
+	list-style-type: none;
+	padding-top: 0;
+	margin-top: 1px;
+	margin-bottom: 0px;
+	float: left;
+	text-align: center;
+	font-size: 1em;
+	white-space: nowrap;
+	margin-right: 3px;
+}
+#tab-main ul {	margin-left: 12px;}
+#tab-main span {border-top: 1px solid #d5d9df; border-bottom: 1px solid #c7c7ca; background: url(http://www.sgi.com/images/tabs/background.gif) repeat-x; float: left; height: 17px; padding: 0 12px;}
+#tab-main span a {color: #333333;}
+.rt 	{background: transparent url(http://www.sgi.com/images/tabs/corner_rt_off.gif) no-repeat; float: left; height: 19px; width: 2px;}
+.lt 	{background: transparent url(http://www.sgi.com/images/tabs/corner_lt_off.gif) no-repeat; float: left; height: 19px; width: 2px;}
+ul#subnavlist {
+	position: absolute;
+	width: 776px;
+	left: 0;
+	top: 26px;
+	margin: 0;
+	padding: 0 0 0 10px;
+	white-space: nowrap;
+	height: 5px;
+	background-color: #909090;
+	z-index: -2;
+	visibility: hidden;
+	border-top: 1px solid #838383;
+}
+ul#subnavlist li {padding: 2px 11px 0 11px; height: 20px; background: transparent url(http://www.sgi.com/images/tabs/subtab_sep.gif) no-repeat right;}
+ul#subnavlist li.end {background: none;}
+ul#subnavlist li a {width: auto; border: 0;	color: #ffffff;	font-size: 1.1em;}
+/* End Styles for the Tabs */

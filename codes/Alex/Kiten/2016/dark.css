@@ -1,0 +1,21 @@
+html{
+padding: 10px 10px 10px;
+  height: 100%;
+}
+
+header {
+  background: #333;
+  color:#555;
+}
+
+body {
+	background-color: #404040;
+	color: #E0E0E0;
+  height: 100%;
+}
+a {
+	color: white;
+}
+a:visited {
+	color: white;
+}
