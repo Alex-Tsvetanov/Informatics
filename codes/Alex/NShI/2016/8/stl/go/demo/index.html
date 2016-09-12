@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SGI - Demo</title>
+</head>
+<body>
+<script type="text/javascript">
+    <!--
+    function reloadpic()
+    {
+        var timestamp = new Date().getTime();
+        document.images["remoteimage"].src = "demo.png?random=" + timestamp;
+        /* reload every milliseconds */
+        setTimeout("reloadpic();", 30000);
+    }
+    onload = reloadpic;
+    -->
+</script>
+<img id="remoteimage" src="demo.png">
+</body>
+</html>

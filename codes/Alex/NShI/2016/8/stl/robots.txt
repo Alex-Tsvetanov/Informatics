@@ -1,0 +1,8 @@
+# /robots.txt for www.sgi.com
+User-agent: *
+Disallow: /cgi-bin
+Disallow: /search
+Disallow: /sales/nys/downloads
+User-agent: sgi-crawler
+Disallow: /go
+Sitemap: http://www.sgi.com/sitemap_index.xml

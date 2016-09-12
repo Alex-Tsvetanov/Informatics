@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+     "http://www.w3.org/TR/html4/transitional.dtd">
+<html>
+<head>
+  <meta HTTP-EQUIV=CONTENT-TYPE CONTENT="text/html; charset=utf-8">
+  <title>Slide 22</title>
+</head>
+<body text="#534949" bgcolor="#FFFFFF" link="#4A90D9" vlink="#2A76C6" alink="#4A90D9">
+<center>
+<a href="text0.html">First page</a> <a href="text20.html">Back</a> <a href="text22.html">Continue</a> <a href="text46.html">Last page</a> <a href="MAIN.html">Overview</a> <a href="img21.html">Graphics</a></center><br>
+<h1></h1>
+<p><b><font color="#E8C3B9">изтриване на елемент
+</b></font></p>
+<p><font color="#000000">Напишете процедура </font><font color="#FF0000">trie (int k) </font></p>
+<p><font color="#000000">която изтрива <b></font><font color="#FF0000">листо</b></font><font color="#000000"> със стойност (<i>ключ</i>) k.</font></p>
+<p><font color="#0033CC">void tyrsi ( int k, <b></font><font color="#008000">link t</b></font><font color="#FF0000">, link &amp;q </font><font color="#0033CC">) {</font></p>
+<p><font color="#0033CC">   if (t) {</font></p>
+<p><font color="#0033CC">     if (t-&gt;key == k) {</font></p>
+<p><font color="#0033CC">       q=t;</font></p>
+<p><font color="#0033CC">       exit;</font></p>
+<p><font color="#0033CC">    }</font></p>
+<p><font color="#0033CC">    else</font></p>
+<p><font color="#0033CC">    if (k &lt; t-&gt;key)	</font></p>
+<p><font color="#0033CC">      tyrsi (k,t-&gt;l,q);</font></p>
+<p><font color="#0033CC">      else</font></p>
+<p><font color="#0033CC">      tyrsi (k,t-&gt;r,q);</font></p>
+<p><font color="#0033CC">    }</font></p>
+<p><font color="#0033CC">}</font></p>
+<p><font color="#000000">За целта променете процедурата </font><font color="#FF0000">tyrsi</font><font color="#000000"> по следния начин:</font></p>
+<p><font color="#0033CC">void trie (int k) {</font></p>
+<p><font color="#0033CC">link t,q;</font></p>
+<p><font color="#0033CC">    tyrsi (k,pStart,t);</font></p>
+<p><font color="#0033CC">    if (t) {</font></p>
+<p><font color="#0033CC">    if (t-&gt;l == NULL &amp;&amp; t-&gt;r == NULL)  {</font></p>
+<p><font color="#0033CC">        </font></p>
+<p><font color="#0033CC">       </font><font color="#FF0000">Вашият код за изтриване на листо</font></p>
+<p><font color="#FF0000"></font></p>
+<p><font color="#0033CC">     }</font></p>
+<p><font color="#000000">Указател, от който започва търсенето</font></p>
+<p><font color="#000000">Указател, който връща <b>адреса</b> на търсения елемент</font></p>
+</body>
+</html>

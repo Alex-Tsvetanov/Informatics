@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>SGI - Solutions: Oracle Database In-Memory</title>
+
+<meta name="description" content="SGI - Oracle Database In-Memory" />
+<meta name="keywords" content="SGI, oracle, in memory, database, 12c, real time, insight" />
+<meta name="owner" content="Silicon Graphics International Corp." />
+
+<!--- This style will define the main link title to look inactive --->
+<style type="text/css"><!-- #oracle {color: #5c5c5c !important; text-decoration: none;} --></style>
+
+<!-- Begin Header -->
+ <meta http-equiv="imagetoolbar" content="no" />
+ <!--script type="text/javascript" src="/js/redesign_style_sniffer.js"></script-->
+ <link rel="stylesheet" href="/styles/new/master.css" type="text/css" />
+ <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+ <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1614576-2']);
+  _gaq.push(['_setDomainName', '.sgi.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<script type="text/javascript">
+var _elqQ = _elqQ || [];
+_elqQ.push(['elqSetSiteId', '912409556']);
+_elqQ.push(['elqTrackPageViewDisplayOptInBannerByCountry']);
+(function () {
+function async_load() {
+var s = document.createElement('script');
+s.type = 'text/javascript';
+s.async = true; s.src = '//img.en25.com/i/elqCfg.min.js';
+var x = document.getElementsByTagName('script')[0];
+x.parentNode.insertBefore(s, x);
+}
+if (window.addEventListener) window.addEventListener('DOMContentLoaded', async_load, false);
+else if (window.attachEvent) window.attachEvent('onload', async_load);
+})();
+function elqVisitorTrackingOptIn() { _elqQ.push(['elqOptIn']); } function elqVisitorTrackingOptOut() { _elqQ.push(['elqOptOut']); }
+</script>
+
+</head>
+<body>
+
+<div id="topPageCorner">
+	<div id="container"> 
+	<!-- Start Header -->
+		<div id="globalContainer">
+			<div id="globalHeader2">
+				<!-- Start Logo -->
+				<div class="logodiv2">
+				<a href="/"><img src="/images/main_template/topbar_logo.png" alt="SGI" style="border:0px" /></a>
+				</div>
+				<!-- End Logo -->
+				<!-- Start Tagline -->
+				<div class="taglinediv2">
+				<h1>The Trusted Leader in High Performance Computing</h1>
+				</div>
+				<!-- End Tagline -->
+				<!-- Start Search -->
+				<div class="searchdiv2">
+						<form action="/search/results.html" id="cse-search-box">
+							<input type="text" name="q" size="31" class="box" value=" Search" style="color:#ffffff" onfocus="this.value='';this.style.color='#ffffff';this.onfocus='';" />
+							<button type="submit" name="btnG" class="search"></button>
+						    <input type="hidden" name="cx" value="012778446633271376432:xd_z7pteusu" />
+						    <input type="hidden" name="cof" value="FORID:11;NB:1" />
+						    <input type="hidden" name="ie" value="UTF-8" />
+						    <input type="submit" name="sa" value="Search" class="hideButton" />
+						</form>
+				</div>
+				<!-- End Search -->
+			</div>
+		</div>
+		<!-- End Header -->
+		<!-- Start Topnav -->
+		<div id="nav2">
+			<div id="nav-category2"><a href="/products/">Products</a></div>
+			<div id="nav-category2"><a href="/solutions/">Solutions</a></div>
+			<div id="nav-category2"><a href="/services/">Services</a></div>
+			<div id="nav-category2"><a href="/partners/">Partners</a></div>
+			<div id="nav-category2"><a href="/company_info/">About SGI</a></div>
+			<div id="nav-subnav2"><a href="/sales/askarep.html">Questions?&nbsp;&nbsp;Contact Sales &raquo;</a></div>
+		</div>
+		<!-- End Topnav -->
+	<!-- End Header -->
+
+<table width="960" border="0" cellpadding="0" cellspacing="0" align="left" id="core">
+	<tr>
+		<td colspan="2">
+
+<!-- End Header -->
+
+<!-- Begin Breadcrumbs -->
+<!-- Start Breadcrumbs -->
+<div class="vspace" style="height: 7px;">&nbsp;</div>
+<!-- End Breadcrumbs -->
+
+
+<!-- End Breadcrumbs -->
+
+<!--- Do not remove the next four lines before the sidenav --->
+</td>
+</tr>
+<tr valign="top">
+	<td id="leftSideColumn">
+
+<!-- Start Side Nav -->
+<div id="sidenav2">
+     <div class="first"><a href="/solutions/" id="homeLink">Solutions</a></div>
+     <div class="second"><a href="/solutions/compute/" id="compute">Compute</a></div>
+     <div class="second"><a href="/solutions/data_management/" id="data_management">Data Management</a></div>
+     <div class="second"><a href="/solutions/data_analytics/" id="data_analytics">Data Analytics</a></div>
+     <div class="second"><a href="/solutions/sap_hana/" id="sap_hana">SAP HANA</a></div>
+     <div class="second"><a href="/solutions/oracle/" id="oracle">Oracle Database<br />In-Memory</a></div>
+     <div class="first">Industry Solutions</div>
+     <div class="second"><a href="/solutions/government/" id="government">Government</a></div>
+     <div class="second"><a href="/solutions/earth_sciences/" id="earth_sciences">Earth Sciences</a></div>
+     <div class="second"><a href="/solutions/research/" id="research">Higher Education &amp; Research</a></div>
+     <div class="second"><a href="/solutions/life_sciences/" id="life_sciences">Life Sciences</a></div>
+     <div class="second"><a href="/solutions/manufacturing/" id="manufacturing">Manufacturing / VPD</a></div>
+     <div class="second"><a href="/solutions/oil_gas/" id="oil_gas">Oil &amp; Gas</a></div>
+     <div class="first"><a href="/company_info/resources/" id="resources">Resources</a></div>
+     <div class="second"><a href="/company_info/resources/case_studies.html" id="case_studies">Case Studies</a></div>
+     <div class="second"><a href="/company_info/resources/whitepapers.html" id="whitepapers">White Papers</a></div>
+     <div class="second"><a href="/company_info/resources/datasheets.html" id="datasheets">Datasheets</a></div>
+     <div class="second"><a href="/company_info/resources/briefs.html" id="briefs">Briefs</a></div>
+     <div class="second"><a href="/company_info/resources/videos.html" id="videos">Videos</a></div>
+</div>
+
+<!-- End Side Nav -->
+
+<!-- Begin Left Seperator -->
+<!-- Start i_sep_left.html-->
+</td>
+<td valign="TOP">
+
+
+<!-- End i_sep_left.html-->
+
+<div id="contentAreaContainer">
+<div id="contentArea">
+
+<!-- End Left Seperator -->
+
+<!-- Content Starts Here -->
+
+<h1>Oracle<sup>&reg;</sup> Database In-Memory Solutions</h1>
+
+<p><b>Accelerate Oracle 12c to the Speed of Memory</b></p>
+
+<div class="banner"><img src="images/oracle_banner.jpg" border="0" alt="Oracle Database In-Memory" /></div>
+
+<div class="sidebar180">
+<h2>Learn More</h2><br />
+<div style="text-align:left;">
+<div class="modTnail"><a href="/pdfs/4562.pdf"><img src="/images/common/datasheet.gif" height="35" width="35" border="0"/></a></div>
+<a href="/pdfs/4562.pdf">SGI UV 300RL Datasheet</a> (PDF)<br /><br />
+<div class="modsep"></div>
+<div class="modTnail"><a href="/pdfs/4572.pdf"><img src="/images/common/datasheet.gif" height="35" width="35" border="0"/></a></div>
+<a href="/pdfs/4572.pdf">SGI UV 300RL<br />White Paper</a> (PDF)<br /><br />
+<div class="modsep"></div>
+<div class="modTnail"><a href="/pdfs/4571.pdf"><img src="/images/common/datasheet.gif" height="35" width="35" border="0"/></a></div>
+<a href="/pdfs/4571.pdf">SGI UV 300RL Configuration Guide</a> (PDF)<br /><br />
+<div class="modsep"></div>
+<div class="modTnail"><a href="/company_info/newsroom/press_releases/2015/october/oracle.html"><img src="/images/thumbs/sgi.jpg" height="35" width="35" border="0"/></a></div>
+<a href="/company_info/newsroom/press_releases/2015/october/oracle.html">Read the<br />Press Release</a><br /><br />
+<div class="modsep"></div>
+<div class="modTnail"><a href="http://linux.oracle.com/pls/apex/f?p=117:2:0::NO:RP:P2_CERT_ID,P2_VIRTUAL_FLAG,P2_PRODUCT_ID:9011,1,542" target="_blank"><img src="/images/thumbs/check.jpg" height="35" width="35" border="0"/></a></div>
+<a href="http://linux.oracle.com/pls/apex/f?p=117:2:0::NO:RP:P2_CERT_ID,P2_VIRTUAL_FLAG,P2_PRODUCT_ID:9011,1,542" target="_blank">Oracle Linux Certification</a><br /><br />
+<div class="modsep"></div>
+<div class="modTnail" style="margin-bottom:20px;"><a href="/pdfs/4530.pdf"><img src="/images/common/whitepaper.gif" height="35" width="35" border="0"/></a></div>
+<a href="/pdfs/4551.pdf">SGI UV 300 System Reliability, Availability &amp; Serviceability</a> (PDF)<br />
+</div>
+</div>
+
+<div style="float:right;"><img src="/solutions/oracle/images/oracle_linux_ready.png" border="0"/></div>
+
+<p><b>Achieve Real-time Business with Oracle Database In-Memory</b><br />
+Oracle 12c with the Oracle Database In-Memory option enables lines of business to access vital information with up-to-the-moment accuracy, get answers instantly, and operate in real time. Imagine leveraging Oracle Database In-Memory with near limitless scale and mission-critical reliability. SGI helps make this possible.</p>
+
+<p><b>Perform Analytics at 100x - Run OLTP and Analytics Concurrently</b><br />
+Identify business trends in seconds, make faster, smarter decisions, and gain competitive advantage. SGI UV 300RL, a new model in the SGI UV server line for high performance in-memory computing, enables enterprises to run Oracle Database In-Memory on a single, Intel-based system with un-paralleled scale-up capacity.</p>
+
+<p><b>Leverage Future-ready, Single-System Design with Near Limitless Scale</b><br />
+Featuring Intel&reg; Xeon&reg; E7-8800 v4 or v3 processors and 7th generation SGI NUMAlink technology, UV 300RL is certified and factory-installed with Oracle Linux 7 with Unbreakable Enterprise Kernel. Utilizing a unique modular chassis architecture, UV 300RL can scale from 4 to 32 sockets and 1 to 24TBs of cache-coherent shared memory.</p>
+
+<p><b>Enjoy Seamless, Scale-up Simplicity</b><br />
+The single-system design of the UV 300RL enables you to grow your Oracle Database In-Memory environment without adding overhead. There are no cluster nodes or cluster network to administer. No additional software is required. And there's no need for data segmentation as performance scales near linearly and automatically.</p>
+
+<p><b>Depend on Mission-Critical Reliability</b><br />
+SGI UV 300RL is equipped with high fault-tolerance and robust reliability, availability and serviceability (RAS) features. To help ensure continuous operations, you can fully leverage Oracle's Maximum Availability Architecture for Oracle 12c to protect against data loss and keep critical applications highly available.</p>
+
+<p><b>Gain In-memory Performance with Deployment Flexibility</b><br />
+Connect UV 300RL directly or by network to your existing enterprise-class 3rd party storage or select from the entire SGI InfiniteStorage line. The system is deployed by an expert SGI services engineer, either pre-racked and featuring air or water cooling, or in your existing 19" rack.</p>
+
+
+<!-- Content Ends Here -->
+
+<!-- Begin Right Separator -->
+</div>
+</div>
+</td></tr>
+
+<!-- End Right Separator -->
+
+<!-- Begin Footer -->
+<!-- Begin trademark footer -->
+<tr>
+<td colspan="2" valign="bottom" align="center">
+<div id="footer-full2">
+	<a href="/company_info/privacy.html">Privacy Policy</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/company_info/terms.html">Terms of Use</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/subscribe/">Subscribe</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/site_contents.html">Site Map</a>&nbsp;&nbsp;&nbsp;&nbsp;&#149;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/company_info/contact_us.html">Contact Us</a>
+</div>
+<div id="footer-close2">&copy; 2009 - 2016 Silicon Graphics International Corp. All Rights Reserved.<br /><br /><a href="https://www.twitter.com/sgi_corp" target="_blank"><img src="/images/main_template/sm_twitter.png" style="border:0;" /></a>&nbsp;<a href="https://www.facebook.com/sgiglobal" target="_blank"><img src="/images/main_template/sm_facebook.png" style="border:0;" /></a>&nbsp;<a href="https://plus.google.com/+silicongraphics" target="_blank"><img src="/images/main_template/sm_googleplus.png" style="border:0;" /></a>&nbsp;<a href="http://www.youtube.com/sgicorp" target="_blank"><img src="/images/main_template/sm_youtube.png" style="border:0;" /></a>&nbsp;<a href="http://www.linkedin.com/company/sgi" target="_blank"><img src="/images/main_template/sm_linkedin.png" style="border:0;" /></a>&nbsp;<a href="http://blog.sgi.com/"><img src="/images/main_template/sm_blog.png" style="border:0;" /></a></div>
+</td>
+</tr>
+</table>
+<!-- End trademark footer -->
+</div>
+</div>
+</body>
+
+<!-- End Footer -->
+
+</html>

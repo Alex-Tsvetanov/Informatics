@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#define int long long
+int dp [20004];
+
+void rec (int i, int sum)
+{
+	if (i == n)
+	{
+		if (sum <= m)
+			ans.push_back (m);
+		return;
+	}
+	for (i ++ ; i < n ; i ++)
+	{
+		rec (i, sum + dp [i]);
+	}
+}
+
+int32_t main ()
+{
+	int n, m;
+	std::cin >> n >> m;
+	for (int i = 0 ; i < n ; i ++)
+	{
+		std::cin >> dp [i];
+	}
+
+	std::vector < int > ans;
+
+	for (int i = 1 ; i <= n ; i ++)
+		for (int j = i + 1 ; j <= n ; j ++)
+			if (dp [j] - dp [i - 1] <= m)
+				ans.push_back (dp [j] - dp [i - 1]);
+	rec (-1, 0)
+	std::sort (ans.begin (), ans.end ());
+	for (int i = 0 ; i < (int)ans.size () - 1 ; i ++)
+		std::cout << ans [i] << " ";
+	std::cout << ans.back () << "\n";
+}
