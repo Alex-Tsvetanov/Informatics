@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fresh Fruits</title>
+        <style type="text/css">
+            #table td
+            {
+                border: 1px solid black;
+            }
+            #default
+            {
+                text-align: center;
+            }
+            #leftcenter
+            {
+                vertical-align: middle;
+                text-align: left;
+            }
+            .right
+            {
+                direction: rtl;
+            }
+            #rightbottom
+            {    
+                direction: rtl;
+                vertical-align: bottom;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tbody>
+                <tr>
+                    <th colspan="2"><center><em>Fresh Fruits</em></center></th>
+                </tr>
+                <tr>
+                    <td style="max-width:275px">
+                        It has long been known that a diet that includes at least a few servings of fresh fruit every day will help keep you healthy, fit and trim. 
+                    </td>
+                    <td>
+                        <img src="./fruits.png" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div id="table">
+            <table>
+                <tbody>
+                    <tr>
+                        <td id="default" colspan="3" style="min-width: 150px">Title goes here</td>
+                        <td id="default" style="min-width: 50px">A</td>
+                        <td class="right" style="min-width: 50px">B</td>
+                    </tr>
+                    <tr>
+                        <td style="min-width: 150px" id="leftcenter" rowspan="3">C</td>
+                        <td id="default" style="min-width: 50px">D</td>
+                        <td id="default" style="min-width: 50px">E</td>
+                        <td id="default" style="min-width: 50px">F</td>
+                        <td style="min-width: 50px" class="right">G</td>
+                    </tr>
+                    <tr>
+                        <td id="default" style="min-width: 50px">H</td>
+                        <td id="default" style="min-width: 10px" colspan="2">I</td>
+                        <td style="min-width: 50px" id="rightbottom" rowspan="2">J</td>
+                    </tr>
+                    <tr>
+                        <td id="default" style="min-width: 50px">K</td>
+                        <td id="default" style="min-width: 50px">L</td>
+                        <td id="default" style="min-width: 50px">M</td>
+                    </tr>
+                    <tr>
+                        <td style="min-width: 50px" class="right">N</td>
+                        <td id="default" style="min-width: 200px" colspan="4">O</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
