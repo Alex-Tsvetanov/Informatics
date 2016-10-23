@@ -1,0 +1,12 @@
+#!/bin/bash
+
+tsc $1.ts;
+exitcode=$?;
+
+if [[ $exitcode = 0 ]] ;
+then
+    node $1.js;
+else
+    rm $1.js;
+    echo "Errors in TypeScript Code";
+fi
