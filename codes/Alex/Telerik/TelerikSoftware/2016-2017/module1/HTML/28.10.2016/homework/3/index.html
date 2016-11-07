@@ -1,0 +1,170 @@
+<style>
+input[type=range] {
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+</style>
+<fieldset>
+	<legend><a href="#">Apple</a> <a href="#">Toshiba</a> <a href="#">Lenovo</a> <a href="#">Dell</a> <a href="#">Asus</a> <a href="#">Hacer</a>		<a href="#">HP</a></legend>
+	<table>
+		<tr>
+			<td>
+				<table>
+					<tr>
+						<td>
+							<fieldset>
+								<legend>Apple MacBook Air</legend>
+								<table>
+									<tr>
+										<td rowspan="3"><img height="200px" src="http://www.notebookcheck.net/uploads/tx_nbc2/design_unibody2_20101020_01.png" alt="Apple MacBook Air Picture"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>64GB SSD</td>
+									</tr>
+									<tr>
+										<td>2GB DDR</td>
+									</tr>
+									<tr>
+										<td>1300 USD</td>
+										<td>Intel Core i5</td>
+									</tr>
+								</table>
+							</fieldset>
+						</td>
+						<td>
+							<fieldset>
+								<legend>Apple MacBook Air</legend>
+								<table>
+									<tr>
+										<td rowspan="3"><img height="200px" src="http://www.notebookcheck.net/uploads/tx_nbc2/design_unibody2_20101020_01.png" alt="Apple MacBook Air Picture"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>64GB SSD</td>
+									</tr>
+									<tr>
+										<td>2GB DDR</td>
+									</tr>
+									<tr>
+										<td>1300 USD</td>
+										<td>Intel Core i5</td>
+									</tr>
+								</table>
+							</fieldset>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fieldset>
+								<legend>Apple MacBook Air</legend>
+								<table>
+									<tr>
+										<td rowspan="3"><img height="200px" src="http://www.notebookcheck.net/uploads/tx_nbc2/design_unibody2_20101020_01.png" alt="Apple MacBook Air Picture"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>64GB SSD</td>
+									</tr>
+									<tr>
+										<td>2GB DDR</td>
+									</tr>
+									<tr>
+										<td>1300 USD</td>
+										<td>Intel Core i5</td>
+									</tr>
+								</table>
+							</fieldset>
+						</td>
+						<td>
+							<fieldset>
+								<legend>Apple MacBook Air</legend>
+								<table>
+									<tr>
+										<td rowspan="3"><img height="200px" src="http://www.notebookcheck.net/uploads/tx_nbc2/design_unibody2_20101020_01.png" alt="Apple MacBook Air Picture"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>64GB SSD</td>
+									</tr>
+									<tr>
+										<td>2GB DDR</td>
+									</tr>
+									<tr>
+										<td>1300 USD</td>
+										<td>Intel Core i5</td>
+									</tr>
+								</table>
+							</fieldset>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fieldset>
+								<legend>Apple MacBook Air</legend>
+								<table>
+									<tr>
+										<td rowspan="3"><img height="200px" src="http://www.notebookcheck.net/uploads/tx_nbc2/design_unibody2_20101020_01.png" alt="Apple MacBook Air Picture"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>64GB SSD</td>
+									</tr>
+									<tr>
+										<td>2GB DDR</td>
+									</tr>
+									<tr>
+										<td>1300 USD</td>
+										<td>Intel Core i5</td>
+									</tr>
+								</table>
+							</fieldset>
+						</td>
+						<td>
+							<fieldset>
+								<legend>Apple MacBook Air</legend>
+								<table>
+									<tr>
+										<td rowspan="3"><img height="200px" src="http://www.notebookcheck.net/uploads/tx_nbc2/design_unibody2_20101020_01.png" alt="Apple MacBook Air Picture"></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>64GB SSD</td>
+									</tr>
+									<tr>
+										<td>2GB DDR</td>
+									</tr>
+									<tr>
+										<td>1300 USD</td>
+										<td>Intel Core i5</td>
+									</tr>
+								</table>
+							</fieldset>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td style="width: 100%">
+                <div style="text-align: center;">
+                <h3>
+                    Min prices: <div id="minp">0</div> <input type="range" value="0" min="0" max="1000" step="50" onchange="showValue('minp', this.value)" /> <br> <br>
+                    Max prices: <div id="maxp">0</div> <input type="range" value="0" min="0" max="3000" onchange="showValue('maxp', this.value)" /> <br> <br>
+                    Min RAM: <div id="minr">1</div> <input type="range" value="1" min="1" max="8" onchange="showValue('minr', this.value)" /> <br> <br>
+                    Max RAM: <div id="maxr">1</div> <input type="range" value="1" min="1" max="32" onchange="showValue('maxr', this.value)" /> <br> <br>
+                </h3>
+                </div>
+			</td>
+		</tr>
+	</table>
+</fieldset>
+
+<script type="text/javascript">
+function showValue(id, newValue)
+{
+	document.getElementById(id).innerHTML=newValue;
+}
+</script>

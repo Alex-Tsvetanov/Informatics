@@ -1,0 +1,111 @@
+<style>
+	th
+	{
+		text-align: left;
+		max-width: 250px;
+	}
+	td, th
+	{
+		border: 1px solid black;
+	}
+	.fullrow
+	{
+		width: 100%;
+	}
+</style>
+
+<form action="/" method="GET">
+	<table>
+		<tbody>
+			<tr>
+				<th>Last Name</th>
+				<td>
+					<input class="fullrow" type="text" name="last_name">
+				</td>
+			</tr>
+			<tr>
+				<th>First Name</th>
+				<td>
+					<input class="fullrow" type="text" name="first_name">
+				</td>
+			</tr>
+			<tr>
+				<th>Address</th>
+				<td>
+					<textarea class="fullrow" name="Address" id="Address"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<th>City</th>
+				<td>
+					<input name="city" type="text"> State <input name="state" type="text">
+				</td>
+			</tr>
+			<tr>
+				<th>State</th>
+				<td>
+					<input class="fullrow" name="state" type="text">
+				</td>
+			</tr>
+			<tr>
+				<th>Zip/Postal Code</th>
+				<td>
+					<input class="fullrow" name="zip" type="text">
+				</td>
+			</tr>
+			<tr>
+				<th>Country</th>
+				<td>
+					<input class="fullrow" name="country" type="text">
+				</td>
+			</tr>
+			<tr>
+				<th>Phone (Country code, Area code, number)</t>
+				<td>
+					(+<input name="country code" type="text">) <input name="area code" type="type"> - <input name="number" type="type">
+				</td>
+			</tr>
+			<tr>
+				<th>E-mail</th>
+				<td>
+					<input name="e-mail" type="text" pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+				</td>
+			</tr>
+			<tr>
+				<th>Birth date</th>
+				<td>
+					<label for="month">Month:</label>
+					<input id="month" name="month" type="number" min="1" max="12">
+					<label for="day">Day: </label>
+					<input id="day" name="day" type="number" min="1" max="31">
+					<label for="year">Year (4-digit number):</label>
+					<input id="year" name="year" type="number" min="1000" max="9999">
+				</td>
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td>
+					<select name="gender">
+						<option value="0">Male</option>
+						<option value="1">Female</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<th>Starting date</th>
+				<td>
+					<input name="date" type="radio">Spring 2006</input>
+					<input name="date" type="radio">Summer 2006</input>
+				</td>
+			</tr>
+			<tr>
+				<th>Comments/Questions</th>
+				<td>
+					<textarea class="fullrow" name="Comments" id="Comments" cols="30" rows="10"></textarea>
+				</td>
+			</tr>
+		</tbody>
+	</table>	
+	<input type="submit">
+	<input type="reset">
+</form>

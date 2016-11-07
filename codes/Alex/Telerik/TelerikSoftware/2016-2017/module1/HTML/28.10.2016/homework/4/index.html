@@ -1,0 +1,146 @@
+<style>
+	td, th
+	{
+		border: 1px solid black;
+	}
+    input
+    {
+        width: 90px;
+        height: 30px;
+    }
+    .blue
+    {
+        background-color: #DFE3E8;
+    }
+</style>
+<table>
+    <tbody>
+        <tr class="blue">
+            <td colspan="6">Drag a column header and drop it here to group by that column</td>
+        </tr>
+        <tr class="blue">
+            <td>ProductID</td>
+            <td>Product Name</td>
+            <td>Unit Price</td>
+            <td>Quantity per unit</td>
+            <td>Units in stock</td>
+            <td>Discontinued</td>
+        </tr>
+        <tr class="blue">
+            <td><input type="text" name="filter1"></td>
+            <td><input type="text" name="filter2"></td>
+            <td><input type="text" name="filter3">
+            <img height="30px" src="./filter.png"></td>
+            <td><input type="text" name="filter4"></td>
+            <td><input type="text" name="filter5">
+            <img height="30px" src="./filter.png"></td>
+            <td><input type="checkbox" name="filter6"><img height="30px" src="./filter.png"></td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Chai</td>
+            <td>&#36;18.00</td>
+            <td>10 boxes x 20 bags</td>
+            <td>39</td>
+            <td><input type="checkbox" name="filter7"></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Chang</td>
+            <td>&#36;19.00</td>
+            <td>24-12 oz bottles</td>
+            <td>17</td>
+            <td><input type="checkbox" name="filter8"></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Aniseed Syrup</td>
+            <td>&#36;10.00</td>
+            <td>12-550 ml bottles</td>
+            <td>13</td>
+            <td><input type="checkbox" name="filter9"></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Chef Anton's Cajun Seasoning</td>
+            <td>&#36;22.00</td>
+            <td>48-6 oz jars</td>
+            <td>53</td>
+            <td><input type="checkbox" name="filter10"></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Chef Anton's Gumbo Mix</td>
+            <td>&#36;21.35</td>
+            <td>36 boxes</td>
+            <td>0</td>
+            <td><input type="checkbox" name="filter11"></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Grandma's Boysenberry Spread</td>
+            <td>&#36;25.00</td>
+            <td>12-8 oz jars</td>
+            <td>120</td>
+            <td><input type="checkbox" name="filter12"></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Uncle Bob's Organic Dried Pears</td>
+            <td>&#36;30.00</td>
+            <td>12-1 lb pakgs.</td>
+            <td>15</td>
+            <td><input type="checkbox" name="filter13"></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Northwoods Cranberry Sauce</td>
+            <td>&#36;40.00</td>
+            <td>12-12 oz jars</td>
+            <td>6</td>
+            <td><input type="checkbox" name="filter14"></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Mishi Kobe Niku</td>
+            <td>&#36;97.00</td>
+            <td>18-500 g pkgs.</td>
+            <td>29</td>
+            <td><input type="checkbox" name="filter15"></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Ikura</td>
+            <td>&#36;31.00</td>
+            <td>12-200ml jars</td>
+            <td>31</td>
+            <td><input type="checkbox" name="filter16"></td>
+        </tr>
+        <tr class="blue">
+            <td colspan="6">
+                <button>Previous</button>
+                <a href="#1">1</a>,
+                <a href="#2">2</a>,
+                <a href="#3">3</a>,
+                <a href="#4">4</a>,
+                <a href="#5">5</a>,
+                <a href="#6">6</a>,
+                <a href="#7">7</a>,
+                <a href="#8">8</a>,
+                <a href="#9">9</a>,
+                <a href="#10">10</a>
+                <a href="#xx">...</a>
+                <button>Next</button>
+                 Page size:
+                 <select name="pagesize" id="pagesize">
+                     <option value="10">5</option>
+                     <option value="10">10</option>
+                     <option value="10">15</option>
+                     <option value="10">20</option>
+                     <option value="10">50</option>
+                     <option value="10">100</option>
+                 </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
