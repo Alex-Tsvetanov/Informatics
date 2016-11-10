@@ -1,6 +1,6 @@
 #include <iostream>
 #include <queue>
-#define int uint64_t
+#define int int64_t
 
 using namespace std;
 
@@ -34,21 +34,19 @@ struct queue_item
 	}
 };
 
-client input [100000];
-int ans [100000];
+vector < client > input;
 
 queue < queue_item > level1 [16];
 queue < queue_item > chef;
 
 int get_min (int m)
 {
-	int ans = -1;
-	for (int i = 0 ; i < m ; i ++)
+	int ans = 0;
+	for (int i = 1 ; i < m ; i ++)
 	{
 		if (level1 [i].empty ())
 			continue;
-
-		if (ans == -1 or level1 [i].front ().endtime < level1 [ans].front ().endtime)
+		if (level1 [ans].empty () or level1 [i].front ().endtime < level1 [ans].front ().endtime)
 			ans = i;
 		else if (
 				level1 [i].front ().endtime == level1 [ans].front ().endtime and
@@ -71,25 +69,23 @@ bool all_empty (int m)
 
 int32_t main ()
 {
+	cin.tie (nullptr);
+	ios::sync_with_stdio(false);
 	int n, m;
 	cin >> n >> m;
 	for (int i = 0 ; i < n ; i ++)
 	{
 		int t, a, b;
 		cin >> t >> a >> b;
-		input [i] = (client (i, t, a, b));
+		input.push_back (client (i, t, a, b));
 	}
 
 	for (int i = 0 ; i < m ; i ++)
 		level1 [i].push (queue_item (input [i].t + input [i].a, input [i]));
 
-	for (int i = m ; /*not all_empty (m)*/ ; i ++)
+	for (int i = m ; not all_empty (m) ; i ++)
 	{
 		int min_ind = get_min (m);
-		
-		if (min_ind == -1)
-			break;
-
 		int time = level1 [min_ind].front ().endtime;
 		
 		auto front = level1 [min_ind].front ();
@@ -113,6 +109,7 @@ int32_t main ()
 ////	}
 ////	cout << "\n-------------------\n\n";
 	}
+	vector <int> ans (n, -1e18);
 
 	int start_time = 0;
 
@@ -128,6 +125,10 @@ int32_t main ()
 		chef.pop ();
 	}
 
-	for (int i = 0 ; i < n ; i ++)
-		cout << ans [i] << "\n";
+	for (auto& x : ans)
+	{
+		if (x == -1e18)
+			while (1) {}
+		cout << x << "\n";
+	}
 }
