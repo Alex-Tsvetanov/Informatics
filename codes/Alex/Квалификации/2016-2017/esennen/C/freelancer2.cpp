@@ -1,10 +1,7 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
-#include <cmath>
-#include <bitset>
-#define int int64_t
+const int MAXV = 5000;
 
+#define int long long
 using namespace std;
 
 struct project 
@@ -18,82 +15,75 @@ struct project
 	}
 };
 
-project projects [100000];
-///                              100000 
-pair < int, bitset < 5000 > > dp [5000];
+project projects [MAXV];
 
-int n;
-
-int ans = 0;
+int dp [MAXV];
+bool vis [MAXV][MAXV];
 
 bool check (int i, int j)
 {
-	const project& a = projects [i];
-	const project& b = projects [j];
-	return 
-	  (
-	   ((a.a <= b.a) and (b.a <= a.b)) or
-	   ((b.a <= a.a) and (a.a <= b.b)) or
-	   ((a.a <= b.b) and (b.b <= a.b)) or
-	   ((b.a <= a.b) and (a.b <= b.b)) or
-/*
-	   ((a.a <= b.a) and (a.b >= b.a)) or
-	   ((a.a <= b.b) and (a.b >= b.b)) or
-	   ((a.a >= b.a) and (a.b <= b.a)) or
-	   ((a.a >= b.b) and (a.b <= b.b)) or
-	   */
-	   false
-	  )
-	  ;
+	for (int k = 1 ; k < i ; k ++)
+		if (vis [j][k]/* or true*/)
+		{
+			bool curr = 
+			  (
+			   (projects [k].a <= projects [i].a and projects [i].a <= projects [k].b) or
+			   (projects [i].a <= projects [k].a and projects [k].a <= projects [i].b) or			   
+			   
+			   (projects [k].a <= projects [i].b and projects [i].b <= projects [k].b) or
+			   (projects [i].a <= projects [k].b and projects [k].b <= projects [i].b) or			   
+			   false
+			  )
+			;
+			//cout << i << " " << k << " = " << curr << "\n";
+			//cout << a.a << " " << a.b << " " << b.a << " " << b.b << "\n";
+			if (curr)
+				return false;
+		}
+	return true;
 }
 
 int32_t main ()
 {
-	cin.tie (nullptr);
-	ios::sync_with_stdio (false);
+	int n;
 	cin >> n;
-	for (int i = 0 ; i < n ; i ++)
+
+	for (int i = 1 ; i <= n ; i ++)
 	{
 		int a, b, c;
 		cin >> a >> b >> c;
 
-		b = a + b - 1;
+		b = a + (b - 1);
 
 		projects [i] = (project (a, b, c));
 	}
+////for (int i = 1 ; i <= n ; i ++, cout << "\n")
+////for (int j = 1 ; j <= n ; j ++)
+////	cout << check (i, j) << " ";
 
-	int max_ind = 0;
-
-	for (int i = 0 ; i < n ; i ++)
+	int max_ans = 0;
+	dp [0] = 0;
+	for (int k = 1 ; k <= n ; k ++)
+		vis [0][k] = 0;
+	for (int i = 1 ; i <= n ; i ++)
 	{
-		bitset <5000> tmp;
-		dp [i] = {projects [i].c, tmp.set (i)};
-		max_ind = max (max_ind, dp [i].first);
-
-		//for (int j = 0 ; j <= n ; j ++)
-		//{
-		//	cout << dp [j].first << " ";
-		//}
-		//cout << "\ni = " << i << ": \n";
-		for (int j = 0 ; j < i ; j ++)
 		{
-			for (int k = 0 ; k < n ; k ++)
-				if (dp [j].second [k] == true and check (k, i))
-					goto NEXT;
-			//cout << "\t\t" << dp [i].first << " " << dp [j].first  << " + " <<  projects [i].c << "\n";
-			if (dp [i].first < dp [j].first + projects [i].c)
-			{
-				bitset<5000> tmp = dp [j].second;
-				dp [i] = {dp [j].first + projects [i].c, tmp.set (i)};
-				max_ind = max (max_ind, dp [j].first + projects [i].c);
-				//cout << "\t\t\t" << dp [j].first + projects [i].c << "\n";
-			}
-			NEXT:
-			{}
+			dp [i] = projects [i].c;
+			for (int k = 1 ; k <= i ; k ++)
+				vis [i][k] = (k == i);
 		}
+		for (int j = 1 ; j < i ; j ++)
+			if (check (i, j))
+			{
+				if (dp [i] < dp [j] + projects [i].c)
+				{
+					dp [i] = (dp [j] + projects [i].c);
+					for (int k = 1 ; k <= i ; k ++)
+						vis [i][k] = vis [j][k] or (k == i);
+				}
+			}
+
+		max_ans = max (max_ans, dp [i]);
 	}
-
-	cout << max_ind << "\n";
-	return 0;
+	cout << max_ans << "\n";
 }
-

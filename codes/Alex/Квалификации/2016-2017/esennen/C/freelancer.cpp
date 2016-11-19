@@ -1,11 +1,10 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
 #include <set>
-#define int uint64_t
-
+#include <algorithm>
+#define int long long
 using namespace std;
 
+const int MAXN = 75;
 struct project 
 {
 	int a, b, c;
@@ -21,57 +20,54 @@ bool operator < (project a, project b)
 {
 	if (a.a == b.a)
 	{
-		if ((b.b - b.a) * a.c == (a.b - a.a) * b.c)
-			return a.b < b.b;
-		else
+		if (a.b == b.b)
 			return ((b.b - b.a) * a.c > (a.b - a.a) * b.c);
+		else
+			return a.b < b.b;
 	}
 	else 
 		return a.a < b.a;
 }
 
-project projects [1<<17];
-bool in [1<<17];
+
+project projects [100000];
+bool in [MAXN];
 
 int n;
 
-bool check (int j)
+bool check (int k)
 {
-	const project& a = projects [j];
-	for (int i = 0 ; i < j ; i ++)
+	for (int i = 0 ; i < n ; i ++)
 	{
-		const project& b = projects [i];
-
-		if (in [i] and
-		   (
-				((a.a <= b.a) and (b.a <= a.b)) or
-				((b.a <= a.a) and (a.a <= b.b)) or
-				((a.a <= b.b) and (b.b <= a.b)) or
-				((b.a <= a.b) and (a.b <= b.b)) or
-/*
-				((a.a <= b.a) and (a.b >= b.a)) or
-				((a.a <= b.b) and (a.b >= b.b)) or
-				((a.a >= b.a) and (a.b <= b.a)) or
-				((a.a >= b.b) and (a.b <= b.b)) or
-*/
-				false
-		   )
-		   )
-			return false;
+		if (in [i] and i != k)
+		{
+			bool curr = 
+			  (
+			   (projects [k].a <= projects [i].a and projects [i].a <= projects [k].b) or
+			   (projects [i].a <= projects [k].a and projects [k].a <= projects [i].b) or			   
+			   
+			   (projects [k].a <= projects [i].b and projects [i].b <= projects [k].b) or
+			   (projects [i].a <= projects [k].b and projects [k].b <= projects [i].b) or			   
+			   false
+			  )
+			;
+			//cout << i << " " << k << " = " << curr << "\n";
+			//cout << a.a << " " << a.b << " " << b.a << " " << b.b << "\n";
+			if (curr)
+				return false;
+		}
 	}
 	return true;
 }
 
 int ans = 0;
 
-//set < pair < int, int > >  mem;
+set < int >  mem [MAXN];
 
 void rec (int curr_ind, int sum)
 {
-//	if (mem.find ({curr_ind, sum}) != mem.end ())
-//		return;
-//	else
-//		mem.insert ({curr_ind, sum});
+	if (mem [curr_ind].find (sum) != mem [curr_ind].end ())
+		return;
 	ans = max (ans, sum);
 	if (curr_ind == n)
 	{
@@ -84,6 +80,7 @@ void rec (int curr_ind, int sum)
 		in [curr_ind] = 0;
 	}
 	rec (curr_ind + 1, sum);
+	mem [curr_ind].insert (sum);
 }
 
 int32_t main ()
@@ -91,8 +88,6 @@ int32_t main ()
 	cin.tie (nullptr);
 	ios::sync_with_stdio (false);
 	cin >> n;
-	if (n > 90000)
-		while (1){}
 	if (n > 75/*1000*/)
 	{
 		for (int i = 0 ; i < n ; i ++)
@@ -105,22 +100,29 @@ int32_t main ()
 			projects [i] = (project (a, b, c));
 		}
 
-		int ans = 0;
-		for (int i = 0 ; i < n ; i ++)
+		sort (projects + 0, projects + n);
+
+		int max_ans = 0;
+		for (int s = 0 ; s < n ; s ++)
 		{
-			if (check (i))
+			int end = 0;
+			int ans = 0;
+			for (int i = s ; i < n ; i = (i + 1))
 			{
-				ans += projects [i].c;
-				in [i] = 1;
+				if (projects [i % n].a < end)
+					continue;
+
+				ans += projects [i % n].c;
+				end = projects [i % n].b;
 			}
+			max_ans = max (max_ans, ans);
 		}
 
-		cout << ans << "\n";
+		cout << max_ans << "\n";
 		return 0;
 	}
 	else
 	{
-
 		for (int i = 0 ; i < n ; i ++)
 		{
 			int a, b, c;
@@ -130,12 +132,6 @@ int32_t main ()
 			
 			projects [i] = (project (a, b, c));
 		}
-
-	////for (int i = 0 ; i < n ; i ++)
-	////	cout 
-	////		<< projects [i].a << " "
-	////		<< projects [i].b << " "
-	////		<< projects [i].c << "\n";
 
 		rec (0, 0);
 
