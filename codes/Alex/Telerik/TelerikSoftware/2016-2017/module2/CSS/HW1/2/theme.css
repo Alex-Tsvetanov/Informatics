@@ -1,0 +1,29 @@
+table, tr, th, td
+{
+	border: 1px solid #C4C3A8;
+}
+
+td
+{
+	color: black;
+	font-style: italic;
+	border-right: 15px solid rgba(0,0,0,0);
+}
+
+tr:nth-of-type(2n+1)
+{
+	background-color: #ECECD8;
+}
+
+tr:nth-of-type(2n+2)
+{
+	background-color: #FFFFFF;
+}
+
+th
+{
+	background-color: #52B506;
+	color: #FDE5DE;
+	font-style: normal;
+	text-align: left;
+}

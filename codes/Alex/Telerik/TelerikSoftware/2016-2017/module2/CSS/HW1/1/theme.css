@@ -1,0 +1,43 @@
+body
+{
+	background-color: #595959;
+}
+
+td
+{
+	color: #FDE5DE;
+	font-style: italic;
+	border-right: 15px solid rgba(0,0,0,0);
+}
+
+th
+{
+	color: #FDE5DE;
+	font-style: normal;
+	text-align: left;
+}
+
+h1
+{
+	color: #BEC1B5;
+}
+
+i.online
+{
+	color: #71B47A;
+}
+
+span.notactive
+{
+	color: red;
+}
+
+span.notanswered 
+{
+	color: #B6682A;
+}
+
+span.special
+{
+	color: #BFBDBC;
+}

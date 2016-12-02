@@ -1,0 +1,56 @@
+body
+{
+	background-color: #A9A9A9;
+}
+
+h
+{
+	background-color: #D3D3D3;
+}
+
+h1
+{
+	font-size: 250%;
+}
+
+h1, dd
+{
+	color: #FAFAD2;
+}
+
+header
+{
+	text-align: center;
+	margin: 0px auto;
+}
+
+
+footer
+{
+	text-align: center;
+	margin: 0px auto;
+}
+
+p.label
+{
+	font-size: 200%;
+	color: #FAFAD2;
+	font-weight: bold;
+}
+
+p.small
+{
+	font-size: 75%;
+}
+
+p:before {
+    height: 200px;
+
+    content: '';
+}
+
+p:after {
+    height: 200px;
+
+    content: '';
+}

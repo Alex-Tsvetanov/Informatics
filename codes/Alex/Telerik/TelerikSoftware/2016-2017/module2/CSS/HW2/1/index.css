@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Edwardian Script ITC';
+  src: url('./Edwardian_Scr_ITC_TT.ttf');
+}
+
+body 
+{
+	font-family: Consolas;
+	color: #0094FF;
+}
+p::first-letter 
+{
+	font-family: 'Edwardian Script ITC';
+	font-size: 3em;
+}
+p::first-line 
+{ 
+	font-weight: bold; 
+}
