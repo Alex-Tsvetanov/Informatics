@@ -1,0 +1,133 @@
+body,
+div,
+header,
+nav,
+ul,
+li,
+a,
+aside,
+span,
+fieldset,
+legend,
+img,
+label,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+	font-family:Candara;
+	font-size:24px
+}
+.container {
+    border: 2px solid;
+}
+.container:first-child {
+	width: 1000px;
+	border-radius: 10px;
+	margin: 10px auto;
+}
+
+.container:first-child:after { /* ClearFix */
+    content: "";
+    display: table;  
+    clear: both;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav {
+    text-align: center;
+    word-spacing: 5px;
+    padding: 5px 0;
+}
+
+hr {
+	border: 1px solid #000;
+	width:95%
+}
+
+fieldset.product {
+    margin: 0 0.5%;
+    width: 46%;
+    height: 241px;
+    display: inline-block;
+    border: 2px solid #000;
+}
+
+.container .container {
+    width: 67%;
+    text-align: center;
+    padding: 1% 0 2%;
+    margin: 0 0 1% 1%;
+    float: left;
+}
+
+ul {
+    list-style: none;
+}
+
+#search-range {
+    float: right;
+    width: 29%;
+    margin: 7.5% 1%;
+    padding: 0%;
+    text-align: center;
+}
+
+input[type="range"] {
+    height: 100px;
+}
+
+aside label {
+/*    font-size: 32px;*/
+    line-height: 7px;
+}
+
+a {
+    color: #05AFF0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.product span.price {
+    vertical-align: sub;
+}
+
+.product legend {
+    padding: 0 10px;
+    word-spacing: -2px;
+}
+
+.parameters li {
+    margin: 45px 0 0;
+}
+
+.product .left {
+    float: left;
+    width: 43%;
+    margin-left: 15px;
+}
+.product .right {
+    float: right;
+	
+    width: 48%;
+    margin-right: 10px;
+}
+.product li {
+    margin: 35px 0 8px;
+    width: 100%;
+}
+
+ul>li
+{
+	font-size: 90%;
+}
+
+label
+{
+	font-size: 90%;
+}

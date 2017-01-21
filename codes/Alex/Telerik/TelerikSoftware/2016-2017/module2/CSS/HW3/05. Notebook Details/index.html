@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Problem 5 Laptop Store</title>
+		<link rel="stylesheet" type="text/css" href="Styles.css" />
+		<link rel="stylesheet" type="text/css" href="Sliders.css" />
+		<script>
+			function outputMinPrice(price) {
+				document.querySelector('#minP').value = price;
+			}
+			function outputMaxPrice(price) {
+				document.querySelector('#maxP').value = price;
+			}
+			function outputMinRam(size) {
+				document.querySelector("#minR").value = size;
+			}
+			function outputMaxRam(size) {
+				document.querySelector("#maxR").value = size;
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<header>
+				<nav>
+					<ul>
+						<li><a href="#">Apple</a></li>
+						<li><a href="#">Toshiba</a></li>
+						<li><a href="#">Lenovo</a></li>
+						<li><a href="#">Dell</a></li>
+						<li><a href="#">Asus</a></li>
+						<li><a href="#">Hacer</a></li>
+						<li><a href="#">HP</a></li>
+					</ul>
+					<hr />
+				</nav>
+			</header>
+
+			<div class="container">
+
+				<fieldset class="product">
+					<legend>Apple Mac Book Air</legend>
+					<div class="left">
+						<img src="notebook.png" alt="Product Picture" />
+						<span class="price">1300 USD</span>
+					</div>
+					<ul class="right">
+						<li>64 GB SSD</li>
+						<li>2GB DDR</li>
+						<li>Intel Core i5</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="product">
+					<legend>Apple Mac Book Air</legend>
+					<div class="left">
+						<img src="notebook.png" alt="Product Picture" />
+						<span class="price">1300 USD</span>
+					</div>
+					<ul class="right">
+						<li>64 GB SSD</li>
+						<li>2GB DDR</li>
+						<li>Intel Core i5</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="product">
+					<legend>Apple Mac Book Air</legend>
+					<div class="left">
+						<img src="notebook.png" alt="Product Picture" />
+						<span class="price">1300 USD</span>
+					</div>
+					<ul class="right">
+						<li>64 GB SSD</li>
+						<li>2GB DDR</li>
+						<li>Intel Core i5</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="product">
+					<legend>Apple Mac Book Air</legend>
+					<div class="left">
+						<img src="notebook.png" alt="Product Picture" />
+						<span class="price">1300 USD</span>
+					</div>
+					<ul class="right">
+						<li>64 GB SSD</li>
+						<li>2GB DDR</li>
+						<li>Intel Core i5</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="product">
+					<legend>Apple Mac Book Air</legend>
+					<div class="left">
+						<img src="notebook.png" alt="Product Picture" />
+						<span class="price">1300 USD</span>
+					</div>
+					<ul class="right">
+						<li>64 GB SSD</li>
+						<li>2GB DDR</li>
+						<li>Intel Core i5</li>
+					</ul>
+				</fieldset>
+
+				<fieldset class="product">
+					<legend>Apple Mac Book Air</legend>
+					<div class="left">
+						<img src="notebook.png" alt="Product Picture" />
+						<span class="price">1300 USD</span>
+					</div>
+					<ul class="right">
+						<li>64 GB SSD</li>
+						<li>2GB DDR</li>
+						<li>Intel Core i5</li>
+					</ul>
+				</fieldset>
+
+			</div>
+
+			<aside id="search-range">
+				<label>Min Price: <output for="min-price" id="minP">500</output> USD</label>
+				<input type="range" id="min-price" min="200" max="2000" step="50" value="500" oninput="outputMinPrice(value)" />
+				<label>Max Price: <output for="max-price" id="maxP">1500</output> USD</label>
+				<input type="range" id="max-price" min="300" max="2000" step="50" value="1500" oninput="outputMaxPrice(value)" />
+				<label>Min RAM: <output for="min-ram" id="minR">4</output> GB</label>
+				<input type="range" id="min-ram" min="2" max="32" step="2" value="4" oninput="outputMinRam(value)" />
+				<label>Max RAM: <output for="max-ram" id="maxR">16</output> GB</label>
+				<input type="range" id="max-ram" min="4" max="32" step="2" value="16" oninput="outputMaxRam(value)" />
+			</aside>
+		</div>
+	</body>
+</html>

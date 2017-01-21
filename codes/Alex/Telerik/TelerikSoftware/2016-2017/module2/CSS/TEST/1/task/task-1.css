@@ -1,0 +1,100 @@
+body
+{
+	font-family: Serif, Sans-Serif;
+}
+#wrapper
+{
+	border: 20px solid #EEEEEE;
+}
+
+.article
+{
+    box-shadow: 3px 3px 3px 3px #888888;
+	background-color: #FFFFFF;
+}
+
+.header
+{
+	padding: 10px 10px 10px 10px;
+}
+
+.publisher
+{
+	font-size: 120%;
+	color: #3C3C3C;
+	padding: 10px 10px 10px 10px;
+}
+
+.importance
+{
+	padding: 15px 15px 15px 15px;
+	font-size: 100%;
+	font-weight: bold;
+	color: #3C3C3C;
+    text-transform: uppercase;
+	border-bottom: 1px solid #EBEBEB;
+}
+
+.title
+{
+	padding: 15px 15px 15px 15px;
+	font-size: 200%;
+	color: #5F5F5F;
+}
+
+.timestamp
+{
+	color: #C8C3C2;
+	position: absolute;
+	top: 45px;
+	right: 40px;
+}
+
+.likes:before
+{
+	content:url('imgs/number.png');
+}
+.likes
+{
+	float: left;
+	padding: 15px 15px 15px 15px;
+	color: #A2B6D5;
+}
+
+.shares:before
+{
+	content:url('imgs/share.png');
+}
+.shares
+{
+	float: right;
+	padding: 15px 15px 15px 15px;
+	color: #A2B6D5;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+.comments:before
+{
+	content:url('imgs/comment.png');
+}
+.comments
+{
+	float: right;
+	padding: 15px 15px 15px 15px;
+	color: #A2B6D5;
+}
+
+.main-image>img
+{
+	width: 100%;
+}
+
+.footer
+{
+	height: 80px;
+	width: 100%;
+}

@@ -1,0 +1,184 @@
+body 
+{
+	background-color: #202020;
+	counter-reset: item;
+}
+
+ul
+{
+	list-style: none;
+}
+
+ol 
+{
+	background-color: #26292C;
+	list-style: none;
+}
+
+ol>li 
+{
+	white-space: pre;
+	color: white;
+	background-color: #26292C;
+	counter-increment: item;
+}
+
+ol>li:before 
+{
+	width: 25px;
+	margin-right: 10px;
+	background-color: #26292C;
+	content: counter(item) ". ";
+	font: Monospace;
+	text-align: right;
+	color: white;
+	display: inline-block;
+}
+
+.container>.file-content
+{
+	background-color: #26292C;
+}
+
+.container>.file-content>.code-lines>li
+{
+	white-space: pre;
+	background-color: #26292C;
+}
+
+.container>.file-content>.code-lines>li:hover
+{
+	font-style: italic;
+	font-weight: bold;
+	white-space: pre;
+	background-color: #4C5354;
+}
+
+.selector:hover
+{
+	font-style: italic;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+.selector
+{
+	color: #A4E405;
+}
+
+.value
+{
+	color: #7569FF;
+}
+
+.punctuation
+{
+	color: white;
+}
+
+.property:before
+{
+	content: "    ";
+}
+.property
+{
+	font-style: italic;
+	color: #35A8E2;
+}
+
+.measure
+{
+	color: #D5262C;
+}
+
+.function
+{
+	color: #72292C;
+}
+
+
+
+
+nav
+{
+	position: fixed;
+	top: 5px;
+	right: 75px;
+	width: 250px;
+	height: 75px;
+}
+
+.nav-tabs
+{
+	color:white;
+	border: 20px hidden #fff;
+}
+
+.nav-item:hover
+{
+	background-color: #80807C;
+}
+
+.nav-item:before
+{
+    background-size: 20px 20px;
+    width: 20px; 
+    height: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    content:"";
+}
+
+.file-html, .file-css, .file-sass
+{
+	border: 1px solid #514949;
+	padding: 20px 20px 20px 20px;
+	background-color: #3C3C3C;
+	display:none;
+}
+
+.show-nav
+{
+	border: 1px solid #514949;
+	padding: 20px 20px 20px 20px;
+	background-color: #3C3C3C;
+	display:block;
+}
+
+.nav-tabs:hover > .nav-item
+{
+    display:block;
+}
+
+.file-html:before
+{
+	background-image: url('imgs/html-icon.png');
+    background-size: 20px 20px;
+    width: 20px; 
+    height: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    content:"";
+}
+
+.file-css:before
+{
+	background-image: url('imgs/css-icon.png');
+    background-size: 20px 20px;
+    width: 20px; 
+    height: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    content:"";
+}
+
+.file-sass:before
+{
+	background-image: url('imgs/sass-icon.png');
+    background-size: 20px 20px;
+    width: 20px; 
+    height: 20px;
+    padding-right: 20px;
+    margin-right: 10px;
+    content:"";
+}
